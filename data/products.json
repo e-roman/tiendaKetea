@@ -8,6 +8,7 @@
     "discount": 21,
     "categories": ["destacados", "ofertas"],
     "envioGratis": true,
+    "stock": true,
     "cuotasLabel": "Hasta 12 cuotas",
     "installmentsLabel": "Hasta 12x $0",
     "taxLabel": "Sin Impuestos Nacionales $0"
@@ -21,6 +22,7 @@
     "discount": 21,
     "categories": ["BlackFriday", "ofertas"],
     "envioGratis": true,
+    "stock": false,
     "cuotasLabel": "Hasta 12 cuotas",
     "installmentsLabel": "Hasta 12x $0",
     "taxLabel": "Sin Impuestos Nacionales $0"
@@ -33,12 +35,13 @@
     "oldPrice": 1596399,
     "discount": 21,
     "categories": ["BlackFriday", "ofertas"],
-    "envioGratis": true,
+    "envioGratis": false,
+    "stock": true,
     "cuotasLabel": "Hasta 12 cuotas",
     "installmentsLabel": "Hasta 12x $0",
     "taxLabel": "Sin Impuestos Nacionales $0"
   },
-    {
+  {
     "id": 4,
     "image": "../assets/img/productos/01.webp",
     "title": "Robot Limpiapiscinas Inalámbrico Aiper",
@@ -47,6 +50,35 @@
     "discount": 21,
     "categories": ["destacados", "ofertas"],
     "envioGratis": true,
+    "stock": true,
+    "cuotasLabel": "Hasta 12 cuotas",
+    "installmentsLabel": "Hasta 12x $0",
+    "taxLabel": "Sin Impuestos Nacionales $0"
+  },
+  {
+    "id": 5,
+    "image": "../assets/img/productos/05.webp",
+    "title": "Robot Limpiapiscinas Inalámbrico Aiper",
+    "price": 1262399,
+    "oldPrice": 1596399,
+    "discount": 21,
+    "categories": ["destacados", "ofertas"],
+    "envioGratis": true,
+    "stock": true,
+    "cuotasLabel": "Hasta 12 cuotas",
+    "installmentsLabel": "Hasta 12x $0",
+    "taxLabel": "Sin Impuestos Nacionales $0"
+  },
+  {
+    "id": 6,
+    "image": "../assets/img/productos/05.webp",
+    "title": "Robot Limpiapiscinas Inalámbrico Aiper",
+    "price": 1262399,
+    "oldPrice": 1596399,
+    "discount": 21,
+    "categories": ["destacados", "ofertas"],
+    "envioGratis": true,
+    "stock": true,
     "cuotasLabel": "Hasta 12 cuotas",
     "installmentsLabel": "Hasta 12x $0",
     "taxLabel": "Sin Impuestos Nacionales $0"

@@ -21,10 +21,10 @@ export default function Topbar() {
               <Link className="nav-link border-start px-3" href="contacto">
                 <small><i className="bi bi-envelope"></i>  info@ketea.com.ar</small></Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link border-start px-3" href="contacto">
                 <small><i className="bi bi-geo-alt"></i> Sucursales</small></Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link className="nav-link border-start px-3 pe-0" href="como-comprar">
                 <small><i className="bi bi-question-circle"></i> Ayuda</small>

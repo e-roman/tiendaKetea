@@ -13,6 +13,7 @@ import "./Styles.css";
 
 import { CartProvider } from "./hooks/useCart.jsx";
 import { FavoritesProvider } from "./hooks/useFavorites.jsx";
+import { FloatingAlertProvider } from "./context/FloatingAlertContext";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -20,9 +21,15 @@ createRoot(document.getElementById("root")).render(
       <FavoritesProvider>
         <CartProvider>
           {/* <ScrollToTop /> */}
-          <App />
+          <FloatingAlertProvider>
+            <App />
+          </FloatingAlertProvider>
         </CartProvider>
       </FavoritesProvider>
     </BrowserRouter>
   </StrictMode>
 );
+
+
+
+

@@ -13,7 +13,7 @@ export default function BlockServices() {
               </figure>
               <div className="media-body pe-md-3">
                 <h4 className="h5 mb-1">Soporte 24/7</h4>
-                <p className="font-size-1 mb-0">Contáctanos las 24 horas, los 7 días de la semana.</p>
+                <p className="font-size-1 mb-0">Contáctanos las 24 horas, los 7 días <br/>de la semana.</p>
               </div>
             </div>
             {/*-- End Contacts --*/}

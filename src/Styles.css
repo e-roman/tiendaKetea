@@ -89,7 +89,7 @@ input.input-search {
     border-radius: 100px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    margin-left: -2px;
+    margin-left: 0;
 }
 .input-search input:focus {
     border: solid 1px blue!important;
@@ -101,8 +101,10 @@ button.btn-search {
     width: 41px;
     padding: 0px;
     height: 41px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
 
 .input-subscribe input {
     background: transparent;
@@ -144,6 +146,7 @@ button.btn-search {
     border: .0625rem solid transparent;
     border-radius: .5rem;
     font-size: 14px;
+    color: #FFF!important;
     box-shadow: 1px 3px 9px #0000000f;
 }
 
@@ -172,8 +175,6 @@ button.btn-search {
 
 
 
-
-
 .topbar {
     padding: 6px 15px;
 }
@@ -185,10 +186,9 @@ button.btn-search {
     font-size: 13px;
 }
 .navbar-bottom .nav-link {
-    padding: 1rem .75rem;
+    padding: 1rem 1rem;
     font-size: 15px;
 }
-
 .navbar-nav .dropdown-menu.nav-profile {
     border-top: .1175rem solid rgb(33 50 91 / 1%);
     padding-left: 0;
@@ -221,6 +221,12 @@ button.btn-search {
 
 .btn-icon-top {
     padding: 10px;
+    background: transparent;
+}
+.btn-icon-top:focus, .btn-icon-top:focus:active,
+.btn-icon-top:hover, .btn-icon-top:active {
+    background-color: transparent;
+    border-color: transparent;
 }
 .btn-icon-top::after {
     display: none;
@@ -790,10 +796,21 @@ button#notificationsDropdown:after {
 
 
 
+.btn-fav:active,
+.btn-fav:active:focus,
+.btn-fav:focus:active {
+    border-color: transparent;
+}
 
 
-
-
+.alert-floating {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1050;
+  transition: all 0.3s ease-in-out;
+}
 
 
 
@@ -927,7 +944,9 @@ footer .btn-icon.btn-social {
 
 
 
-
+.modal-top-cover .end-0 {
+    right: -1px !important;
+}
 
 .modal-backdrop-custom {
   position: fixed;
@@ -936,7 +955,7 @@ footer .btn-icon.btn-social {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 999999;
 }
 
 .modal-custom {
@@ -987,4 +1006,25 @@ footer .btn-icon.btn-social {
             min-width: 7.5rem;
     }
 }
+
+
+
+
+
+.css-13cymwt-control, .css-t3ipsp-control {
+    min-height: 47px !important;
+    width: 260px !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border: .0625rem solid rgba(33, 50, 91, .1) !important;
+    border-right: transparent !important;
+    cursor: pointer !important;
+}
+.css-1u9des2-indicatorSeparator {
+    background-color:transparent!important;
+}
+.css-hlgwow {
+    padding: 2px 15px!important;
+}
+
 

@@ -55,56 +55,60 @@ export default function SidebarCart() {
 
               {/* LISTADO DE PRODUCTOS DEL CARRITO */}
               <ul className="items-SideCart">
-              {cart.map((product) => (
-                <li
-                  key={product.id}
-                  className="itemAdded gap-3"
-                >
-                  <div className="flex-shrink-0 d-flex align-items-start justify-content-center">
-                    <img
-                      src={product.image}
-                      className="avatar avatar-xl"
-                      alt={product.title}
-                    />
-                  </div>
-
-                  <div className="d-flex gap-2 w-100 justify-content-between">
-                    <div>
-                      <h6 className="mb-0">{product.title}</h6>
-
-                      <div className="pricing-meta my-1">
-                        <ul>
-                          {product.oldPrice && (
-                            <li className="old-price me-2">
-                              ${product.oldPrice.toLocaleString()}
-                            </li>
-                          )}
-
-                          <li className="current-price font-medium">
-                            ${product.price.toLocaleString()}
-                          </li>
-                        </ul>
-                      </div>
-
-                      {product.discount > 0 && (
-                        <span className="badge py-1 px-2 bg-danger text-white">
-                          -{product.discount}%
-                        </span>
-                      )}
+                {cart.map((product) => (
+                  <li key={product.id} className="itemAdded gap-3">
+                    <div className="flex-shrink-0 d-flex align-items-start justify-content-center">
+                      <img src={product.image} className="avatar avatar-xl" alt={product.title} />
                     </div>
 
-                    <small className="text-nowrap">
-                      <button
-                        className="text-secondary font-18 btn border-0 pt-0 bg-transparent"
-                        onClick={() => removeFromCart(product.id)}
-                      >
-                        <i className="bi bi-trash"></i>
-                      </button>
-                    </small>
-                  </div>
-                </li>
-              ))}
+                    <div className="d-flex gap-2 w-100 justify-content-between">
+                      <div>
+                        <Link
+                          to={`/product/${product.id}`}
+                          className="text-dark text-decoration-none"
+                          onClick={closeCart}
+                        >
+                          <h5 className="mb-0 pe-4">{product.title}</h5>
+                        </Link>
+
+                        <div className="pricing-meta my-1">
+                          <ul>
+                            {product.oldPrice && (
+                              <li className="old-price me-2">${product.oldPrice.toLocaleString()}</li>
+                            )}
+                            <li className="current-price font-medium">${product.price.toLocaleString()}</li>
+                          </ul>
+                        </div>
+
+                        {/* Badges */}
+                        {product.stock ? (
+                          <>
+                            {product.discount > 0 && (
+                              <span className="badge py-1 px-2 badge-yellow me-1">-{product.discount}%</span>
+                            )}
+                            {product.envioGratis && (
+                              <span className="badge py-1 px-2 bg-dark text-white me-1">Envío Gratis</span>
+                            )}
+                          </>
+                        ) : (
+                          <span className="badge py-1 px-2 bg-danger text-white">Sin Stock</span>
+                        )}
+                      </div>
+
+                      <small className="text-nowrap">
+                        <button
+                          className="text-secondary font-18 btn border-0 pt-0 bg-transparent"
+                          onClick={() => removeFromCart(product.id)}
+                        >
+                          <i className="bi bi-trash"></i>
+                        </button>
+                      </small>
+                    </div>
+                  </li>
+                ))}
               </ul>
+
+
 
               {/* SUBTOTAL */}
               <div className="d-flex align-items-center justify-content-between py-3 border-bottom">

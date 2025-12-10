@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { useCart } from "../../src/hooks/useCart";
 import { useFavorites } from "../../src/hooks/useFavorites";
-import { useFloatingAlert } from "../../src/hooks/useFloatingAlert";
+import { useFloatingAlert } from "../../src/context/FloatingAlertContext";
 import AlertFloating from "../AlertFloating";
+
 
 export default function ProductDetail({ product }) {
   const { addToCart } = useCart();
   const { favorites, toggleFavorite } = useFavorites();
-  const { message, type, showAlert } = useFloatingAlert();
 
   const [quantity, setQuantity] = useState(1);
 
@@ -29,20 +29,23 @@ export default function ProductDetail({ product }) {
   const formatAR = (number) =>
     number.toLocaleString("es-AR", { minimumFractionDigits: 0 });
 
+  const { showAlert } = useFloatingAlert(); // solo la función
+
   const handleToggleFavorite = () => {
     toggleFavorite(product);
     const newFavState = !isFavorite;
     setIsFavorite(newFavState);
-    showAlert(
-      newFavState ? "Agregaste a favoritos" : "Eliminaste un favorito",
-      "success"
-    );
+    showAlert(newFavState ? "Agregaste a favoritos" : "Eliminaste un favorito", "success");
   };
 
+  const handleAddToCart = () => {
+    addToCart({ ...product, quantity });
+    showAlert("Agregaste el producto al carrito", "success");
+  };
   return (
     <>
       {/* ALERTA FLOTANTE */}
-      <AlertFloating message={message} type={type} />
+      <AlertFloating/>
 
       {/* Código + rating */}
       <div className="d-flex align-items-center justify-content-between small mb-2">
@@ -221,7 +224,7 @@ export default function ProductDetail({ product }) {
         <button
           type="button"
           className="btn btn-block btn-primary rounded-pill btn-shop"
-          onClick={() => addToCart({ ...product, quantity })}
+          onClick={handleAddToCart}
         >
           Agregar al carrito
         </button>

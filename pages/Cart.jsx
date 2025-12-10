@@ -30,7 +30,7 @@ export default function MyCart() {
                     <p className="text-muted">Tu carrito está vacío.</p>
                   )}
 
-                  {cart.map((item, index) => (
+                  {cart.map((item) => (
                     <div key={item.id} className="border-bottom pb-5 mb-5">
                       <div className="row">
 
@@ -46,27 +46,64 @@ export default function MyCart() {
                             </div>
 
                             <div className="media-body">
-                              <h2 className="h6">{item.title}</h2>
+                              <Link
+                                to={`/product/${item.id}`}
+                                className="text-dark text-decoration-none"
+                              >
+                                <h2 className="h5 mb-1">{item.title}</h2>
+                              </Link>
 
-                              {/* CUSTOM INFO (si existe) */}
+                              {/* PRECIOS (oldPrice + price) */}
+                              <div className="pricing-meta my-1">
+                                <ul className="d-flex align-items-center p-0 m-0 list-unstyled">
+                                  {item.oldPrice && (
+                                    <li className="old-price me-2">
+                                      ${item.oldPrice.toLocaleString()}
+                                    </li>
+                                  )}
+                                  <li className="current-price font-medium">
+                                    ${item.price.toLocaleString()}
+                                  </li>
+                                </ul>
+                              </div>
+
+                              {/* BADGES */}
+                              {item.stock ? (
+                                <>
+                                  {item.discount > 0 && (
+                                    <span className="badge py-1 px-2 badge-yellow me-1">
+                                      -{item.discount}%
+                                    </span>
+                                  )}
+
+                                  {item.envioGratis && (
+                                    <span className="badge py-1 px-2 bg-dark text-white me-1">
+                                      Envío Gratis
+                                    </span>
+                                  )}
+                                </>
+                              ) : (
+                                <span className="badge py-1 px-2 bg-danger text-white">
+                                  Sin Stock
+                                </span>
+                              )}
+
+                              {/* CUSTOM DATA (si existe) */}
                               {item.gender && (
-                                <div className="text-secondary font-size-1 mb-1">
-                                  <span>Género: </span>
-                                  <span>{item.gender}</span>
+                                <div className="text-secondary font-size-1 mt-2">
+                                  Género: {item.gender}
                                 </div>
                               )}
 
                               {item.color && (
-                                <div className="text-secondary font-size-1 mb-1">
-                                  <span>Color: </span>
-                                  <span>{item.color}</span>
+                                <div className="text-secondary font-size-1">
+                                  Color: {item.color}
                                 </div>
                               )}
 
                               {item.size && (
-                                <div className="text-secondary font-size-1 mb-1">
-                                  <span>Tamaño: </span>
-                                  <span>{item.size}</span>
+                                <div className="text-secondary font-size-1">
+                                  Tamaño: {item.size}
                                 </div>
                               )}
                             </div>
@@ -89,20 +126,20 @@ export default function MyCart() {
                             className="d-block text-secondary font-size-1 mb-1 bg-transparent border-0 p-0"
                           >
                             <i className="bi bi-trash me-1"></i>
-                            <span>Eliminar</span>
+                            Eliminar
                           </button>
                         </div>
 
-                        {/* PRICE */}
+                        {/* PRICE (final individual) */}
                         <div className="col-6 col-md-2 text-md-right">
                           <span className="font-medium">
                             ${item.price.toLocaleString("es-AR")}
                           </span>
                         </div>
-
                       </div>
                     </div>
                   ))}
+
 
                 </form>
               </div>

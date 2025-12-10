@@ -100,23 +100,23 @@ export default function NavCategories({ setShowPriceModal, setShowLogoutModal })
           <li className="nav-item ms-auto position-relative">
             <Dropdown as={ButtonGroup}>
               <Dropdown.Toggle className="nav-link btn-drop d-flex align-items-center border-0">
-                <i className="bi bi-person-circle me-1"></i> Hola!, Edelmiro Molinari.
+                <i className="bi bi-person-circle me-1"></i> Hola! Francisco Perez
               </Dropdown.Toggle>
 
               <Dropdown.Menu align="end" style={{ minWidth: "14rem" }}>
-                <Link className="dropdown-item" to="/pages/MyProfile?view=personalInfo">
+                <Link className="dropdown-item" to="/pages/Profile?view=personalInfo">
                   <i className="bi bi-person-circle me-2"></i> Datos personales
                 </Link>
-                <Link className="dropdown-item" to="/pages/MyProfile?view=favorites">
+                <Link className="dropdown-item" to="/pages/Profile?view=favorites">
                   <i className="bi bi-heart me-2"></i> Favoritos
                 </Link>
-                <Link className="dropdown-item" to="/pages/MyProfile?view=orders">
+                <Link className="dropdown-item" to="/pages/Profile?view=orders">
                   <i className="bi bi-bag-check me-2"></i> Pedidos
                 </Link>
-                <Link className="dropdown-item" to="/pages/MyProfile?view=invoices">
+                <Link className="dropdown-item" to="/pages/Profile?view=invoices">
                   <i className="bi bi-receipt me-2"></i> Comprobantes
                 </Link>
-                <Link className="dropdown-item" to="/pages/MyProfile?view=address">
+                <Link className="dropdown-item" to="/pages/Profile?view=address">
                   <i className="bi bi-geo-alt me-2"></i> Direcciones
                 </Link>
                 <Dropdown.Divider />

@@ -1,33 +1,26 @@
-import { useEffect, useState } from "react";
+import React from "react";
+import { useFloatingAlert } from "../src/context/FloatingAlertContext";
 
-export default function AlertFloating({ message, type = "success", duration = 1800 }) {
-  const [visible, setVisible] = useState(false);
+export default function AlertFloating() {
+  const context = useFloatingAlert();
+  if (!context) return null;
 
-  useEffect(() => {
-    if (!message) return;
-
-    setVisible(true);
-    const timer = setTimeout(() => setVisible(false), duration);
-
-    return () => clearTimeout(timer);
-  }, [message, duration]);
-
-  if (!message) return null;
-
-  const typeClasses = {
-    success: "bg-success",
-    error: "bg-danger",
-    info: "bg-primary",
-  };
-  const bgClass = typeClasses[type] || "bg-primary";
+  const { alert } = context;
+  if (!alert.visible) return null;
 
   return (
     <div
-          id="floatingAlert"
-      className={`alert ${bgClass} ${visible ? "opacity-100" : "opacity-0"} transition-opacity`}
-      style={{ zIndex: 1055, transition: "opacity 0.3s ease-in-out" }}
+      className={`alert-floating alert alert-${alert.type}`}
+      style={{
+        position: "fixed",
+        top: "10%",
+        left:"inherit",
+        right: "0%",
+        transform: "translateX(-50%)",
+        zIndex: 9999999,
+      }}
     >
-      {message}
+      {alert.message}
     </div>
   );
 }
