@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "image": "../assets/img/productos/01.webp",
+    "title": "Robot Limpiapiscinas Inalámbrico Aiper",
+    "price": 1262399,
+    "oldPrice": 1596399,
+    "discount": 21,
+    "categories": ["destacados", "ofertas"],
+    "envioGratis": true,
+    "cuotasLabel": "Hasta 12 cuotas",
+    "installmentsLabel": "Hasta 12x $0",
+    "taxLabel": "Sin Impuestos Nacionales $0"
+  },
+  {
+    "id": 2,
+    "image": "../assets/img/productos/02.webp",
+    "title": "Robot Limpiapiscinas Inalámbrico Aiper",
+    "price": 1262399,
+    "oldPrice": 1596399,
+    "discount": 21,
+    "categories": ["BlackFriday", "ofertas"],
+    "envioGratis": true,
+    "cuotasLabel": "Hasta 12 cuotas",
+    "installmentsLabel": "Hasta 12x $0",
+    "taxLabel": "Sin Impuestos Nacionales $0"
+  },
+  {
+    "id": 3,
+    "image": "../assets/img/productos/03.webp",
+    "title": "Robot Limpiapiscinas Inalámbrico Aiper",
+    "price": 1262399,
+    "oldPrice": 1596399,
+    "discount": 21,
+    "categories": ["BlackFriday", "ofertas"],
+    "envioGratis": true,
+    "cuotasLabel": "Hasta 12 cuotas",
+    "installmentsLabel": "Hasta 12x $0",
+    "taxLabel": "Sin Impuestos Nacionales $0"
+  },
+    {
+    "id": 4,
+    "image": "../assets/img/productos/01.webp",
+    "title": "Robot Limpiapiscinas Inalámbrico Aiper",
+    "price": 1262399,
+    "oldPrice": 1596399,
+    "discount": 21,
+    "categories": ["destacados", "ofertas"],
+    "envioGratis": true,
+    "cuotasLabel": "Hasta 12 cuotas",
+    "installmentsLabel": "Hasta 12x $0",
+    "taxLabel": "Sin Impuestos Nacionales $0"
+  }
+]

@@ -1,0 +1,225 @@
+import { Link } from "react-router-dom";
+import { useCart } from "../src/hooks/useCart";
+
+export default function MyCart() {
+  const { cart, removeFromCart } = useCart();
+
+  const subtotal = cart.reduce((acc, p) => acc + p.price, 0);
+  const envio = 0;
+  const total = subtotal + envio;
+
+  return (
+    <div className="bg-light">
+      <div className="container space-1 space-md-2">
+        <div className="row">
+
+          {/* LEFT COLUMN - PRODUCTS */}
+          <div className="col-lg-8 mb-7 mb-lg-0">
+            <div className="card shadow-none mb-5">
+              <div className="card-body">
+
+                {/* TITLE */}
+                <div className="d-flex justify-content-between align-items-end border-bottom pb-3 mb-7">
+                  <h1 className="h3 mb-0">Productos seleccionados</h1>
+                  <span>{cart.length} items</span>
+                </div>
+
+                {/* PRODUCTS LIST */}
+                <form>
+                  {cart.length === 0 && (
+                    <p className="text-muted">Tu carrito está vacío.</p>
+                  )}
+
+                  {cart.map((item, index) => (
+                    <div key={item.id} className="border-bottom pb-5 mb-5">
+                      <div className="row">
+
+                        {/* IMAGE + INFO */}
+                        <div className="col-md-6 mb-3 mb-md-0">
+                          <div className="media">
+                            <div className="max-width-15 w-100 me-3">
+                              <img
+                                className="img-fluid"
+                                src={item.image}
+                                alt={item.title}
+                              />
+                            </div>
+
+                            <div className="media-body">
+                              <h2 className="h6">{item.title}</h2>
+
+                              {/* CUSTOM INFO (si existe) */}
+                              {item.gender && (
+                                <div className="text-secondary font-size-1 mb-1">
+                                  <span>Género: </span>
+                                  <span>{item.gender}</span>
+                                </div>
+                              )}
+
+                              {item.color && (
+                                <div className="text-secondary font-size-1 mb-1">
+                                  <span>Color: </span>
+                                  <span>{item.color}</span>
+                                </div>
+                              )}
+
+                              {item.size && (
+                                <div className="text-secondary font-size-1 mb-1">
+                                  <span>Tamaño: </span>
+                                  <span>{item.size}</span>
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* QUANTITY + REMOVE */}
+                        <div className="col-5 col-md-3 offset-md-1">
+                          <select className="form-select mb-3 w-auto">
+                            {Array.from({ length: 10 }).map((_, i) => (
+                              <option key={i + 1} value={i + 1}>
+                                {i + 1}
+                              </option>
+                            ))}
+                          </select>
+
+                          <button
+                            type="button"
+                            onClick={() => removeFromCart(item.id)}
+                            className="d-block text-secondary font-size-1 mb-1 bg-transparent border-0 p-0"
+                          >
+                            <i className="bi bi-trash me-1"></i>
+                            <span>Eliminar</span>
+                          </button>
+                        </div>
+
+                        {/* PRICE */}
+                        <div className="col-6 col-md-2 text-md-right">
+                          <span className="font-medium">
+                            ${item.price.toLocaleString("es-AR")}
+                          </span>
+                        </div>
+
+                      </div>
+                    </div>
+                  ))}
+
+                </form>
+              </div>
+            </div>
+
+            {/* BACK TO HOME */}
+            <div className="d-flex justify-content-start">
+              <Link to="/">
+                <i className="bi bi-arrow-left me-1"></i>
+                Continuar comprando
+              </Link>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN - ORDER SUMMARY */}
+          <div className="col-lg-4">
+            <div className="ps-lg-4">
+
+              <div className="bg-white shadow-soft rounded p-5 mb-4">
+                <div className="border-bottom pb-4 mb-4">
+                  <h2 className="h4 mb-0">Resumen del pedido</h2>
+                </div>
+
+                <div className="border-bottom pb-4 mb-4">
+                  <div className="media align-items-center mb-3">
+                    <h3 className="text-secondary font-size-1 mb-0 me-3">
+                      Item subtotal ({cart.length})
+                    </h3>
+                    <div className="media-body text-right">
+                      <span className="font-medium text-dark">
+                        ${subtotal.toLocaleString("es-AR")}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="media align-items-center mb-3">
+                    <h4 className="text-secondary font-size-1 mb-0 me-3">
+                      Envío
+                    </h4>
+                    <div className="media-body text-right">
+                      <span className="font-medium text-dark">Gratis</span>
+                    </div>
+                  </div>
+
+                  {/* SHIPPING OPTIONS */}
+                  <div className="card border-0 shadow-none mb-3">
+                    <div className="my-2">
+                      <div className="form-check">
+                        <input
+                          id="input1"
+                          name="shipping"
+                          type="radio"
+                          className="form-check-input"
+                          defaultChecked
+                        />
+                        <label className="form-check-label" htmlFor="input1">
+                          <span className="d-block text-dark font-size-1 font-medium mb-1">
+                            Envío estándar gratuito
+                          </span>
+                          <span className="d-block text-muted">
+                            El envío puede tardar entre 5 y 6 días laborables.
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div className="my-2">
+                      <div className="form-check">
+                        <input
+                          id="input2"
+                          name="shipping"
+                          type="radio"
+                          className="form-check-input"
+                        />
+                        <label className="form-check-label" htmlFor="input2">
+                          <span className="d-block text-dark font-size-1 font-medium mb-1">
+                            $5.299 - Envío exprés
+                          </span>
+                          <span className="d-block text-muted">
+                            El envío puede tardar entre 1 y 2 días laborables.
+                          </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="media align-items-center mb-4">
+                  <h4 className="text-secondary font-size-1 mb-0 me-3">Total</h4>
+                  <div className="media-body text-right">
+                    <span className="font-medium text-dark">
+                      ${total.toLocaleString("es-AR")}
+                    </span>
+                  </div>
+                </div>
+
+                <Link className="btn btn-primary rounded-pill w-100" to="/checkout">
+                  Ir a pagar
+                </Link>
+              </div>
+
+              {/* HELP */}
+              <div className="media align-items-center">
+                <figure className="ie-height-48 w-100 max-width-6 me-2">
+                  <img src="assets/svg/icons/help.svg" alt="Ayuda" />
+                </figure>
+                <div className="media-body text-secondary small">
+                  <span className="font-medium me-1">¿Necesitás ayuda?</span>
+                  <a className="link-muted" href="#">Escribinos</a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}
