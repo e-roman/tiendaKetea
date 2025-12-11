@@ -1,22 +1,71 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useAuth } from "../../src/context/AuthContext";
-import { Modal } from "bootstrap"; // necesario para cerrar el modal programáticamente
+import { Modal } from "bootstrap";
 
 export default function LoginModal() {
   const [step, setStep] = useState("login");
   const { login } = useAuth();
 
-  // cerrar el modal manualmente al loguearse
+  // Referencias a formularios
+  const loginFormRef = useRef(null);
+  const signupFormRef = useRef(null);
+  const resetFormRef = useRef(null);
+
+  const [validatedLogin, setValidatedLogin] = useState(false);
+  const [validatedSignup, setValidatedSignup] = useState(false);
+  const [validatedReset, setValidatedReset] = useState(false);
+
+  // cerrar modal
   const closeModal = () => {
     const modalEl = document.getElementById("signupModal");
     const modal = Modal.getInstance(modalEl);
     if (modal) modal.hide();
   };
 
-  // acción de login simulada
-  const handleLogin = () => {
+  // ---------- LOGIN ----------
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    const form = loginFormRef.current;
+
+    if (!form.checkValidity()) {
+      e.stopPropagation();
+      setValidatedLogin(true);
+      return;
+    }
+
     login();
     closeModal();
+  };
+
+  // ---------- SIGNUP ----------
+  const handleSignupSubmit = (e) => {
+    e.preventDefault();
+    const form = signupFormRef.current;
+
+    if (!form.checkValidity()) {
+      e.stopPropagation();
+      setValidatedSignup(true);
+      return;
+    }
+
+    // Si es válido → registramos
+    login();
+    closeModal();
+  };
+
+  // ---------- RESET PASSWORD ----------
+  const handleResetSubmit = (e) => {
+    e.preventDefault();
+    const form = resetFormRef.current;
+
+    if (!form.checkValidity()) {
+      e.stopPropagation();
+      setValidatedReset(true);
+      return;
+    }
+
+    // Ir a login luego de resetear
+    setStep("login");
   };
 
   return (
@@ -29,48 +78,53 @@ export default function LoginModal() {
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
 
-          {/* Cerrar */}
           <div className="modal-close">
-            <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
+            <button className="btn-close" type="button" data-bs-dismiss="modal"></button>
           </div>
 
           <div className="modal-body">
 
-            {/* LOGIN EMAIL */}
+            {/* LOGIN */}
             {step === "login" && (
               <div>
                 <div className="text-center mb-7">
                   <h2>Ingresar</h2>
                 </div>
 
-                <form>
+                <form
+                  ref={loginFormRef}
+                  noValidate
+                  className={`needs-validation ${validatedLogin ? "was-validated" : ""}`}
+                  onSubmit={handleLoginSubmit}
+                >
                   <div className="mb-3">
-                    {/* <label className="form-label">Email</label> */}
-                    <input type="email" placeholder="Escribe aquí tu email" className="form-control form-control-lg" required />
+                    <input
+                      type="email"
+                      className="form-control form-control-lg"
+                      placeholder="Escribe aquí tu email"
+                      required
+                    />
+                    <div className="invalid-feedback">Ingresá un email válido.</div>
                   </div>
 
                   <div className="mb-3">
-                    <input type="password" placeholder="Escribe aquí tu contraseña" className="form-control form-control-lg" required />
+                    <input
+                      type="password"
+                      className="form-control form-control-lg"
+                      placeholder="Escribe aquí tu contraseña"
+                      required
+                    />
+                    <div className="invalid-feedback">Ingresá tu contraseña.</div>
                   </div>
 
-                    <div className="d-flex justify-content-end">
-                      {/* <label className="form-label">Contraseña</label> */}
-                      <a
-                        href="#"
-                        className="form-label-link"
-                        onClick={() => setStep("reset-password")}
-                      >
-                        ¿Olvidaste tu contraseña?
-                      </a>
-                    </div>
-
+                  <div className="d-flex justify-content-end">
+                    <a className="form-label-link" href="#" onClick={() => setStep("reset-password")}>
+                      ¿Olvidaste tu contraseña?
+                    </a>
+                  </div>
 
                   <div className="d-grid my-4">
-                    <button
-                      type="button"
-                      className="btn btn-primary form-control-lg"
-                      onClick={handleLogin}
-                    >
+                    <button type="submit" className="btn btn-primary form-control-lg">
                       Ingresar
                     </button>
                   </div>
@@ -78,32 +132,16 @@ export default function LoginModal() {
                   <div className="text-center">
                     <p>
                       ¿Aún no tienes una cuenta?{" "}
-                      <a className="link" href="#" onClick={() => setStep("signup")}>
+                      <a href="#" className="link" onClick={() => setStep("signup")}>
                         Registrarme
                       </a>
                     </p>
                   </div>
-
-                  <div className="text-center py-3">
-                    <span className="u-divider u-divider--xs u-divider--text mb-4">OR</span>
-                  </div>
-
-                  <div className="d-flex gap-3 mb-3">
-                    <a className="btn btn-white w-100 btn-lg" href="#" onClick={handleLogin}>
-                      <i class="bi bi-facebook"></i> Ingresar con Facebook
-                    </a>
-                    <a className="btn btn-white w-100 btn-lg" href="#" onClick={handleLogin}>
-                      <i class="bi bi-google"></i> Ingresar con Google
-                    </a>
-                  </div>
-
-
-
                 </form>
               </div>
             )}
 
-            {/* SIGNUP EMAIL */}
+            {/* SIGNUP */}
             {step === "signup" && (
               <div>
                 <div className="text-center mb-7">
@@ -116,56 +154,50 @@ export default function LoginModal() {
                   </p>
                 </div>
 
-                <form>
+                <form
+                  ref={signupFormRef}
+                  noValidate
+                  className={`needs-validation ${validatedSignup ? "was-validated" : ""}`}
+                  onSubmit={handleSignupSubmit}
+                >
                   <div className="mb-3">
                     <label className="form-label">Email</label>
-                    <input type="email" placeholder="Escribe aquí tu email" className="form-control form-control-lg" required />
+                    <input
+                      type="email"
+                      className="form-control form-control-lg"
+                      placeholder="Escribe aquí tu email"
+                      required
+                    />
+                    <div className="invalid-feedback">Ingresá un email válido.</div>
                   </div>
 
                   <div className="mb-3">
                     <label className="form-label">Contraseña</label>
-                    <input type="password" placeholder="Escribe aquí tu contraseña" className="form-control form-control-lg" required />
+                    <input
+                      type="password"
+                      className="form-control form-control-lg"
+                      placeholder="Escribe aquí tu contraseña"
+                      required
+                    />
+                    <div className="invalid-feedback">Ingresá una contraseña.</div>
                   </div>
 
                   <div className="mb-3">
                     <label className="form-label">Confirmar contraseña</label>
-                    <input type="password" placeholder="Escribe nuevamente tu contraseña" className="form-control form-control-lg" required />
+                    <input
+                      type="password"
+                      className="form-control form-control-lg"
+                      placeholder="Escribe nuevamente tu contraseña"
+                      required
+                    />
+                    <div className="invalid-feedback">Confirmá la contraseña.</div>
                   </div>
 
-                  <div className="d-grid my-4">
-                    <button
-                      type="button"
-                      className="btn btn-primary form-control-lg"
-                      onClick={handleLogin}
-                    >
+                  <div className="d-grid mt-6 mb-3">
+                    <button type="submit" className="btn btn-primary form-control-lg">
                       Registrarme
                     </button>
                   </div>
-
-                  <div className="text-center">
-                    <p>
-                      ¿Ya tienes una cuenta? {" "}
-                      <a className="link" href="#" onClick={() => setStep("login")}>
-                        Ingresar
-                      </a>
-                    </p>
-                  </div>
-
-                  <div className="text-center py-3">
-                    <span className="u-divider u-divider--xs u-divider--text mb-4">OR</span>
-                  </div>
-
-                  <div className="d-flex gap-3 mb-3">
-                    <a className="btn btn-white w-100 btn-lg" href="#" onClick={handleLogin}>
-                      <i class="bi bi-facebook"></i> Ingresar con Facebook
-                    </a>
-                    <a className="btn btn-white w-100 btn-lg" href="#" onClick={handleLogin}>
-                      <i class="bi bi-google"></i> Ingresar con Google
-                    </a>
-                  </div>
-
-
-                  
                 </form>
               </div>
             )}
@@ -178,15 +210,26 @@ export default function LoginModal() {
                   <p className="font-14">Ingresá tu email y te enviaremos instrucciones.</p>
                 </div>
 
-                <form>
+                <form
+                  ref={resetFormRef}
+                  noValidate
+                  className={`needs-validation ${validatedReset ? "was-validated" : ""}`}
+                  onSubmit={handleResetSubmit}
+                >
                   <div className="mb-3">
-                    <input type="email" className="form-control form-control-lg" placeholder="Escribe aquí tu email" required />
+                    <input
+                      type="email"
+                      className="form-control form-control-lg"
+                      placeholder="Escribe aquí tu email"
+                      required
+                    />
+                    <div className="invalid-feedback">Ingresá un email válido.</div>
                   </div>
 
                   <div className="d-grid">
-                    <a className="btn btn-primary form-control-lg" href="#" onClick={() => setStep("login")}>
+                    <button type="submit" className="btn btn-primary form-control-lg">
                       Enviar
-                    </a>
+                    </button>
                   </div>
 
                   <div className="text-center py-4">
@@ -197,7 +240,6 @@ export default function LoginModal() {
                       </a>
                     </p>
                   </div>
-
                 </form>
               </div>
             )}

@@ -11,6 +11,7 @@ import AccountAddress from "../components/profile/AccountAddress";
 import AccountNotifications from "../components/profile/AccountNotifications";
 import AccountOrders from "../components/profile/AccountOrders";
 import AccountHistoryPayments from "../components/profile/AccountHistoryPayments";
+import AccountNotificaciones from "../components/profile/AccountNotificaciones";
 import AccountSecurity from "../components/profile/AccountSecurity";
 import AccountWhishlist from "../components/profile/AccountWhishlist";
 import AccountPayment from "../components/profile/AccountPayment";
@@ -24,13 +25,14 @@ export default function MyProfile() {
   const [currentView, setCurrentView] = useState("personalInfo");
 
   const BREADCRUMB_DATA = {
-    personalInfo: { section: "Mi Cuenta", title: "Datos Personales" },
-    security: { section: "Mi Cuenta", title: "Seguridad" },
-    notifications: { section: "Mi Cuenta", title: "Notificaciones" },
+    personalInfo: { section: "Configuración", title: "Datos Personales" },
+    security: { section: "Configuración", title: "Seguridad" },
+    notifications: { section: "Configuración", title: "Notificaciones" },
 
     orders: { section: "Compras", title: "Mis Compras" },
     payments: { section: "Comprobantes", title: "Mis Compras" },
     favorites: { section: "Compras", title: "Favoritos" },
+    notificaciones: { section: "Notificaciones", title: "Notificaciones" },
 
     payment: { section: "Pago", title: "Métodos de Pago" },
     address: { section: "Pago", title: "Dirección" }
@@ -70,6 +72,8 @@ export default function MyProfile() {
         />;
       case "favorites":
         return <AccountWhishlist />;
+      case "notificaciones":
+        return <AccountNotificaciones />;
       case "address":
         return <AccountAddress />;
       default:

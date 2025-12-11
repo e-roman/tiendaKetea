@@ -6,7 +6,7 @@ export default function NavProfile({ onSelect }) {
           <div className="card shadow-none flex-grow-1 mb-5">
             <div className="card-body">
 
-              <span className="text-cap">Mi Cuenta</span>
+              <span className="text-cap">Configuración</span>
 
               <ul className="nav nav-sm nav-tabs nav-vertical mb-4">
                 <li className="nav-item">
@@ -50,6 +50,12 @@ export default function NavProfile({ onSelect }) {
                   <button className="nav-link btn btn-link text-start"
                     onClick={() => onSelect("favorites")}>
                     <i className="bi-heart nav-icon"></i> Favoritos
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button className="nav-link btn btn-link text-start"
+                    onClick={() => onSelect("notificaciones")}>
+                    <i className="bi-bell nav-icon"></i> Notificaciones
                   </button>
                 </li>
               </ul>

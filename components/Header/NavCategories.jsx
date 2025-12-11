@@ -118,7 +118,7 @@ export default function NavCategories({ setShowPriceModal, setShowLogoutModal })
                   <Link className="dropdown-item" to="/pages/Profile?view=orders">
                     <i className="bi bi-bag-check me-2"></i> Pedidos
                   </Link>
-                  <Link className="dropdown-item" to="/pages/Profile?view=invoices">
+                  <Link className="dropdown-item" to="/pages/Profile?view=payments">
                     <i className="bi bi-receipt me-2"></i> Comprobantes
                   </Link>
                   <Link className="dropdown-item" to="/pages/Profile?view=address">

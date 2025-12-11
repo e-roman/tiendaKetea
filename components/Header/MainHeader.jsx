@@ -163,9 +163,9 @@ export default function MainHeader() {
                   </div>
                 </div>
 
-                <a className="card-footer text-center py-4 border-top " href="#">
+                <Link className="card-footer text-center py-4 border-top" to="/pages/Profile?view=notificaciones">
                     <p className="small mb-0 text-dark">Ver todas las notificaciones <i className="bi-chevron-right"></i></p>
-                </a>
+                </Link>
 
               </div>
             </Dropdown.Menu>

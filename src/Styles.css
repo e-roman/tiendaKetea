@@ -230,10 +230,10 @@ button.btn-search {
 .btn-icon-top {
     background: transparent;
 }
-.btn-icon-top:focus, .btn-icon-top:focus:active,
-.btn-icon-top:hover, .btn-icon-top:active {
+.btn-icon.btn-icon-top:focus, .btn-icon.btn-icon-top:focus:active,
+.btn-icon.btn-icon-top:hover, .btn-icon.btn-icon-top:active {
     border-color: transparent;
-    background-color: rgba(55, 125, 255, .1);
+    background-color: transparent;
 }
 .btn-icon-top::after {
     display: none;
