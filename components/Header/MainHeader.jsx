@@ -40,7 +40,7 @@ export default function MainHeader() {
   ];
 
   return (
-    <header className="py-3 border-bottom sticky-nav sticky-top bg-white">
+    <header className="py-2 border-bottom sticky-nav sticky-top bg-white">
       <div className="container d-flex align-items-center justify-content-between">
         
         {/* LOGO */}
@@ -82,7 +82,7 @@ export default function MainHeader() {
         <div className="d-flex align-items-center gap-1">
 
         {/* FAVORITOS */}
-        <Link className="btn btn-light position-relative btn-icon-top" to="/pages/Profile?view=favorites"><i className="bi bi-heart"></i></Link>
+        <Link className="btn btn-light position-relative btn-icon rounded-circle btn-icon-top" to="/pages/Profile?view=favorites"><i className="bi bi-heart"></i></Link>
           {/* <Dropdown as={ButtonGroup}>
             <Dropdown.Toggle className="btn btn-light position-relative btn-icon-top">
               <i className="bi bi-heart"></i>
@@ -97,45 +97,76 @@ export default function MainHeader() {
 
           {/* NOTIFICACIONES */}
           <Dropdown as={ButtonGroup}>
-            <Dropdown.Toggle className="btn btn-light position-relative btn-icon-top">
+            <Dropdown.Toggle className="btn btn-light position-relative rounded-circle btn-icon btn-icon-top btn-notifications">
               <i className="bi bi-bell"></i>
             </Dropdown.Toggle>
-            <Dropdown.Menu align="end" style={{ minWidth: "25rem" }}>
-              <div className="pt-3 px-2">
-                <h5>Notificaciones</h5>
-                {/* mapear notificaciones aquí */}
-                <div className="list-group">
-                    <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pb-3 border-0 border-bottom" aria-current="true">
-                        <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-cart3"></i></div>
-                        <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
-                            <div>
-                                <h6 className="mb-1">Nuevo pedido confirmado</h6>
-                                <small className="mb-0 opacity-50">Tu compra fue procesada correctamente.</small>
-                            </div>
-                            <small className="opacity-50 text-nowrap">1min</small>
-                        </div>
-                    </Link>
-                    <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 py-3 border-0 border-bottom" aria-current="true">
-                        <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-box-seam"></i></div>
-                        <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
-                            <div>
-                                <h6 className="mb-1">Tu paquete está en camino</h6>
-                                <small className="mb-0 opacity-50">El pedido #48291 fue despachado y está viajando hacia tu domicilio. </small>
-                            </div>
-                            <small className="opacity-50 text-nowrap">3d</small>
-                        </div>
-                    </Link>
-                    <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pt-3 border-0" aria-current="true">
-                        <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-box-seam"></i></div>
-                        <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
-                            <div>
-                                <h6 className="mb-1">Pago rechazado</h6>
-                                <small className="mb-0 opacity-50">Hubo un problema al procesar tu método de pago. </small>
-                            </div>
-                            <small className="opacity-50 text-nowrap">15d</small>
-                        </div>
-                    </Link>
+            <Dropdown.Menu align="end" className="dropdowNotifications p-0" style={{ minWidth: "25rem" }}>
+              <div className="card">
+                <div className="card-header card-header-content-between pt-4 pb-3 ps-4">
+                    <h4 className="card-title text-dark mb-0">Notificaciones</h4>
+                  </div>
+                
+                <div className="card-body-height">
+                  <div className="list-group notifications">
+                      <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pb-3 border-0 border-bottom" aria-current="true">
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-cart3"></i></div>
+                          <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
+                              <div>
+                                  <h6 className="mb-1">Nuevo pedido confirmado</h6>
+                                  <small className="mb-0 opacity-50">Tu compra fue procesada correctamente.</small>
+                              </div>
+                              <small className="opacity-50 text-nowrap">1min</small>
+                          </div>
+                      </Link>
+                      <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 py-3 border-0 border-bottom" aria-current="true">
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-box-seam"></i></div>
+                          <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
+                              <div>
+                                  <h6 className="mb-1">Tu paquete está en camino</h6>
+                                  <small className="mb-0 opacity-50">El pedido #48291 fue despachado y está viajando hacia tu domicilio. </small>
+                              </div>
+                              <small className="opacity-50 text-nowrap">3d</small>
+                          </div>
+                      </Link>
+                      <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pb-3 border-0 border-bottom" aria-current="true">
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-cart3"></i></div>
+                          <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
+                              <div>
+                                  <h6 className="mb-1">Nuevo pedido confirmado</h6>
+                                  <small className="mb-0 opacity-50">Tu compra fue procesada correctamente.</small>
+                              </div>
+                              <small className="opacity-50 text-nowrap">1min</small>
+                          </div>
+                      </Link>
+                      <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 py-3 border-0 border-bottom" aria-current="true">
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-box-seam"></i></div>
+                          <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
+                              <div>
+                                  <h6 className="mb-1">Tu paquete está en camino</h6>
+                                  <small className="mb-0 opacity-50">El pedido #48291 fue despachado y está viajando hacia tu domicilio. </small>
+                              </div>
+                              <small className="opacity-50 text-nowrap">3d</small>
+                          </div>
+                      </Link>
+
+                      <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pt-3 border-0" aria-current="true">
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-box-seam"></i></div>
+                          <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
+                              <div>
+                                  <h6 className="mb-1">Pago rechazado</h6>
+                                  <small className="mb-0 opacity-50">Hubo un problema al procesar tu método de pago. </small>
+                              </div>
+                              <small className="opacity-50 text-nowrap">15d</small>
+                          </div>
+                      </Link>
+                      
+                  </div>
                 </div>
+
+                <a className="card-footer text-center py-4 border-top " href="#">
+                    <p className="small mb-0 text-dark">Ver todas las notificaciones <i className="bi-chevron-right"></i></p>
+                </a>
+
               </div>
             </Dropdown.Menu>
           </Dropdown>
@@ -144,7 +175,7 @@ export default function MainHeader() {
           {/* Carrito */}
           <div className="dropdown">
               <button
-                className="btn btn-light position-relative btn-icon-top"
+                className="btn btn-light position-relative btn-icon rounded-circle btn-icon-top"
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#cartOffcanvas"

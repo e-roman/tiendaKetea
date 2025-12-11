@@ -11,7 +11,8 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
-    "cuotasLabel": "Hasta 3 cuotas sin interés",
+    "cuotasLabelBadge": "Hasta 12 cuotas",
+    "cuotasLabel": "Hasta 12 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.354.185",
     "taxLabel": "Impuestos Nacionales aprox. $852,136"
   },
@@ -27,7 +28,8 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
-    "cuotasLabel": "Hasta 3 cuotas sin interés",
+    "cuotasLabelBadge": "Hasta 12 cuotas",
+    "cuotasLabel": "Hasta 12 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $692.685",
     "taxLabel": "Impuestos Nacionales aprox. $436,392"
   },
@@ -43,7 +45,8 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
-    "cuotasLabel": "Hasta 3 cuotas sin interés",
+    "cuotasLabelBadge": "Hasta 12 cuotas",
+    "cuotasLabel": "Hasta 12 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.914.000",
     "taxLabel": "Impuestos Nacionales aprox. $1,205,820"
   },
@@ -59,6 +62,7 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
+    "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $2.330.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,467,331"
@@ -75,6 +79,7 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
+    "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.291.185",
     "taxLabel": "Impuestos Nacionales aprox. $811,447"
@@ -91,6 +96,7 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
+    "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.102.185",
     "taxLabel": "Impuestos Nacionales aprox. $693,377"
@@ -107,6 +113,7 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
+    "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $2.078.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,309,571"
@@ -123,6 +130,7 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
+    "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.480.185",
     "taxLabel": "Impuestos Nacionales aprox. $932,516"
@@ -139,6 +147,7 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
+    "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.889.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,190,501"
@@ -155,6 +164,7 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
+    "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $923.720",
     "taxLabel": "Impuestos Nacionales aprox. $582,045"
@@ -171,6 +181,7 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
+    "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $837.585",
     "taxLabel": "Impuestos Nacionales aprox. $525,579"

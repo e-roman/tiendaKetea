@@ -219,22 +219,45 @@ button.btn-search {
 }
 
 
+.MenuCategorias.dropdown-menu {
+    margin-top: -2px;
+}
+
+.dropdowNotifications {
+    margin-top: 12px;
+}
+
 .btn-icon-top {
-    padding: 10px;
     background: transparent;
 }
 .btn-icon-top:focus, .btn-icon-top:focus:active,
 .btn-icon-top:hover, .btn-icon-top:active {
-    background-color: transparent;
     border-color: transparent;
+    background-color: rgba(55, 125, 255, .1);
 }
 .btn-icon-top::after {
     display: none;
 }
 .btn-icon-top i {
-    font-size: 19px;
+    font-size: 18px;
 }
 
+
+
+.btn-icon:focus,
+.btn-icon:active {
+    border-color: transparent;
+    background-color: rgba(55, 125, 255, .1);
+}
+.card-body-height {
+    height: 21.25rem;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+.list-group.notifications {
+    margin: .5rem 0 .5rem .814rem;
+}
 
 .search-category {
     position: relative;
@@ -1019,12 +1042,13 @@ footer .btn-icon.btn-social {
 
 .css-13cymwt-control, .css-t3ipsp-control {
     min-height: 47px !important;
-    width: 260px !important;
+    width: 240px !important;
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
     border: .0625rem solid rgba(33, 50, 91, .1) !important;
     border-right: transparent !important;
     cursor: pointer !important;
+    font-size: 14px;
 }
 .css-1u9des2-indicatorSeparator {
     background-color:transparent!important;
@@ -1032,5 +1056,50 @@ footer .btn-icon.btn-social {
 .css-hlgwow {
     padding: 2px 15px!important;
 }
+.custom-select_menu {
+    font-size: 14px;
+}
 
 
+
+
+
+
+.u-divider--text {
+    color: #8c98a4;
+}
+
+.u-divider--xs {
+    font-size: 0.75rem;
+}
+.u-divider {
+    position: relative;
+    display: inline-block;
+    font-size: 1rem;
+}
+.u-divider--xs::before, .u-divider--xs::after {
+    width: 4rem;
+    height: 0.0325rem;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.u-divider::before {
+    margin-right: .625rem;
+}
+.u-divider::before {
+    right: 100%;
+    background-color: #e3e3e3;
+}
+.u-divider::before, .u-divider::after {
+    position: absolute;
+    top: 50%;
+    content: "";
+}
+.u-divider::after {
+    left: 100%;
+    background-color: #e3e3e3;
+}
+.u-divider::after {
+    margin-left: .625rem;
+}

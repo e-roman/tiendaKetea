@@ -6859,31 +6859,31 @@ fieldset:disabled .btn {
     transform: translateY(-50%)!important
 }
 .border {
-    border: .0625rem solid rgba(33, 50, 91, .1)!important
+    border: .0625rem solid rgba(231,234,243,.7)!important
 }
 .border-0 {
     border: 0!important
 }
 .border-top {
-    border-top: .0625rem solid rgba(33, 50, 91, .1)!important
+    border-top: .0625rem solid rgba(231,234,243,.7)!important
 }
 .border-top-0 {
     border-top: 0!important
 }
 .border-end {
-    border-right: .0625rem solid rgba(33, 50, 91, .1)!important
+    border-right: .0625rem solid rgba(231,234,243,.7)!important
 }
 .border-end-0 {
     border-right: 0!important
 }
 .border-bottom {
-    border-bottom: .0625rem solid rgba(33, 50, 91, .1)!important
+    border-bottom: .0625rem solid rgba(231,234,243,.7)!important
 }
 .border-bottom-0 {
     border-bottom: 0!important
 }
 .border-start {
-    border-left: .0625rem solid rgba(33, 50, 91, .1)!important
+    border-left: .0625rem solid rgba(231,234,243,.7)!important
 }
 .border-start-0 {
     border-left: 0!important

@@ -62,9 +62,9 @@ export default function ProductCard({ product, openProduct }) {
           </div>
         ) : null}
 
-        {product.cuotasLabel && (
+        {product.cuotasLabelBadge && (
           <div className="card-pinned-top-start">
-            <span className="badge py-1 px-2 badge-yellow">{product.cuotasLabel}</span>
+            <span className="badge py-1 px-2 badge-yellow">{product.cuotasLabelBadge}</span>
           </div>
         )}
       </div>
