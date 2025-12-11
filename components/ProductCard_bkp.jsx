@@ -7,7 +7,7 @@ import { useFloatingAlert } from "../src/context/FloatingAlertContext";
 export default function ProductCard({ product, openProduct }) {
   const { favorites, toggleFavorite } = useFavorites();
   const { cart, addToCart } = useCart();
-  const { showAlert } = useFloatingAlert();
+  const { showAlert } = useFloatingAlert(); // hook del contexto
 
   const [inCart, setInCart] = useState(false);
   const isFav = favorites.some((f) => f.id === product.id);
@@ -35,16 +35,13 @@ export default function ProductCard({ product, openProduct }) {
   return (
     <div className="card card-bordered shadow-none text-start h-100">
       <div className="card-pinned">
-        
-        {/* Imagen del producto */}
         <button
           className="p-0 border-0 bg-transparent"
-          onClick={() => openProduct(product.slug)}
+          onClick={() => openProduct(product.id)}
         >
           <img className="card-img-top" src={product.image} alt={product.title} />
         </button>
 
-        {/* Favorito */}
         <div className="card-pinned-top-end">
           <button
             type="button"
@@ -55,7 +52,6 @@ export default function ProductCard({ product, openProduct }) {
           </button>
         </div>
 
-        {/* Badges */}
         {product.envioGratis || !product.stock ? (
           <div className="badge-envio">
             {!product.stock ? (
@@ -73,11 +69,10 @@ export default function ProductCard({ product, openProduct }) {
         )}
       </div>
 
-      {/* Información principal */}
       <div className="card-body p-2 px-3">
         <button
           className="h6 text-body text-dark font-medium bg-transparent border-0 p-0 text-start"
-          onClick={() => openProduct(product.slug)}
+          onClick={() => openProduct(product.id)}
         >
           {product.title}
         </button>
@@ -87,18 +82,14 @@ export default function ProductCard({ product, openProduct }) {
             <li className="current-price text-dark">
               ${formatPrice(product.price)}
             </li>
-
             {product.oldPrice && product.oldPrice > product.price && (
               <li className="old-price text-muted">
                 ${formatPrice(product.oldPrice)}
               </li>
             )}
-
             {product.discount > 0 && (
               <li>
-                <span className="badge py-1 px-2 badge-yellow">
-                  -{product.discount}%
-                </span>
+                <span className="badge py-1 px-2 badge-yellow">-{product.discount}%</span>
               </li>
             )}
           </ul>
@@ -109,13 +100,9 @@ export default function ProductCard({ product, openProduct }) {
             Hasta <span className="font-bold">{product.installmentsLabel}</span> sin interés
           </p>
         )}
-
-        {product.taxLabel && (
-          <p className="small mb-0 font-12">{product.taxLabel}</p>
-        )}
+        {product.taxLabel && <p className="small mb-0 font-12">{product.taxLabel}</p>}
       </div>
 
-      {/* Botón agregar al carrito */}
       <div className="card-footer pt-2 px-3 pb-3">
         <button
           type="button"

@@ -10,21 +10,24 @@ import products from "../../data/products.json";
 import ProductCard from "../../components/ProductCard";
 
 export default function ProductsSwiper({ openProduct }) {
+
   return (
     <div className="container space-2 space-lg-3">
       <Swiper
-        cssMode={true}
+        cssMode={false}
         navigation={true}
         pagination={false}
-        mousewheel={true}
+        mousewheel={false}
         keyboard={true}
         slidesPerView={4}
         spaceBetween={20}
+        simulateTouch={false}
+        allowTouchMove={false}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
         {products.map((product) => (
-          <SwiperSlide key={product.id}>
+          <SwiperSlide key={product.slug}>
             <ProductCard product={product} openProduct={openProduct} />
           </SwiperSlide>
         ))}

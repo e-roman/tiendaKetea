@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "slug": "robot-limpia-piscinas-dolphin-liberty-400",
     "image": "../assets/img/productos/001.webp",
     "title": "Robot limpia piscinas Dolphin Liberty 400",
     "price": 4062555,
@@ -18,6 +19,7 @@
   },
   {
     "id": 2,
+    "slug": "robot-limpia-piscinas-dolphin-pool-up",
     "image": "../assets/img/productos/002.webp",
     "title": "Robot limpia piscinas Dolphin Pool Up",
     "price": 2078055,
@@ -35,6 +37,7 @@
   },
   {
     "id": 3,
+    "slug": "robot-limpia-piscinas-dolphin-liberty-600",
     "image": "../assets/img/productos/003.webp",
     "title": "Robot limpia piscinas Dolphin Liberty 600",
     "price": 5742000,
@@ -52,6 +55,7 @@
   },
   {
     "id": 4,
+    "slug": "robot-limpia-piscinas-dolphin-wave-90i",
     "image": "../assets/img/productos/004.webp",
     "title": "Robot limpia piscinas Dolphin Wave 90i",
     "price": 6992055,
@@ -69,6 +73,7 @@
   },
   {
     "id": 5,
+    "slug": "robot-limpia-piscinas-sin-cable-dolphin-liberty-300",
     "image": "../assets/img/productos/005.webp",
     "title": "Robot limpia piscinas sin cable Dolphin Liberty 300",
     "price": 3873555,
@@ -86,6 +91,7 @@
   },
   {
     "id": 6,
+    "slug": "robot-limpia-piscinas-sin-cable-dolphin-liberty-200",
     "image": "../assets/img/productos/006.webp",
     "title": "Robot limpia piscinas sin cable Dolphin Liberty 200",
     "price": 3306555,
@@ -103,6 +109,7 @@
   },
   {
     "id": 7,
+    "slug": "robot-limpia-piscinas-dolphin-m700",
     "image": "../assets/img/productos/007.webp",
     "title": "Robot limpia piscinas Dolphin M700",
     "price": 6236055,
@@ -120,6 +127,7 @@
   },
   {
     "id": 8,
+    "slug": "robot-limpia-piscinas-dolphin-s400i",
     "image": "../assets/img/productos/008.webp",
     "title": "Robot Dolphin S400I",
     "price": 4440555,
@@ -137,6 +145,7 @@
   },
   {
     "id": 9,
+    "slug": "robot-limpia-piscinas-dolphin-m600",
     "image": "../assets/img/productos/009.webp",
     "title": "Robot Dolphin M600",
     "price": 5669055,
@@ -154,6 +163,7 @@
   },
   {
     "id": 10,
+    "slug": "robot-limpia-piscinas-dolphin-s200",
     "image": "../assets/img/productos/010.webp",
     "title": "Robot Dolphin S200",
     "price": 2771160,
@@ -171,6 +181,7 @@
   },
   {
     "id": 11,
+    "slug": "robot-limpia-piscinas-dolphin-s100",
     "image": "../assets/img/productos/011.webp",
     "title": "Robot Dolphin S100",
     "price": 2512755,
@@ -188,6 +199,7 @@
   },
   {
     "id": 12,
+    "slug": "robot-limpia-piscinas-dolphin-2x2-pro-gyro-olimpico",
     "image": "../assets/img/productos/012.webp",
     "title": "Robot Dolphin 2x2 PRO GYRO (olímpico)",
     "price": 17387055,
@@ -204,6 +216,7 @@
   },
   {
     "id": 13,
+    "slug": "robot-cortacesped-automower-am305",
     "image": "../assets/img/productos/013.webp",
     "title": "Robot Cortacésped Automower AM305",
     "price": 0,

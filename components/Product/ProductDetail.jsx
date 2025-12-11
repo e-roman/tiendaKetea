@@ -14,9 +14,9 @@ export default function ProductDetail({ product }) {
   // Verificar si ya está en favoritos
   const [isFavorite, setIsFavorite] = useState(false);
   useEffect(() => {
-    const fav = favorites.some((f) => f.id === product.id);
+    const fav = favorites.some((f) => f.slug === product.slug);
     setIsFavorite(fav);
-  }, [favorites, product.id]);
+  }, [favorites, product.slug]);
 
   const decrease = () => {
     if (quantity > 1) setQuantity(quantity - 1);

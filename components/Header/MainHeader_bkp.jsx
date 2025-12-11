@@ -1,55 +1,22 @@
-import { useState } from "react";
-
 // src/components/header/MainHeader.jsx
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useCart } from "../../src/hooks/useCart";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 import Select from "react-select"; // <- Import react-select
-import products from "../../data/products.json"; // A
-
-
 
 export default function MainHeader() {
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
+  const { cart } = useCart();
+  const navigate = useNavigate();
 
-  const { cart } = useCart(); // ← FIX
-
-
-  const slugify = (text) =>
-    text
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "");
-
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    setQuery(value);
-
-    if (value.length < 2) {
-      setResults([]);
-      return;
-    }
-
-    const filtered = products
-      .filter((item) =>
-        item.title.toLowerCase().includes(value.toLowerCase())
-      )
-      .slice(0, 6);
-
-    setResults(filtered);
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const input = e.target.elements.searchInput.value.trim();
+    if (!input) return;
+    navigate(`/buscar/${encodeURIComponent(input)}`);
   };
 
-  const clearSearch = () => {
-    setQuery("");
-    setResults([]);
-  };
-
-
-    // Opciones para el select estilizado
+  // Opciones para el select estilizado
   const categoryOptions = [
     { value: "", label: "Buscar en Categoría" },
     { value: "productos-quimicos", label: "Productos Químicos" },
@@ -83,81 +50,32 @@ export default function MainHeader() {
 
        {/* BUSCADOR */}
         <div className="flex-grow-1 ps-4 pe-10 d-none d-md-block">
-            <div className="d-flex position-relative">
-                <div>
-                <Select
-                    options={categoryOptions}
-                    defaultValue={categoryOptions[0]}
-                    classNamePrefix="custom-select"
-                    isSearchable={false}
-                />
-                </div>
-
-                <div className="position-relative w-100">
-                    <input type="text"
-                        className="form-control form-control-lg shadow-none input-search"
-                        placeholder="Buscar productos, marcas y más…"
-                        value={query}
-                        onChange={handleInputChange}
-                        autoComplete="off"
-                        />
-
-                <button type="submit" className="btn btn-primary btn-lg rounded-pill btn-search">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search-icon lucide-search">
-                    <path d="m21 21-4.34-4.34"/>
-                    <circle cx="11" cy="11" r="8"/>
-                </svg>
-                </button>
-
-                {/* DROPDOWN DE RESULTADOS */}
-                {results.length > 0 && (
-                <div
-                    className="search-dropdown position-absolute w-100 mt-2 p-3 bg-white rounded shadow-sm"
-                    style={{ zIndex: 999 }}
-                >
-                    {results.map((item) => (
-                    <Link
-                        key={item.id}
-                        to={`/product/${slugify(item.title)}`}
-                        className="d-flex align-items-center gap-3 py-2 px-1 border-bottom text-decoration-none text-dark"
-                        onClick={clearSearch}
-                    >
-                        <img
-                        src={item.image.replace("../", "/")}
-                        alt={item.title}
-                        width="55"
-                        height="55"
-                        className="rounded border"
-                        />
-
-                        <div>
-                        <strong className="d-block">{item.title}</strong>
-
-                        <span className="text-muted small">
-                            ${item.price.toLocaleString("es-AR")}
-                        </span>
-
-                        <div className="small text-secondary">
-                            {item.categories.slice(0, 2).join(" • ")}
-                        </div>
-                        </div>
-                    </Link>
-                    ))}
-
-                    {/* Ver todos */}
-                    <div className="text-center mt-3">
-                    <Link
-                        to={`/buscar/${encodeURIComponent(query)}`}
-                        className="btn btn-sm btn-primary rounded-pill px-5"
-                        onClick={clearSearch}
-                    >
-                        Ver todos los resultados
-                    </Link>
-                    </div>
-                </div>
-                )}
-               </div>
+          <form className="d-flex position-relative" onSubmit={handleSearch}>
+            
+            {/* Select estilizado */}
+            <div>
+              <Select
+                options={categoryOptions}
+                defaultValue={categoryOptions[0]}
+                classNamePrefix="custom-select"
+                isSearchable={false}
+              />
             </div>
+
+            <input
+              type="text"
+              name="searchInput"
+              className="form-control form-control-lg shadow-none input-search"
+              placeholder="Buscar productos, marcas y más…"
+              aria-label="Buscar productos, marcas y más…"
+            />
+            <button type="submit" className="btn btn-primary btn-lg rounded-pill btn-search">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search-icon lucide-search">
+                <path d="m21 21-4.34-4.34"/>
+                <circle cx="11" cy="11" r="8"/>
+              </svg>
+            </button>
+          </form>
         </div>
 
         {/* ICONOS */}
@@ -263,7 +181,7 @@ export default function MainHeader() {
                 data-bs-target="#cartOffcanvas"
               >
                 <i className="bi bi-cart3"></i>
-                {cart.length > 0 && ( 
+                {cart.length > 0 && (
                   <span className="quantity-add">
                     {cart.length}
                   </span>

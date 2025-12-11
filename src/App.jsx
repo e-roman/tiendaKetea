@@ -6,31 +6,28 @@ import Footer from "../components/Footer";
 import SidebarCart from "../components/SidebarCart";
 import { FloatingAlertProvider } from "../src/context/FloatingAlertContext";
 import AlertFloating from "../components/AlertFloating";
-import LoginModal from "../components/Modals/LogIn"; 
+import LoginModal from "../components/Modals/LogIn";
 
 import Home from "../pages/Home";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
-import ProductPage from "../pages/Product"; // <-- FALTA IMPORTAR ESTO
+import ProductPage from "../pages/Product";
 import SearchResults from "../pages/SearchResults";
-import MyProfile from "../pages/Profile"; // <-- importar el perfil
-
+import MyProfile from "../pages/Profile";
 
 export default function App() {
   return (
-    <>
     <FloatingAlertProvider>
       <Header />
 
       <AlertFloating />
-
       <SidebarCart />
 
       <Routes>
         <Route path="/" element={<Home />} />
 
-        {/* Página de detalle de producto */}
-        <Route path="/product/:id" element={<ProductPage />} />
+        {/* Página de producto por SLUG (corregido) */}
+        <Route path="/product/:slug" element={<ProductPage />} />
 
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
@@ -40,7 +37,6 @@ export default function App() {
 
       <Footer />
       <LoginModal />
-      </FloatingAlertProvider>
-    </>
+    </FloatingAlertProvider>
   );
 }

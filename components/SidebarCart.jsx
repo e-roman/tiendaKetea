@@ -56,7 +56,7 @@ export default function SidebarCart() {
               {/* LISTADO DE PRODUCTOS DEL CARRITO */}
               <ul className="items-SideCart">
                 {cart.map((product) => (
-                  <li key={product.id} className="itemAdded gap-3">
+                  <li key={product.slug} className="itemAdded gap-3">
                     <div className="flex-shrink-0 d-flex align-items-start justify-content-center">
                       <img src={product.image} className="avatar avatar-xl" alt={product.title} />
                     </div>
@@ -64,7 +64,7 @@ export default function SidebarCart() {
                     <div className="d-flex gap-2 w-100 justify-content-between">
                       <div>
                         <Link
-                          to={`/product/${product.id}`}
+                          to={`/product/${product.slug}`}
                           className="text-dark text-decoration-none"
                           onClick={closeCart}
                         >

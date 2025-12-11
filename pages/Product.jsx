@@ -1,30 +1,44 @@
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import productsData from "../data/products.json";
 
 import ProductGallery from "../components/Product/ProductGallery";
 import ProductDetail from "../components/Product/ProductDetail";
 import ProductSpecificationsBlocks from "../components/Product/ProductSpecificationsBlocks";
 import ProductsOthers from "../components/Product/ProductsOthers";
-import { useFloatingAlert } from "../src/context/FloatingAlertContext"; // ruta correcta
+
+import { useFloatingAlert } from "../src/context/FloatingAlertContext";
 import AlertFloating from "../components/AlertFloating";
 
 export default function ProductPage() {
-  const { id } = useParams();
-  const { showAlert } = useFloatingAlert(); // solo para disparar alertas
+  
+  const navigate = useNavigate();
+  const { slug } = useParams();
+  const { showAlert } = useFloatingAlert();
 
-  const product = productsData.find((p) => p.id === Number(id));
+  const safeSlug = slug?.toString().trim().toLowerCase();
+
+  // Buscar producto por slug de forma segura
+  const product = productsData.find((p) => {
+    if (!p.slug) return false;
+    return p.slug.toLowerCase() === safeSlug;
+  });
 
   if (!product) {
-    showAlert("Producto no encontrado", "danger"); // dispara alerta global
-    return <p>Producto no encontrado.</p>;
+    showAlert("Producto no encontrado", "danger");
+    return <div className="container space-top-1"><p>Producto no encontrado.</p></div>;
   }
+
+  const openProduct = (slug) => {
+    navigate(`/product/${slug}`);
+  };
 
   const category = product.category || "Productos";
   const subcategory = product.subcategory || "Detalle";
 
   return (
     <div>
-      {/* ALERTA GLOBAL */}
       <AlertFloating />
 
       <div className="container space-top-1 space-top-sm-1">
@@ -33,12 +47,18 @@ export default function ProductPage() {
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <a href={`/categoria/${category.toLowerCase()}`}>{category}</a>
+                  <a href={`/categoria/${category.toLowerCase()}`}>
+                    {category}
+                  </a>
                 </li>
                 <li className="breadcrumb-item">
-                  <a href={`/categoria/${category.toLowerCase()}/${subcategory.toLowerCase()}`}>{subcategory}</a>
+                  <a href={`/categoria/${category.toLowerCase()}/${subcategory.toLowerCase()}`}>
+                    {subcategory}
+                  </a>
                 </li>
-                <li className="breadcrumb-item active" aria-current="page">{product.title}</li>
+                <li className="breadcrumb-item active" aria-current="page">
+                  {product.title}
+                </li>
               </ol>
             </nav>
           </div>
@@ -56,8 +76,8 @@ export default function ProductPage() {
       </div>
 
       <ProductSpecificationsBlocks />
-      <ProductsOthers />
-      {/* <ProductsReviews productId={product.id} /> */}
+      
+      <ProductsOthers currentProduct={product} openProduct={openProduct} />
     </div>
   );
 }

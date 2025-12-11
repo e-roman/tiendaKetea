@@ -98,6 +98,7 @@ export default function LoginModal() {
                   onSubmit={handleLoginSubmit}
                 >
                   <div className="mb-3">
+                    <label className="form-label">Email</label>
                     <input
                       type="email"
                       className="form-control form-control-lg"
@@ -108,6 +109,7 @@ export default function LoginModal() {
                   </div>
 
                   <div className="mb-3">
+                    <label className="form-label">Contraseña</label>
                     <input
                       type="password"
                       className="form-control form-control-lg"
