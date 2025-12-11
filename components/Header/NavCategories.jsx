@@ -2,7 +2,11 @@
 import { Link } from "react-router-dom";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 
+import { useAuth } from "../../src/context/AuthContext";
+
+
 export default function NavCategories({ setShowPriceModal, setShowLogoutModal }) {
+  const { isLogged, logout } = useAuth();
   return (
     <nav className="navbar-nav-wrap align-items-start border-bottom">
       
@@ -97,40 +101,59 @@ export default function NavCategories({ setShowPriceModal, setShowLogoutModal })
           </li>
 
           {/* Perfil */}
-          <li className="nav-item ms-auto position-relative">
-            <Dropdown as={ButtonGroup}>
-              <Dropdown.Toggle className="nav-link btn-drop d-flex align-items-center border-0">
-                <i className="bi bi-person-circle me-1"></i> Hola! Francisco Perez
-              </Dropdown.Toggle>
+          {isLogged && (
+            <li className="nav-item ms-auto position-relative">
+              <Dropdown as={ButtonGroup}>
+                <Dropdown.Toggle className="nav-link btn-drop d-flex align-items-center border-0">
+                  <i className="bi bi-person-circle me-1"></i> Hola! Francisco Perez
+                </Dropdown.Toggle>
 
-              <Dropdown.Menu align="end" style={{ minWidth: "14rem" }}>
-                <Link className="dropdown-item" to="/pages/Profile?view=personalInfo">
-                  <i className="bi bi-person-circle me-2"></i> Datos personales
-                </Link>
-                <Link className="dropdown-item" to="/pages/Profile?view=favorites">
-                  <i className="bi bi-heart me-2"></i> Favoritos
-                </Link>
-                <Link className="dropdown-item" to="/pages/Profile?view=orders">
-                  <i className="bi bi-bag-check me-2"></i> Pedidos
-                </Link>
-                <Link className="dropdown-item" to="/pages/Profile?view=invoices">
-                  <i className="bi bi-receipt me-2"></i> Comprobantes
-                </Link>
-                <Link className="dropdown-item" to="/pages/Profile?view=address">
-                  <i className="bi bi-geo-alt me-2"></i> Direcciones
-                </Link>
-                <Dropdown.Divider />
-                <button className="dropdown-item" onClick={() => setShowLogoutModal(true)}>
-                  <i className="bi bi-box-arrow-right me-2"></i> Cerrar sesión
-                </button>
-              </Dropdown.Menu>
-            </Dropdown>
-          </li>
+                <Dropdown.Menu align="end" style={{ minWidth: "14rem" }}>
+                  <Link className="dropdown-item" to="/pages/Profile?view=personalInfo">
+                    <i className="bi bi-person-circle me-2"></i> Datos personales
+                  </Link>
+                  <Link className="dropdown-item" to="/pages/Profile?view=favorites">
+                    <i className="bi bi-heart me-2"></i> Favoritos
+                  </Link>
+                  <Link className="dropdown-item" to="/pages/Profile?view=orders">
+                    <i className="bi bi-bag-check me-2"></i> Pedidos
+                  </Link>
+                  <Link className="dropdown-item" to="/pages/Profile?view=invoices">
+                    <i className="bi bi-receipt me-2"></i> Comprobantes
+                  </Link>
+                  <Link className="dropdown-item" to="/pages/Profile?view=address">
+                    <i className="bi bi-geo-alt me-2"></i> Direcciones
+                  </Link>
+
+                  <Dropdown.Divider />
+
+                  <button
+                    className="dropdown-item"
+                    onClick={() => setShowLogoutModal(true)}
+                  >
+                    Cerrar sesión
+                  </button>
+
+                </Dropdown.Menu>
+              </Dropdown>
+            </li>
+          )}
+
 
           {/* Login */}
-          <li>
-            <button className="btn btn-primary btn-sm p-0" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">Login</button>
-          </li>
+          {!isLogged && (
+            <li className="ms-auto position-relative">
+              <button
+                className="btn btn-primary btn-drop btn-sm p-0"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#signupModal"
+              >
+                <i className="bi bi-person-circle me-1"></i> Ingresar
+              </button>
+            </li>
+          )}
+
 
         </ul>
       </div>

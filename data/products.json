@@ -1,11 +1,11 @@
 [
   {
     "id": 1,
-    "image": "../assets/img/productos/dolphin-liberty-400.webp",
+    "image": "../assets/img/productos/001.webp",
     "title": "Robot limpia piscinas Dolphin Liberty 400",
     "price": 4062555,
     "oldPrice": 4513950,
-    "discount": 10,
+    "discount": 25,
     "categories": ["Robots", "Piscina", "BlackFriday"],
     "Marca": "Dolphin",
     "envioGratis": true,
@@ -13,15 +13,15 @@
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.354.185",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $852,136"
   },
   {
     "id": 2,
-    "image": "../assets/img/productos/dolphin-pool-up.webp",
+    "image": "../assets/img/productos/002.webp",
     "title": "Robot limpia piscinas Dolphin Pool Up",
     "price": 2078055,
     "oldPrice": 2308950,
-    "discount": 10,
+    "discount": 25,
     "categories": ["Robots", "Piscina", "BlackFriday"],
     "Marca": "Dolphin",
     "envioGratis": true,
@@ -29,15 +29,15 @@
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $692.685",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $436,392"
   },
   {
     "id": 3,
-    "image": "../assets/img/productos/dolphin-liberty-600.webp",
+    "image": "../assets/img/productos/003.webp",
     "title": "Robot limpia piscinas Dolphin Liberty 600",
     "price": 5742000,
     "oldPrice": 6380000,
-    "discount": 10,
+    "discount": 25,
     "categories": ["Robots", "Piscina", "BlackFriday"],
     "Marca": "Dolphin",
     "envioGratis": true,
@@ -45,15 +45,15 @@
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.914.000",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $1,205,820"
   },
   {
     "id": 4,
-    "image": "../assets/img/productos/dolphin-wave-90i.webp",
+    "image": "../assets/img/productos/004.webp",
     "title": "Robot limpia piscinas Dolphin Wave 90i",
     "price": 6992055,
     "oldPrice": 7768950,
-    "discount": 10,
+    "discount": 25,
     "categories": ["Robots", "Piscina", "destacados"],
     "Marca": "Dolphin",
     "envioGratis": true,
@@ -61,11 +61,11 @@
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $2.330.685",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $1,467,331"
   },
   {
     "id": 5,
-    "image": "../assets/img/productos/dolphin-liberty-300.webp",
+    "image": "../assets/img/productos/005.webp",
     "title": "Robot limpia piscinas sin cable Dolphin Liberty 300",
     "price": 3873555,
     "oldPrice": 4303950,
@@ -77,11 +77,11 @@
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.291.185",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $811,447"
   },
   {
     "id": 6,
-    "image": "../assets/img/productos/dolphin-liberty-200.webp",
+    "image": "../assets/img/productos/006.webp",
     "title": "Robot limpia piscinas sin cable Dolphin Liberty 200",
     "price": 3306555,
     "oldPrice": 3673950,
@@ -93,75 +93,75 @@
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.102.185",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $693,377"
   },
   {
     "id": 7,
-    "image": "../assets/img/productos/dolphin-m700.webp",
+    "image": "../assets/img/productos/007.webp",
     "title": "Robot limpia piscinas Dolphin M700",
     "price": 6236055,
     "oldPrice": 6928950,
     "discount": 10,
-    "categories": ["Robots", "Piscina"],
+    "categories": ["Robots", "Piscina", "ofertas"],
     "Marca": "Dolphin",
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $2.078.685",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $1,309,571"
   },
   {
     "id": 8,
-    "image": "../assets/img/productos/dolphin-s400i.webp",
+    "image": "../assets/img/productos/008.webp",
     "title": "Robot Dolphin S400I",
     "price": 4440555,
     "oldPrice": 4933950,
     "discount": 10,
-    "categories": ["Robots", "Piscina"],
+    "categories": ["Robots", "Piscina", "ofertas"],
     "Marca": "Dolphin",
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.480.185",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $932,516"
   },
   {
     "id": 9,
-    "image": "../assets/img/productos/dolphin-m600.webp",
+    "image": "../assets/img/productos/009.webp",
     "title": "Robot Dolphin M600",
     "price": 5669055,
     "oldPrice": 6298950,
     "discount": 10,
-    "categories": ["Robots", "Piscina"],
+    "categories": ["Robots", "Piscina", "ofertas"],
     "Marca": "Dolphin",
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.889.685",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $1,190,501"
   },
   {
     "id": 10,
-    "image": "../assets/img/productos/dolphin-s200.webp",
+    "image": "../assets/img/productos/010.webp",
     "title": "Robot Dolphin S200",
     "price": 2771160,
     "oldPrice": 3463950,
     "discount": 20,
-    "categories": ["Robots", "Piscina"],
+    "categories": ["Robots", "Piscina", "ofertas"],
     "Marca": "Dolphin",
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $923.720",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $582,045"
   },
   {
     "id": 11,
-    "image": "../assets/img/productos/dolphin-s100.webp",
+    "image": "../assets/img/productos/011.webp",
     "title": "Robot Dolphin S100",
     "price": 2512755,
     "oldPrice": 2791950,
@@ -173,11 +173,11 @@
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $837.585",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $525,579"
   },
   {
     "id": 12,
-    "image": "../assets/img/productos/robot-dolphin-2x2-pro-gyro.webp",
+    "image": "../assets/img/productos/012.webp",
     "title": "Robot Dolphin 2x2 PRO GYRO (olímpico)",
     "price": 17387055,
     "oldPrice": null,
@@ -189,11 +189,11 @@
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 6 cuotas sin interés",
     "installmentsLabel": "Hasta 6x $2.897.842",
-    "taxLabel": "Sin Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales aprox. $3,650,181"
   },
   {
     "id": 13,
-    "image": "../assets/img/productos/robot-cortacesped-automower-am305.webp",
+    "image": "../assets/img/productos/013.webp",
     "title": "Robot Cortacésped Automower AM305",
     "price": 0,
     "oldPrice": null,
@@ -205,6 +205,6 @@
     "accionamiento": "Batería",
     "cuotasLabel": "",
     "installmentsLabel": "",
-    "taxLabel": ""
+    "taxLabel": "Impuestos Nacionales $0"
   }
 ]

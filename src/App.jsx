@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import SidebarCart from "../components/SidebarCart";
 import { FloatingAlertProvider } from "../src/context/FloatingAlertContext";
 import AlertFloating from "../components/AlertFloating";
+import LoginModal from "../components/Modals/LogIn"; 
 
 import Home from "../pages/Home";
 import Cart from "../pages/Cart";
@@ -13,6 +14,7 @@ import Checkout from "../pages/Checkout";
 import ProductPage from "../pages/Product"; // <-- FALTA IMPORTAR ESTO
 import SearchResults from "../pages/SearchResults";
 import MyProfile from "../pages/Profile"; // <-- importar el perfil
+
 
 export default function App() {
   return (
@@ -37,6 +39,7 @@ export default function App() {
       </Routes>
 
       <Footer />
+      <LoginModal />
       </FloatingAlertProvider>
     </>
   );

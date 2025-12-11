@@ -71,7 +71,7 @@ export default function ProductCard({ product, openProduct }) {
 
       <div className="card-body p-2 px-3">
         <button
-          className="h4 text-body text-dark font-medium bg-transparent border-0 p-0 text-start"
+          className="h6 text-body text-dark font-medium bg-transparent border-0 p-0 text-start"
           onClick={() => openProduct(product.id)}
         >
           {product.title}

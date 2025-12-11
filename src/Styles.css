@@ -943,6 +943,12 @@ footer .btn-icon.btn-social {
 
 
 
+.modal {
+    z-index: 999999;
+}
+.modal-backdrop {
+    z-index: 99999;
+}
 
 .modal-top-cover .end-0 {
     right: -1px !important;
