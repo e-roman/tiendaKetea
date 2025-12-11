@@ -1,4 +1,11 @@
+
+
+import { Link } from "react-router-dom";
+import { useFavorites } from "../../src/hooks/useFavorites";
+
 export default function AccountWhishlist() {
+  const { favorites, toggleFavorite } = useFavorites();
+
   return (
       <>
       <div className="card shadow-none">
@@ -11,192 +18,127 @@ export default function AccountWhishlist() {
         <div className="card-body">
           {/* Form */}
           <form>
-            {/* List Group */}
-            <ul className="list-group list-group-flush list-group-no-gutters">
-              
-              {/* Item */}
-              <li className="list-group-item">
-                <div className="d-flex">
-                  <div className="flex-shrink-0">
-                    <img
-                      className="avatar avatar-xl avatar-4x3"
-                      src="../assets/img/320x320/img2.jpg"
-                      alt="Image Description"
-                    />
+            {favorites.length === 0 && (
+              <p className="text-muted">No tenés productos guardados.</p>
+            )}
+
+            {favorites.map((item) => (
+              <div key={item.id} className="border-bottom pb-5 mb-5">
+                <div className="row">
+
+                  {/* IMAGE + INFO */}
+                  <div className="col-md-6 mb-3 mb-md-0">
+                    <div className="media">
+                      <div className="max-width-15 w-100 me-3">
+                        <img
+                          className="img-fluid"
+                          src={item.image}
+                          alt={item.title}
+                        />
+                      </div>
+
+                      <div className="media-body">
+                        <Link
+                          to={`/product/${item.id}`}
+                          className="text-dark text-decoration-none"
+                        >
+                          <h2 className="h5 mb-1">{item.title}</h2>
+                        </Link>
+
+                        {/* PRECIOS (oldPrice + price) */}
+                        <div className="pricing-meta my-1">
+                          <ul className="d-flex align-items-center p-0 m-0 list-unstyled">
+                            {item.oldPrice && (
+                              <li className="old-price me-2">
+                                ${item.oldPrice.toLocaleString()}
+                              </li>
+                            )}
+                            <li className="current-price font-medium">
+                              ${item.price.toLocaleString()}
+                            </li>
+                          </ul>
+                        </div>
+
+                        {/* BADGES */}
+                        {item.stock ? (
+                          <>
+                            {item.discount > 0 && (
+                              <span className="badge py-1 px-2 badge-yellow me-1">
+                                -{item.discount}%
+                              </span>
+                            )}
+
+                            {item.envioGratis && (
+                              <span className="badge py-1 px-2 bg-dark text-white me-1">
+                                Envío Gratis
+                              </span>
+                            )}
+                          </>
+                        ) : (
+                          <span className="badge py-1 px-2 bg-danger text-white">
+                            Sin Stock
+                          </span>
+                        )}
+
+                        {/* CUSTOM DATA (si existe) */}
+                        {item.gender && (
+                          <div className="text-secondary font-size-1 mt-2">
+                            Género: {item.gender}
+                          </div>
+                        )}
+
+                        {item.color && (
+                          <div className="text-secondary font-size-1">
+                            Color: {item.color}
+                          </div>
+                        )}
+
+                        {item.size && (
+                          <div className="text-secondary font-size-1">
+                            Tamaño: {item.size}
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="flex-grow-1 ms-3">
-                    <div className="row">
-                      <div className="col-sm-7 mb-3 mb-sm-0">
-                        <h5>
-                          <a className="text-dark" href="#">Originals national backpack</a>
-                        </h5>
+                  {/* QUANTITY + REMOVE */}
+                  <div className="col-5 col-md-3 offset-md-1">
+                    <select className="form-select mb-3 w-auto">
+                      {Array.from({ length: 10 }).map((_, i) => (
+                        <option key={i + 1} value={i + 1}>
+                          {i + 1}
+                        </option>
+                      ))}
+                    </select>
 
-                        <div className="d-block d-sm-none">
-                          <h5 className="mb-1">$29.99</h5>
-                        </div>
+                      <button
+                        type="button"
+                        onClick={() => toggleFavorite(item)}
+                        className="d-block text-secondary font-size-1 mb-1 bg-transparent border-0 p-0"
+                      >
+                        <i className="bi bi-trash me-1"></i>
+                        Eliminar
+                      </button>
+                  </div>
 
-                        <div className="d-grid gap-1">
-                          <div className="text-body">
-                            <span className="small">Gender:</span>
-                            <span className="fw-semi-bold small">Men</span>
-                          </div>
-
-                          <div className="text-body">
-                            <span className="small">Color:</span>
-                            <span className="fw-semi-bold small">Grey</span>
-                          </div>
-
-                          <div className="text-body">
-                            <span className="small">Size:</span>
-                            <span className="fw-semi-bold small">One size</span>
-                          </div>
-                        </div>
-                      </div>
-                      {/* End Col */}
-
-                      <div className="col-sm-3">
-                        <div className="row">
-                          <div className="col-auto">
-                            {/* Select */}
-                            <select className="form-select form-select-sm mb-3">
-                              <option value="quantity1">1</option>
-                              <option value="quantity2">2</option>
-                              <option value="quantity3">3</option>
-                              <option value="quantity4">4</option>
-                              <option value="quantity5">5</option>
-                              <option value="quantity6">6</option>
-                              <option value="quantity7">7</option>
-                              <option value="quantity8">8</option>
-                              <option value="quantity9">9</option>
-                              <option value="quantity10">10</option>
-                            </select>
-                            {/* End Select */}
-                          </div>
-
-                          <div className="col-auto">
-                            <div className="d-grid gap-2">
-                              <a className="link-sm link-secondary small" href="javascript:;">
-                                <i className="bi-trash me-1"></i> Eliminar
-                              </a>
-
-                              <a className="link-sm link-secondary small" href="javascript:;">
-                                <i className="bi-heart me-1"></i> Guardar
-                              </a>
-                            </div>
-                          </div>
-                          {/* End Col */}
-                        </div>
-                        {/* End Row */}
-                      </div>
-                      {/* End Col */}
-
-                      <div className="col-4 col-sm-2 d-none d-sm-inline-block text-right">
-                        <span className="h5 d-block mb-1">$29.99</span>
-                      </div>
-                      {/* End Col */}
-                    </div>
-                    {/* End Row */}
+                  {/* PRICE (final individual) */}
+                  <div className="col-6 col-md-2 text-md-right">
+                    <span className="font-medium">
+                      ${item.price.toLocaleString("es-AR")}
+                    </span>
                   </div>
                 </div>
-              </li>
-              {/* End Item */}
+              </div>
+            ))}
 
-              {/* Item */}
-              <li className="list-group-item">
-                <div className="d-flex">
-                  <div className="flex-shrink-0">
-                    <img
-                      className="avatar avatar-xl avatar-4x3"
-                      src="../assets/img/320x320/img3.jpg"
-                      alt="Image Description"
-                    />
-                  </div>
 
-                  <div className="flex-grow-1 ms-3">
-                    <div className="row">
-                      <div className="col-sm-7 mb-3 mb-sm-0">
-                        <h5>
-                          <a className="text-dark" href="#">Vans large image t-shirt</a>
-                        </h5>
-
-                        <div className="d-block d-sm-none">
-                          <h5 className="mb-1">$43.99</h5>
-                        </div>
-
-                        <div className="d-grid gap-1">
-                          <div className="text-body">
-                            <span className="small">Gender:</span>
-                            <span className="fw-semi-bold small">Women</span>
-                          </div>
-
-                          <div className="text-body">
-                            <span className="small">Color:</span>
-                            <span className="fw-semi-bold small">Core Black / Carbon</span>
-                          </div>
-
-                          <div className="text-body">
-                            <span className="small">Size:</span>
-                            <span className="fw-semi-bold small">S</span>
-                          </div>
-                        </div>
-                      </div>
-                      {/* End Col */}
-
-                      <div className="col-sm-3">
-                        <div className="row">
-                          <div className="col-auto">
-                            {/* Select */}
-                            <select className="form-select form-select-sm mb-3">
-                              <option value="quantity1">1</option>
-                              <option value="quantity2">2</option>
-                              <option value="quantity3">3</option>
-                              <option value="quantity4">4</option>
-                              <option value="quantity5">5</option>
-                              <option value="quantity6">6</option>
-                              <option value="quantity7">7</option>
-                              <option value="quantity8">8</option>
-                              <option value="quantity9">9</option>
-                              <option value="quantity10">10</option>
-                            </select>
-                            {/* End Select */}
-                          </div>
-
-                          <div className="col-auto">
-                            <div className="d-grid gap-2">
-                              <a className="link-sm link-secondary small" href="javascript:;">
-                                <i className="bi-trash me-1"></i> Eliminar
-                              </a>
-
-                              <a className="link-sm link-secondary small" href="javascript:;">
-                                <i className="bi-heart me-1"></i> Guardar
-                              </a>
-                            </div>
-                          </div>
-                          {/* End Col */}
-                        </div>
-                        {/* End Row */}
-                      </div>
-                      {/* End Col */}
-
-                      <div className="col-4 col-sm-2 d-none d-sm-inline-block text-right">
-                        <span className="h5 d-block mb-1">$29.99</span>
-                      </div>
-                      {/* End Col */}
-                    </div>
-                    {/* End Row */}
-                  </div>
-                </div>
-              </li>
-              {/* End Item */}
-            </ul>
-            {/* End List Group */}
           </form>
           {/* End Form */}
         </div>
         {/* End Body */}
 
-        <a className="card-footer card-link text-center border-top" href="#">Continuar comprando</a>
+        <Link className="card-footer card-link text-center border-top" to="/">Continuar comprando</Link>
       </div>
 
     </>

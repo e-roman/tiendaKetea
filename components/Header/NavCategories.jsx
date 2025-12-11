@@ -79,10 +79,10 @@ export default function NavCategories({ setShowPriceModal, setShowLogoutModal })
             <Link className="nav-link" to="/">Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/pages/Descuentos">Descuentos</Link>
+            <Link className="nav-link" to="/pages/Novedades">Novedades</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/pages/Novedades">Novedades</Link>
+            <Link className="nav-link" to="/pages/Descuentos">Descuentos</Link>
           </li>
           <li className="nav-item">
             <button className="nav-link bg-transparent border-0" onClick={() => setShowPriceModal(true)}>

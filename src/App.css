@@ -4964,17 +4964,10 @@ fieldset:disabled .btn {
 #alertFav.show {
   pointer-events: auto;
 }
-.alert {
-    position: relative;
+.alert-floating  {
     padding: .55rem .75rem;
-    margin-bottom: 1rem;
-    border: .0625rem solid transparent;
-    border-radius: .5rem;
     font-size: 14px;
-    background-color: #d9d9d9;
-    box-shadow: 1px 3px 9px #0000000f;
-    color: #000 !important;
-}
+} 
 
 .alert-heading {
     color: inherit

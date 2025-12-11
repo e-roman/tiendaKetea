@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 
-export default function accountInvoiceReceiptModal({ onClose }) {
+export default function AccountInvoiceReceiptModal({ onClose }) {
+
   // Cerrar con Escape
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onClose(); };
@@ -58,12 +59,12 @@ export default function accountInvoiceReceiptModal({ onClose }) {
         <div className="row mb-6">
           <div className="col-md-4 mb-3 mb-md-0">
             <small className="text-secondary mb-2 d-block">Monto pagado:</small>
-            <span className="text-dark">$316.8</span>
+            <span className="text-dark">$616.508,00</span>
           </div>
 
           <div className="col-md-4 mb-3 mb-md-0">
             <small className="text-secondary mb-2 d-block">Fecha de pago:</small>
-            <span className="text-dark">Marzo 22, 2022</span>
+            <span className="text-dark">Marzo 22, 2024</span>
           </div>
 
           <div className="col-md-4">
@@ -81,7 +82,7 @@ export default function accountInvoiceReceiptModal({ onClose }) {
           <li className="list-group-item text-dark">
             <div className="d-flex justify-content-between align-items-center">
               <span>Pago</span>
-              <span>$264.00</span>
+              <span>$616.508,00</span>
             </div>
           </li>
 
@@ -95,7 +96,7 @@ export default function accountInvoiceReceiptModal({ onClose }) {
           <li className="list-group-item list-group-item-light text-dark">
             <div className="d-flex justify-content-between align-items-center">
               <span className="font-medium">Monto total pagado</span>
-              <span className="font-medium">$316.8</span>
+              <span className="font-medium">$616.560,08</span>
             </div>
           </li>
         </ul>

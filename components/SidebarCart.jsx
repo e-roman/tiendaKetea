@@ -163,7 +163,7 @@ export default function SidebarCart() {
                       <label className="form-check-label" htmlFor="inputSidebar2">
                         <span className="d-block text-dark font-size-1 font-medium mb-0">Ketea Ramos Mejía</span>
                         <span className="d-block text-muted">
-                          Cnel. Brandsen 2230, B1704DER Ramos Mejía,<br />
+                          Cnel. Brandsen 2230, Ramos Mejía, Buenos Aires.<br />
                           Lun a Vie. de 9 a 18 hrs.
                         </span>
                       </label>

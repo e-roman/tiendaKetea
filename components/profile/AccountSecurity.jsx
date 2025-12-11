@@ -170,7 +170,7 @@ export default function AccountSecurity() {
                         <div className="flex-shrink-0">
                             <img
                             className="avatar avatar-xs avatar-4x3"
-                            src="assets/svg/brands/google-icon.svg"
+                            src="../assets/svg/brands/google-icon.svg"
                             alt="Image Description"
                             />
                         </div>

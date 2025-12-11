@@ -33,8 +33,7 @@ export default function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/buscar/:query" element={<SearchResults />} />
-
-         <Route path="/pages/Profile" element={<MyProfile />} />
+        <Route path="/pages/Profile" element={<MyProfile />} />
       </Routes>
 
       <Footer />

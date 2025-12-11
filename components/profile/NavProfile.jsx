@@ -40,7 +40,12 @@ export default function NavProfile({ onSelect }) {
                     <i className="bi-basket nav-icon"></i> Mis Compras
                   </button>
                 </li>
-
+                <li className="nav-item">
+                  <button className="nav-link btn btn-link text-start"
+                    onClick={() => onSelect("payments")}>
+                    <i class="bi bi-receipt me-2"></i> Compobantes
+                  </button>
+                </li>
                 <li className="nav-item">
                   <button className="nav-link btn btn-link text-start"
                     onClick={() => onSelect("favorites")}>
@@ -62,7 +67,7 @@ export default function NavProfile({ onSelect }) {
                 <li className="nav-item">
                   <button className="nav-link btn btn-link text-start"
                     onClick={() => onSelect("address")}>
-                    <i className="bi-geo-alt nav-icon"></i> Dirección
+                    <i className="bi-geo-alt nav-icon"></i> Dirección de entrega
                   </button>
                 </li>
               </ul>

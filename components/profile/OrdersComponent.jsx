@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 // Subcomponents
 const SearchBar = ({ value, onChange }) => (
@@ -72,7 +73,7 @@ const OrderCard = ({ order }) => (
         <div className="col-md-8">
           <h5>¡Pedido entregado!</h5>
 
-          <div className="row gx-2">
+          <div className="row gx-10">
             {order.imgs.map((src, idx) => (
               <div className="col" key={idx}>
                 <img className="img-fluid" src={src} alt="Producto" />
@@ -102,9 +103,9 @@ const OrderCard = ({ order }) => (
 
 const EmptyState = ({ text }) => (
   <div className="text-center content-space-1">
-    <img className="avatar avatar-xl mb-3" src="./assets/svg/illustrations/empty-cart.svg" alt="Sin datos" />
+    <img className="avatar avatar-xl mb-3" src="../assets/svg/illustrations/empty-cart.svg" alt="Sin datos" />
     <p className="card-text">{text}</p>
-    <button className="btn btn-primary btn-sm rounded-pill px-4">Ir a comprar</button>
+    <Link className="btn btn-primary btn-sm rounded-pill px-4" to="/">Ir a comprar</Link>
   </div>
 );
 
@@ -115,23 +116,23 @@ export default function OrdersModule() {
   const [orders] = useState([
     {
       id: "456853648",
-      total: "$999.00",
+      total: "$103.00",
       nombre: "Francisco Perez",
-      fecha: "30 abril, 2020",
+      fecha: "30 abril, 2023",
       imgs: [
-        "../assets/img/380x400/img3.jpg",
-        "../assets/img/380x400/img7.jpg",
-        "../assets/img/380x400/img8.jpg"
+        "../assets/img/productos/09.webp",
+        "../assets/img/productos/12.webp",
+        "../assets/img/productos/13.webp"
       ]
     },
     {
       id: "555888111",
-      total: "$500.00",
+      total: "$2.520.00",
       nombre: "Carlos Gomez",
-      fecha: "12 mayo, 2020",
+      fecha: "12 mayo, 2024",
       imgs: [
-        "../assets/img/380x400/img7.jpg",
-        "../assets/img/380x400/img3.jpg"
+        "../assets/img/productos/01.webp",
+        "../assets/img/productos/02.webp"
       ]
     }
   ]);

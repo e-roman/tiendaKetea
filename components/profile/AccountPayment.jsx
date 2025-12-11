@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenInvoice }) {
 
@@ -139,13 +140,10 @@ export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenIn
         {/* End Card */}
 
         {/* Card */}
-        <div className="card shadow-none">
-          {/* Header */}
+        {/* <div className="card shadow-none">
           <div className="card-header">
             <h5 className="card-header-title">Historial de Pedidos</h5>
           </div>
-
-          {/* Table */}
           <div className="table-responsive">
             <table className="table table-borderless table-thead-bordered table-nowrap table-align-middle">
               <thead className="thead-light">
@@ -166,9 +164,9 @@ export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenIn
                   <td>$264</td>
                   <td>22/04/2020</td>
                   <td>
-                    <a className="btn btn-white btn-xs" href="./page-invoice.html">
+                    <Link className="btn btn-white btn-xs" to="#">
                       <i className="bi-file-earmark-arrow-down-fill me-1"></i> PDF
-                    </a>
+                    </Link>
                   </td>
                   <td>
                     <button
@@ -187,9 +185,9 @@ export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenIn
                   <td>$264</td>
                   <td>22/04/2019</td>
                   <td>
-                    <a className="btn btn-white btn-xs" href="./page-invoice.html">
+                    <Link className="btn btn-white btn-xs" to="#">
                       <i className="bi-file-earmark-arrow-down-fill me-1"></i> PDF
-                    </a>
+                    </Link>
                   </td>
                   <td>
                     <button
@@ -208,9 +206,9 @@ export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenIn
                   <td>$264</td>
                   <td>22/04/2018</td>
                   <td>
-                    <a className="btn btn-white btn-xs" href="./page-invoice.html">
+                    <Link className="btn btn-white btn-xs" to="#">
                       <i className="bi-file-earmark-arrow-down-fill me-1"></i> PDF
-                    </a>
+                    </Link>
                   </td>
                   <td>
                     <button
@@ -225,8 +223,7 @@ export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenIn
               </tbody>
             </table>
           </div>
-          {/* End Table */}
-        </div>
+        </div> */}
         {/* End Card */}
 
       </div>

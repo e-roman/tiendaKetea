@@ -10,6 +10,7 @@ import AccountInvoiceReceiptModal from "../components/modals/AccountInvoiceRecei
 import AccountAddress from "../components/profile/AccountAddress";
 import AccountNotifications from "../components/profile/AccountNotifications";
 import AccountOrders from "../components/profile/AccountOrders";
+import AccountHistoryPayments from "../components/profile/AccountHistoryPayments";
 import AccountSecurity from "../components/profile/AccountSecurity";
 import AccountWhishlist from "../components/profile/AccountWhishlist";
 import AccountPayment from "../components/profile/AccountPayment";
@@ -28,6 +29,7 @@ export default function MyProfile() {
     notifications: { section: "Mi Cuenta", title: "Notificaciones" },
 
     orders: { section: "Compras", title: "Mis Compras" },
+    payments: { section: "Comprobantes", title: "Mis Compras" },
     favorites: { section: "Compras", title: "Favoritos" },
 
     payment: { section: "Pago", title: "Métodos de Pago" },
@@ -51,7 +53,6 @@ export default function MyProfile() {
           <AccountPayment
             onOpenAddCard={() => setShowAddCard(true)}
             onOpenEditCard={() => setShowEditCard(true)}
-            onOpenInvoice={() => setShowInvoiceModal(true)}
           />
         );
 
@@ -63,6 +64,10 @@ export default function MyProfile() {
         return <AccountNotifications />;
       case "orders":
         return <AccountOrders />;
+      case "payments":
+        return <AccountHistoryPayments 
+          onOpenInvoice={() => setShowInvoiceModal(true)}
+        />;
       case "favorites":
         return <AccountWhishlist />;
       case "address":
@@ -74,6 +79,7 @@ export default function MyProfile() {
 
   return (
     <>
+    <div className="bg-light">
       {/* HEADER CON BREADCRUMB DINÁMICO */}
       <div className="navbar-dark bg-dark">
         <div className="container content-space-1 content-space-b-lg-3">
@@ -121,6 +127,7 @@ export default function MyProfile() {
           )}
         </div>
       </div>
+    </div>
     </>
   );
 }
