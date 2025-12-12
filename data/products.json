@@ -15,7 +15,9 @@
     "cuotasLabelBadge": "Hasta 12 cuotas",
     "cuotasLabel": "Hasta 12 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.354.185",
-    "taxLabel": "Impuestos Nacionales aprox. $852,136"
+    "taxLabel": "Impuestos Nacionales aprox. $852,136",
+    "isFeatured": false,
+    "date": "2024-09-01"
   },
   {
     "id": 2,
@@ -33,7 +35,9 @@
     "cuotasLabelBadge": "Hasta 12 cuotas",
     "cuotasLabel": "Hasta 12 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $692.685",
-    "taxLabel": "Impuestos Nacionales aprox. $436,392"
+    "taxLabel": "Impuestos Nacionales aprox. $436,392",
+    "isFeatured": false,
+    "date": "2024-10-20"
   },
   {
     "id": 3,
@@ -51,8 +55,11 @@
     "cuotasLabelBadge": "Hasta 12 cuotas",
     "cuotasLabel": "Hasta 12 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.914.000",
-    "taxLabel": "Impuestos Nacionales aprox. $1,205,820"
+    "taxLabel": "Impuestos Nacionales aprox. $1,205,820",
+    "isFeatured": false,
+    "date": "2024-09-15"
   },
+
   {
     "id": 4,
     "slug": "robot-limpia-piscinas-dolphin-wave-90i",
@@ -69,8 +76,11 @@
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $2.330.685",
-    "taxLabel": "Impuestos Nacionales aprox. $1,467,331"
+    "taxLabel": "Impuestos Nacionales aprox. $1,467,331",
+    "isFeatured": true,
+    "date": "2024-12-01"
   },
+
   {
     "id": 5,
     "slug": "robot-limpia-piscinas-sin-cable-dolphin-liberty-300",
@@ -87,8 +97,11 @@
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.291.185",
-    "taxLabel": "Impuestos Nacionales aprox. $811,447"
+    "taxLabel": "Impuestos Nacionales aprox. $811,447",
+    "isFeatured": true,
+    "date": "2024-11-25"
   },
+
   {
     "id": 6,
     "slug": "robot-limpia-piscinas-sin-cable-dolphin-liberty-200",
@@ -105,8 +118,11 @@
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.102.185",
-    "taxLabel": "Impuestos Nacionales aprox. $693,377"
+    "taxLabel": "Impuestos Nacionales aprox. $693,377",
+    "isFeatured": true,
+    "date": "2024-11-22"
   },
+
   {
     "id": 7,
     "slug": "robot-limpia-piscinas-dolphin-m700",
@@ -123,8 +139,11 @@
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $2.078.685",
-    "taxLabel": "Impuestos Nacionales aprox. $1,309,571"
+    "taxLabel": "Impuestos Nacionales aprox. $1,309,571",
+    "isFeatured": false,
+    "date": "2024-08-10"
   },
+
   {
     "id": 8,
     "slug": "robot-limpia-piscinas-dolphin-s400i",
@@ -141,8 +160,11 @@
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.480.185",
-    "taxLabel": "Impuestos Nacionales aprox. $932,516"
+    "taxLabel": "Impuestos Nacionales aprox. $932,516",
+    "isFeatured": false,
+    "date": "2024-08-01"
   },
+
   {
     "id": 9,
     "slug": "robot-limpia-piscinas-dolphin-m600",
@@ -159,8 +181,11 @@
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $1.889.685",
-    "taxLabel": "Impuestos Nacionales aprox. $1,190,501"
+    "taxLabel": "Impuestos Nacionales aprox. $1,190,501",
+    "isFeatured": false,
+    "date": "2024-07-28"
   },
+
   {
     "id": 10,
     "slug": "robot-limpia-piscinas-dolphin-s200",
@@ -174,11 +199,14 @@
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
-    "cuotasLabelBadge": "Hasta 3 cuotas",
+    "cuotasLabelBadge": "",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $923.720",
-    "taxLabel": "Impuestos Nacionales aprox. $582,045"
+    "taxLabel": "Impuestos Nacionales aprox. $582,045",
+    "isFeatured": false,
+    "date": "2024-07-12"
   },
+
   {
     "id": 11,
     "slug": "robot-limpia-piscinas-dolphin-s100",
@@ -195,8 +223,11 @@
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "Hasta 3x $837.585",
-    "taxLabel": "Impuestos Nacionales aprox. $525,579"
+    "taxLabel": "Impuestos Nacionales aprox. $525,579",
+    "isFeatured": false,
+    "date": "2024-07-01"
   },
+
   {
     "id": 12,
     "slug": "robot-limpia-piscinas-dolphin-2x2-pro-gyro-olimpico",
@@ -212,8 +243,11 @@
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 6 cuotas sin interés",
     "installmentsLabel": "Hasta 6x $2.897.842",
-    "taxLabel": "Impuestos Nacionales aprox. $3,650,181"
+    "taxLabel": "Impuestos Nacionales aprox. $3,650,181",
+    "isFeatured": true,
+    "date": "2024-11-27"
   },
+
   {
     "id": 13,
     "slug": "robot-cortacesped-automower-am305",
@@ -229,6 +263,8 @@
     "accionamiento": "Batería",
     "cuotasLabel": "",
     "installmentsLabel": "",
-    "taxLabel": "Impuestos Nacionales $0"
+    "taxLabel": "Impuestos Nacionales $0",
+    "isFeatured": false,
+    "date": "2024-06-15"
   }
 ]

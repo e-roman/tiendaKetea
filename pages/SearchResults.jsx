@@ -77,35 +77,54 @@ export default function SearchResults() {
   // ----------------------------
   // ORDENAMIENTO
   // ----------------------------
-  const results = useMemo(() => {
-    const ordered = [...filteredResults];
+const results = useMemo(() => {
+  const ordered = [...filteredResults];
 
-    switch (sort) {
-      case "price_low":
-        ordered.sort((a, b) => a.price - b.price);
-        break;
+  switch (sort) {
+    case "price_low":
+      ordered.sort((a, b) => a.price - b.price);
+      break;
 
-      case "price_high":
-        ordered.sort((a, b) => b.price - a.price);
-        break;
+    case "price_high":
+      ordered.sort((a, b) => b.price - a.price);
+      break;
 
-      case "az":
-        ordered.sort((a, b) => a.title.localeCompare(b.title));
-        break;
+    case "az":
+      ordered.sort((a, b) => a.title.localeCompare(b.title));
+      break;
 
-      case "za":
-        ordered.sort((a, b) => b.title.localeCompare(a.title));
-        break;
+    case "za":
+      ordered.sort((a, b) => b.title.localeCompare(a.title));
+      break;
 
-      case "popular":
-      case "new":
-      case "featured":
-      default:
-        break;
-    }
+    // Más populares (NO tienes views en tu JSON)
+    case "popular":
+      ordered.sort((a, b) => (b.views || 0) - (a.views || 0));
+      break;
 
-    return ordered;
-  }, [filteredResults, sort]);
+    // Más recientes → usa DATE real del JSON
+    case "new":
+      ordered.sort((a, b) => new Date(b.date) - new Date(a.date));
+      break;
+
+    // Mayor descuento
+    case "discount":
+      ordered.sort((a, b) => (b.discount || 0) - (a.discount || 0));
+      break;
+
+    // Destacados → usa isFeatured del JSON
+    case "featured":
+      ordered.sort((a, b) => (b.isFeatured === true) - (a.isFeatured === true));
+      break;
+
+    default:
+      break;
+  }
+
+  return ordered;
+}, [filteredResults, sort]);
+
+
 
   // ----------------------------
   // HANDLERS
@@ -273,12 +292,13 @@ export default function SearchResults() {
                       onChange={(e) => setSort(e.target.value)}
                     >
                       <option value="featured">Destacados</option>
-                      <option value="popular">Más recientes</option>
+                      <option value="new">Más recientes</option>
                       <option value="price_low">Precio más bajo</option>
                       <option value="price_high">Precio más alto</option>
-                      <option value="new">Con descuento</option>
+                      <option value="discount">Con descuento</option>
                       <option value="az">A - Z</option>
                       <option value="za">Z - A</option>
+
                     </select>
                   </div>
 
