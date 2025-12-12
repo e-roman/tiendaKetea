@@ -177,26 +177,32 @@ const results = useMemo(() => {
         <div className="row">
 
           {/* LATERAL FILTROS */}
-          <div className="col-lg-3">
+          <div className="col-lg-3 pt-md-2 ps-md-5">
 
-            <div className="border-bottom pb-4 mb-4">
+            {/* PRECIO */}
+            <div className="border-bottom pb-2 mb-3">
               <h5 className="pb-2">Precio</h5>
 
-              <input
-                type="number"
-                className="form-control mb-2"
-                placeholder="Desde $"
-                value={filters.precioMin}
-                onChange={(e) => setFilters({ ...filters, precioMin: e.target.value })}
-              />
-
-              <input
-                type="number"
-                className="form-control"
-                placeholder="Hasta $"
-                value={filters.precioMax}
-                onChange={(e) => setFilters({ ...filters, precioMax: e.target.value })}
-              />
+              <div className="d-flex gap-2">
+                <div>
+                  <input
+                    type="number"
+                    className="form-control mb-2"
+                    placeholder="Desde $"
+                    value={filters.precioMin}
+                    onChange={(e) => setFilters({ ...filters, precioMin: e.target.value })}
+                  />
+                </div>
+                <div>
+                  <input
+                    type="number"
+                    className="form-control"
+                    placeholder="Hasta $"
+                    value={filters.precioMax}
+                    onChange={(e) => setFilters({ ...filters, precioMax: e.target.value })}
+                  />
+                </div>
+              </div>
             </div>
 
             {/* MARCA */}
@@ -205,12 +211,15 @@ const results = useMemo(() => {
               {marcas.map((m) => (
                 <div className="form-check" key={m}>
                   <input
+                    id={`marca-${m}`}
                     className="form-check-input"
                     type="checkbox"
                     checked={filters.marcas.includes(m)}
                     onChange={() => toggleFilter("marcas", m)}
                   />
-                  <label className="form-check-label">{m}</label>
+                  <label className="form-check-label" htmlFor={`marca-${m}`}>
+                    {m}
+                  </label>
                 </div>
               ))}
             </div>
@@ -221,12 +230,15 @@ const results = useMemo(() => {
               {accionamientos.map((a) => (
                 <div className="form-check" key={a}>
                   <input
+                    id={`accion-${a}`}
                     className="form-check-input"
                     type="checkbox"
                     checked={filters.accionamiento.includes(a)}
                     onChange={() => toggleFilter("accionamiento", a)}
                   />
-                  <label className="form-check-label">{a}</label>
+                  <label className="form-check-label" htmlFor={`accion-${a}`}>
+                    {a}
+                  </label>
                 </div>
               ))}
             </div>
@@ -237,12 +249,15 @@ const results = useMemo(() => {
               {descuentos.map((d) => (
                 <div className="form-check" key={d}>
                   <input
+                    id={`desc-${d}`}
                     className="form-check-input"
                     type="checkbox"
                     checked={filters.descuentos.includes(d)}
                     onChange={() => toggleFilter("descuentos", d)}
                   />
-                  <label className="form-check-label">{d}% OFF</label>
+                  <label className="form-check-label" htmlFor={`desc-${d}`}>
+                    {d}% OFF
+                  </label>
                 </div>
               ))}
             </div>
@@ -253,12 +268,15 @@ const results = useMemo(() => {
               {categorias.map((c) => (
                 <div className="form-check" key={c}>
                   <input
+                    id={`cat-${c}`}
                     className="form-check-input"
                     type="checkbox"
                     checked={filters.categorias.includes(c)}
                     onChange={() => toggleFilter("categorias", c)}
                   />
-                  <label className="form-check-label">{c}</label>
+                  <label className="form-check-label" htmlFor={`cat-${c}`}>
+                    {c}
+                  </label>
                 </div>
               ))}
             </div>
@@ -274,7 +292,8 @@ const results = useMemo(() => {
 
           {/* RESULTADOS */}
           <div className="col-lg-9">
-          <div className="row align-items-center mb-5">
+          <div className="row align-items-center mb-3">
+            
             <div className="col-sm mb-3 mb-sm-0">
               <h6 className="mb-0">{results.length} productos</h6>
             </div>
@@ -323,18 +342,20 @@ const results = useMemo(() => {
                 {/*!-- End Nav --*/}
               </div>
             </div>
+
+            <div className="col-12"><hr/></div>
           </div>
 
 
 
-            <div className="row row-cols-sm-2 row-cols-md-3 mb-10">
+            <div className="row row-cols-sm-2 row-cols-md-3 mb-10 gx-3">
 
               {results.length === 0 && (
                 <p>No hay productos que coincidan con los filtros.</p>
               )}
 
               {results.map((p) => (
-                <div className="col mb-4" key={p.id}>
+                <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-4" key={p.id}>
                   <ProductCard product={p} openProduct={openProduct} />
                 </div>
               ))}

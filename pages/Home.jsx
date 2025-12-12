@@ -16,7 +16,7 @@ export default function Home() {
 
   // Filtrar productos por categorías
   const destacados = products.filter((p) => p.categories.includes("destacados"));
-  const blackFriday = products.filter((p) => p.categories.includes("BlackFriday"));
+  const ofertas = products.filter((p) => p.categories.includes("ofertas"));
 
   return (
     <>
@@ -78,7 +78,7 @@ export default function Home() {
         </div>
 
         <div className="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-4 mb-3">
-          {blackFriday.map((p) => (
+          {ofertas.map((p) => (
             <div className="col" key={p.id}>
               <ProductCard product={p} openProduct={openProduct} />
             </div>
