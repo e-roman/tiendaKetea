@@ -13,7 +13,7 @@ import "./Styles.css";
 import { CartProvider } from "./hooks/useCart.jsx";
 import { FavoritesProvider } from "./hooks/useFavorites.jsx";
 import { FloatingAlertProvider } from "./context/FloatingAlertContext";
-import { AuthProvider } from "./context/AuthContext"; // <-- AGREGADO
+import { AuthProvider } from "./context/AuthContext"; 
 
 import ScrollToTop from "../components/ScrollTop";
 

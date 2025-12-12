@@ -13,10 +13,10 @@ export default function AlertFloating() {
       className={`alert-floating alert alert-${alert.type}`}
       style={{
         position: "fixed",
-        top: "10%",
+        top: "4%",
         left:"inherit",
-        right: "0%",
-        transform: "translateX(-50%)",
+        right: "2%",
+        transform: "translateX(0%)",
         zIndex: 9999999,
       }}
     >

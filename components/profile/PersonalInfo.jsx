@@ -69,7 +69,7 @@ export default function PersonalInfo() {
                             <input type="text" className="form-control" name="phone" id="phoneLabel" placeholder="+x(xxx)xxx-xx-xx" aria-label="+x(xxx)xxx-xx-xx" defaultValue="+54(11)5618929"/>
 
                             <div className="tom-select-custom">
-                              <select className="js-select form-select" name="phoneSelect" defaultValue="aaaaaa">
+                              <select className="js-select form-select" name="phoneSelect" defaultValue="Celular">
                                 <option defaultValue="Mobile">Celular</option>
                                 <option defaultValue="Home">Casa</option>
                                 <option defaultValue="Work">Trabajo</option>
@@ -94,7 +94,7 @@ export default function PersonalInfo() {
 
                       {/*!-- Select --*/}
                       <div className="tom-select-custom">
-                        <select className="form-select" data-name="additionlPhoneSelect">
+                        <select className="form-select" data-name="additionlPhoneSelect" defaultValue="Celular">
                             <option defaultValue="Mobile">Celular</option>
                             <option defaultValue="Home">Casa</option>
                             <option defaultValue="Work">Trabajo</option>
@@ -145,9 +145,9 @@ export default function PersonalInfo() {
                     <div className="col-sm-9">
                       {/*!-- Select --*/}
                       <div className="tom-select-custom mb-3">
-                          <select className="js-select form-select" id="locationLabel" defaultValue="aaaaaa">
+                          <select className="js-select form-select" id="locationLabel" defaultValue="Buenos Aires">
                             <option label="Buenos Aires"></option>
-                              <option selected defaultValue="AR-B" data-option-template='<span className="d-flex align-items-center"><span className="text-truncate">Buenos Aires</span></span>'>Buenos Aires</option>
+                              <option defaultValue="AR-B" data-option-template='<span className="d-flex align-items-center"><span className="text-truncate">Buenos Aires</span></span>'>Buenos Aires</option>
                               <option defaultValue="AR-K" data-option-template='<span className="d-flex align-items-center"><span className="text-truncate">Catamarca</span></span>'>Catamarca</option>
                               <option defaultValue="AR-H" data-option-template='<span className="d-flex align-items-center"><span className="text-truncate">Chaco</span></span>'>Chaco</option>
                               <option defaultValue="AR-U" data-option-template='<span className="d-flex align-items-center"><span className="text-truncate">Chubut</span></span>'>Chubut</option>

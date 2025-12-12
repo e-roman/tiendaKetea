@@ -7,7 +7,7 @@ export default function SearchResults() {
   const { query } = useParams();
   const navigate = useNavigate();
 
-  const openProduct = (id) => navigate(`/product/${id}`);
+  const openProduct = (slug) => navigate(`/product/${slug}`);
 
   const searchTerm = query.toLowerCase().trim();
 
@@ -23,6 +23,9 @@ export default function SearchResults() {
     precioMax: ""
   });
 
+  // Ordenamiento
+  const [sort, setSort] = useState("featured");
+
   // ----------------------------
   // OPCIONES DINÁMICAS
   // ----------------------------
@@ -34,42 +37,35 @@ export default function SearchResults() {
   // ----------------------------
   // APLICAR FILTROS
   // ----------------------------
-  const results = useMemo(() => {
+  const filteredResults = useMemo(() => {
     return productsData.filter((p) => {
       const title = p.title?.toLowerCase() || "";
       const catLower = (p.categories || []).map(c => c.toLowerCase());
 
-      // Búsqueda por texto
       if (!title.includes(searchTerm) && !catLower.some(c => c.includes(searchTerm))) {
         return false;
       }
 
-      // Filtro precio mínimo
       if (filters.precioMin && p.price < Number(filters.precioMin)) {
         return false;
       }
 
-      // Filtro precio máximo
       if (filters.precioMax && p.price > Number(filters.precioMax)) {
         return false;
       }
 
-      // Filtro marca
       if (filters.marcas.length > 0 && !filters.marcas.includes(p.Marca)) {
         return false;
       }
 
-      // Filtro categorías
       if (filters.categorias.length > 0 && !p.categories?.some(cat => filters.categorias.includes(cat))) {
         return false;
       }
 
-      // Filtro accionamiento
       if (filters.accionamiento.length > 0 && !filters.accionamiento.includes(p.accionamiento)) {
         return false;
       }
 
-      // Filtro descuento
       if (filters.descuentos.length > 0 && !filters.descuentos.includes(p.discount)) {
         return false;
       }
@@ -77,6 +73,39 @@ export default function SearchResults() {
       return true;
     });
   }, [searchTerm, filters]);
+
+  // ----------------------------
+  // ORDENAMIENTO
+  // ----------------------------
+  const results = useMemo(() => {
+    const ordered = [...filteredResults];
+
+    switch (sort) {
+      case "price_low":
+        ordered.sort((a, b) => a.price - b.price);
+        break;
+
+      case "price_high":
+        ordered.sort((a, b) => b.price - a.price);
+        break;
+
+      case "az":
+        ordered.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+
+      case "za":
+        ordered.sort((a, b) => b.title.localeCompare(a.title));
+        break;
+
+      case "popular":
+      case "new":
+      case "featured":
+      default:
+        break;
+    }
+
+    return ordered;
+  }, [filteredResults, sort]);
 
   // ----------------------------
   // HANDLERS
@@ -111,7 +140,17 @@ export default function SearchResults() {
       {/* BREADCRUMB */}
       <div className="bg-light">
         <div className="container py-4">
-          <h4 className="mb-0">Resultados para: "{query}"</h4>
+          <div className="d-flex align-items-center justify-content-between">
+            <div>
+              <nav aria-label="breadcrumb">
+                <ol className="breadcrumb mb-0">
+                  <li className="breadcrumb-item"><span>Home</span></li>
+                  <li className="breadcrumb-item"><span>Buscar</span></li>
+                  <li className="breadcrumb-item active" aria-current="page">Resultados de la búsqueda: <b>"{query}"</b></li>
+                </ol>
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -212,8 +251,62 @@ export default function SearchResults() {
 
           </div>
 
+
+
           {/* RESULTADOS */}
           <div className="col-lg-9">
+          <div className="row align-items-center mb-5">
+            <div className="col-sm mb-3 mb-sm-0">
+              <h6 className="mb-0">{results.length} productos</h6>
+            </div>
+
+            <div className="col-sm-auto">
+              <div className="d-sm-flex justify-content-sm-end align-items-center">
+                {/*!-- Select --*/}
+                <div className="d-flex align-items-center gap-2 mb-2 mb-sm-0 me-sm-2">
+                  {/*!-- Select Wrapper --*/}
+                  <div>Ordenar por</div>
+                  <div className="filters-seleet" style={{minWidth: "190px"}}>
+                    <select
+                      className="form-select"
+                      value={sort}
+                      onChange={(e) => setSort(e.target.value)}
+                    >
+                      <option value="featured">Destacados</option>
+                      <option value="popular">Más recientes</option>
+                      <option value="price_low">Precio más bajo</option>
+                      <option value="price_high">Precio más alto</option>
+                      <option value="new">Con descuento</option>
+                      <option value="az">A - Z</option>
+                      <option value="za">Z - A</option>
+                    </select>
+                  </div>
+
+                    {/*!-- End Select --*/}
+                </div>
+                {/*!-- End Select --*/}
+
+
+                {/*!-- Nav --*/}
+                <ul className="nav nav-segment">
+                  <li className="nav-item">
+                    <a className="nav-link active" href="#">
+                      <i className="bi-grid-fill"></i>
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="#">
+                      <i className="bi-list"></i>
+                    </a>
+                  </li>
+                </ul>
+                {/*!-- End Nav --*/}
+              </div>
+            </div>
+          </div>
+
+
+
             <div className="row row-cols-sm-2 row-cols-md-3 mb-10">
 
               {results.length === 0 && (

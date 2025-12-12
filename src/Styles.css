@@ -104,11 +104,14 @@ button.btn-search {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #28499e;
+    color: #e6e9f9;
+    border-color: transparent;
 }
 
 .input-subscribe input {
     background: transparent;
-    padding-left: 30px;
+    padding-left: 20px;
     line-height: 25px;
     font-size: 1rem;
 }
@@ -136,12 +139,12 @@ button.btn-search {
 }
 
 #floatingAlert.alert {
-  position: fixed;
-  top: 50px;
-  right: 100px;
-  z-index: 999999999999999!important;
-  pointer-events: auto;
-      padding: .55rem .75rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999999999999999!important;
+    pointer-events: auto;
+    padding: .55rem .75rem;
     margin-bottom: 1rem;
     border: .0625rem solid transparent;
     border-radius: .5rem;
@@ -1118,4 +1121,9 @@ footer .btn-icon.btn-social {
 }
 .u-divider::after {
     margin-left: .625rem;
+}
+
+
+#specifications {
+    font-size: 14px;
 }

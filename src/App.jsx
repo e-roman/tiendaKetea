@@ -14,6 +14,8 @@ import Checkout from "../pages/Checkout";
 import ProductPage from "../pages/Product";
 import SearchResults from "../pages/SearchResults";
 import MyProfile from "../pages/Profile";
+import NovedadesPage from "../pages/Novedades";
+import DescuentosPage from "../pages/Descuentos";
 
 export default function App() {
   return (
@@ -25,6 +27,10 @@ export default function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
+
+        <Route path="/novedades" element={<NovedadesPage />} />
+
+        <Route path="/descuentos" element={<DescuentosPage />} />
 
         {/* Página de producto por SLUG (corregido) */}
         <Route path="/product/:slug" element={<ProductPage />} />

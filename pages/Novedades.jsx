@@ -2,12 +2,9 @@ import { useNavigate } from "react-router-dom";
 import products from "../data/products.json";
 import ProductCard from "../components/ProductCard";
 
-import HeroSlider from "../components/HeroSlider";
-import BlockServices from "../components/BlockServices";
 import Suscribe from "../components/Suscribe";
-import BrandsLogos from "../components/BrandsLogos";
 
-export default function Home() {
+export default function NovedadesPage() {
   const navigate = useNavigate();
 
   const openProduct = (slug) => {
@@ -16,19 +13,42 @@ export default function Home() {
 
   // Filtrar productos por categorías
   const destacados = products.filter((p) => p.categories.includes("destacados"));
-  const blackFriday = products.filter((p) => p.categories.includes("BlackFriday"));
 
   return (
     <>
-      <HeroSlider />
-      <BlockServices />
+
+      {/* <div class="container content-space-1 content-space-b-lg-0 bg-dark">
+        <div class="row align-items-center">
+          <div class="col">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb breadcrumb-light mb-0">
+                <li class="breadcrumb-item">Novedades</li>
+                <li class="breadcrumb-item active" aria-current="page">Favoritos</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div> */}
+
+
+      {/* Banners */}
+      <div className="container-fluid ps-0 content-space-t-0 content-space-b-0 content-space-lg-b-0 content-space-lg-t-0">
+        <div className="row g-3 row-cols-1 row-cols-md-1">
+          <div className="col mb-4 mb-md-0">
+            <div className="bg-img-start" style={{backgroundImage: "url(assets/img/900x900/img3.jpg)", minHeight: "24rem"}}>
+              <div className="card-body">
+                {/* <span className="card-subtitle text-danger">Descuento del mes</span>
+                <h2 className="card-title display-4">30% OFF</h2> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
 
       {/* Productos Destacados */}
-      <div className="container content-space-2 content-space-lg-2">
-        <div className="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-          <h2>Novedades</h2>
-        </div>
-
+      <div className="container content-space-1 content-space-lg-1">
         <div className="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-4 ">
           {destacados.map((p) => (
             <div className="col" key={p.id}>
@@ -40,7 +60,7 @@ export default function Home() {
 
 
       {/* Banners */}
-      <div className="container">
+      <div className="container content-space-t-0 content-space-b-1 content-space-lg-b-2 content-space-lg-t-0">
         <div className="row g-3 row-cols-1 row-cols-md-2">
           <div className="col mb-4 mb-md-0">
             <div className="card card-lg bg-img-start" style={{backgroundImage: "url(assets/img/900x900/img3.jpg)", minHeight: "24rem"}}>
@@ -70,24 +90,7 @@ export default function Home() {
       </div>
 
 
-
-      {/* Black Friday */}
-      <div className="container content-space-2 content-space-lg-3" id="discoutnSection">
-        <div className="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-          <h2>Descuentos</h2>
-        </div>
-
-        <div className="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-4 mb-3">
-          {blackFriday.map((p) => (
-            <div className="col" key={p.id}>
-              <ProductCard product={p} openProduct={openProduct} />
-            </div>
-          ))}
-        </div>
-      </div>
-
       <Suscribe />
-      <BrandsLogos />
     </>
   );
 }

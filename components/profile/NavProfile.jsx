@@ -43,7 +43,7 @@ export default function NavProfile({ onSelect }) {
                 <li className="nav-item">
                   <button className="nav-link btn btn-link text-start"
                     onClick={() => onSelect("payments")}>
-                    <i class="bi bi-receipt me-2"></i> Compobantes
+                    <i className="bi bi-receipt me-2"></i> Compobantes
                   </button>
                 </li>
                 <li className="nav-item">

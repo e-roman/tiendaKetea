@@ -12,7 +12,9 @@ export default function ProductGallery({ images = [] }) {
       : [
           "/assets/img/product-detail/detail-1.webp",
           "/assets/img/product-detail/detail-2.webp",
-          "/assets/img/product-detail/detail-1.webp",
+          "/assets/img/product-detail/detail-4.png",
+          "/assets/img/product-detail/detail-3.png",
+          "/assets/img/product-detail/detail-3.jpeg",
         ];
 
   const handleZoomClick = () => {

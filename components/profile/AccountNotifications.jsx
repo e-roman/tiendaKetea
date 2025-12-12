@@ -7,9 +7,9 @@ export default function AccountNotificactions() {
           <div className="card-header d-flex justify-content-between align-items-center border-bottom">
             <h4 className="card-header-title">Notificaciones</h4>
 
-            <a id="toggleAll1" class="btn btn-white btn-sm btn-toggle" href="#" style={{position: "absolute", right: "30px"}}>
-                  <span class="btn-toggle-default">Activar todas</span>
-                  <span class="btn-toggle-toggled">Desaactivar todas</span>
+            <a id="toggleAll1" className="btn btn-white btn-sm btn-toggle" href="#" style={{position: "absolute", right: "30px"}}>
+                  <span className="btn-toggle-default">Activar todas</span>
+                  <span className="btn-toggle-toggled">Desaactivar todas</span>
                 </a>
           </div>
           {/* End Header */}

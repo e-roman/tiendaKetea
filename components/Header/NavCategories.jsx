@@ -83,10 +83,10 @@ export default function NavCategories({ setShowPriceModal, setShowLogoutModal })
             <Link className="nav-link" to="/">Home</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/pages/Novedades">Novedades</Link>
+            <Link className="nav-link" to="/Novedades">Novedades</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/pages/Descuentos">Descuentos</Link>
+            <Link className="nav-link" to="/Descuentos">Descuentos</Link>
           </li>
           <li className="nav-item">
             <button className="nav-link bg-transparent border-0" onClick={() => setShowPriceModal(true)}>
@@ -94,10 +94,10 @@ export default function NavCategories({ setShowPriceModal, setShowLogoutModal })
             </button>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/pages/Sucursales">Sucursales</Link>
+            <Link className="nav-link" to="/Sucursales">Sucursales</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/pages/Contacto">Contacto</Link>
+            <Link className="nav-link" to="/Contacto">Contacto</Link>
           </li>
 
           {/* Perfil */}

@@ -5,7 +5,10 @@ import productsData from "../data/products.json";
 
 import ProductGallery from "../components/Product/ProductGallery";
 import ProductDetail from "../components/Product/ProductDetail";
+
 import ProductSpecificationsBlocks from "../components/Product/ProductSpecificationsBlocks";
+import ProductSpecifications from "../components/Product/ProductSpecifications";
+
 import ProductsOthers from "../components/Product/ProductsOthers";
 
 import { useFloatingAlert } from "../src/context/FloatingAlertContext";
@@ -47,14 +50,14 @@ export default function ProductPage() {
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <a href={`/categoria/${category.toLowerCase()}`}>
+                  <span>
                     {category}
-                  </a>
+                  </span>
                 </li>
                 <li className="breadcrumb-item">
-                  <a href={`/categoria/${category.toLowerCase()}/${subcategory.toLowerCase()}`}>
+                  <span>
                     {subcategory}
-                  </a>
+                  </span>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   {product.title}
