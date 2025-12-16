@@ -7,6 +7,7 @@ import SidebarCart from "../components/SidebarCart";
 import { FloatingAlertProvider } from "../src/context/FloatingAlertContext";
 import AlertFloating from "../components/AlertFloating";
 import LoginModal from "../components/Modals/LogIn";
+import SupportChat from "../components/SupportChat";
 
 import Home from "../pages/Home";
 import Cart from "../pages/Cart";
@@ -43,6 +44,7 @@ export default function App() {
 
       <Footer />
       <LoginModal />
+      <SupportChat />
     </FloatingAlertProvider>
   );
 }

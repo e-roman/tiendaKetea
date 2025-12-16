@@ -3,10 +3,10 @@ import { useState } from "react";
 // src/components/header/MainHeader.jsx
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useCart } from "../../src/hooks/useCart";
+import { useCart } from "../../../src/hooks/useCart";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 import Select from "react-select"; // <- Import react-select
-import products from "../../data/products.json"; // A
+import products from "../../../data/products.json"; // A
 
 
 
@@ -92,7 +92,7 @@ export default function MainHeader() {
         </Link>
 
        {/* BUSCADOR */}
-        <div className="flex-grow-1 ps-4 pe-10 d-none d-md-block">
+        <div className="flex-grow-1 ps-4 pe-6 d-none d-md-block">
             <div className="d-flex position-relative">
                 <div>
                 <Select
@@ -105,6 +105,7 @@ export default function MainHeader() {
 
                 <div className="position-relative w-100">
                     <input 
+                        id="search"
                         type="text"
                         className="form-control form-control-lg shadow-none input-search"
                         placeholder="Buscar productos, marcas y más…"
@@ -116,7 +117,7 @@ export default function MainHeader() {
 
                 <button
                   type="button"
-                  className="btn btn-primary btn-lg rounded-pill btn-search"
+                  className="btn btn-lg rounded-pill bg-light btn-search"
                   onClick={handleSearchSubmit}
                 >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search-icon lucide-search">
@@ -196,6 +197,7 @@ export default function MainHeader() {
           {/* NOTIFICACIONES */}
           <Dropdown as={ButtonGroup}>
             <Dropdown.Toggle className="btn btn-light position-relative rounded-circle btn-icon btn-icon-top btn-notifications">
+                  <span className="notifications-active"> </span>
               <i className="bi bi-bell"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu align="end" className="dropdowNotifications p-0" style={{ minWidth: "25rem" }}>
@@ -206,53 +208,53 @@ export default function MainHeader() {
                 
                 <div className="card-body-height">
                   <div className="list-group notifications">
-                      <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pb-3 border-0 border-bottom" aria-current="true">
-                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-cart3"></i></div>
+                      <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pt-2 pb-3 border-0 border-bottom" aria-current="true">
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light-blue notif-icon"><i className="bi bi-cart3"></i></div>
                           <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
                               <div>
                                   <h6 className="mb-1">Nuevo pedido confirmado</h6>
-                                  <small className="mb-0 opacity-50">Tu compra fue procesada correctamente.</small>
+                                  <p className="mb-0 opacity-50">Tu compra fue procesada correctamente.</p>
                               </div>
                               <small className="opacity-50 text-nowrap">1min</small>
                           </div>
                       </Link>
                       <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 py-3 border-0 border-bottom" aria-current="true">
-                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-box-seam"></i></div>
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light-blue notif-icon"><i className="bi bi-box-seam"></i></div>
                           <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
                               <div>
                                   <h6 className="mb-1">Tu paquete está en camino</h6>
-                                  <small className="mb-0 opacity-50">El pedido #48291 fue despachado y está viajando hacia tu domicilio. </small>
+                                  <p className="mb-0 opacity-50">El pedido #48291 fue despachado y está viajando hacia tu domicilio. </p>
                               </div>
                               <small className="opacity-50 text-nowrap">3d</small>
                           </div>
                       </Link>
                       <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pb-3 border-0 border-bottom" aria-current="true">
-                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-cart3"></i></div>
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light-blue notif-icon"><i className="bi bi-cart3"></i></div>
                           <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
                               <div>
                                   <h6 className="mb-1">Nuevo pedido confirmado</h6>
-                                  <small className="mb-0 opacity-50">Tu compra fue procesada correctamente.</small>
+                                  <p className="mb-0 opacity-50">Tu compra fue procesada correctamente.</p>
                               </div>
                               <small className="opacity-50 text-nowrap">1min</small>
                           </div>
                       </Link>
                       <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 py-3 border-0 border-bottom" aria-current="true">
-                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-box-seam"></i></div>
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light-blue notif-icon"><i className="bi bi-box-seam"></i></div>
                           <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
                               <div>
                                   <h6 className="mb-1">Tu paquete está en camino</h6>
-                                  <small className="mb-0 opacity-50">El pedido #48291 fue despachado y está viajando hacia tu domicilio. </small>
+                                  <p className="mb-0 opacity-50">El pedido #48291 fue despachado y está viajando hacia tu domicilio. </p>
                               </div>
                               <small className="opacity-50 text-nowrap">3d</small>
                           </div>
                       </Link>
 
                       <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pt-3 border-0" aria-current="true">
-                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light avatar avatar-3x2"><i className="bi bi-box-seam"></i></div>
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light-blue notif-icon"><i className="bi bi-box-seam"></i></div>
                           <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
                               <div>
                                   <h6 className="mb-1">Pago rechazado</h6>
-                                  <small className="mb-0 opacity-50">Hubo un problema al procesar tu método de pago. </small>
+                                  <p className="mb-0 opacity-50">Hubo un problema al procesar tu método de pago. </p>
                               </div>
                               <small className="opacity-50 text-nowrap">15d</small>
                           </div>
@@ -261,8 +263,8 @@ export default function MainHeader() {
                   </div>
                 </div>
 
-                <Link className="card-footer text-center py-4 border-top" to="/pages/Profile?view=notificaciones">
-                    <p className="small mb-0 text-dark">Ver todas las notificaciones <i className="bi-chevron-right"></i></p>
+                <Link className="card-footer text-center py-3 border-top" to="/pages/Profile?view=notificaciones">
+                    <p className="small mb-0 text-dark py-1">Ver todas las notificaciones </p>
                 </Link>
 
               </div>

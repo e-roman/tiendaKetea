@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import productsData from "../data/products.json";
 
+import useIsMobile from "../src/hooks/useIsMobile";
+
 import ProductGallery from "../components/Product/ProductGallery";
+import ProductGalleryMobile from "../components/Product/ProductGalleryMobile";
+
 import ProductDetail from "../components/Product/ProductDetail";
 
 import ProductSpecificationsBlocks from "../components/Product/ProductSpecificationsBlocks";
@@ -14,8 +18,11 @@ import ProductsOthers from "../components/Product/ProductsOthers";
 import { useFloatingAlert } from "../src/context/FloatingAlertContext";
 import AlertFloating from "../components/AlertFloating";
 
+
+
 export default function ProductPage() {
-  
+  const isMobile = useIsMobile(768); 
+
   const navigate = useNavigate();
   const { slug } = useParams();
   const { showAlert } = useFloatingAlert();
@@ -68,9 +75,14 @@ export default function ProductPage() {
 
           <div className="col-lg-8 mb-7 mb-lg-0">
             <div className="pe-lg-3">
-              <ProductGallery product={product} />
+              {isMobile ? (
+                <ProductGalleryMobile product={product} />
+              ) : (
+                <ProductGallery product={product} />
+              )}
             </div>
           </div>
+
 
           <div className="col-lg-4">
             <ProductDetail product={product} />

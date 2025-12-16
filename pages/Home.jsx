@@ -7,16 +7,34 @@ import BlockServices from "../components/BlockServices";
 import Suscribe from "../components/Suscribe";
 import BrandsLogos from "../components/BrandsLogos";
 
+import ProductGrid from "../components/Home/ProductGrid";
+import ProductCarousel from "../components/Home/ProductCarousel";
+import useMediaQuery from "../src/hooks/useMediaQuery";
+
 export default function Home() {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   const openProduct = (slug) => {
     navigate(`/product/${slug}`);
   };
 
-  // Filtrar productos por categorías
-  const destacados = products.filter((p) => p.categories.includes("destacados"));
-  const ofertas = products.filter((p) => p.categories.includes("ofertas"));
+  const destacados = products.filter((p) =>
+    p.categories.includes("destacados")
+  );
+  const ofertas = products.filter((p) =>
+    p.categories.includes("ofertas")
+  );
+
+  // const navigate = useNavigate();
+
+  // const openProduct = (slug) => {
+  //   navigate(`/product/${slug}`);
+  // };
+
+  // // Filtrar productos por categorías
+  // const destacados = products.filter((p) => p.categories.includes("destacados"));
+  // const ofertas = products.filter((p) => p.categories.includes("ofertas"));
 
   return (
     <>
@@ -29,15 +47,18 @@ export default function Home() {
           <h2>Novedades</h2>
         </div>
 
-        <div className="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-4 ">
-          {destacados.map((p) => (
-            <div className="col" key={p.id}>
-              <ProductCard product={p} openProduct={openProduct} />
-            </div>
-          ))}
-        </div>
+        {isMobile ? (
+          <ProductCarousel
+            products={destacados}
+            openProduct={openProduct}
+          />
+        ) : (
+          <ProductGrid
+            products={destacados}
+            openProduct={openProduct}
+          />
+        )}
       </div>
-
 
       {/* Banners */}
       <div className="container">
@@ -70,20 +91,23 @@ export default function Home() {
       </div>
 
 
-
-      {/* Black Friday */}
-      <div className="container content-space-2 content-space-lg-3" id="discoutnSection">
+      {/* Novedades */}
+      <div className="container content-space-2 content-space-lg-2">
         <div className="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-          <h2>Descuentos</h2>
+          <h2>Novedades</h2>
         </div>
 
-        <div className="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-4 mb-3">
-          {ofertas.map((p) => (
-            <div className="col" key={p.id}>
-              <ProductCard product={p} openProduct={openProduct} />
-            </div>
-          ))}
-        </div>
+        {isMobile ? (
+          <ProductCarousel
+            products={destacados}
+            openProduct={openProduct}
+          />
+        ) : (
+          <ProductGrid
+            products={destacados}
+            openProduct={openProduct}
+          />
+        )}
       </div>
 
       <Suscribe />

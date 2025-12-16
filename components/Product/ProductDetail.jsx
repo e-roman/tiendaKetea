@@ -194,7 +194,7 @@ export default function ProductDetail({ product }) {
 
         {/* Quantity */}
         <div className="border rounded btn-i-d">
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center justify-content-between">
             <button
               type="button"
               className="btn btn-icon btn-xs px-1 rounded-circle"

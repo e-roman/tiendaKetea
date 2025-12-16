@@ -208,7 +208,7 @@ export default function LoginModal() {
             {step === "reset-password" && (
               <div>
                 <div className="text-center mb-7">
-                  <h2>Recuperar Contraseña</h2>
+                  <h2>Recuperar contraseña</h2>
                   <p className="font-14">Ingresá tu email y te enviaremos instrucciones.</p>
                 </div>
 
@@ -219,6 +219,7 @@ export default function LoginModal() {
                   onSubmit={handleResetSubmit}
                 >
                   <div className="mb-3">
+                    <label className="form-label">Email</label>
                     <input
                       type="email"
                       className="form-control form-control-lg"

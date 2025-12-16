@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 
-import { useAuth } from "../../src/context/AuthContext";
+import { useAuth } from "../../../src/context/AuthContext";
 
 
 export default function NavCategories({ setShowPriceModal, setShowLogoutModal }) {
