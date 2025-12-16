@@ -83,7 +83,7 @@ export default function ProductCard({ product, openProduct }) {
         </button>
 
         <div className="pricing-meta mt-2">
-          <ul className="list-unstyled d-md-flex align-items-center gap-1">
+          <ul className="list-unstyled d-flex align-items-center gap-1">
             <li className="current-price text-dark">
               ${formatPrice(product.price)}
             </li>

@@ -182,17 +182,7 @@ export default function MainHeader() {
 
         {/* FAVORITOS */}
         <Link className="btn btn-light position-relative btn-icon rounded-circle btn-icon-top" to="/pages/Profile?view=favorites"><i className="bi bi-heart"></i></Link>
-          {/* <Dropdown as={ButtonGroup}>
-            <Dropdown.Toggle className="btn btn-light position-relative btn-icon-top">
-              <i className="bi bi-heart"></i>
-            </Dropdown.Toggle>
-            <Dropdown.Menu align="end" style={{ minWidth: "25rem" }}>
-              <div className="p-3">
-                <h5>Favoritos</h5>
-                <div>Producto 1</div>
-              </div>
-            </Dropdown.Menu>
-          </Dropdown> */}
+
 
           {/* NOTIFICACIONES */}
           <Dropdown as={ButtonGroup}>

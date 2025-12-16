@@ -309,18 +309,19 @@ export default function Checkout() {
                   </div>
 
                   {/* BOTÓN FINAL */}
-                  <div className="d-flex justify-content-between align-items-center mt-8">
-                    <Link to="/cart">
-                      <small className="bi bi-arrow-left me-1"></small> Regresar a mi Carrito
+                  <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mt-2 mt-md-8">
+                    <Link to="/cart" className="order-2 order-md-1">
+                      <small className="bi bi-arrow-left me-1 d-md-none"></small> Regresar a mi Carrito
                     </Link>
 
                     <button
                       type="submit"
-                      className="btn btn-primary btn-sm rounded-pill px-5"
+                      className="btn btn-primary rounded-pill px-6 order-1 order-md-2 mb-5 mb-md-0 mt-5 mt-md-0 btn-checkout"
                     >
                       Realizar pedido
                     </button>
                   </div>
+
 
                 </form>
               </div>
