@@ -33,14 +33,6 @@ export default function LogoutModal({ show, onClose }) {
             <div className="d-grid gap-2 pt-4">
               <button
                 type="button"
-                className="btn btn-white btn-lg"
-                onClick={onClose}
-              >
-                Cancelar
-              </button>
-
-              <button
-                type="button"
                 className="btn btn-primary form-control-lg mt-2"
                 onClick={() => {
                   logout();
@@ -49,6 +41,15 @@ export default function LogoutModal({ show, onClose }) {
               >
                 Cerrar sesión
               </button>
+
+              <button
+                type="button"
+                className="btn btn-white border-0 btn-lg"
+                onClick={onClose}
+              >
+                Cancelar
+              </button>
+
             </div>
 
           </div>

@@ -192,7 +192,7 @@ export default function SidebarCart() {
 
 
               <div className="footer-sidebar">
-                <div className="mb-3 w-100">
+                <div className="mb-md-3 w-100">
                   <button
                     className="btn btn-primary rounded-pill px-6 w-100"
                     onClick={handleStartCheckout}
@@ -201,7 +201,7 @@ export default function SidebarCart() {
                   </button>
                 </div>
 
-                <div>
+                <div className="d-none d-md-block">
                   <Link className="btn bg-white btn-sm px-6 w-100" to="/">
                     Ver más Productos
                   </Link>

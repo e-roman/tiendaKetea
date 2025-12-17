@@ -3,7 +3,7 @@ import HeaderDesktop from "./desktop/HeaderDesktop";
 import HeaderMobile from "./mobile/HeaderMobile";
 
 export default function Header() {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isMobile = useMediaQuery("(max-width: 996px)");
 
   return isMobile ? <HeaderMobile /> : <HeaderDesktop />;
 }

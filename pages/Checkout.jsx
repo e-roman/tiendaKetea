@@ -30,7 +30,7 @@ export default function Checkout() {
 
           {/* ORDER SUMMARY – RIGHT COLUMN */}
           <div className="col-lg-4 order-lg-2 mb-4 mb-lg-0">
-            <div className="ps-md-4">
+            <div className="ps-xl-4">
               <div className="bg-white shadow-soft rounded px-4 pt-4 pb-5 py-md-5 px-md-5 mb-4">
 
                 {/* Title */}
@@ -137,7 +137,7 @@ export default function Checkout() {
                   noValidate
                   onSubmit={handleSubmit}
                 >
-                  <div className="border-bottom pb-7 mb-7">
+                  <div className="border-bottom pb-5 mb-7">
 
                     <div className="mb-4">
                       <h2 className="h3">Dirección de Envío</h2>
@@ -145,7 +145,7 @@ export default function Checkout() {
 
                     <div className="row">
 
-                      <div className="col-md-6 mb-3">
+                      <div className="col-md-6 mb-3 mb-md-4">
                         <label className="form-label">Nombre *</label>
                         <input
                           type="text"
@@ -158,7 +158,7 @@ export default function Checkout() {
                         </div>
                       </div>
 
-                      <div className="col-md-6 mb-3">
+                      <div className="col-md-6 mb-3 mb-md-4">
                         <label className="form-label">Apellido *</label>
                         <input
                           type="text"
@@ -171,7 +171,7 @@ export default function Checkout() {
                         </div>
                       </div>
 
-                      <div className="col-md-6 mb-3">
+                      <div className="col-md-6 mb-3 mb-md-4">
                         <label className="form-label">Email *</label>
                         <input
                           type="email"
@@ -184,7 +184,7 @@ export default function Checkout() {
                         </div>
                       </div>
 
-                      <div className="col-md-6 mb-3">
+                      <div className="col-md-6 mb-3 mb-md-4">
                         <label className="form-label">Teléfono</label>
                         <input type="text" className="form-control" />
                       </div>
@@ -202,12 +202,12 @@ export default function Checkout() {
                         </div>
                       </div>
 
-                      <div className="col-md-4 mb-3">
+                      <div className="col-md-4 mb-3 mb-md-4">
                         <label className="form-label">Depto.</label>
                         <input type="text" className="form-control" />
                       </div>
 
-                      <div className="col-md-12 mb-3">
+                      <div className="col-md-12 mb-3 mb-md-4">
                         <label className="form-label">Ciudad *</label>
                         <input
                           type="text"
@@ -220,7 +220,7 @@ export default function Checkout() {
                         </div>
                       </div>
 
-                      <div className="col-md-6 mb-3">
+                      <div className="col-md-6 mb-3 mb-md-4">
                         <label className="form-label">Provincia *</label>
                         <select className="form-select" required>
                           <option value="">Seleccionar</option>
@@ -233,7 +233,7 @@ export default function Checkout() {
                         </div>
                       </div>
 
-                      <div className="col-md-6 mb-3">
+                      <div className="col-md-6 mb-3 mb-md-4">
                         <label className="form-label">Código Postal *</label>
                         <input
                           type="text"
@@ -247,14 +247,30 @@ export default function Checkout() {
                       </div>
                     </div>
 
+                    <div className="col-12 pt-3">
+                        <div className="js-form-message">
+
+                            <label className="d-flex align-items-center gap-2 mb-3"> 
+                              <input className="form-check-input flex-shrink-0 mt-0" type="checkbox" value="" /> 
+                              <small className="d-block text-body-secondary"> Mi información de facturación y envío es la misma.</small>
+                            </label>
+
+                            <label className="d-flex align-items-center gap-2"> 
+                              <input className="form-check-input flex-shrink-0 mt-0" type="checkbox" value="" /> 
+                              <small className="d-block text-body-secondary">Por favor, envíenme correos electrónicos con ofertas exclusivas, información y novedades de nuevos productos </small>
+                            </label>
+                        </div>
+                      </div>
+
+
                   </div>
 
                   {/* MÉTODO DE PAGO */}
-                  <div className="mb-4">
+                  <div className="mb-5">
                     <h2 className="h4">Método de Pago</h2>
                   </div>
 
-                  <div className="mb-3">
+                  <div className="mb-md-4">
                     <label className="form-label">Número de tarjeta *</label>
                     <input
                       type="text"
@@ -316,7 +332,7 @@ export default function Checkout() {
 
                     <button
                       type="submit"
-                      className="btn btn-primary rounded-pill px-6 order-1 order-md-2 mb-5 mb-md-0 mt-5 mt-md-0 btn-checkout"
+                      className="btn btn-primary btn-sm rounded-pill px-6 order-1 order-md-2 mb-5 mb-md-0 mt-5 mt-md-0 btn-checkout"
                     >
                       Realizar pedido
                     </button>

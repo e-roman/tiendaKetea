@@ -86,7 +86,7 @@ export default function MyProfile() {
     <div className="bg-light">
       {/* HEADER CON BREADCRUMB DINÁMICO */}
       <div className="navbar-dark bg-dark">
-        <div className="container content-space-1 content-space-b-lg-3">
+        <div className="container py-3 content-space-t-lg-3 content-space-b-lg-3">
           <div className="row align-items-center">
             <div className="col">
               <div className="d-none d-lg-block">

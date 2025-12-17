@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../../src/context/AuthContext";
@@ -14,6 +14,21 @@ import LogoutModal from "../../Modals/LogoutModal";
 
 
 export default function HeaderMobile() {
+const [profileOpen, setProfileOpen] = useState(false);
+
+useEffect(() => {
+  const closeProfile = () => setProfileOpen(false);
+
+  if (profileOpen) {
+    document.addEventListener("click", closeProfile);
+  }
+
+  return () => {
+    document.removeEventListener("click", closeProfile);
+  };
+}, [profileOpen]);
+
+
   const { isLogged, logout } = useAuth();
 
   const [showPriceModal, setShowPriceModal] = useState(false);
@@ -90,13 +105,12 @@ export default function HeaderMobile() {
           {/* BUSCADOR */}
           <div className="d-block" style={{width: "70%"}}>
               <div className="d-flex position-relative">
-
-                  <div className="position-relative w-100">
+                <div className="position-relative w-100">
                       <input 
                           id="search"
                           type="text"
                           className="form-control form-control-md shadow-none input-search-mobile"
-                          placeholder="Buscar productos, marcas y más…"
+                          placeholder="Buscar…"
                           value={query}
                           onChange={handleInputChange}
                           onKeyDown={(e) => e.key === "Enter" && handleSearchSubmit()}
@@ -122,57 +136,94 @@ export default function HeaderMobile() {
 
             <div>
               {/* Perfil */}
-              {isLogged && (
-                <li className="nav-item ms-auto position-relative">
-                  <Dropdown as={ButtonGroup}>
-                    <Dropdown.Toggle className="nav-link btn-drop d-flex align-items-center border-0">
-                      <i className="bi bi-person-circle me-1"></i> Hola! Francisco Perez
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu align="end" style={{ minWidth: "14rem" }}>
-                      <Link className="dropdown-item" to="/pages/Profile?view=personalInfo">
-                        <i className="bi bi-person-circle me-2"></i> Datos personales
-                      </Link>
-                      <Link className="dropdown-item" to="/pages/Profile?view=favorites">
-                        <i className="bi bi-heart me-2"></i> Favoritos
-                      </Link>
-                      <Link className="dropdown-item" to="/pages/Profile?view=orders">
-                        <i className="bi bi-bag-check me-2"></i> Pedidos
-                      </Link>
-                      <Link className="dropdown-item" to="/pages/Profile?view=payments">
-                        <i className="bi bi-receipt me-2"></i> Comprobantes
-                      </Link>
-                      <Link className="dropdown-item" to="/pages/Profile?view=address">
-                        <i className="bi bi-geo-alt me-2"></i> Direcciones
-                      </Link>
-
-                      <Dropdown.Divider />
-
+              
+                <div className="nav-item ms-auto">
+                  <div>
                       <button
-                        className="dropdown-item"
-                        onClick={() => setShowLogoutModal(true)}
+                        className="btn btn-light position-relative btn-icon rounded-circle btn-icon-top"
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setProfileOpen(prev => !prev);
+                        }}
+                        aria-expanded={profileOpen}
                       >
-                        Cerrar sesión
+                        <i className="bi bi-person-circle me-1"></i>
                       </button>
+                  </div>
 
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </li>
-              )}
-                
-              {/* Login */}
-              {!isLogged && (
-                <div className="position-relative">
-                  <button
-                    className="btn btn-primary btn-drop btn-sm p-0"
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#signupModal"
-                  >
-                    <i className="bi bi-person-circle me-1"></i>
-                  </button>
+                  <div className={`navProfile-xs ${profileOpen ? "open" : ""}`} onClick={(e) => e.stopPropagation()}>
+
+                    {/*LOGING*/}
+                    {isLogged && (
+                    <Link className="dropdown-item bg-light py-3 d-flex" to="/pages/Profile?view=personalInfo" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-person-circle me-1"></i>
+                      <div className="ps-2">
+                        <h4 className="mb-0">Francisco Perez</h4>
+                        <p className="mb-0">Mi Perfil</p>
+                      </div> 
+                    </Link>
+                    )}
+                    
+                    {/*NO LOGING*/}
+                    {!isLogged && (
+                    <Link className="dropdown-item bg-light py-3 d-flex" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">
+                      <i className="bi bi-person-circle me-1"></i>
+                      <div className="ps-2">
+                        <h4 className="mb-0">Bienvenido</h4>
+                        <p className="mb-0">Ingresa a tu cuenta para realizar compras</p>
+                      </div> 
+                    </Link>
+                     )}
+
+                    <Link className="dropdown-item" to="/pages/Profile?view=favorites" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-heart me-2"></i> Favoritos
+                    </Link>
+                    <Link className="dropdown-item" to="/pages/Profile?view=orders" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-bag-check me-2"></i> Pedidos
+                    </Link>
+                    <Link className="dropdown-item" to="/pages/Profile?view=payments" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-receipt me-2"></i> Comprobantes
+                    </Link>
+                    <Link className="dropdown-item" to="/pages/Profile?view=address" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-geo-alt me-2"></i> Direcciones
+                    </Link>
+
+                    <hr/>
+
+                    <Link className="dropdown-item" to="/" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-heart me-2"></i> Incio
+                    </Link>
+
+                    <Link className="dropdown-item" to="/Novedades" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-heart me-2"></i> Novedades
+                    </Link>
+                    <Link className="dropdown-item" to="/Descuentos" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-bag-check me-2"></i> Descuentos
+                    </Link>
+                    <Link className="dropdown-item" to="/pages/Contacto" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-receipt me-2"></i> Sucursales
+                    </Link>
+                    <Link className="dropdown-item" to="/pages/Sucursales" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-geo-alt me-2"></i> Contacto
+                    </Link>
+
+                    <hr/>
+
+                    <button
+                      className="dropdown-item"
+                      onClick={() => setShowLogoutModal(true)}
+                    >
+                      Cerrar sesión
+                    </button>
+
+                  </div>
+
                 </div>
-              )}
+
+              
+                
+
             </div>
 
 
