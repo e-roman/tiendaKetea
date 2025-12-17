@@ -50,7 +50,7 @@ export default function SidebarCart() {
             </div>
           </div>
           ) : (
-          <div id="listCart" className="mb-5">
+          <div id="listCart">
             <div className="list-group">
 
               {/* LISTADO DE PRODUCTOS DEL CARRITO */}
@@ -176,7 +176,7 @@ export default function SidebarCart() {
 
 
               {/* TOTAL + BOTONES */}
-              <div className="py-4 border-top">
+              <div className="py-4">
                 <div className="d-flex align-items-center justify-content-between">
                   <h3 className="mb-0">Total:</h3>
                   <h2 className="mb-0 font-bold">
@@ -185,7 +185,13 @@ export default function SidebarCart() {
                 </div>
               </div>
 
-              <div className="py-2">
+            </div>
+          </div>
+          )}
+        </div>
+
+
+              <div className="footer-sidebar">
                 <div className="mb-3 w-100">
                   <button
                     className="btn btn-primary rounded-pill px-6 w-100"
@@ -202,10 +208,6 @@ export default function SidebarCart() {
                 </div>
               </div>
 
-            </div>
-          </div>
-          )}
-        </div>
       </div>
     </>
   );

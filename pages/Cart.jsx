@@ -14,9 +14,9 @@ export default function MyCart() {
         <div className="row">
 
           {/* LEFT COLUMN - PRODUCTS */}
-          <div className="col-lg-8 mb-7 mb-lg-0">
-            <div className="card shadow-none mb-5">
-              <div className="card-body">
+          <div className="col-lg-8">
+            <div className="card shadow-none mb-4 mb-md-5">
+              <div className="card-body px-4 pt-4 pb-5 py-md-5 px-md-5">
 
                 {/* TITLE */}
                 <div className="d-flex justify-content-between align-items-end border-bottom pb-3 mb-7">
@@ -146,7 +146,7 @@ export default function MyCart() {
             </div>
 
             {/* BACK TO HOME */}
-            <div className="d-flex justify-content-start">
+            <div className="d-flex justify-content-start d-none d-md-block">
               <Link to="/">
                 <i className="bi bi-arrow-left me-1"></i>
                 Continuar comprando
@@ -158,7 +158,7 @@ export default function MyCart() {
           <div className="col-lg-4">
             <div className="ps-lg-4">
 
-              <div className="bg-white shadow-soft rounded p-5 mb-4">
+              <div className="bg-white shadow-soft rounded px-4 pt-4 pb-5 py-md-5 px-md-5 mb-4">
                 <div className="border-bottom pb-4 mb-4">
                   <h2 className="h4 mb-0">Resumen del pedido</h2>
                 </div>
@@ -227,7 +227,7 @@ export default function MyCart() {
                   </div>
                 </div>
 
-                <div className="media align-items-center mb-4">
+                <div className="media align-items-center mb-0 mb-md-4">
                   <h4 className="text-secondary font-size-1 mb-0 me-3">Total</h4>
                   <div className="media-body text-right">
                     <span className="font-medium text-dark">

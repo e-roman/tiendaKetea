@@ -29,9 +29,9 @@ export default function Checkout() {
         <div className="row">
 
           {/* ORDER SUMMARY – RIGHT COLUMN */}
-          <div className="col-lg-4 order-lg-2 mb-7 mb-lg-0">
+          <div className="col-lg-4 order-lg-2 mb-4 mb-lg-0">
             <div className="ps-md-4">
-              <div className="bg-white shadow-soft rounded p-5 mb-4">
+              <div className="bg-white shadow-soft rounded px-4 pt-4 pb-5 py-md-5 px-md-5 mb-4">
 
                 {/* Title */}
                 <div className="border-bottom pb-4 mb-4">
@@ -111,7 +111,7 @@ export default function Checkout() {
                 </div>
 
                 {/* TOTAL */}
-                <div className="media align-items-center mb-4">
+                <div className="media align-items-center mb-0 mb-md-4">
                   <h4 className="text-secondary font-size-1 mb-0 me-3">Total</h4>
                   <div className="media-body text-right">
                     <span className="font-medium text-dark">
@@ -130,7 +130,7 @@ export default function Checkout() {
           <div className="col-lg-8 order-lg-1">
 
             <div className="card shadow-none mb-5">
-              <div className="card-body">
+              <div className="card-body px-4 pt-5 pb-5 py-md-5 px-md-5">
                 <form
                   ref={formRef}
                   className={`needs-validation ${validated ? "was-validated" : ""}`}

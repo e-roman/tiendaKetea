@@ -131,7 +131,7 @@ export default function LoginModal() {
                     </button>
                   </div>
 
-                  <div className="text-center">
+                  <div className="text-center mt-5">
                     <p>
                       ¿Aún no tienes una cuenta?{" "}
                       <a href="#" className="link" onClick={() => setStep("signup")}>
@@ -148,12 +148,6 @@ export default function LoginModal() {
               <div>
                 <div className="text-center mb-7">
                   <h2>Registrarme</h2>
-                  <p>
-                    ¿Ya tienes una cuenta?{" "}
-                    <a href="#" className="link" onClick={() => setStep("login")}>
-                      Ingresar
-                    </a>
-                  </p>
                 </div>
 
                 <form
@@ -200,6 +194,17 @@ export default function LoginModal() {
                       Registrarme
                     </button>
                   </div>
+
+                  <div className="text-center mt-5">
+                  <p>
+                    ¿Ya tienes una cuenta?{" "}
+                    <a href="#" className="link" onClick={() => setStep("login")}>
+                      Ingresar
+                    </a>
+                  </p>
+                  </div>
+                  
+
                 </form>
               </div>
             )}
@@ -235,7 +240,7 @@ export default function LoginModal() {
                     </button>
                   </div>
 
-                  <div className="text-center py-4">
+                  <div className="text-center mt-5 pb-4">
                     <p>
                       ¿Recuerdas tu contraseña?{" "}
                       <a href="#" className="link" onClick={() => setStep("login")}>

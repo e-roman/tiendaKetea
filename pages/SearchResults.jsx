@@ -2,8 +2,19 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useState, useMemo } from "react";
 import productsData from "../data/products.json";
 import ProductCard from "../components/ProductCard";
+import ProductCardHorizontal from "../components/ProductCardHorizontal";
+import ProductCardHorizontalMobile from "../components/ProductCardHorizontalMobile";
+import SearchFilters from "../components/search/SearchFilters";
+
+import SearchSort from "../components/search/SearchSort";
 
 export default function SearchResults() {
+  const [view, setView] = useState("grid"); // "grid" | "list"
+
+  const [showFilters, setShowFilters] = useState(false);
+  const [showSort, setShowSort] = useState(false);
+
+
   const { query } = useParams();
   const navigate = useNavigate();
 
@@ -154,218 +165,277 @@ const results = useMemo(() => {
   };
 
   return (
-    <div>
+    <>
+      <div>
 
-      {/* BREADCRUMB */}
-      <div className="bg-light">
-        <div className="container py-4">
-          <div className="d-flex align-items-center justify-content-between">
-            <div>
-              <nav aria-label="breadcrumb">
-                <ol className="breadcrumb mb-0">
-                  <li className="breadcrumb-item"><span>Home</span></li>
-                  <li className="breadcrumb-item"><span>Buscar</span></li>
-                  <li className="breadcrumb-item active" aria-current="page">Resultados de la búsqueda: <b>"{query}"</b></li>
-                </ol>
-              </nav>
+        {/* BREADCRUMB */}
+        <div className="bg-light">
+          <div className="container py-4">
+            <div className="d-flex align-items-center justify-content-between">
+              <div>
+                <nav aria-label="breadcrumb">
+                  <ol className="breadcrumb mb-0">
+                    <li className="breadcrumb-item"><span>Home</span></li>
+                    <li className="breadcrumb-item"><span>Buscar</span></li>
+                    <li className="breadcrumb-item active" aria-current="page">Resultados de la búsqueda: <b>"{query}"</b></li>
+                  </ol>
+                </nav>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="container content-space-t-1 content-space-b-2">
-        <div className="row">
+        <div className="container content-space-t-md-1 content-space-b-2 px-mobile">
+          <div className="row">
 
-          {/* LATERAL FILTROS */}
-          <div className="col-lg-3 pt-md-2 ps-md-5">
+            {/* LATERAL FILTROS */}
+            <div className="col-lg-3 pt-md-2 ps-md-5 d-none d-lg-block">
+              <SearchFilters
+                filters={filters}
+                setFilters={setFilters}
+                toggleFilter={toggleFilter}
+                resetFilters={resetFilters}
+                marcas={marcas}
+                categorias={categorias}
+                accionamientos={accionamientos}
+                descuentos={descuentos}
+              />
+            </div>
 
-            {/* PRECIO */}
-            <div className="border-bottom pb-2 mb-3">
-              <h5 className="pb-2">Precio</h5>
-
+            {/* MOBILE ACTIONS */}
+            <div className="d-lg-none mb-3">
               <div className="d-flex gap-2">
-                <div>
-                  <input
-                    type="number"
-                    className="form-control mb-2"
-                    placeholder="Desde $"
-                    value={filters.precioMin}
-                    onChange={(e) => setFilters({ ...filters, precioMin: e.target.value })}
-                  />
-                </div>
-                <div>
-                  <input
-                    type="number"
-                    className="form-control"
-                    placeholder="Hasta $"
-                    value={filters.precioMax}
-                    onChange={(e) => setFilters({ ...filters, precioMax: e.target.value })}
-                  />
-                </div>
+                <button
+                  className="btn btn-outline-secondary w-50"
+                  onClick={() => setShowSort(true)}
+                >
+                  Ordenar
+                </button>
+
+                <button
+                  className="btn btn-outline-secondary w-50"
+                  onClick={() => setShowFilters(true)}
+                >
+                  Filtrar
+                </button>
               </div>
             </div>
 
-            {/* MARCA */}
-            <div className="border-bottom pb-4 mb-4">
-              <h5 className="pb-2">Marca</h5>
-              {marcas.map((m) => (
-                <div className="form-check" key={m}>
-                  <input
-                    id={`marca-${m}`}
-                    className="form-check-input"
-                    type="checkbox"
-                    checked={filters.marcas.includes(m)}
-                    onChange={() => toggleFilter("marcas", m)}
-                  />
-                  <label className="form-check-label" htmlFor={`marca-${m}`}>
-                    {m}
-                  </label>
-                </div>
-              ))}
-            </div>
 
-            {/* ACCIONAMIENTO */}
-            <div className="border-bottom pb-4 mb-4">
-              <h5 className="pb-2">Accionamiento</h5>
-              {accionamientos.map((a) => (
-                <div className="form-check" key={a}>
-                  <input
-                    id={`accion-${a}`}
-                    className="form-check-input"
-                    type="checkbox"
-                    checked={filters.accionamiento.includes(a)}
-                    onChange={() => toggleFilter("accionamiento", a)}
-                  />
-                  <label className="form-check-label" htmlFor={`accion-${a}`}>
-                    {a}
-                  </label>
-                </div>
-              ))}
-            </div>
+            {/* RESULTADOS */}
+            <div className="col-lg-9">
+            <div className="row align-items-center mb-3">
+              
+              <div className="col-sm mb-3 mb-sm-0">
+                <h6 className="mb-0">{results.length} productos</h6>
+              </div>
 
-            {/* DESCUENTOS */}
-            <div className="border-bottom pb-4 mb-4">
-              <h5 className="pb-2">Descuentos</h5>
-              {descuentos.map((d) => (
-                <div className="form-check" key={d}>
-                  <input
-                    id={`desc-${d}`}
-                    className="form-check-input"
-                    type="checkbox"
-                    checked={filters.descuentos.includes(d)}
-                    onChange={() => toggleFilter("descuentos", d)}
-                  />
-                  <label className="form-check-label" htmlFor={`desc-${d}`}>
-                    {d}% OFF
-                  </label>
-                </div>
-              ))}
-            </div>
+              <div className="col-sm-auto d-none d-lg-flex">
+                <div className="d-sm-flex justify-content-sm-end align-items-center">
+                  {/*!-- Select --*/}
+                  <div className="d-flex align-items-center gap-2 mb-2 mb-sm-0 me-sm-2">
+                    {/*!-- Select Wrapper --*/}
+                    <div>Ordenar por</div>
+                    <div className="filters-seleet" style={{minWidth: "190px"}}>
+                      <select
+                        className="form-select"
+                        value={sort}
+                        onChange={(e) => setSort(e.target.value)}
+                      >
+                        <option value="featured">Destacados</option>
+                        <option value="new">Más recientes</option>
+                        <option value="price_low">Precio más bajo</option>
+                        <option value="price_high">Precio más alto</option>
+                        <option value="discount">Con descuento</option>
+                        <option value="az">A - Z</option>
+                        <option value="za">Z - A</option>
 
-            {/* CATEGORÍAS */}
-            <div className="border-bottom pb-4 mb-4">
-              <h5 className="pb-2">Categorías</h5>
-              {categorias.map((c) => (
-                <div className="form-check" key={c}>
-                  <input
-                    id={`cat-${c}`}
-                    className="form-check-input"
-                    type="checkbox"
-                    checked={filters.categorias.includes(c)}
-                    onChange={() => toggleFilter("categorias", c)}
-                  />
-                  <label className="form-check-label" htmlFor={`cat-${c}`}>
-                    {c}
-                  </label>
-                </div>
-              ))}
-            </div>
+                      </select>
+                    </div>
 
-            {/* RESET */}
-            <button className="btn btn-sm btn-secondary w-100" onClick={resetFilters}>
-              Borrar filtros
-            </button>
-
-          </div>
-
-
-
-          {/* RESULTADOS */}
-          <div className="col-lg-9">
-          <div className="row align-items-center mb-3">
-            
-            <div className="col-sm mb-3 mb-sm-0">
-              <h6 className="mb-0">{results.length} productos</h6>
-            </div>
-
-            <div className="col-sm-auto">
-              <div className="d-sm-flex justify-content-sm-end align-items-center">
-                {/*!-- Select --*/}
-                <div className="d-flex align-items-center gap-2 mb-2 mb-sm-0 me-sm-2">
-                  {/*!-- Select Wrapper --*/}
-                  <div>Ordenar por</div>
-                  <div className="filters-seleet" style={{minWidth: "190px"}}>
-                    <select
-                      className="form-select"
-                      value={sort}
-                      onChange={(e) => setSort(e.target.value)}
-                    >
-                      <option value="featured">Destacados</option>
-                      <option value="new">Más recientes</option>
-                      <option value="price_low">Precio más bajo</option>
-                      <option value="price_high">Precio más alto</option>
-                      <option value="discount">Con descuento</option>
-                      <option value="az">A - Z</option>
-                      <option value="za">Z - A</option>
-
-                    </select>
+                      {/*!-- End Select --*/}
                   </div>
+                  {/*!-- End Select --*/}
 
-                    {/*!-- End Select --*/}
+
+                  {/*!-- Nav --*/}
+                  <ul className="nav nav-segment">
+                    <ul className="nav nav-segment">
+                      <li className="nav-item">
+                        <button
+                          type="button"
+                          className={`nav-link ${view === "grid" ? "active" : ""}`}
+                          onClick={() => setView("grid")}
+                        >
+                          <i className="bi-grid-fill"></i>
+                        </button>
+                      </li>
+
+                      <li className="nav-item">
+                        <button
+                          type="button"
+                          className={`nav-link ${view === "list" ? "active" : ""}`}
+                          onClick={() => setView("list")}
+                        >
+                          <i className="bi-list"></i>
+                        </button>
+                      </li>
+                    </ul>
+                  </ul>
+                  {/*!-- End Nav --*/}
                 </div>
-                {/*!-- End Select --*/}
+              </div>
+
+              <div className="col-12"><hr/></div>
+            </div>
 
 
-                {/*!-- Nav --*/}
-                <ul className="nav nav-segment">
-                  <li className="nav-item">
-                    <a className="nav-link active" href="#">
-                      <i className="bi-grid-fill"></i>
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      <i className="bi-list"></i>
-                    </a>
-                  </li>
-                </ul>
-                {/*!-- End Nav --*/}
+
+            {/* RESULTS – DESKTOP */}
+            <div className="d-none d-lg-block">
+              {view === "grid" ? (
+                <div className="row gx-3">
+                  {results.map(p => (
+                    <div className="col-xl-4 col-lg-6 mb-4" key={p.id}>
+                      <ProductCard product={p} openProduct={openProduct} />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="row gx-3">
+                  {results.map(p => (
+                    <div className="mb-4" key={p.id}>
+                      <ProductCardHorizontal product={p} openProduct={openProduct} />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+
+            {/* RESULTS – MOBILE */}
+            <div className="d-lg-none">
+              <div className="row gx-2">
+                {results.length === 0 && (
+                  <p>No hay productos que coincidan con los filtros.</p>
+                )}
+
+                {results.map(p => (
+                  <div className="px-1 mb-3" key={p.id}>
+                    <ProductCardHorizontalMobile product={p} openProduct={openProduct} />
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="col-12"><hr/></div>
-          </div>
 
 
 
-            <div className="row row-cols-sm-2 row-cols-md-3 mb-10 gx-3">
-
-              {results.length === 0 && (
-                <p>No hay productos que coincidan con los filtros.</p>
-              )}
-
-              {results.map((p) => (
-                <div className="col-6 col-md-6 col-lg-6 col-xl-4 mb-4" key={p.id}>
-                  <ProductCard product={p} openProduct={openProduct} />
-                </div>
-              ))}
 
             </div>
-          </div>
 
+          </div>
         </div>
+
       </div>
 
-    </div>
+      {/* SORT MODAL (MOBILE) */}
+      {showSort && (
+        <div className="modal fade show d-block" tabIndex="-1">
+          <div className="modal-dialog modal-fullscreen">
+            <div className="modal-content">
+              
+              {/* Header */}
+              <div className="modal-header px-3">
+                <h5 className="modal-title">Ordenar por</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={() => setShowSort(false)}
+                />
+              </div>
+
+              {/* Body */}
+              <div className="modal-body overflow-auto p-3">
+                <SearchSort
+                  sort={sort}
+                  setSort={setSort}
+                  onClose={() => setShowSort(false)}
+                />
+              </div>
+
+            </div>
+          </div>
+
+          {/* Backdrop */}
+          <div
+            className="modal-backdrop fade show"
+            onClick={() => setShowSort(false)}
+          />
+        </div>
+      )}
+      
+      {/* FILTERS MODAL (MOBILE) */}
+      {showFilters && (
+        <div className="modal fade show d-block" tabIndex="-1">
+          <div className="modal-dialog modal-fullscreen">
+            <div className="modal-content">
+
+              {/* Header */}
+              <div className="modal-header px-3">
+                <h5 className="modal-title">Filtrar</h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  onClick={() => setShowFilters(false)}
+                />
+              </div>
+
+              {/* Body */}
+              <div className="modal-body overflow-auto p-3">
+                <SearchFilters
+                  filters={filters}
+                  setFilters={setFilters}
+                  toggleFilter={toggleFilter}
+                  resetFilters={resetFilters}
+                  marcas={marcas}
+                  categorias={categorias}
+                  accionamientos={accionamientos}
+                  descuentos={descuentos}
+                />
+              </div>
+
+              {/* Footer */}
+              <div className="py-3 px-4">
+                <button
+                  className="btn btn-outline-secondary w-100 mb-3"
+                  onClick={resetFilters}
+                >
+                  Limpiar
+                </button>
+
+                <button
+                  className="btn btn-primary w-100"
+                  onClick={() => setShowFilters(false)}
+                >
+                  Ver resultados
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Backdrop */}
+          <div
+            className="modal-backdrop fade show"
+            onClick={() => setShowFilters(false)}
+          />
+        </div>
+      )}
+
+
+
+    </>
+
   );
 }

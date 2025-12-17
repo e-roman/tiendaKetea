@@ -21,7 +21,7 @@
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "Hasta 12 cuotas",
     "cuotasLabel": "Hasta 12 cuotas sin interés",
-    "installmentsLabel": "Hasta 3x $1.354.185",
+    "installmentsLabel": "3x $1.354.185",
     "taxLabel": "Impuestos Nacionales aprox. $852,136",
     "isFeatured": false,
     "date": "2024-09-01"
@@ -48,7 +48,7 @@
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "Hasta 12 cuotas",
     "cuotasLabel": "Hasta 12 cuotas sin interés",
-    "installmentsLabel": "Hasta 3x $692.685",
+    "installmentsLabel": "3x $692.685",
     "taxLabel": "Impuestos Nacionales aprox. $436,392",
     "isFeatured": false,
     "date": "2024-10-20"
@@ -75,7 +75,7 @@
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "Hasta 12 cuotas",
     "cuotasLabel": "Hasta 12 cuotas sin interés",
-    "installmentsLabel": "Hasta 3x $1.914.000",
+    "installmentsLabel": "3x $1.914.000",
     "taxLabel": "Impuestos Nacionales aprox. $1,205,820",
     "isFeatured": false,
     "date": "2024-09-15"
@@ -103,7 +103,7 @@
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
-    "installmentsLabel": "Hasta 3x $2.330.685",
+    "installmentsLabel": "3x $2.330.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,467,331",
     "isFeatured": true,
     "date": "2024-12-01"
@@ -131,7 +131,7 @@
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
-    "installmentsLabel": "Hasta 3x $1.291.185",
+    "installmentsLabel": "3x $1.291.185",
     "taxLabel": "Impuestos Nacionales aprox. $811,447",
     "isFeatured": true,
     "date": "2024-11-25"
@@ -159,7 +159,7 @@
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
-    "installmentsLabel": "Hasta 3x $1.102.185",
+    "installmentsLabel": "3x $1.102.185",
     "taxLabel": "Impuestos Nacionales aprox. $693,377",
     "isFeatured": true,
     "date": "2024-11-22"
@@ -187,7 +187,7 @@
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
-    "installmentsLabel": "Hasta 3x $2.078.685",
+    "installmentsLabel": "3x $2.078.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,309,571",
     "isFeatured": false,
     "date": "2024-08-10"
@@ -215,7 +215,7 @@
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
-    "installmentsLabel": "Hasta 3x $1.480.185",
+    "installmentsLabel": "3x $1.480.185",
     "taxLabel": "Impuestos Nacionales aprox. $932,516",
     "isFeatured": false,
     "date": "2024-08-01"
@@ -243,7 +243,7 @@
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
-    "installmentsLabel": "Hasta 3x $1.889.685",
+    "installmentsLabel": "3x $1.889.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,190,501",
     "isFeatured": false,
     "date": "2024-07-28"
@@ -271,7 +271,7 @@
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
-    "installmentsLabel": "Hasta 3x $923.720",
+    "installmentsLabel": "3x $923.720",
     "taxLabel": "Impuestos Nacionales aprox. $582,045",
     "isFeatured": false,
     "date": "2024-07-12"
@@ -299,7 +299,7 @@
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
-    "installmentsLabel": "Hasta 3x $837.585",
+    "installmentsLabel": "3x $837.585",
     "taxLabel": "Impuestos Nacionales aprox. $525,579",
     "isFeatured": false,
     "date": "2024-07-01"
@@ -326,7 +326,7 @@
     "stock": true,
     "accionamiento": "Eléctrico",
     "cuotasLabel": "Hasta 6 cuotas sin interés",
-    "installmentsLabel": "Hasta 6x $2.897.842",
+    "installmentsLabel": "6x $2.897.842",
     "taxLabel": "Impuestos Nacionales aprox. $3,650,181",
     "isFeatured": true,
     "date": "2024-11-27"
