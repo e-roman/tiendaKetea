@@ -17,7 +17,7 @@ export default function accountEditCardModal({ onClose }) {
     <>
         {/* Edit Card Modal */}
     <div
-      className="modal-backdrop-custom"
+      className="modal-backdrop-custom modal-style-xs "
       onClick={handleBackdropClick}
       aria-modal="true"
       role="dialog"
@@ -26,14 +26,14 @@ export default function accountEditCardModal({ onClose }) {
             <div className="modal-content">
 
             {/* Header */}
-            <div className="modal-header">
-                <h4 className="modal-title" id="accountEditCardModalLabel">Editar Tarjeta</h4>
+            <div className="modal-header px-3 pt-3 pb-6 pt-md-5 pb-md-0 px-md-5">
+                <h4 className="modal-title" id="accountEditCardModalLabel">Editar tarjeta</h4>
                 <button type="button" className="btn-close" onClick={onClose}></button>
             </div>
             {/* End Header */}
 
             {/* Body */}
-            <div className="modal-body">
+            <div className="p-3 p-md-5">
 
                 {/* Form */}
                 <form>
@@ -119,14 +119,25 @@ export default function accountEditCardModal({ onClose }) {
                     </label>
                 </div>
 
-                <div className="d-flex justify-content-end gap-3">
-                    <button type="button" className="btn btn-sm rounded-pill border-0 btn-white" onClick={onClose}>
-                    Cancelar
+                <div className="d-md-flex justify-content-end gap-3 py-5 py-md-0 pt-md-0">
+                    <button
+                        type="button"
+                        className="btn btn-sm rounded-pill btn-primary px-6 w-100 w-md-auto
+                                order-1 order-md-2 mb-4 mb-md-0"
+                        onClick={onClose}
+                    >
+                        Guardar
                     </button>
-                    <button type="button" className="btn btn-sm rounded-pill btn-primary" onClick={onClose}>
-                    Guardar
+                    <button
+                        type="button"
+                        className="btn btn-sm rounded-pill border-0 btn-white px-6 w-100 w-md-auto
+                                order-2 order-md-1"
+                        onClick={onClose}
+                    >
+                        Cancelar
                     </button>
                 </div>
+
 
                 </form>
             </div>

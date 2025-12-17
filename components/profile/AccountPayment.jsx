@@ -7,7 +7,7 @@ export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenIn
       <div className="d-grid gap-3 gap-lg-5">
 
         {/* Card */}
-        <div className="card shadow-none p-2 p-lg-5 p-2 p-lg-5">
+        <div className="card shadow-none pb-5 p-2 p-lg-5 p-2 p-lg-5 mb-10 mb-md-0">
           <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 border-bottom">
             <h4 className="card-header-title">Métodos de pago</h4>
           </div>
@@ -121,7 +121,7 @@ export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenIn
 
             {/* Card */}
             <button
-              className="card border link-secondary w-100"
+              className="card border shadow-none link-secondary w-100"
               onClick={onOpenAddCard}
               type="button"
               style={{ border: "none", background: "transparent" }}

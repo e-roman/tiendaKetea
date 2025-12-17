@@ -154,34 +154,35 @@ useEffect(() => {
                       </button>
                   </div>
 
-                  <div className={`navProfile-xs ${profileOpen ? "open" : ""}`} onClick={(e) => e.stopPropagation()}>
+                  <div className={`navProfile-xs border-bottom ${profileOpen ? "open" : ""}`} onClick={(e) => e.stopPropagation()}>
 
                     {/*LOGING*/}
                     {isLogged && (
-                    <Link className="dropdown-item bg-light py-3 d-flex" to="/pages/Profile?view=personalInfo" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-person-circle me-1"></i>
+                    <Link className="menu-user-info bg-primary py-3 d-flex" to="/pages/Profile?view=personalInfo" onClick={() => setProfileOpen(false)}>
+                      <div className="photo-profile-xs"></div>
                       <div className="ps-2">
-                        <h4 className="mb-0">Francisco Perez</h4>
-                        <p className="mb-0">Mi Perfil</p>
+                        <h4 className="text-white mb-0">Francisco Perez</h4>
+                        <p className="text-white small mb-0">Mi Perfil</p>
                       </div> 
                     </Link>
                     )}
                     
                     {/*NO LOGING*/}
                     {!isLogged && (
-                    <Link className="dropdown-item bg-light py-3 d-flex" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">
-                      <i className="bi bi-person-circle me-1"></i>
+                    <Link className="menu-user-info bg-primary py-3 d-flex" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">
+                      <div className="photo-profile-xs"></div>
                       <div className="ps-2">
-                        <h4 className="mb-0">Bienvenido</h4>
-                        <p className="mb-0">Ingresa a tu cuenta para realizar compras</p>
+                        <h4 className="text-white mb-0">Bienvenido</h4>
+                        <p className="text-white small mb-0">Ingresa a tu cuenta para realizar compras</p>
                       </div> 
                     </Link>
                      )}
 
                     {isLogged && (
                       <>
+                      <div className="pt-2">
                         {PROFILE_MENU.map(section => (
-                          <div key={section.title}>
+                          <div className="px-3" key={section.title}>
                             {section.items.map(item => (
                               <Link
                                 key={item.key}
@@ -194,47 +195,48 @@ useEffect(() => {
                               </Link>
                             ))}
 
-                            <hr />
+                            
                           </div>
                         ))}
+                        <hr />
+                        </div>
                       </>
                     )}
 
+                    
+                    <div className="px-3">
+                      <Link className="dropdown-item" to="/" onClick={() => setProfileOpen(false)}>
+                        <i className="bi bi-heart me-2"></i> Incio
+                      </Link>
 
+                      <Link className="dropdown-item" to="/Novedades" onClick={() => setProfileOpen(false)}>
+                        <i className="bi bi-heart me-2"></i> Novedades
+                      </Link>
+                      <Link className="dropdown-item" to="/Descuentos" onClick={() => setProfileOpen(false)}>
+                        <i className="bi bi-bag-check me-2"></i> Descuentos
+                      </Link>
+                      <Link className="dropdown-item" to="/pages/Contacto" onClick={() => setProfileOpen(false)}>
+                        <i className="bi bi-receipt me-2"></i> Sucursales
+                      </Link>
+                      <Link className="dropdown-item" to="/pages/Sucursales" onClick={() => setProfileOpen(false)}>
+                        <i className="bi bi-geo-alt me-2"></i> Contacto
+                      </Link>
+                    </div>
                     <hr/>
 
-                    <Link className="dropdown-item" to="/" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-heart me-2"></i> Incio
-                    </Link>
-
-                    <Link className="dropdown-item" to="/Novedades" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-heart me-2"></i> Novedades
-                    </Link>
-                    <Link className="dropdown-item" to="/Descuentos" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-bag-check me-2"></i> Descuentos
-                    </Link>
-                    <Link className="dropdown-item" to="/pages/Contacto" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-receipt me-2"></i> Sucursales
-                    </Link>
-                    <Link className="dropdown-item" to="/pages/Sucursales" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-geo-alt me-2"></i> Contacto
-                    </Link>
-
-                    <hr/>
-
+                    <div className="px-3">
                     <button
                       className="dropdown-item"
                       onClick={() => setShowLogoutModal(true)}
                     >
                       Cerrar sesión
                     </button>
+                    </div>
 
                   </div>
 
                 </div>
 
-              
-                
 
             </div>
 

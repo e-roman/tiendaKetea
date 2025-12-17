@@ -70,7 +70,7 @@ export default function LoginModal() {
 
   return (
     <div
-      className="modal fade"
+      className="modal fade modal-style-xs"
       id="signupModal"
       tabIndex="-1"
       aria-hidden="true"
