@@ -3,13 +3,13 @@ export default function PersonalInfo() {
       <>
           <div className="d-grid gap-3 gap-lg-5">
             {/*!-- Card --*/}
-            <div className="card shadow-none">
-              <div className="card-header border-bottom">
+            <div className="card shadow-none p-2 p-lg-5">
+              <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 border-bottom">
                 <h4 className="card-header-title">Datos Personales</h4>
               </div>
 
               {/*!-- Body --*/}
-              <div className="card-body">
+              <div className="card-body p-1 p-md-0 mt-0 mt-md-3">
                 <form>
                   {/*!-- Form --*/}
                   <div className="row mb-4">
@@ -119,10 +119,10 @@ export default function PersonalInfo() {
               {/*!-- End Body --*/}
 
               {/*!-- Footer --*/}
-              <div className="card-footer pt-0">
-                <div className="d-flex justify-content-end gap-3">
-                  <a className="btn btn-sm border-0 btn-white" href="javascript:;">Cancelar</a>
-                  <a className="btn btn-sm rounded-pill px-4 btn-primary" href="javascript:;">Guardar cambios</a>
+              <div className="card-footer px-0 pt-0 pb-4 mt-3 mt-md-0">
+                <div className="d-md-flex justify-content-end gap-3">
+                  <a className="btn btn-sm border-0 btn-white w-xs-100 d-none d-md-block" href="javascript:;">Cancelar</a>
+                  <a className="btn btn-sm rounded-pill px-4 btn-primary w-xs-100" href="javascript:;">Guardar cambios</a>
                 </div>
               </div>
               {/*!-- End Footer --*/}
@@ -130,13 +130,13 @@ export default function PersonalInfo() {
             {/*!-- End Card --*/}
 
             {/*!-- Card --*/}
-            <div id="editAddressCard" className="card shadow-none">
-              <div className="card-header border-bottom">
+            <div id="editAddressCard" className="card shadow-none p-2 p-lg-5">
+              <div className="py-4 mb-3 pb-md-5 mb-md-4 border-bottom">
                 <h4 className="card-header-title">Dirección</h4>
               </div>
 
               {/*!-- Body --*/}
-              <div className="card-body">
+              <div className="card-body p-1 p-md-0 mt-0 mt-md-3">
                 <form>
                   {/*!-- Form --*/}
                   <div className="row mb-4">
@@ -236,10 +236,10 @@ export default function PersonalInfo() {
               {/*!-- End Body --*/}
 
               {/*!-- Footer --*/}
-              <div className="card-footer pt-0">
-                <div className="d-flex justify-content-end gap-3">
-                  <a className="btn btn-sm border-0 btn-white" href="javascript:;">Cancelar</a>
-                  <a className="btn btn-sm rounded-pill px-4 btn-primary" href="javascript:;">Guardar cambios</a>
+              <div className="card-footer px-0 pt-0 pb-4 mt-3 mt-md-0">
+                <div className="d-md-flex justify-content-end gap-3">
+                  <a className="btn btn-sm border-0 btn-white w-xs-100 d-none d-md-block" href="javascript:;">Cancelar</a>
+                  <a className="btn btn-sm rounded-pill px-4 btn-primary w-xs-100" href="javascript:;">Guardar cambios</a>
                 </div>
               </div>
               {/*!-- End Footer --*/}
@@ -249,13 +249,13 @@ export default function PersonalInfo() {
 
 
             {/*!-- Card --*/}
-            <div className="card shadow-none">
-              <div className="card-header border-bottom">
+            <div className="card shadow-none p-2 p-lg-5">
+              <div className="py-4 mb-3 pb-md-5 mb-md-4 border-bottom">
                 <h4 className="card-header-title">Eliminar mi cuenta</h4>
               </div>
 
               {/*!-- Body --*/}
-              <div className="card-body">
+              <div className="card-body p-1 p-md-0 mt-0 mt-md-3">
                 <p className="card-text">Al eliminar tu cuenta, pierdes el acceso a los servicios de Ketea S.A y eliminamos permanentemente tus datos personales. Puedes cancelar la eliminación durante 14 días.</p>
 
                 <div className="mb-4">
@@ -267,7 +267,7 @@ export default function PersonalInfo() {
                   {/*!-- End Check --*/}
                 </div>
 
-                <div className="d-flex justify-content-end">
+                <div className="d-flex justify-content-end px-0 pt-0 pb-4 mt-5 mt-md-0">
                   <button type="submit" className="btn btn-sm rounded-pill px-4 btn-danger">Eliminar</button>
                 </div>
               </div>

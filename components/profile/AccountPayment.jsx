@@ -7,13 +7,13 @@ export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenIn
       <div className="d-grid gap-3 gap-lg-5">
 
         {/* Card */}
-        <div className="card shadow-none">
-          <div className="card-header border-bottom">
+        <div className="card shadow-none p-2 p-lg-5 p-2 p-lg-5">
+          <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 border-bottom">
             <h4 className="card-header-title">Métodos de pago</h4>
           </div>
 
           {/* Body */}
-          <div className="card-body">
+          <div className="card-body p-1 p-md-0 mt-2 mt-md-3">
             <div className="mb-4">
               <p>
                 El cargo se realizará al final del mes o cuando el saldo supere el límite de uso.

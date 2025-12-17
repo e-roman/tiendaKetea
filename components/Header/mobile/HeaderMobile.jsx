@@ -7,6 +7,8 @@ import { Dropdown, ButtonGroup } from "react-bootstrap";
 import Select from "react-select"; // <- Import react-select
 import products from "../../../data/products.json"; // A
 
+import { PROFILE_MENU } from "../../../src/config/profileMenu";
+
 
 import TopAlert from "./TopAlert";
 import Topbar from "./Topbar";
@@ -176,18 +178,28 @@ useEffect(() => {
                     </Link>
                      )}
 
-                    <Link className="dropdown-item" to="/pages/Profile?view=favorites" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-heart me-2"></i> Favoritos
-                    </Link>
-                    <Link className="dropdown-item" to="/pages/Profile?view=orders" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-bag-check me-2"></i> Pedidos
-                    </Link>
-                    <Link className="dropdown-item" to="/pages/Profile?view=payments" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-receipt me-2"></i> Comprobantes
-                    </Link>
-                    <Link className="dropdown-item" to="/pages/Profile?view=address" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-geo-alt me-2"></i> Direcciones
-                    </Link>
+                    {isLogged && (
+                      <>
+                        {PROFILE_MENU.map(section => (
+                          <div key={section.title}>
+                            {section.items.map(item => (
+                              <Link
+                                key={item.key}
+                                className="dropdown-item"
+                                to={`/pages/Profile?view=${item.key}`}
+                                onClick={() => setProfileOpen(false)}
+                              >
+                                <i className={`bi ${item.icon} me-2`} />
+                                {item.label}
+                              </Link>
+                            ))}
+
+                            <hr />
+                          </div>
+                        ))}
+                      </>
+                    )}
+
 
                     <hr/>
 

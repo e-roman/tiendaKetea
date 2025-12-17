@@ -1,87 +1,46 @@
-export default function NavProfile({ onSelect }) {
+import { useNavigate } from "react-router-dom";
+import { PROFILE_MENU } from "../../src/config/profileMenu";
+
+export default function NavProfile({ currentView }) {
+  const navigate = useNavigate();
+
+  const goTo = (key) => {
+    navigate(`/pages/Profile?view=${key}`);
+  };
+
   return (
-    <>
-      <div className="navbar-expand-lg navbar-light">
-        <div id="sidebarNav" className="collapse navbar-collapse navbar-vertical">
-          <div className="card shadow-none flex-grow-1 mb-5">
-            <div className="card-body">
+    <div className="navbar-expand-lg navbar-light">
+      <div id="sidebarNav" className="collapse navbar-collapse navbar-vertical">
+        <div className="card shadow-none flex-grow-1 mb-5">
+          <div className="card-body">
 
-              <span className="text-cap">Configuración</span>
+            {PROFILE_MENU.map(section => (
+              <div key={section.title}>
+                <span className="text-cap">{section.title}</span>
 
-              <ul className="nav nav-sm nav-tabs nav-vertical mb-4">
-                <li className="nav-item">
-                  <button className="nav-link btn btn-link text-start"
-                    onClick={() => onSelect("personalInfo")}>
-                    <i className="bi-person-badge nav-icon"></i> Datos Personales
-                  </button>
-                </li>
+                <ul className="nav nav-sm nav-tabs nav-vertical mb-4">
+                  {section.items.map(item => {
+                    const isActive = currentView === item.key;
 
-                <li className="nav-item">
-                  <button className="nav-link btn btn-link text-start"
-                    onClick={() => onSelect("security")}>
-                    <i className="bi-shield-shaded nav-icon"></i> Seguridad
-                  </button>
-                </li>
+                    return (
+                      <li className="nav-item" key={item.key}>
+                        <button
+                          className={`nav-link btn btn-link text-start ${isActive ? "active" : ""}`}
+                          onClick={() => goTo(item.key)}
+                        >
+                          <i className={`bi ${item.icon} nav-icon me-2`} />
+                          {item.label}
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
 
-                <li className="nav-item">
-                  <button className="nav-link btn btn-link text-start"
-                    onClick={() => onSelect("notifications")}>
-                    <i className="bi-bell nav-icon"></i> Notificaciones
-                  </button>
-                </li>
-              </ul>
-
-              <span className="text-cap">Compras</span>
-
-              <ul className="nav nav-sm nav-tabs nav-vertical mb-4">
-                <li className="nav-item">
-                  <button className="nav-link btn btn-link text-start"
-                    onClick={() => onSelect("orders")}>
-                    <i className="bi-basket nav-icon"></i> Mis Compras
-                  </button>
-                </li>
-                <li className="nav-item">
-                  <button className="nav-link btn btn-link text-start"
-                    onClick={() => onSelect("payments")}>
-                    <i className="bi bi-receipt me-2"></i> Compobantes
-                  </button>
-                </li>
-                <li className="nav-item">
-                  <button className="nav-link btn btn-link text-start"
-                    onClick={() => onSelect("favorites")}>
-                    <i className="bi-heart nav-icon"></i> Favoritos
-                  </button>
-                </li>
-                <li className="nav-item">
-                  <button className="nav-link btn btn-link text-start"
-                    onClick={() => onSelect("notificaciones")}>
-                    <i className="bi-bell nav-icon"></i> Notificaciones
-                  </button>
-                </li>
-              </ul>
-
-              <span className="text-cap">Pago</span>
-
-              <ul className="nav nav-sm nav-tabs nav-vertical">
-                <li className="nav-item">
-                  <button className="nav-link btn btn-link text-start"
-                    onClick={() => onSelect("payment")}>
-                    <i className="bi-credit-card nav-icon"></i> Métodos de Pago
-                  </button>
-                </li>
-
-                <li className="nav-item">
-                  <button className="nav-link btn btn-link text-start"
-                    onClick={() => onSelect("address")}>
-                    <i className="bi-geo-alt nav-icon"></i> Dirección de entrega
-                  </button>
-                </li>
-              </ul>
-
-            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

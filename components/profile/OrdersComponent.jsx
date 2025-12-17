@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 // Subcomponents
 const SearchBar = ({ value, onChange }) => (
-  <div className="card-header border-bottom">
+  <div className="pb-3 mb-2 pb-md-5 mb-md-4">
     <form className="input-group input-group-merge">
       <div className="input-group-prepend input-group-text">
         <i className="bi-search"></i>
@@ -27,7 +27,7 @@ const Tabs = ({ activeTab, setActiveTab }) => {
   ];
 
   return (
-    <ul className="nav nav-segment tabs-buyers nav-fill mb-7" role="tablist">
+    <ul className="nav nav-segment tabs-buyers nav-fill mb-4 mb-md-7" role="tablist">
       {tabs.map((tab) => (
         <li key={tab.id} className="nav-item" role="presentation">
           <button
@@ -43,8 +43,8 @@ const Tabs = ({ activeTab, setActiveTab }) => {
 };
 
 const OrderCard = ({ order }) => (
-  <li className="card card-bordered shadow-none mb-3">
-    <div className="card-body">
+  <li className="card card-bordered shadow-none mb-3 p-3 p-md-0">
+    <div className="card-body p-1 p-md-5">
       <div className="row">
         <div className="col-6 col-md mb-3 mb-md-0">
           <small className="card-subtitle font-medium mb-0">Total</small>
@@ -73,7 +73,7 @@ const OrderCard = ({ order }) => (
         <div className="col-md-8">
           <h5>¡Pedido entregado!</h5>
 
-          <div className="row gx-10">
+          <div className="row gx-2 gx-md-10 my-4 my-md-0">
             {order.imgs.map((src, idx) => (
               <div className="col" key={idx}>
                 <img className="img-fluid" src={src} alt="Producto" />
@@ -143,10 +143,10 @@ export default function OrdersModule() {
   );
 
   return (
-    <div className="card shadow-none">
+    <div className="card shadow-none p-2 p-lg-5">
       <SearchBar value={search} onChange={setSearch} />
 
-      <div className="card-body">
+      <div>
         <Tabs activeTab={activeTab} setActiveTab={setActiveTab} />
 
         {activeTab === "entregados" && (

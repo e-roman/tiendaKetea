@@ -1,5 +1,5 @@
 // src/components/header/NavCategories.jsx
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 
 import { useAuth } from "../../../src/context/AuthContext";
@@ -80,24 +80,63 @@ export default function NavCategories({ setShowPriceModal, setShowLogoutModal })
 
           {/* Links simples */}
           <li className="nav-item">
-            <Link className="nav-link" to="/">Home</Link>
+            <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+            >
+              Home
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/Novedades">Novedades</Link>
+            <NavLink
+              to="/Novedades"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+            >
+              Novedades
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/Descuentos">Descuentos</Link>
+            <NavLink
+              to="/Descuentos"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+            >
+              Descuentos
+            </NavLink>
           </li>
           <li className="nav-item">
-            <button className="nav-link bg-transparent border-0" onClick={() => setShowPriceModal(true)}>
+            <button
+              className="nav-link bg-transparent border-0"
+              onClick={() => setShowPriceModal(true)}
+            >
               Lista de Precios
             </button>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/Sucursales">Sucursales</Link>
+            <NavLink
+              to="/Sucursales"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+            >
+              Sucursales
+            </NavLink>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/Contacto">Contacto</Link>
+            <NavLink
+              to="/Contacto"
+              className={({ isActive }) =>
+                `nav-link ${isActive ? "active" : ""}`
+              }
+            >
+              Contacto
+            </NavLink>
           </li>
 
           {/* Perfil */}

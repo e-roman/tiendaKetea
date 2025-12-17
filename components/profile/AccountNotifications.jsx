@@ -2,15 +2,15 @@ export default function AccountNotificactions() {
   return (
       <>
         {/* Card */}
-        <div className="card shadow-none">
+        <div className="card shadow-none p-2 p-lg-5">
           {/* Header */}
-          <div className="card-header d-flex justify-content-between align-items-center border-bottom">
+          <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 d-flex justify-content-between align-items-center border-bottom">
             <h4 className="card-header-title">Notificaciones</h4>
 
-            <a id="toggleAll1" className="btn btn-white btn-sm btn-toggle" href="#" style={{position: "absolute", right: "30px"}}>
+            {/* <a id="toggleAll1" className="btn btn-white btn-sm btn-toggle" href="#">
                   <span className="btn-toggle-default">Activar todas</span>
                   <span className="btn-toggle-toggled">Desaactivar todas</span>
-                </a>
+                </a> */}
           </div>
           {/* End Header */}
 
@@ -23,7 +23,7 @@ export default function AccountNotificactions() {
           </div>
           {/* End Alert */}
 
-          <div className="card-body">
+          <div className="card-body p-1 p-md-0 mt-2 mt-md-3">
            <h5 className="card-header-title pb-3">Enviarme:</h5>
 
             {/* List Group */}
@@ -95,9 +95,9 @@ export default function AccountNotificactions() {
         {/* End Card */}
 
         {/* Card */}
-        <div className="card shadow-none card-sm">
+        <div className="card shadow-none p-2 p-lg-5">
           {/* Header */}
-          <div className="card-header d-flex justify-content-between align-items-center border-bottom">
+          <div className="py-4 mb-3 pb-md-5 d-flex justify-content-between align-items-center border-bottom">
             <h5 className="card-header-title">Newsletter</h5>
 
             <a
@@ -112,7 +112,7 @@ export default function AccountNotificactions() {
           </div>
           {/* End Header */}
 
-          <div className="card-body">
+          <div className="card-body p-1 p-md-0 mt-2 mt-md-3">
             <small className="card-subtitle">Suscribirme a:</small>
 
             {/* List Group */}
@@ -166,21 +166,18 @@ export default function AccountNotificactions() {
         {/* End Card */}
 
         {/* Toggle Button */}
-        <div className="d-sm-flex justify-content-between align-items-center pt-4">
+        <div className="d-sm-flex justify-content-between align-items-center py-4 p-2">
           <div className="mb-3 mb-sm-0">
             <small>Activar o desactivar todas las notificaciones:</small>
           </div>
 
           <a
-            className="js-toggle-state btn btn-primary btn-sm btn-toggle"
-            href="javascript:;"
-            data-hs-toggle-state-options='{"targetSelector": "#accountNotificationSwitch1, #accountNotificationSwitch2, #accountNotificationSwitch3, #accountNotificationSwitch4, #accountNotificationSwitch5, #accountNotificationSwitch6, #accountNotificationSwitch7, #accountNotificationSwitch8, #accountNotificationSwitch9, #accountNotificationSwitch10, #accountNotificationSwitch11", "slaveSelector": "#toggleAll1, #toggleAll2, #toggleAll3, #toggleAll4"}'
-          >
+            className="btn btn-primary btn-sm btn-toggle w-xs-100">
             <span className="btn-toggle-default">
-              <i className="bi-toggle-off me-1"></i> Desactivar todas
+              <i className="bi-toggle-off me-md-1 w-xs-100"></i> Desactivar todas
             </span>
             <span className="btn-toggle-toggled">
-              <i className="bi-toggle-on me-1"></i> Activar todas
+              <i className="bi-toggle-on me-md-1 w-xs-100"></i> Activar todas
             </span>
           </a>
         </div>

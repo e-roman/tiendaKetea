@@ -52,7 +52,7 @@ input.form-control, select.form-select, label {
     font-size: 12px;
 }
 .font-13 {
-    font-size: 13px;
+    font-size: 13px!important;
 }
 .font-14 {
     font-size: 14px;
@@ -471,12 +471,12 @@ ul.items-SideCart li.itemAdded:last-child {
     width: 19px;
     height: 19px;
     color: #fff;
-    background: #654b92;
+    background: #377dff;
     line-height: 19px;
-    font-size: 11px;
+    font-size: 12px;
     border-radius: 100%;
     text-align: center;
-    font-weight: 700;
+    font-weight: 500;
     content: "";
 }
 .nav-icons li button .notification-in {
@@ -504,11 +504,11 @@ ul.items-SideCart li.itemAdded:last-child {
 }
 .notifications-active {
     position: absolute;
-    top: 10px;
+    top: 9px;
     left: 24px;
     display: inline-block;
-    width: 9px;
-    height: 9px;
+    width: 11px;
+    height: 11px;
     color: #fff;
     background: red;
     line-height: 19px;
@@ -517,6 +517,7 @@ ul.items-SideCart li.itemAdded:last-child {
     text-align: center;
     font-weight: 700;
     content: "";
+    border: solid 2px #FFF;
 }
 
 .media {
@@ -2122,18 +2123,24 @@ button.btn-search-mobile {
     #cartOffcanvas {
         width: 100%;
     }
+    .btn-checkout {
+        padding: 15px 0;
+        width: 100%;
+    }
+
+    
     .w-xs-100 {
         width: 100%;
     }    
     .d-md-none {
         display: none;
     }
-    .btn-checkout {
-        padding: 15px 0;
-        width: 100%;
-    }
     .px-mobile {
         padding: 0 0.5rem;
+    }
+    .px-xs-0 {
+        padding-left: 0;
+        padding-right: 0;
     }
 
     #signupModal .modal-content {

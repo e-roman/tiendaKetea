@@ -2,8 +2,8 @@ export default function AccountSecurity() {
   return (
       <>
             {/* Card */}
-            <div className="card shadow-none">
-                <div className="card-header border-bottom">
+            <div className="card shadow-none p-2 p-lg-5">
+                <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 d-flex justify-content-between align-items-center border-bottom">
                 <div className="d-flex align-items-center">
                     <h4 className="card-header-title">Verificación en dos pasos</h4>
                     <span className="badge bg-soft-danger text-danger ms-2">Desactivada</span>
@@ -11,7 +11,7 @@ export default function AccountSecurity() {
                 </div>
 
                 {/* Body */}
-                <div className="card-body">
+                <div className="card-body p-1 p-md-0 mt-2 mt-md-3">
                 <p className="card-text">
                     Comenzá ingresando tu contraseña para que podamos confirmar que sos vos. Luego te guiaremos por dos pasos simples más.
                 </p>
@@ -43,7 +43,7 @@ export default function AccountSecurity() {
                     {/* End Form */}
 
                     <div className="d-flex justify-content-end">
-                    <button type="submit" className="btn btn-primary rounded-pill btn-sm px-4">
+                    <button type="submit" className="btn btn-primary rounded-pill btn-sm px-4 w-xs-100">
                         Establecer
                     </button>
                     </div>
@@ -54,13 +54,13 @@ export default function AccountSecurity() {
             {/* End Card */}
 
             {/* Card */}
-            <div className="card shadow-none">
-                <div className="card-header border-bottom">
+            <div className="card shadow-none p-2 p-lg-5">
+                <div className="mb-3 pb-md-5 d-flex justify-content-between align-items-center border-bottom">
                 <h5 className="card-header-title">Contraseña</h5>
                 </div>
 
                 {/* Body */}
-                <div className="card-body">
+                <div className="card-body p-1 p-md-0 mt-2 mt-md-3">
                 {/* Form */}
                 <form>
                     {/* Form */}
@@ -139,9 +139,9 @@ export default function AccountSecurity() {
                     </div>
                     {/* End Form */}
 
-                    <div className="d-flex justify-content-end gap-3 mt-8">
-                    <a className="btn border-0 btn-sm px-4 btn-white" href="javascript:;">Cancelar</a>
-                    <button type="submit" className="btn btn-sm px-4 rounded-pill btn-primary">
+                    <div className="d-md-flex justify-content-end gap-3 mt-5 mt-md-8">
+                    <a className="btn border-0 btn-sm px-4 btn-white w-xs-100 d-none d-md-block" href="javascript:;">Cancelar</a>
+                    <button type="submit" className="btn btn-sm px-4 rounded-pill btn-primary w-xs-100">
                         Actualizar Contraseña
                     </button>
                     </div>
@@ -153,13 +153,13 @@ export default function AccountSecurity() {
             {/* End Card */}
 
             {/* Card */}
-            <div className="card shadow-none">
-                <div className="card-header border-bottom">
+            <div className="card shadow-none p-2 p-lg-5">
+                <div className="mb-3 pb-md-5 d-flex justify-content-between align-items-center border-bottom">
                 <h5 className="card-header-title">Ingresar con Gmail</h5>
                 </div>
 
                 {/* Body */}
-                <div className="card-body">
+                <div className="card-body p-1 p-md-0 mt-2 mt-md-3">
                 {/* Form */}
                 <form>
                     {/* List Group */}

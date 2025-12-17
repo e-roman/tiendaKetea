@@ -3,9 +3,9 @@ export default function AccountNotificaciones() {
   return (
       <>
         {/* Card */}
-        <div className="card shadow-none">
+        <div className="card shadow-none p-2 p-lg-5 p-2 p-lg-5">
           {/* Header */}
-          <div className="card-header d-flex justify-content-between align-items-center border-bottom">
+          <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 border-bottom">
             <h4 className="card-header-title">Notificaciones</h4>
           </div>
           {/* End Header */}

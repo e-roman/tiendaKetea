@@ -8,14 +8,14 @@ export default function AccountWhishlist() {
 
   return (
       <>
-      <div className="card shadow-none">
-        <div className="card-header d-sm-flex justify-content-sm-between align-items-sm-center border-bottom">
+      <div className="card shadow-none p-2 p-lg-5 p-2 p-lg-5">
+        <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4  d-sm-flex justify-content-sm-between align-items-sm-center border-bottom">
           <h4 className="card-header-title">Recientemente agregado/s</h4>
           <span className="lh-1">2 items</span>
         </div>
 
         {/* Body */}
-        <div className="card-body">
+        <div className="card-body p-1 p-md-0 mt-2 mt-md-3">
           {/* Form */}
           <form>
             {favorites.length === 0 && (

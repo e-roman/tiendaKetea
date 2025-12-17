@@ -108,14 +108,14 @@ export default function MyProfile() {
       </div>
 
       {/* CONTENIDO */}
-      <div className="container space-1 space-md-2 mt-lg-n10">
+      <div className="container space-0 space-md-2 mt-lg-n10">
         <div className="row">
 
           <div className="col-lg-3">
-            <NavProfile onSelect={setCurrentView} />
+           <NavProfile currentView={currentView} />
           </div>
 
-          <div className="col-lg-9">{renderView()}</div>
+          <div className="col-lg-9 px-xs-0">{renderView()}</div>
 
           {/* MODALS */}
           {showAddCard && (
