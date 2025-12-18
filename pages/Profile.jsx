@@ -3,9 +3,9 @@ import { useLocation } from "react-router-dom";
 
 import NavProfile from "../components/profile/NavProfile";
 
-import AccountAddCardModal from '../components/Modals/AccountAddCardModal';
-import AccountEditCardModal from "../components/Modals/AccountEditCardModal";
-import AccountInvoiceReceiptModal from "../components/Modals/AccountInvoiceReceiptModal";
+import AccountAddCardModal from "../components/Modals/accountAddCardModal";
+import AccountEditCardModal from "../components/Modals/accountEditCardModal";
+import AccountInvoiceReceiptModal from "../components/Modals/accountInvoiceReceiptModal";
 
 import AccountAddress from "../components/profile/AccountAddress";
 import AccountNotifications from "../components/profile/AccountNotifications";
