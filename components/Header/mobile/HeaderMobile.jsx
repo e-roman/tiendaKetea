@@ -99,7 +99,7 @@ useEffect(() => {
       <header className="header-mobile d-flex p-2">
           {/* LOGO */}
           <Link to="/" className="navbar-brand">
-            <img src="../assets/img/favicon/favicon.png" alt="Ketea S.A" height="50" />
+            <img src="assets/img/favicon/favicon.png" alt="Ketea S.A" height="50" />
           </Link>
 
 

@@ -7,7 +7,7 @@ export default function Footer() {
           <div className="d-flex align-items-start flex-column h-100">
             {/*-- Logo --*/}
             <a className="w-100 mb-3 mb-lg-auto" href="index.html" aria-label="Front">
-              <img className="brand" src="../assets/img/logo/logo.svg" alt="Ketea S.A" />
+              <img className="brand" src="assets/img/logo/logo.svg" alt="Ketea S.A" />
             </a>
             {/*-- End Logo --*/}
               <small>Coronel Brandsen 2230, Ramos Mejia, Buenos Aires</small>

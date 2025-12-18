@@ -88,7 +88,7 @@ export default function MainHeader() {
         
         {/* LOGO */}
         <Link to="/" className="navbar-brand">
-          <img src="../assets/img/logo/logo.svg" alt="Logo" height="60" />
+          <img src="assets/img/logo/logo.svg" alt="Logo" height="60" />
         </Link>
 
        {/* BUSCADOR */}
