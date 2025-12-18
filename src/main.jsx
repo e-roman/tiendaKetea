@@ -32,7 +32,7 @@ createRoot(document.getElementById("root")).render(
         </CartProvider>
       </FavoritesProvider>
 
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
     </BrowserRouter>
   </StrictMode>
 );

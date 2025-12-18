@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { useAuth } from "../../src/context/AuthContext";
 import { Modal } from "bootstrap";
 
-export default function LoginModal() {
+export default function Login() {
   const [step, setStep] = useState("login");
   const { login } = useAuth();
 
