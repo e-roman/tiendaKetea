@@ -119,17 +119,28 @@ export default function Login() {
                     <div className="invalid-feedback">Ingresá tu contraseña.</div>
                   </div>
 
-                  <div className="d-flex justify-content-end">
+                  <div className="d-flex justify-content-end mb-4">
                     <a className="form-label-link" href="#" onClick={() => setStep("reset-password")}>
                       ¿Olvidaste tu contraseña?
                     </a>
                   </div>
 
-                  <div className="d-grid my-4">
+                  <div className="d-grid">
                     <button type="submit" className="btn btn-primary form-control-lg">
                       Ingresar
                     </button>
                   </div>
+
+                  <div className="text-center my-3">
+                    <p className="mb-0">O</p>
+                  </div>
+
+                  <div className="d-grid mb-4">
+                    <button type="submit" className="btn btn-white btn-border form-control-lg">
+                      <img src="../assets/svg/brands/google-icon.svg" width={20} className="mr-1" /> Ingresar con Google
+                    </button>
+                  </div>
+
 
                   <div className="text-center mt-5">
                     <p>
@@ -189,13 +200,25 @@ export default function Login() {
                     <div className="invalid-feedback">Confirmá la contraseña.</div>
                   </div>
 
-                  <div className="d-grid mt-6 mb-3">
+                  <div className="d-grid mt-6">
                     <button type="submit" className="btn btn-primary form-control-lg">
                       Registrarme
                     </button>
                   </div>
 
-                  <div className="text-center mt-5">
+                  <div className="text-center my-3">
+                    <p className="mb-0">O</p>
+                  </div>
+
+                  <div className="d-grid">
+                    <button type="submit" className="btn btn-white btn-border form-control-lg">
+                      <img src="../assets/svg/brands/google-icon.svg" width={20} className="mr-1" /> Registrarme con Google
+                    </button>
+                  </div>
+
+
+
+                  <div className="text-center mt-7">
                   <p>
                     ¿Ya tienes una cuenta?{" "}
                     <a href="#" className="link" onClick={() => setStep("login")}>

@@ -6,7 +6,7 @@ import Footer from "../components/Footer";
 import SidebarCart from "../components/SidebarCart";
 import { FloatingAlertProvider } from "../src/context/FloatingAlertContext";
 import AlertFloating from "../components/AlertFloating";
-import Login from "../components/Modals/Login";
+import Login from "../components/Modals/LoginModal";
 import SupportChat from "../components/SupportChat";
 
 import Home from "../pages/Home";
