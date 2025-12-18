@@ -24,7 +24,8 @@
     "installmentsLabel": "3x $1.354.185",
     "taxLabel": "Impuestos Nacionales aprox. $852,136",
     "isFeatured": false,
-    "date": "2024-09-01"
+    "date": "2024-09-01",
+    "code": "#32510A"
   },
   {
     "id": 2,
@@ -51,7 +52,8 @@
     "installmentsLabel": "3x $692.685",
     "taxLabel": "Impuestos Nacionales aprox. $436,392",
     "isFeatured": false,
-    "date": "2024-10-20"
+    "date": "2024-10-20",
+    "code": "#32510A"
   },
   {
     "id": 3,
@@ -78,7 +80,8 @@
     "installmentsLabel": "3x $1.914.000",
     "taxLabel": "Impuestos Nacionales aprox. $1,205,820",
     "isFeatured": false,
-    "date": "2024-09-15"
+    "date": "2024-09-15",
+    "code": "#32510A"
   },
 
   {
@@ -106,7 +109,8 @@
     "installmentsLabel": "3x $2.330.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,467,331",
     "isFeatured": true,
-    "date": "2024-12-01"
+    "date": "2024-12-01",
+    "code": "#32510A"
   },
 
   {
@@ -134,7 +138,8 @@
     "installmentsLabel": "3x $1.291.185",
     "taxLabel": "Impuestos Nacionales aprox. $811,447",
     "isFeatured": true,
-    "date": "2024-11-25"
+    "date": "2024-11-25",
+    "code": "#32510A"
   },
 
   {
@@ -162,7 +167,8 @@
     "installmentsLabel": "3x $1.102.185",
     "taxLabel": "Impuestos Nacionales aprox. $693,377",
     "isFeatured": true,
-    "date": "2024-11-22"
+    "date": "2024-11-22",
+    "code": "#32510A"
   },
 
   {
@@ -190,7 +196,8 @@
     "installmentsLabel": "3x $2.078.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,309,571",
     "isFeatured": false,
-    "date": "2024-08-10"
+    "date": "2024-08-10",
+    "code": "#32510A"
   },
 
   {
@@ -218,7 +225,8 @@
     "installmentsLabel": "3x $1.480.185",
     "taxLabel": "Impuestos Nacionales aprox. $932,516",
     "isFeatured": false,
-    "date": "2024-08-01"
+    "date": "2024-08-01",
+    "code": "#32510A"
   },
 
   {
@@ -246,7 +254,8 @@
     "installmentsLabel": "3x $1.889.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,190,501",
     "isFeatured": false,
-    "date": "2024-07-28"
+    "date": "2024-07-28",
+    "code": "#32510A"
   },
 
   {
@@ -274,7 +283,8 @@
     "installmentsLabel": "3x $923.720",
     "taxLabel": "Impuestos Nacionales aprox. $582,045",
     "isFeatured": false,
-    "date": "2024-07-12"
+    "date": "2024-07-12",
+    "code": "#32510A"
   },
 
   {
@@ -302,7 +312,8 @@
     "installmentsLabel": "3x $837.585",
     "taxLabel": "Impuestos Nacionales aprox. $525,579",
     "isFeatured": false,
-    "date": "2024-07-01"
+    "date": "2024-07-01",
+    "code": "#32510A"
   },
 
   {
@@ -329,7 +340,8 @@
     "installmentsLabel": "6x $2.897.842",
     "taxLabel": "Impuestos Nacionales aprox. $3,650,181",
     "isFeatured": true,
-    "date": "2024-11-27"
+    "date": "2024-11-27",
+    "code": "#32510A"
   },
 
   {
@@ -356,6 +368,7 @@
     "installmentsLabel": "",
     "taxLabel": "Impuestos Nacionales $0",
     "isFeatured": false,
-    "date": "2024-06-15"
+    "date": "2024-06-15",
+    "code": "#32510A"
   }
 ]

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function AccountHistoryPayments({ onOpenInvoice }) {
   return (
       <>
-        <div className="card shadow-none p-2 p-lg-5 p-2 p-lg-5">
+        <div className="card shadow-none p-2 p-lg-5 p-2 p-lg-5 h-100">
             {/* Header */}
             <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 border-bottom">
                 <h4 className="card-header-title">Historial de Pedidos</h4>

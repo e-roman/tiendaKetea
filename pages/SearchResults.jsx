@@ -189,7 +189,7 @@ const results = useMemo(() => {
           <div className="row">
 
             {/* LATERAL FILTROS */}
-            <div className="col-lg-3 pt-md-2 ps-md-5 d-none d-lg-block">
+            <div className="col-lg-3 pt-md-3 pe-md-5 d-none d-lg-block">
               <SearchFilters
                 filters={filters}
                 setFilters={setFilters}
@@ -321,7 +321,7 @@ const results = useMemo(() => {
                 )}
 
                 {results.map(p => (
-                  <div className="px-1 mb-3" key={p.id}>
+                  <div className="px-2 mb-3" key={p.id}>
                     <ProductCardHorizontalMobile product={p} openProduct={openProduct} />
                   </div>
                 ))}

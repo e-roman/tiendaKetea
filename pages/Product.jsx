@@ -51,9 +51,9 @@ export default function ProductPage() {
     <div>
       <AlertFloating />
 
-      <div className="container space-top-1 space-top-sm-1">
-        <div className="row">
-          <div className="col-lg-12 mb-3 mb-lg-0">
+      <div className="container space-top-1 space-top-sm-1 px-0-xs">
+        <div className="row mx-xs-0">
+          <div className="col-lg-12 mb-3 mb-lg-0 d-none d-md-block">
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
@@ -73,7 +73,7 @@ export default function ProductPage() {
             </nav>
           </div>
 
-          <div className="col-lg-8 mb-7 mb-lg-0">
+          <div className="col-lg-8 mb-5 mb-lg-0 px-xs-0">
             <div className="pe-lg-3">
               {isMobile ? (
                 <ProductGalleryMobile product={product} />

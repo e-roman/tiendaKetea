@@ -11,32 +11,6 @@ export default function SearchFilters({
   return (
     <div>
 
-      {/* PRECIO */}
-      <div className="border-bottom pb-2 mb-3">
-        <h5 className="pb-2">Precio</h5>
-
-        <div className="d-flex gap-2">
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Desde $"
-            value={filters.precioMin}
-            onChange={(e) =>
-              setFilters(prev => ({ ...prev, precioMin: e.target.value }))
-            }
-          />
-
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Hasta $"
-            value={filters.precioMax}
-            onChange={(e) =>
-              setFilters(prev => ({ ...prev, precioMax: e.target.value }))
-            }
-          />
-        </div>
-      </div>
 
       {/* MARCAS */}
       <div className="border-bottom pb-4 mb-4">
@@ -133,8 +107,37 @@ export default function SearchFilters({
           })}
       </div>
 
+
+      {/* PRECIO */}
+      <div className="border-bottom pb-4 mb-4">
+        <h5 className="pb-2">Precio</h5>
+
+        <div className="d-flex gap-2">
+          <input
+            type="number"
+            className="form-control priceMm"
+            placeholder="Mínimo"
+            value={filters.precioMin}
+            onChange={(e) =>
+              setFilters(prev => ({ ...prev, precioMin: e.target.value }))
+            }
+          />
+
+          <input
+            type="number"
+            className="form-control priceMm"
+            placeholder="Máximo"
+            value={filters.precioMax}
+            onChange={(e) =>
+              setFilters(prev => ({ ...prev, precioMax: e.target.value }))
+            }
+          />
+        </div>
+      </div>
+
+
       <button className="btn btn-sm btn-secondary w-100 d-none d-lg-block" onClick={resetFilters}>
-        Borrar filtros
+        Limpiar filtros
       </button>
     </div>
 

@@ -11,7 +11,7 @@ const SearchBar = ({ value, onChange }) => (
       <input
         type="search"
         className="form-control"
-        placeholder="Buscar pedido"
+        placeholder="Buscar pedido por número de orden"
         value={value}
         onChange={(e) => onChange(e.target.value)}
       />

@@ -193,7 +193,7 @@ export default function MainHeader() {
             <Dropdown.Menu align="end" className="dropdowNotifications p-0" style={{ minWidth: "25rem" }}>
               <div className="card">
                 <div className="card-header card-header-content-between pt-4 pb-3 ps-4">
-                    <h4 className="card-title text-dark mb-0">Notificaciones</h4>
+                    <h5 className="card-title text-dark mb-0">Notificaciones</h5>
                   </div>
                 
                 <div className="card-body-height">

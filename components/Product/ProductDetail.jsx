@@ -48,7 +48,7 @@ export default function ProductDetail({ product }) {
       <AlertFloating/>
 
       {/* Código + rating */}
-      <div className="d-flex align-items-center justify-content-between small mb-2">
+      <div className="d-none d-md-flex align-items-center justify-content-between small mb-2">
         <p className="link-muted mb-0">
           <small>Código: {product.code || "N/A"}</small>
         </p>
@@ -70,12 +70,12 @@ export default function ProductDetail({ product }) {
 
 
       {/* Título + Favorito */}
-      <div className="d-flex justify-content-between align-items-start">
+      <div className="d-none d-md-flex justify-content-between align-items-start ">
         <h1 className="h2 font-bold mb-0">{product.title}</h1>
 
         <button
           type="button"
-          className={`btn font-20 btn-sm p-0 btn-fav ${
+          className={`btn-fav btn btn-xs p-3 btn-icon rounded-circle font-18 ${
             isFavorite ? "text-danger" : "text-muted"
           }`}
           onClick={handleToggleFavorite}
@@ -92,7 +92,7 @@ export default function ProductDetail({ product }) {
 
 
       {/* Stock */}
-      <div className="d-flex justify-content-between pb-3">
+      <div className="d-flex justify-content-between pb-3 px-1 px-md-0">
         {product.stock <= 1 ? (
           <span className="badge py-1 px-2 bg-danger text-white rounded-1">
             ¡Último en stock!
@@ -106,7 +106,7 @@ export default function ProductDetail({ product }) {
 
 
       {/* Precios */}
-      <div className="mb-1">
+      <div className="d-none d-md-block mb-3">
         <div className="d-flex align-items-center">
           <div>
             {product.oldPrice && (
@@ -122,13 +122,46 @@ export default function ProductDetail({ product }) {
 
           {product.discount && (
             <div className="ms-2">
-              <span className="badge py-1 px-2 bg-warning text-white rounded-1 font-15">
-                - {product.discount}%
+              <span className="badge badge-yellow py-1 px-2 text-dark rounded-1 font-15">
+                - {product.discount}% OFF
               </span>
             </div>
           )}
         </div>
       </div>
+
+
+
+
+      {/* Precios */}
+      <div className="d-block d-md-none mb-1 px-1 px-md-0">
+        <div>
+         
+          <div className="d-flex align-items-center">
+            {product.oldPrice && (
+              <span className="h4 text-secondary mb-0 me-1">
+                <del>${formatAR(product.oldPrice)}</del>
+              </span>
+            )}
+
+            {product.discount && (
+              <div className="ms-2">
+                <span className="badge badge-yellow py-1 px-2 text-dark rounded-1 font-15">
+                  - {product.discount}% OFF
+                </span>
+              </div>
+            )}
+          </div>
+
+          <div className="pt-1 pb-3">
+            <span className="h2 font-bold price-xs">
+              ${formatAR(product.price)}
+            </span>
+          </div>
+
+        </div>
+      </div>
+
 
 
       {/* Precio sin impuestos */}
@@ -147,16 +180,15 @@ export default function ProductDetail({ product }) {
 
 
       {/* Beneficios */}
-      <div>
+      <div className="px-1 px-md-0">
         <ul className="pb-0 text-black">
 
           <li>
             <div className="d-flex align-items-start">
               <i className="bi bi-credit-card flex-shrink-0 me-1 lh-1 f-icons-18"></i>
               <p className="pb-3 mb-0 small lh-sm">
-                <span className="d-block text-black">
-                  <b>{product.installmentsLabel}</b>.{" "}
-                  <a href="#">Ver tarjetas</a>
+                <span className="d-flex text-black">
+                  <div className="font-bold">{product.installmentsLabel}</div>. <a href="#">Ver tarjetas</a>
                 </span>
               </p>
             </div>
@@ -167,8 +199,7 @@ export default function ProductDetail({ product }) {
               <i className="bi bi-cash-stack flex-shrink-0 me-1 lh-1 f-icons-18"></i>
               <p className="pb-3 mb-0 small lh-sm">
                 <span className="d-block text-black">
-                  <b>10% de descuento</b> pagando con Transferencia o depósito.
-                  <a href="#"> Ver más detalles</a>
+                 <span className="font-bold">10% de descuento</span> pagando con transferencia o depósito. <a href="#"> Ver más detalles</a>
                 </span>
               </p>
             </div>
@@ -179,7 +210,7 @@ export default function ProductDetail({ product }) {
               <i className="bi bi-truck flex-shrink-0 me-1 lh-1 f-icons-18"></i>
               <p className="pb-3 mb-0 small lh-sm">
                 <span className="d-block text-black">
-                  <b>Envíos gratis</b> a partir de $99.000
+                   <span className="font-bold">Envíos gratis</span> a partir de $99.000
                 </span>
               </p>
             </div>
@@ -190,10 +221,10 @@ export default function ProductDetail({ product }) {
 
 
       {/* Cantidad + carrito */}
-      <div className="d-flex gap-3 py-4 mb-0">
+      <div className="d-md-flex gap-3 py-4 mb-0 px-1 px-md-0">
 
         {/* Quantity */}
-        <div className="border rounded btn-i-d">
+        <div className="border rounded btn-i-d w-xs-100 mb-4 mb-md-0">
           <div className="d-flex align-items-center justify-content-between">
             <button
               type="button"
@@ -223,7 +254,7 @@ export default function ProductDetail({ product }) {
         {/* Add to cart */}
         <button
           type="button"
-          className="btn btn-block btn-primary rounded-pill btn-shop"
+          className="btn btn-block btn-primary rounded-pill btn-shop w-xs-100"
           onClick={handleAddToCart}
         >
           Agregar al carrito
@@ -232,7 +263,7 @@ export default function ProductDetail({ product }) {
 
 
       {/* Compra protegida */}
-      <div className="d-flex align-items-start pt-3">
+      <div className="d-flex align-items-start pt-3 px-1 px-md-0">
         <i className="bi bi-shield-check flex-shrink-0 me-1 lh-1 text-black f-icons-18"></i>
         <p className="pb-3 mb-0 small lh-sm">
           <b className="d-block text-black">Compra protegida</b>
@@ -244,7 +275,7 @@ export default function ProductDetail({ product }) {
 
 
       {/* Cambios y devoluciones */}
-      <div className="d-flex align-items-start pt-3">
+      <div className="d-flex align-items-start pt-3 px-1 px-md-0">
         <i className="bi bi-arrow-clockwise flex-shrink-0 me-1 lh-1 text-black f-icons-18"></i>
         <p className="pb-3 mb-0 small lh-sm">
           <b className="d-block text-black">Cambios y devoluciones</b>

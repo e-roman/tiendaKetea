@@ -7,10 +7,10 @@ export function FavoritesProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
 
   const toggleFavorite = (product) => {
-    const exists = favorites.find((p) => p.id === product.id);
+    const exists = favorites.find((p) => p.slug === product.slug);
 
     if (exists) {
-      setFavorites(favorites.filter((p) => p.id !== product.id));
+      setFavorites(favorites.filter((p) => p.slug !== product.slug));
     } else {
       setFavorites([...favorites, product]);
     }

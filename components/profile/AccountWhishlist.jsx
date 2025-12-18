@@ -5,21 +5,36 @@ import { useFavorites } from "../../src/hooks/useFavorites";
 
 export default function AccountWhishlist() {
   const { favorites, toggleFavorite } = useFavorites();
+  const itemsCount = favorites.length;
+
 
   return (
       <>
-      <div className="card shadow-none p-2 p-lg-5 p-2 p-lg-5">
+      <div className="card shadow-none p-2 p-lg-5 p-2 p-lg-5 h-100">
         <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4  d-sm-flex justify-content-sm-between align-items-sm-center border-bottom">
           <h4 className="card-header-title">Recientemente agregado/s</h4>
-          <span className="lh-1">2 items</span>
+          <span className="lh-1">
+            {itemsCount} {itemsCount === 1 ? "item" : "items"}
+          </span>
         </div>
 
         {/* Body */}
-        <div className="card-body p-1 p-md-0 mt-2 mt-md-3">
+        <div className="card-body p-1 p-md-0 mt-2 mt-md-3 h-100">
           {/* Form */}
           <form>
+            
             {favorites.length === 0 && (
-              <p className="text-muted">No tenés productos guardados.</p>
+              <>
+              <div className="text-center pt-8">
+              <div className="mb-4">
+                <img className="avatar avatar-xxl avatar-4x2" src="../assets/svg/illustrations/empty-cart.svg" alt="SVG"/>
+              </div>
+              <div className="mb-5">
+                <h1 className="h4">No tenés productos guardados.</h1>
+                <p>Agrega todos los productos que quieras a tus favoritos.</p>
+              </div>
+              </div>
+            </>
             )}
 
             {favorites.map((item) => (
@@ -39,7 +54,7 @@ export default function AccountWhishlist() {
 
                       <div className="media-body">
                         <Link
-                          to={`/product/${item.id}`}
+                          to={`/product/${item.slug}`}
                           className="text-dark text-decoration-none"
                         >
                           <h2 className="h5 mb-1">{item.title}</h2>
@@ -78,25 +93,6 @@ export default function AccountWhishlist() {
                           <span className="badge py-1 px-2 bg-danger text-white">
                             Sin Stock
                           </span>
-                        )}
-
-                        {/* CUSTOM DATA (si existe) */}
-                        {item.gender && (
-                          <div className="text-secondary font-size-1 mt-2">
-                            Género: {item.gender}
-                          </div>
-                        )}
-
-                        {item.color && (
-                          <div className="text-secondary font-size-1">
-                            Color: {item.color}
-                          </div>
-                        )}
-
-                        {item.size && (
-                          <div className="text-secondary font-size-1">
-                            Tamaño: {item.size}
-                          </div>
                         )}
                       </div>
                     </div>
@@ -138,7 +134,9 @@ export default function AccountWhishlist() {
         </div>
         {/* End Body */}
 
-        <Link className="card-footer card-link text-center border-top" to="/">Continuar comprando</Link>
+        <div className="text-center">
+          <Link className="btn btn-primary btn-sm rounded-pill px-6 text-center" to="/">Continuar comprando</Link>
+        </div>
       </div>
 
     </>

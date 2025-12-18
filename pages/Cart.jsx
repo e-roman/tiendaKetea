@@ -31,7 +31,7 @@ export default function MyCart() {
                   )}
 
                   {cart.map((item) => (
-                    <div key={item.id} className="border-bottom pb-5 mb-5">
+                    <div key={item.slug} className="border-bottom pb-5 mb-5">
                       <div className="row">
 
                         {/* IMAGE + INFO */}
@@ -47,7 +47,7 @@ export default function MyCart() {
 
                             <div className="media-body">
                               <Link
-                                to={`/product/${item.id}`}
+                                to={`/product/${item.slug}`}
                                 className="text-dark text-decoration-none"
                               >
                                 <h2 className="h5 mb-1">{item.title}</h2>
@@ -122,7 +122,7 @@ export default function MyCart() {
 
                           <button
                             type="button"
-                            onClick={() => removeFromCart(item.id)}
+                            onClick={() => removeFromCart(item.slug)}
                             className="d-block text-secondary font-size-1 mb-1 bg-transparent border-0 p-0"
                           >
                             <i className="bi bi-trash me-1"></i>

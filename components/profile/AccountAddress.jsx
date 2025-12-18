@@ -100,12 +100,14 @@ export default function AccountAddress() {
                 <a className="link-sm" href="#">Más información</a>
                 </div>
 
-                <p className="mb-0">
-                Tu ubicación de envío determina los cargos adicionales aplicados a tu pedido.
-                </p>
-                <a className="link-sm" href="#">
-                ¿Cómo puedo corregir mi ubicación de envío una vez realizado el pedido?
-                </a>
+                <div className="mb-6">
+                    <p className="mb-0">
+                    Tu ubicación de envío determina los cargos adicionales aplicados a tu pedido.
+                    </p>
+                    <a className="link-sm" href="#">
+                    ¿Cómo puedo corregir mi ubicación de envío una vez realizado el pedido?
+                    </a>
+                </div>
             </div>
             {/* End Body */}
         </div>

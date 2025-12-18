@@ -50,7 +50,7 @@ export default function ProductCardHorizontalMobile({ product, openProduct }) {
                     <div className="card-pinned-top-end">
                     <button
                         type="button"
-                        className="btn-fav btn btn-outline-secondary btn-xs p-3 btn-icon rounded-circle"
+                        className="btn-fav btn btn-xs p-3 btn-icon rounded-circle"
                         onClick={handleToggleFavorite}
                     >
                         <i className={isFav ? "bi-heart-fill font-16" : "bi-heart font-16"}></i>

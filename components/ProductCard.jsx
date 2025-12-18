@@ -48,7 +48,7 @@ export default function ProductCard({ product, openProduct }) {
         <div className="card-pinned-top-end">
           <button
             type="button"
-            className="btn-fav btn btn-outline-secondary btn-xs p-3 btn-icon rounded-circle"
+            className="btn-fav btn btn-xs p-3 btn-icon rounded-circle"
             onClick={handleToggleFavorite}
           >
             <i className={isFav ? "bi-heart-fill font-16" : "bi-heart font-16"}></i>
@@ -105,8 +105,8 @@ export default function ProductCard({ product, openProduct }) {
         </div>
 
         {product.installmentsLabel && (
-          <p className="small mb-1 font-12">
-            Hasta <span className="font-bold">{product.installmentsLabel}</span> sin interés
+          <p className="small mb-1 font-13 font-bold">
+            Hasta <span>{product.installmentsLabel}</span> sin interés
           </p>
         )}
 
@@ -125,7 +125,7 @@ export default function ProductCard({ product, openProduct }) {
           onClick={handleAddToCart}
           disabled={inCart}
         >
-          {inCart ? "Agregado" : "Agregar al carrito"}
+          {inCart ? "Agregado al carrito" : "Agregar al carrito"}
         </button>
       </div>
     </div>

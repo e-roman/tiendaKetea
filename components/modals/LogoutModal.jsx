@@ -17,7 +17,7 @@ export default function LogoutModal({ show, onClose }) {
         <div className="modal-content">
 
           {/* Close */}
-          <div className="modal-close position-absolute end-0 mt-2 me-2">
+          <div className="modal-close position-absolute">
             <button
               type="button"
               className="btn-close"
