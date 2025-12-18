@@ -15,7 +15,7 @@ import { FavoritesProvider } from "./hooks/useFavorites.jsx";
 import { FloatingAlertProvider } from "./context/FloatingAlertContext";
 import { AuthProvider } from "./context/AuthContext"; 
 
-import ScrollToTop from "../components/ScrollTop";
+// import ScrollToTop from "../components/ScrollTop";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
