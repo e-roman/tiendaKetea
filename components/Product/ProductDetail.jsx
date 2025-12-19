@@ -266,13 +266,13 @@ const handleAddToCart = () => {
         </div>
 
         {/* Add to cart */}
-<button
-  type="button"
-  className="btn btn-block rounded-pill btn-primary"
-  onClick={handleAddToCart}
->
-  Agregar {quantity} al carrito
-</button>
+        <button
+          type="button"
+          className="btn btn-block rounded-pill btn-primary"
+          onClick={handleAddToCart}
+        >
+          Agregar {quantity} al carrito
+        </button>
       </div>
 
 
