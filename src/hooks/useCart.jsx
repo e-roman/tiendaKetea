@@ -14,9 +14,11 @@ export function CartProvider({ children }) {
   });
 
   const [shipping, setShipping] = useState(() => {
-    return localStorage.getItem("shipping") || "standard";
+    const stored = localStorage.getItem("shipping");
+    return SHIPPING_COSTS.hasOwnProperty(stored) ? stored : "standard";
   });
 
+  // Persistencia
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -25,6 +27,7 @@ export function CartProvider({ children }) {
     localStorage.setItem("shipping", shipping);
   }, [shipping]);
 
+  // Acciones
   const addToCart = (product) => {
     setCart((prev) => {
       const exists = prev.find((item) => item.id === product.id);
@@ -53,12 +56,23 @@ export function CartProvider({ children }) {
 
   const clearCart = () => setCart([]);
 
+  // Derivados
+  const subtotal = cart.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
+  const shippingCost = SHIPPING_COSTS[shipping] ?? 0;
+  const total = subtotal + shippingCost;
+
   return (
     <CartContext.Provider
       value={{
         cart,
         shipping,
-        shippingCost: SHIPPING_COSTS[shipping],
+        shippingCost,
+        subtotal,
+        total,
         setShipping,
         addToCart,
         removeFromCart,

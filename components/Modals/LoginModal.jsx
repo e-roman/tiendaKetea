@@ -190,7 +190,7 @@ const handleResetSubmit = (e) => {
                   </div>
 
                   <div className="text-center my-3">
-                    <p className="mb-0">O</p>
+                    <p className="divider-text mb-0">O</p>
                   </div>
 
                   <div className="d-grid mb-4">
@@ -283,8 +283,8 @@ const handleResetSubmit = (e) => {
                     </button>
                   </div>
 
-                  <div className="text-center my-3">
-                    <p className="mb-0">O</p>
+                  <div className="text-center my-4">
+                    <p className="divider-text mb-0">O</p>
                   </div>
 
                   <div className="d-grid">

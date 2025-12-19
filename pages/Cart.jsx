@@ -1,9 +1,12 @@
 
 import { Link } from "react-router-dom";
 import { useCart } from "../src/hooks/useCart";
+import { useState } from "react";
 
+import QuantityControl from "../components/QuantityControl";
 
 export default function MyCart() {
+ const [loadingItemId, setLoadingItemId] = useState(null);
   const {
     cart,
     removeFromCart,
@@ -24,6 +27,27 @@ export default function MyCart() {
   );
 
   const total = subtotal + shippingCost;
+  
+ 
+const increase = (item) => {
+  setLoadingItemId(item.id);
+
+  setTimeout(() => {
+    updateQuantity(item.id, item.quantity + 1);
+    setLoadingItemId(null);
+  }, 300);
+};
+
+const decrease = (item) => {
+  if (item.quantity <= 1) return;
+
+  setLoadingItemId(item.id);
+
+  setTimeout(() => {
+    updateQuantity(item.id, item.quantity - 1);
+    setLoadingItemId(null);
+  }, 300);
+};
 
   return (
     <>
@@ -136,20 +160,18 @@ export default function MyCart() {
                         </div>
 
                         {/* QUANTITY + REMOVE */}
-                        <div className="col-5 col-md-3 offset-md-1">
-                          <select
-                            className="form-select mb-3 w-auto"
-                            value={item.quantity}
-                            onChange={(e) =>
-                              updateQuantity(item.id, Number(e.target.value))
-                            }
-                          >
-                            {Array.from({ length: 10 }).map((_, i) => (
-                              <option key={i + 1} value={i + 1}>
-                                {i + 1}
-                              </option>
-                            ))}
-                          </select>
+                        <div className="col-5 col-md-2 offset-md-1">
+
+                          {/* Quantity + Price */}
+                          <div className="d-flex align-items-center justify-content-between gap-3 mb-3">
+                            
+                            <QuantityControl
+                              item={item}
+                              onIncrease={increase}
+                              onDecrease={decrease}
+                            />
+
+                          </div>
 
                           <button
                             type="button"
@@ -162,7 +184,7 @@ export default function MyCart() {
                         </div>
 
                         {/* PRICE (final individual) */}
-                        <div className="col-6 col-md-2 text-md-right">
+                        <div className="col-6 col-md-3 text-md-right">
                           <span className="font-medium">
                            ${(item.price * item.quantity).toLocaleString("es-AR")}
                           </span>
@@ -237,7 +259,7 @@ export default function MyCart() {
                             htmlFor="shipping-standard"
                           >
                           <span className="d-block text-dark font-size-1 font-medium mb-1">
-                            Envío gratuito
+                            Envío grátis
                           </span>
                           <span className="d-block text-muted">
                             El envío puede tardar entre 5 y 6 días hábiles.

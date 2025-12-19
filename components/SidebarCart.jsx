@@ -1,9 +1,24 @@
+import { useState } from "react";
 import { Offcanvas } from "bootstrap";
 import { useCart } from "../src/hooks/useCart";
 import { useNavigate, Link } from "react-router-dom";
 
+import QuantityControl from "./QuantityControl";
+
 export default function SidebarCart() {
-  const { cart, removeFromCart, updateQuantity } = useCart(); // agregar updateQuantity
+  const [pickup, setPickup] = useState(false);
+
+const {
+  cart,
+  removeFromCart,
+  updateQuantity,
+  shipping,
+  setShipping,
+  shippingCost,
+  subtotal,
+  total,
+} = useCart();
+
   const navigate = useNavigate();
 
   const closeCart = () => {
@@ -94,7 +109,7 @@ export default function SidebarCart() {
                       </div>
 
                       <button
-                        className="text-secondary font-18 btn border-0 pt-0 bg-transparent"
+                        className="text-secondary font-18 btn border-0 pt-0 bg-transparent pe-0"
                         onClick={() => removeFromCart(product.id)}
                       >
                         <i className="bi bi-trash"></i>
@@ -103,31 +118,15 @@ export default function SidebarCart() {
 
                     {/* Quantity + Precios */}
                     <div className="d-flex align-items-center justify-content-between gap-3 mt-2">
-                      {/* Quantity */}
-                      <div className="border rounded btn-i-d d-flex align-items-center justify-content-between w-30">
-                        <button
-                          type="button"
-                          className="btn btn-icon btn-xs px-1 rounded-circle"
-                          onClick={() => decrease(product)}
-                        >
-                          <h4 className="btn-icon__inner font-normal mb-0">-</h4>
-                        </button>
-
-                        <input
-                          className="form-control lh-1 border-0 rounded p-0 text-center w-25"
-                          type="text"
-                          value={product.quantity}
-                          readOnly
+                      <div className="w-35">
+                        {/* Quantity */}
+                        <QuantityControl
+                          item={product}
+                          onIncrease={increase}
+                          onDecrease={decrease}
                         />
-
-                        <button
-                          type="button"
-                          className="btn btn-icon btn-xs px-1 rounded-circle"
-                          onClick={() => increase(product)}
-                        >
-                          <h4 className="btn-icon__inner font-normal mb-0">+</h4>
-                        </button>
                       </div>
+
 
                       {/* Precios */}
                       <div className="pricing-meta my-0">
@@ -152,17 +151,19 @@ export default function SidebarCart() {
             <div className="d-flex align-items-center justify-content-between py-3 border-bottom">
               <h4 className="mb-0 font-bold">Subtotal <span className="h6">(Sin envío)</span>:</h4>
               <h4 className="mb-0 font-bold">
-                ${cart.reduce((acc, p) => acc + p.price * p.quantity, 0).toLocaleString()}
+                 ${subtotal.toLocaleString("es-AR")}
               </h4>
             </div>
 
-{/* 
-              <div className="d-flex align-items-center justify-content-between py-3">
-                <p className="small text-black mb-0">Entregas para el CP: 1706</p>
-                <a href="#" className="btn btn-sm btn-outline-secondary py-1 rounded-pill text-black font-12">CAMBIAR CP</a>
-              </div> */}
+            <div className="d-flex align-items-center justify-content-between py-2 border-bottom">
+              <span className="text-muted">Envío</span>
+              <span className="font-medium">
+                {shippingCost === 0 ? "Gratis" : `$${shippingCost.toLocaleString("es-AR")}`}
+              </span>
+            </div>
 
-              <div className="alert alert-warning small py-2 text-center rounded-3">
+
+              <div className="alert alert-warning small py-2 text-center rounded-2">
                 <i className="bi bi-exclamation-triangle me-2"></i>
                 Los productos Automower se retiran por el local.
               </div>
@@ -176,8 +177,18 @@ export default function SidebarCart() {
                 <div className="card border shadow-none mb-3">
                   <div className="card-body p-3">
                     <div className="form-check">
-                      <input id="inputSidebar1" name="paymentMethod" type="radio" className="form-check-input" required />
-                      <label className="form-check-label" htmlFor="inputSidebar1">
+                      <input
+                        type="radio"
+                        name="delivery"
+                        id="shipping-standard"
+                        className="form-check-input"
+                        checked={!pickup && shipping === "standard"}
+                        onChange={() => {
+                          setPickup(false);
+                          setShipping("standard");
+                        }}
+                      />
+                      <label className="form-check-label" htmlFor="shipping-standard">
                         <span className="d-block text-dark font-size-1 font-medium mb-0">Envío grátis</span>
                         <span className="d-block text-muted">Llega entre el miércoles 03/12 y el lunes 08/12</span>
                       </label>
@@ -188,8 +199,18 @@ export default function SidebarCart() {
                 <div className="card border shadow-none mb-3">
                   <div className="card-body p-3">
                     <div className="form-check">
-                      <input id="inputSidebar2" name="paymentMethod" type="radio" className="form-check-input" required />
-                      <label className="form-check-label" htmlFor="inputSidebar2">
+                      <input
+                        type="radio"
+                        name="delivery"
+                        id="shipping-express"
+                        className="form-check-input"
+                        checked={!pickup && shipping === "express"}
+                        onChange={() => {
+                          setPickup(false);
+                          setShipping("express");
+                        }}
+                      />
+                      <label className="form-check-label" htmlFor="shipping-express">
                         <span className="d-block text-dark font-size-1 font-medium mb-0">Envío Express</span>
                         <span className="d-block text-muted">El envío tiene un costo de $25500 y puede tardar entre 1 día hábil en todo el país.</span>
                       </label>
@@ -203,16 +224,32 @@ export default function SidebarCart() {
 
                 <div className="card border shadow-none mb-3">
                   <div className="card-body p-3">
+
                     <div className="form-check">
-                      <input id="inputSidebar3" name="paymentMethod" type="radio" className="form-check-input" required />
-                      <label className="form-check-label" htmlFor="inputSidebar3">
-                        <span className="d-block text-dark font-size-1 font-medium mb-0">Ketea Ramos Mejía</span>
+                      <input
+                        type="radio"
+                        name="delivery"
+                        id="pickup-local"
+                        className="form-check-input"
+                        checked={pickup}
+                        onChange={() => {
+                          setPickup(true);
+                          setShipping("standard"); // envío siempre en 0
+                        }}
+                      />
+                      <label className="form-check-label" htmlFor="pickup-local">
+                        <span className="d-block text-dark font-size-1 font-medium mb-0">
+                          Ketea Ramos Mejía
+                        </span>
                         <span className="d-block text-muted">
-                          Cnel. Brandsen 2230, Ramos Mejía, Buenos Aires.<br />
+                          Cnel. Brandsen 2230, Ramos Mejía, Buenos Aires.
+                          <br />
                           Lun a Vie. de 9 a 18 hrs.
                         </span>
                       </label>
                     </div>
+
+
                   </div>
                 </div>
               </div>
@@ -231,7 +268,7 @@ export default function SidebarCart() {
             <div className="pb-4 d-flex align-items-center justify-content-between">
               <h3 className="mb-0">Total:</h3>
               <h2 className="mb-0 font-bold">
-                ${cart.reduce((acc, p) => acc + p.price * p.quantity, 0).toLocaleString()}
+                  ${total.toLocaleString("es-AR")}
               </h2>
             </div>
 

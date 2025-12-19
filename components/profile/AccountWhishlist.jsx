@@ -37,14 +37,15 @@ export default function AccountWhishlist() {
             </>
             )}
 
+            <div className="row">
             {favorites.map((item) => (
-              <div key={item.id} className="border-bottom pb-5 mb-5">
-                <div className="row">
+                <div key={item.id} className="col-md-4">
+                
 
                   {/* IMAGE + INFO */}
-                  <div className="col-md-6 mb-3 mb-md-0">
-                    <div className="media">
-                      <div className="max-width-15 w-100 me-3">
+                  <div>
+                    <div className="card card-bordered shadow-none text-start h-100">
+                      <div className="card-pinned">
                         <img
                           className="img-fluid"
                           src={item.image}
@@ -52,7 +53,7 @@ export default function AccountWhishlist() {
                         />
                       </div>
 
-                      <div className="media-body">
+                      <div className="card-body p-2 px-3">
                         <Link
                           to={`/product/${item.slug}`}
                           className="text-dark text-decoration-none"
@@ -94,12 +95,13 @@ export default function AccountWhishlist() {
                             Sin Stock
                           </span>
                         )}
+                        
                       </div>
                     </div>
                   </div>
 
                   {/* QUANTITY + REMOVE */}
-                  <div className="col-5 col-md-3 offset-md-1">
+                  {/* <div className="col-5 col-md-3 offset-md-1">
                     <select className="form-select mb-3 w-auto">
                       {Array.from({ length: 10 }).map((_, i) => (
                         <option key={i + 1} value={i + 1}>
@@ -116,17 +118,17 @@ export default function AccountWhishlist() {
                         <i className="bi bi-trash me-1"></i>
                         Eliminar
                       </button>
-                  </div>
+                  </div> */}
 
                   {/* PRICE (final individual) */}
-                  <div className="col-6 col-md-2 text-md-right">
+                  {/* <div className="col-6 col-md-2 text-md-right">
                     <span className="font-medium">
                       ${item.price.toLocaleString("es-AR")}
                     </span>
-                  </div>
+                  </div> */}
                 </div>
-              </div>
             ))}
+            </div>
 
 
           </form>

@@ -807,11 +807,12 @@ button#notificationsDropdown:after {
 }
 
 
-
+.w-35 {
+    width: 35%;
+}
 .btn-i-d {
     display: flex;
     align-items: center;
-    width: 35%;
     padding: 0.3rem 0.25rem;
     text-align: center;
 }
@@ -2476,7 +2477,7 @@ button.btn-search-mobile {
 }
 #sectionHome,
 .navbar-nav-wrap {
-    z-index: 88888;
+    z-index: 6666;
     position: relative;
 }
 
@@ -2567,4 +2568,24 @@ button.btn-search-mobile {
 }
 .auth-step > div {
   animation-name: authFade;
+}
+
+
+
+.divider-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    color: #6c757d;
+    width: 25%;
+    margin: 0 auto;
+}
+.divider-text::before,
+.divider-text::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #dee2e6; /* Bootstrap border color */
 }
