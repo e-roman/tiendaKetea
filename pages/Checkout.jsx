@@ -362,7 +362,7 @@ navigate("/checkout/payment");
                   {/* BOTÓN FINAL */}
                   <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mt-2 mt-md-8">
                     <Link to="/cart" className="order-2 order-md-1">
-                      <small className="bi bi-arrow-left me-1 d-md-none"></small> Regresar a mi Carrito
+                      <small className="bi bi-arrow-left me-1"></small> Regresar a mi Carrito
                     </Link>
 
                     <button

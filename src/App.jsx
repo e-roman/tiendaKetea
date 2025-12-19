@@ -1,6 +1,5 @@
-// src/App.jsx
 import { Routes, Route, useLocation } from "react-router-dom";
-
+import { useEffect, useState } from "react";
 
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer";
@@ -9,6 +8,9 @@ import { FloatingAlertProvider } from "../src/context/FloatingAlertContext";
 import AlertFloating from "../components/AlertFloating";
 import Login from "../components/Modals/LoginModal";
 import SupportChat from "../components/SupportChat";
+
+import ScrollToTop from "../components/ScrollToTop";
+import PageLoader from "../components/PageLoader";
 
 import Home from "../pages/Home";
 import Cart from "../pages/Cart";
@@ -27,36 +29,46 @@ const HIDE_COMPONENTS_ROUTES = [
 ];
 
 export default function App() {
-const location = useLocation();
+  const location = useLocation();
+  const [loading, setLoading] = useState(false);
 
   const hideComponent = HIDE_COMPONENTS_ROUTES.includes(location.pathname);
 
+  useEffect(() => {
+    setLoading(true);
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [location.pathname]);
 
   return (
     <FloatingAlertProvider>
+      <ScrollToTop />
+      <PageLoader visible={loading} />
+
       {!hideComponent && <Header />}
 
       <AlertFloating />
       <SidebarCart />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
+      {!loading && (
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/novedades" element={<NovedadesPage />} />
+          <Route path="/descuentos" element={<DescuentosPage />} />
+          <Route path="/product/:slug" element={<ProductPage />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/payment" element={<CheckoutPayment />} />
+          <Route path="/buscar/:query" element={<SearchResults />} />
+          <Route path="/pages/Profile" element={<MyProfile />} />
+        </Routes>
+      )}
 
-        <Route path="/novedades" element={<NovedadesPage />} />
-
-        <Route path="/descuentos" element={<DescuentosPage />} />
-
-        {/* Página de producto por SLUG (corregido) */}
-        <Route path="/product/:slug" element={<ProductPage />} />
-
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/checkout/payment" element={<CheckoutPayment />} />
-        <Route path="/buscar/:query" element={<SearchResults />} />
-        <Route path="/pages/Profile" element={<MyProfile />} />
-      </Routes>
-
-       {!hideComponent && <Footer />}
+      {!hideComponent && <Footer />}
       <Login />
       <SupportChat />
     </FloatingAlertProvider>

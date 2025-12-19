@@ -1,9 +1,24 @@
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useAuth } from "../../src/context/AuthContext";
 import { Modal } from "bootstrap";
 
 export default function Login() {
-  const [step, setStep] = useState("login");
+  
+const [loading, setLoading] = useState(false);
+const [step, setStep] = useState("login");
+const [direction, setDirection] = useState("forward");
+
+const safeSetStep = (nextStep, e) => {
+  if (e) e.preventDefault();
+  if (loading) return;
+
+  setDirection(
+    step === "signup" && nextStep === "login" ? "back" : "forward"
+  );
+
+  setStep(nextStep);
+};
+
   const { login } = useAuth();
 
   // Referencias a formularios
@@ -16,14 +31,16 @@ export default function Login() {
   const [validatedReset, setValidatedReset] = useState(false);
 
   // cerrar modal
-  const closeModal = () => {
-    const modalEl = document.getElementById("signupModal");
-    const modal = Modal.getInstance(modalEl);
-    if (modal) modal.hide();
-  };
+const closeModal = () => {
+  const modalEl = document.getElementById("signupModal");
+  if (!modalEl) return;
+
+  const modal = Modal.getOrCreateInstance(modalEl);
+  modal.hide();
+};
 
   // ---------- LOGIN ----------
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
     const form = loginFormRef.current;
 
@@ -33,40 +50,58 @@ export default function Login() {
       return;
     }
 
-    login();
-    closeModal();
+    setLoading(true);
+
+    // Simulación de request
+    setTimeout(() => {
+      login();
+      setLoading(false);
+      closeModal();
+    }, 1000);
   };
 
   // ---------- SIGNUP ----------
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
-    const form = signupFormRef.current;
+const handleSignupSubmit = async (e) => {
+  e.preventDefault();
+  const form = signupFormRef.current;
 
-    if (!form.checkValidity()) {
-      e.stopPropagation();
-      setValidatedSignup(true);
-      return;
-    }
+  if (!form.checkValidity()) {
+    e.stopPropagation();
+    setValidatedSignup(true);
+    return;
+  }
 
-    // Si es válido → registramos
+  setLoading(true);
+
+  setTimeout(() => {
     login();
+    setLoading(false);
     closeModal();
-  };
+  }, 1000);
+};
+
 
   // ---------- RESET PASSWORD ----------
-  const handleResetSubmit = (e) => {
-    e.preventDefault();
-    const form = resetFormRef.current;
+const handleResetSubmit = (e) => {
+  e.preventDefault();
+  if (loading) return;
 
-    if (!form.checkValidity()) {
-      e.stopPropagation();
-      setValidatedReset(true);
-      return;
-    }
+  const form = resetFormRef.current;
 
-    // Ir a login luego de resetear
+  if (!form.checkValidity()) {
+    e.stopPropagation();
+    setValidatedReset(true);
+    return;
+  }
+
+  setLoading(true);
+
+  setTimeout(() => {
+    setLoading(false);
     setStep("login");
-  };
+  }, 1000);
+};
+
 
   return (
     <div
@@ -82,8 +117,11 @@ export default function Login() {
             <button className="btn-close" type="button" data-bs-dismiss="modal"></button>
           </div>
 
-          <div className="modal-body">
-
+          <div className="modal-body modal-log">
+           <div
+  className={`auth-step auth-step--${step}`}
+  data-direction={direction}
+>
             {/* LOGIN */}
             {step === "login" && (
               <div>
@@ -120,15 +158,35 @@ export default function Login() {
                   </div>
 
                   <div className="d-flex justify-content-end mb-4">
-                    <a className="form-label-link" href="#" onClick={() => setStep("reset-password")}>
+                    <a
+                      className="form-label-link"
+                      href="#"
+                      onClick={(e) => safeSetStep("reset-password", e)}
+                    >
                       ¿Olvidaste tu contraseña?
                     </a>
+
                   </div>
 
                   <div className="d-grid">
-                    <button type="submit" className="btn btn-primary form-control-lg">
-                      Ingresar
-                    </button>
+                      <button
+                        type="submit"
+                        className="btn btn-primary form-control-lg"
+                        disabled={loading}
+                      >
+                        {loading ? (
+                          <>
+                            <span
+                              className="spinner-border spinner-border-sm me-2"
+                              role="status"
+                              aria-hidden="true"
+                            />
+                            Ingresando...
+                          </>
+                        ) : (
+                          "Ingresar"
+                        )}
+                      </button>
                   </div>
 
                   <div className="text-center my-3">
@@ -136,8 +194,8 @@ export default function Login() {
                   </div>
 
                   <div className="d-grid mb-4">
-                    <button type="submit" className="btn btn-white btn-border form-control-lg">
-                      <img src="../assets/svg/brands/google-icon.svg" width={20} className="mr-1" /> Ingresar con Google
+                    <button type="button" className="btn btn-white btn-border form-control-lg" disabled={loading}>
+                      <img src="../assets/svg/brands/google-icon.svg" width={20} className="me-1" alt="Google" /> Ingresar con Google
                     </button>
                   </div>
 
@@ -145,7 +203,11 @@ export default function Login() {
                   <div className="text-center mt-5">
                     <p>
                       ¿Aún no tienes una cuenta?{" "}
-                      <a href="#" className="link" onClick={() => setStep("signup")}>
+                      <a
+                        href="#"
+                        className="link"
+                        onClick={(e) => safeSetStep("signup", e)}
+                      >
                         Registrarme
                       </a>
                     </p>
@@ -201,8 +263,23 @@ export default function Login() {
                   </div>
 
                   <div className="d-grid mt-6">
-                    <button type="submit" className="btn btn-primary form-control-lg">
-                      Registrarme
+                    <button
+                      type="submit"
+                      className="btn btn-primary form-control-lg"
+                      disabled={loading}
+                    >
+                      {loading ? (
+                        <>
+                          <span
+                            className="spinner-border spinner-border-sm me-2"
+                            role="status"
+                            aria-hidden="true"
+                          />
+                          Registrando...
+                        </>
+                      ) : (
+                        "Registrarme"
+                      )}
                     </button>
                   </div>
 
@@ -211,8 +288,8 @@ export default function Login() {
                   </div>
 
                   <div className="d-grid">
-                    <button type="submit" className="btn btn-white btn-border form-control-lg">
-                      <img src="../assets/svg/brands/google-icon.svg" width={20} className="mr-1" /> Registrarme con Google
+                    <button type="button" className="btn btn-white btn-border form-control-lg" disabled={loading}>
+                      <img src="../assets/svg/brands/google-icon.svg" width={20} className="me-1" alt="Google" /> Registrarme con Google
                     </button>
                   </div>
 
@@ -221,7 +298,11 @@ export default function Login() {
                   <div className="text-center mt-7">
                   <p>
                     ¿Ya tienes una cuenta?{" "}
-                    <a href="#" className="link" onClick={() => setStep("login")}>
+                    <a
+                      href="#"
+                      className="link"
+                      onClick={(e) => safeSetStep("login", e)}
+                    >
                       Ingresar
                     </a>
                   </p>
@@ -258,22 +339,38 @@ export default function Login() {
                   </div>
 
                   <div className="d-grid">
-                    <button type="submit" className="btn btn-primary form-control-lg">
-                      Enviar
+                      <button
+                        type="submit"
+                        className="btn btn-primary form-control-lg"
+                        disabled={loading}
+                      >
+                        {loading ? (
+                          <>
+                            <span className="spinner-border spinner-border-sm me-2" />
+                            Enviando...
+                          </>
+                        ) : (
+                          "Enviar"
+                        )}
                     </button>
                   </div>
 
                   <div className="text-center mt-5 pb-4">
                     <p>
                       ¿Recuerdas tu contraseña?{" "}
-                      <a href="#" className="link" onClick={() => setStep("login")}>
-                        Ingresar
-                      </a>
+                        <a
+                          href="#"
+                          className="link"
+                      onClick={(e) => safeSetStep("login", e)}
+                        >
+                          Ingresar
+                        </a>
                     </p>
                   </div>
                 </form>
               </div>
             )}
+            </div>
 
           </div>
         </div>

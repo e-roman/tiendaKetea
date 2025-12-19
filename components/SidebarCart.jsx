@@ -156,18 +156,19 @@ export default function SidebarCart() {
               </h4>
             </div>
 
-
+{/* 
               <div className="d-flex align-items-center justify-content-between py-3">
                 <p className="small text-black mb-0">Entregas para el CP: 1706</p>
                 <a href="#" className="btn btn-sm btn-outline-secondary py-1 rounded-pill text-black font-12">CAMBIAR CP</a>
-              </div>
+              </div> */}
 
               <div className="alert alert-warning small py-2 text-center rounded-3">
                 <i className="bi bi-exclamation-triangle me-2"></i>
-                Los productos Stihl se retiran unicamente por el local.
+                Los productos Automower se retiran por el local.
               </div>
 
               <div className="pb-2">
+
                 <p className="small text-black mb-2">
                   <i className="bi bi-truck f-icons-18"></i> Envío a Domicilio
                 </p>
@@ -177,22 +178,34 @@ export default function SidebarCart() {
                     <div className="form-check">
                       <input id="inputSidebar1" name="paymentMethod" type="radio" className="form-check-input" required />
                       <label className="form-check-label" htmlFor="inputSidebar1">
-                        <span className="d-block text-dark font-size-1 font-medium mb-0">Envío personalizado</span>
+                        <span className="d-block text-dark font-size-1 font-medium mb-0">Envío grátis</span>
                         <span className="d-block text-muted">Llega entre el miércoles 03/12 y el lunes 08/12</span>
                       </label>
                     </div>
                   </div>
                 </div>
 
-                <p className="small text-black mb-2">
-                  <i className="bi bi-geo-alt"></i> Retirar por:
-                </p>
-
                 <div className="card border shadow-none mb-3">
                   <div className="card-body p-3">
                     <div className="form-check">
                       <input id="inputSidebar2" name="paymentMethod" type="radio" className="form-check-input" required />
                       <label className="form-check-label" htmlFor="inputSidebar2">
+                        <span className="d-block text-dark font-size-1 font-medium mb-0">Envío Express</span>
+                        <span className="d-block text-muted">El envío tiene un costo de $25500 y puede tardar entre 1 día hábil en todo el país.</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="small text-black mb-2">
+                  <i className="bi bi-geo-alt"></i> Retirar en Local:
+                </p>
+
+                <div className="card border shadow-none mb-3">
+                  <div className="card-body p-3">
+                    <div className="form-check">
+                      <input id="inputSidebar3" name="paymentMethod" type="radio" className="form-check-input" required />
+                      <label className="form-check-label" htmlFor="inputSidebar3">
                         <span className="d-block text-dark font-size-1 font-medium mb-0">Ketea Ramos Mejía</span>
                         <span className="d-block text-muted">
                           Cnel. Brandsen 2230, Ramos Mejía, Buenos Aires.<br />

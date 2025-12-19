@@ -237,7 +237,7 @@ export default function MyCart() {
                             htmlFor="shipping-standard"
                           >
                           <span className="d-block text-dark font-size-1 font-medium mb-1">
-                            Envío estándar gratuito
+                            Envío gratuito
                           </span>
                           <span className="d-block text-muted">
                             El envío puede tardar entre 5 y 6 días hábiles.
@@ -261,10 +261,12 @@ export default function MyCart() {
                             className="form-check-label"
                             htmlFor="shipping-express">
                           <span className="d-block text-dark font-size-1 font-medium mb-1">
-                            $25500 - Envío exprés
+                            <div className="d-flex justify-content-between">
+                              <div>Envío Express</div> <div>$25500 </div>
+                            </div>
                           </span>
                           <span className="d-block text-muted">
-                            El envío puede tardar entre 1 y 2 días laborables.
+                            El envío puede tardar entre 1 día hábil.
                           </span>
                         </label>
                       </div>

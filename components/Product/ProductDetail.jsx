@@ -134,7 +134,7 @@ const handleAddToCart = () => {
             </span>
           </div>
 
-          {product.discount && (
+          {product.discount > 0 && (
             <div className="ms-2">
               <span className="badge badge-yellow py-1 px-2 text-dark rounded-1 font-15">
                 - {product.discount}% OFF

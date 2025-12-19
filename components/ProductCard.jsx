@@ -12,6 +12,10 @@ export default function ProductCard({ product, openProduct }) {
   const [inCart, setInCart] = useState(false);
   const isFav = favorites.some((f) => f.id === product.id);
 
+  const hasStock = product.stock > 0;
+  const isDisabled = inCart || !hasStock;
+
+
   useEffect(() => {
     setInCart(cart.some((item) => item.id === product.id));
   }, [cart, product.id]);
@@ -19,6 +23,8 @@ export default function ProductCard({ product, openProduct }) {
   const formatPrice = (value) => (value ? value.toLocaleString("es-AR") : "0");
 
   const handleAddToCart = () => {
+    if (!hasStock || inCart) return;
+
     addToCart(product);
     showAlert("Agregaste el producto al carrito", "success");
   };
@@ -61,7 +67,7 @@ export default function ProductCard({ product, openProduct }) {
             {!product.stock ? (
               <span className="badge py-1 px-2 bg-danger text-white">Sin Stock</span>
             ) : (
-              <span className="badge py-1 px-2 bg-dark me-1">Envío Gratis</span>
+              <span className="badge py-1 px-2 bg-dark me-1">Envío Grátis</span>
             )}
           </div>
         ) : null}
@@ -76,13 +82,13 @@ export default function ProductCard({ product, openProduct }) {
       {/* Información principal */}
       <div className="card-body p-2 px-3">
         <button
-          className="h6 text-body text-dark font-medium bg-transparent border-0 p-0 text-start text-clamp-2 "
+          className="text-body text-dark font-medium font-15 bg-transparent border-0 p-0 text-start text-clamp-2 mb-1 "
           onClick={() => openProduct(product.slug)}
         >
           {product.title}
         </button>
 
-        <div className="pricing-meta mt-2">
+        <div className="pricing-meta mt-2 mb-1">
           <ul className="list-unstyled d-flex align-items-center gap-1">
             <li className="current-price text-dark">
               ${formatPrice(product.price)}
@@ -105,7 +111,7 @@ export default function ProductCard({ product, openProduct }) {
         </div>
 
         {product.installmentsLabel && (
-          <p className="small mb-1 font-13 font-bold">
+          <p className="small mb-0 font-13 font-bold">
             Hasta <span>{product.installmentsLabel}</span> sin interés
           </p>
         )}
@@ -120,14 +126,23 @@ export default function ProductCard({ product, openProduct }) {
         <button
           type="button"
           className={`btn btn-sm rounded-pill px-4 w-100 ${
-            inCart ? "btn-secondary" : "btn-primary"
+            !hasStock
+              ? "btn-secondary"
+              : inCart
+              ? "btn-secondary"
+              : "btn-primary"
           }`}
           onClick={handleAddToCart}
-          disabled={inCart}
+          disabled={isDisabled}
         >
-          {inCart ? "Agregado al carrito" : "Agregar al carrito"}
+          {!hasStock
+            ? "Agregar al carrito"
+            : inCart
+            ? "Agregado al carrito"
+            : "Agregar al carrito"}
         </button>
       </div>
+
     </div>
   );
 }

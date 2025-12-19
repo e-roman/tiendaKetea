@@ -439,7 +439,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 .offcanvas-backdrop {
     z-index: 99991;
-        background-color: rgba(33, 50, 91, .55);
+    background-color: rgb(0 0 0 / 74%);
 }
 
 ul.items-SideCart li.itemAdded {
@@ -577,8 +577,12 @@ ul, ol {
 .pricing-meta li.current-price {
     font-weight: 500;
     color: rgb(39, 39, 39);
+    font-size: 1.214rem;
+    font-weight: 800;
+}
+#cartOffcanvas .pricing-meta li.current-price {
     font-size: 1rem;
-    /* font-weight: 800; */
+    font-weight: 600;
 }
 .card-pinned {
     position: relative;
@@ -2404,4 +2408,163 @@ button.btn-search-mobile {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
   overflow: hidden;
+}
+
+
+/* CARD */
+.product-card {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-2px);
+}
+
+/* WRAPPER IMAGEN */
+.product-image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* IMAGEN */
+.product-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.45s ease, opacity 0.3s ease;
+}
+
+/* OVERLAY */
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.25) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* HOVER EFFECT */
+.product-card:hover .product-image {
+  transform: scale(1.08);
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+.btn-secondary.disabled, .btn-secondary:disabled {
+    color: #fff;
+    background-color: #9ea9b5;
+    border-color: #9ea9b5;
+}
+
+
+.page-loader {
+  position: fixed;
+  top: 100px;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+#sectionHome,
+.navbar-nav-wrap {
+    z-index: 88888;
+    position: relative;
+}
+
+
+.auth-step {
+  animation: fadeSlideForward 0.35s ease forwards;
+}
+
+.auth-step[data-direction="back"] {
+  animation: fadeSlideBack 0.35s ease forwards;
+}
+
+@keyframes fadeSlideForward {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeSlideBack {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.modal-body.modal-log {
+  min-height: 420px;
+}
+
+
+.auth-step {
+  position: relative;
+  overflow: hidden;
+}
+.auth-step > div {
+  animation-duration: 0.35s;
+  animation-fill-mode: both;
+  animation-timing-function: ease;
+}
+/* Avanzar (login → signup / reset) */
+.auth-step[data-direction="forward"] > div {
+  animation-name: authSlideInRight;
+}
+
+/* Volver (signup → login) */
+.auth-step[data-direction="back"] > div {
+  animation-name: authSlideInLeft;
+}
+@keyframes authSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes authSlideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes authFade {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.auth-step > div {
+  animation-name: authFade;
 }
