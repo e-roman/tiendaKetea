@@ -80,8 +80,6 @@ export default function ProductGalleryMobile({ product }) {
       pagination={{ clickable: true }}
       modules={[Pagination]}
     >
-      {images.map((img, index) => (
-        <SwiperSlide key={index}>
         <button
           type="button"
           className={`btn-fav btn btn-xs p-3 btn-icon rounded-circle btn-fav-xs ${
@@ -92,6 +90,9 @@ export default function ProductGalleryMobile({ product }) {
           <i className={isFavorite ? "bi-heart-fill" : "bi-heart"}></i>
         </button>
 
+
+      {images.map((img, index) => (
+        <SwiperSlide key={index}>
           <img
             src={img}
             alt={product.title}

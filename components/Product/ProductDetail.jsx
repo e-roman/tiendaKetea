@@ -6,8 +6,14 @@ import AlertFloating from "../AlertFloating";
 
 
 export default function ProductDetail({ product }) {
-  const { addToCart } = useCart();
+  const { cart, addToCart } = useCart();
   const { favorites, toggleFavorite } = useFavorites();
+
+  const [inCart, setInCart] = useState(false);
+
+  useEffect(() => {
+    setInCart(cart.some(item => item.id === product.id));
+  }, [cart, product.id]);
 
   const [quantity, setQuantity] = useState(1);
 
@@ -38,10 +44,18 @@ export default function ProductDetail({ product }) {
     showAlert(newFavState ? "Agregaste a favoritos" : "Eliminaste un favorito", "success");
   };
 
-  const handleAddToCart = () => {
+const handleAddToCart = () => {
+  const existing = cart.find(item => item.id === product.id);
+
+  if (existing) {
+    // Si ya existe, sumar cantidad
+    addToCart({ ...product, quantity: existing.quantity + quantity });
+  } else {
     addToCart({ ...product, quantity });
-    showAlert("Agregaste el producto al carrito", "success");
-  };
+  }
+
+  showAlert("Agregaste el producto al carrito", "success");
+};
   return (
     <>
       {/* ALERTA FLOTANTE */}
@@ -221,10 +235,10 @@ export default function ProductDetail({ product }) {
 
 
       {/* Cantidad + carrito */}
-      <div className="d-md-flex gap-3 py-4 mb-0 px-1 px-md-0">
+      <div className="d-flex gap-3 py-4 mb-0 px-1 px-md-0">
 
         {/* Quantity */}
-        <div className="border rounded btn-i-d w-xs-100 mb-4 mb-md-0">
+        <div className="border rounded btn-i-d mb-4 mb-md-0">
           <div className="d-flex align-items-center justify-content-between">
             <button
               type="button"
@@ -252,13 +266,13 @@ export default function ProductDetail({ product }) {
         </div>
 
         {/* Add to cart */}
-        <button
-          type="button"
-          className="btn btn-block btn-primary rounded-pill btn-shop w-xs-100"
-          onClick={handleAddToCart}
-        >
-          Agregar al carrito
-        </button>
+<button
+  type="button"
+  className="btn btn-block rounded-pill btn-primary"
+  onClick={handleAddToCart}
+>
+  Agregar {quantity} al carrito
+</button>
       </div>
 
 

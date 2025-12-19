@@ -1,21 +1,65 @@
+
 import { Link } from "react-router-dom";
 import { useCart } from "../src/hooks/useCart";
 
-export default function MyCart() {
-  const { cart, removeFromCart } = useCart();
 
-  const subtotal = cart.reduce((acc, p) => acc + p.price, 0);
-  const envio = 0;
-  const total = subtotal + envio;
+export default function MyCart() {
+  const {
+    cart,
+    removeFromCart,
+    updateQuantity,
+    shipping,
+    shippingCost,
+    setShipping,
+  } = useCart();
+
+  const totalItems = cart.reduce(
+    (acc, item) => acc + item.quantity,
+    0
+  );
+
+  const subtotal = cart.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
+  const total = subtotal + shippingCost;
 
   return (
+    <>
+    <header className="py-2 border-bottom sticky-nav bg-white">
+      <div className="container d-flex align-items-center justify-content-between">
+        
+        {/* LOGO */}
+        <div>
+        <Link to="/" className="navbar-brand">
+          <img src="assets/img/logo/logo.svg" alt="Logo" height="60" />
+        </Link>
+        </div>
+
+        <div>
+          <div className="security-seal">
+            <span className="d-inline-block">
+              <img alt="Compra Segura" src="https://checkout-front.tiendanube.com/production/2.3.619/_next/server/static/img/safe-shopping.svg" className="security-seal-badge" /></span>
+              <span className="d-inline-block text-left">
+                <p className="m-none text-uppercase text-semi-bold mb-0"><b>Compra Segura</b></p>
+              <p className="m-none text-uppercase mb-0">100% Protegido</p></span>
+          </div>
+        </div>
+
+        </div>
+    </header>
+
+
+
+
     <div className="bg-light">
       <div className="container space-1 space-md-2">
         <div className="row">
 
           {/* LEFT COLUMN - PRODUCTS */}
           <div className="col-lg-8">
-            <div className="card shadow-none mb-4 mb-md-5">
+            <div className="card border shadow-none mb-4 mb-md-5">
               <div className="card-body px-4 pt-4 pb-5 py-md-5 px-md-5">
 
                 {/* TITLE */}
@@ -87,32 +131,19 @@ export default function MyCart() {
                                   Sin Stock
                                 </span>
                               )}
-
-                              {/* CUSTOM DATA (si existe) */}
-                              {item.gender && (
-                                <div className="text-secondary font-size-1 mt-2">
-                                  Género: {item.gender}
-                                </div>
-                              )}
-
-                              {item.color && (
-                                <div className="text-secondary font-size-1">
-                                  Color: {item.color}
-                                </div>
-                              )}
-
-                              {item.size && (
-                                <div className="text-secondary font-size-1">
-                                  Tamaño: {item.size}
-                                </div>
-                              )}
                             </div>
                           </div>
                         </div>
 
                         {/* QUANTITY + REMOVE */}
                         <div className="col-5 col-md-3 offset-md-1">
-                          <select className="form-select mb-3 w-auto">
+                          <select
+                            className="form-select mb-3 w-auto"
+                            value={item.quantity}
+                            onChange={(e) =>
+                              updateQuantity(item.id, Number(e.target.value))
+                            }
+                          >
                             {Array.from({ length: 10 }).map((_, i) => (
                               <option key={i + 1} value={i + 1}>
                                 {i + 1}
@@ -122,7 +153,7 @@ export default function MyCart() {
 
                           <button
                             type="button"
-                            onClick={() => removeFromCart(item.slug)}
+                            onClick={() => removeFromCart(item.id)}
                             className="d-block text-secondary font-size-1 mb-1 bg-transparent border-0 p-0"
                           >
                             <i className="bi bi-trash me-1"></i>
@@ -133,7 +164,7 @@ export default function MyCart() {
                         {/* PRICE (final individual) */}
                         <div className="col-6 col-md-2 text-md-right">
                           <span className="font-medium">
-                            ${item.price.toLocaleString("es-AR")}
+                           ${(item.price * item.quantity).toLocaleString("es-AR")}
                           </span>
                         </div>
                       </div>
@@ -158,7 +189,7 @@ export default function MyCart() {
           <div className="col-lg-4">
             <div className="ps-lg-4">
 
-              <div className="bg-white shadow-soft rounded px-4 pt-4 pb-5 py-md-5 px-md-5 mb-4">
+              <div className="bg-white border shadow-soft rounded px-4 pt-4 pb-5 py-md-5 px-md-5 mb-4">
                 <div className="border-bottom pb-4 mb-4">
                   <h2 className="h4 mb-0">Resumen del pedido</h2>
                 </div>
@@ -166,7 +197,7 @@ export default function MyCart() {
                 <div className="border-bottom pb-4 mb-4">
                   <div className="media align-items-center mb-3">
                     <h3 className="text-secondary font-size-1 mb-0 me-3">
-                      Item subtotal ({cart.length})
+                      Item subtotal ({totalItems})
                     </h3>
                     <div className="media-body text-right">
                       <span className="font-medium text-dark">
@@ -180,7 +211,11 @@ export default function MyCart() {
                       Envío
                     </h4>
                     <div className="media-body text-right">
-                      <span className="font-medium text-dark">Gratis</span>
+                      <span className="font-medium text-dark">
+                        {shippingCost === 0
+                          ? "Gratis"
+                          : `$${shippingCost.toLocaleString("es-AR")}`}
+                      </span>
                     </div>
                   </div>
 
@@ -188,19 +223,24 @@ export default function MyCart() {
                   <div className="card border-0 shadow-none mb-3">
                     <div className="my-2">
                       <div className="form-check">
-                        <input
-                          id="input1"
-                          name="shipping"
-                          type="radio"
-                          className="form-check-input"
-                          defaultChecked
-                        />
-                        <label className="form-check-label" htmlFor="input1">
+                       <input
+                            type="radio"
+                            id="shipping-standard"
+                            name="shipping"
+                            className="form-check-input"
+                            checked={shipping === "standard"}
+                            onChange={() => setShipping("standard")}
+                          />
+
+                          <label
+                            className="form-check-label"
+                            htmlFor="shipping-standard"
+                          >
                           <span className="d-block text-dark font-size-1 font-medium mb-1">
                             Envío estándar gratuito
                           </span>
                           <span className="d-block text-muted">
-                            El envío puede tardar entre 5 y 6 días laborables.
+                            El envío puede tardar entre 5 y 6 días hábiles.
                           </span>
                         </label>
                       </div>
@@ -209,14 +249,19 @@ export default function MyCart() {
                     <div className="my-2">
                       <div className="form-check">
                         <input
-                          id="input2"
-                          name="shipping"
-                          type="radio"
-                          className="form-check-input"
-                        />
-                        <label className="form-check-label" htmlFor="input2">
+                            type="radio"
+                            id="shipping-express"
+                            name="shipping"
+                            className="form-check-input"
+                            checked={shipping === "express"}
+                            onChange={() => setShipping("express")}
+                          />
+
+                          <label
+                            className="form-check-label"
+                            htmlFor="shipping-express">
                           <span className="d-block text-dark font-size-1 font-medium mb-1">
-                            $5.299 - Envío exprés
+                            $25500 - Envío exprés
                           </span>
                           <span className="d-block text-muted">
                             El envío puede tardar entre 1 y 2 días laborables.
@@ -224,6 +269,7 @@ export default function MyCart() {
                         </label>
                       </div>
                     </div>
+                    
                   </div>
                 </div>
 
@@ -236,8 +282,8 @@ export default function MyCart() {
                   </div>
                 </div>
 
-                <Link className="btn btn-primary rounded-pill w-100" to="/checkout">
-                  Ir a pagar
+                <Link className="btn btn-sm font-16 btn-primary rounded-pill w-100" to="/checkout">
+                  Finalizar
                 </Link>
               </div>
 
@@ -258,5 +304,7 @@ export default function MyCart() {
         </div>
       </div>
     </div>
+
+    </>
   );
 }

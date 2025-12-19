@@ -443,8 +443,8 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 
 ul.items-SideCart li.itemAdded {
-    display: flex;
-    align-items: start;
+    /* display: flex;
+    align-items: start; */
     padding: 1em 0;
     border-bottom: solid 1px #f1f1f1;
 }
@@ -577,8 +577,8 @@ ul, ol {
 .pricing-meta li.current-price {
     font-weight: 500;
     color: rgb(39, 39, 39);
-    font-size: 1.214rem;
-    font-weight: 800;
+    font-size: 1rem;
+    /* font-weight: 800; */
 }
 .card-pinned {
     position: relative;
@@ -805,7 +805,8 @@ button#notificationsDropdown:after {
 
 
 .btn-i-d {
-    display: block;
+    display: flex;
+    align-items: center;
     width: 35%;
     padding: 0.5rem 0.25rem;
     text-align: center;
@@ -813,6 +814,9 @@ button#notificationsDropdown:after {
 .btn-i-d .js-quantity-input {
     font-size: 0.914rem;
     font-weight: 500;
+}
+.btn-i-d.i-sidebar {
+    width: 100%;
 }
 .js-quantity{
     height: 100%;
@@ -2203,8 +2207,8 @@ button.btn-search-mobile {
 
     /*DEtail*/
     .btn-icon.btn-xs.btn-fav-xs {
-        top: 0.5rem;
-        right: 0.5rem;
+        top: 1rem;
+        right: 1rem;
         position: absolute;
         z-index: 9999;
             padding: 0;
@@ -2253,4 +2257,151 @@ button.btn-search-mobile {
 
 .custom-select__menu  {
     font-size: 14px;
+}
+
+.swiper-pagination-bullet::before {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.swiper-pagination-bullet-active, .swiper-pagination-bullet-active:hover {
+    border-color: transparent;
+}
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+        margin: 0;
+    }
+
+
+
+.security-seal {
+    color: #000;
+}
+.security-seal {
+    align-self: center;
+    font-size: 11px;
+    line-height: 12px;
+    margin: 8px 0;
+}
+.security-seal-badge {
+    border-radius: 4px;
+    margin-right: 6px;
+    vertical-align: bottom;
+    width: 28px;
+}
+
+.summary-sticky{
+  position: sticky;
+  right: 0;
+  top: 0;
+}
+
+
+
+.summary-js-sticky {
+  width: 100%;
+}
+
+
+
+
+
+.stepper {
+  width: 100%;
+}
+
+.stepper-steps {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.stepper-step {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: relative;
+}
+
+.stepper-step:last-child {
+  flex: 0 0 auto;
+}
+
+.stepper-step-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: #6c757d;
+}
+
+.stepper-step-indicator {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #dee2e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  font-weight: 600;
+}
+
+.stepper-step-label {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* CONNECTOR */
+.stepper-step-connector {
+    flex: 1;
+    height: 0.125rem;
+    background: #e7eaee;
+    transition: background-color 0.15s ease-in-out;
+}
+.stepper-step-connector {
+  position: absolute;
+  inset-inline-start: calc((4rem / 2) + (0rem / 2) + 0.5rem);
+  top: calc(2rem / 2);
+  width: calc(100% - 2rem + 1.5rem - (0.5rem * 2));
+  transform: translateY(-50%);
+}
+
+/* ACTIVE */
+.stepper-step-button.active .stepper-step-indicator {
+  border-color: #4f46e5;
+  color: #4f46e5;
+}
+
+/* COMPLETE */
+.stepper-step-button.complete .stepper-step-indicator {
+  background: #4f46e5;
+  border-color: #4f46e5;
+  color: #fff;
+}
+
+.stepper-step-button.complete + .stepper-step-connector {
+  background: #4f46e5;
+}
+
+/* CHECK ICON */
+.stepper-step-indicator-icon {
+  width: 14px;
+  height: 14px;
+  background: white;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M6.173 13.727L1.4 8.954l1.414-1.414 3.36 3.36 7.4-7.4 1.414 1.414z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.stepper-step-button:not(.complete) .stepper-step-indicator-icon {
+  display: none;
+}
+
+
+.text-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
 }

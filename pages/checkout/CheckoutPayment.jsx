@@ -1,12 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useCart } from "../src/hooks/useCart";
+import { useCart } from "../../src/hooks/useCart";
 import { useRef, useState, useEffect } from "react";
 
-import StepsCheckout from "./checkout/SteppersCheck";
+import StepsCheckout from "./SteppersCheck";
+import OrderSummary from "./OrderSummary";
 
 
-
-export default function Checkout() {
+export default function CheckoutPayment() {
 const summaryRef = useRef(null);
 const summaryWrapperRef = useRef(null);
 useEffect(() => {
@@ -73,7 +73,7 @@ navigate("/checkout/payment");
         {/* LOGO */}
         <div>
         <Link to="/" className="navbar-brand">
-          <img src="assets/img/logo/logo.svg" alt="Logo" height="60" />
+          <img src="../assets/img/logo/logo.svg" alt="Logo" height="60" />
         </Link>
         </div>
 
@@ -196,7 +196,7 @@ navigate("/checkout/payment");
                           Costo de envío
                         </span>
                         <span className="font-medium text-dark">
-                          $25.500
+                          $25500
                         </span>
                       </div>
                     )}
@@ -218,164 +218,12 @@ navigate("/checkout/payment");
             </div>
           </div>
 
+
           {/* LEFT COLUMN (checkout actions, forms...) */}
           <div className="col-lg-8 order-lg-1">
 
-            <div className="card border shadow-none mb-5">
-              <div className="card-body px-4 pt-5 pb-5 py-md-5 px-md-5">
-                <form
-                  ref={formRef}
-                  className={`needs-validation ${validated ? "was-validated" : ""}`}
-                  noValidate
-                  onSubmit={handleSubmit}
-                >
-                  <div className="border-bottom pb-5 mb-7">
-
-                    <div className="mb-4">
-                      <h2 className="h3">Datos del destinatario</h2>
-                    </div>
-
-                    <div className="row">
-
-                      <div className="col-md-6 mb-3 mb-md-4">
-                        <label className="form-label">Nombre *</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="firstName"
-                          required
-                        />
-                        <div className="invalid-feedback">
-                          Ingresá tu nombre.
-                        </div>
-                      </div>
-
-                      <div className="col-md-6 mb-3 mb-md-4">
-                        <label className="form-label">Apellido *</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="lastName"
-                          required
-                        />
-                        <div className="invalid-feedback">
-                          Ingresá tu apellido.
-                        </div>
-                      </div>
-
-                      <div className="col-md-6 mb-3 mb-md-4">
-                        <label className="form-label">Email *</label>
-                        <input
-                          type="email"
-                          className="form-control"
-                          name="emailAddress"
-                          required
-                        />
-                        <div className="invalid-feedback">
-                          Ingresá un email válido.
-                        </div>
-                      </div>
-
-                      <div className="col-md-6 mb-3 mb-md-4">
-                        <label className="form-label">Teléfono</label>
-                        <input type="text" className="form-control" />
-                      </div>
-
-                      <div className="col-md-8 mb-3">
-                        <label className="form-label">Dirección *</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="streetAddress"
-                          required
-                        />
-                        <div className="invalid-feedback">
-                          Ingresá tu dirección.
-                        </div>
-                      </div>
-
-                      <div className="col-md-4 mb-3 mb-md-4">
-                        <label className="form-label">Depto.</label>
-                        <input type="text" className="form-control" />
-                      </div>
-
-                      <div className="col-md-5 mb-3 mb-md-4">
-                        <label className="form-label">Provincia *</label>
-                        <select className="form-select" required>
-                          <option value="">Seleccionar</option>
-                          <option value="Buenos Aires">Buenos Aires</option>
-                          <option value="Córdoba">Córdoba</option>
-                          {/* resto de provincias */}
-                        </select>
-                        <div className="invalid-feedback">
-                          Seleccioná una provincia.
-                        </div>
-                      </div>
-
-                      <div className="col-md-4 mb-3 mb-md-4">
-                        <label className="form-label">Ciudad *</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="city"
-                          required
-                        />
-                        <div className="invalid-feedback">
-                          Ingresá tu ciudad.
-                        </div>
-                      </div>
-
-
-                      <div className="col-md-3 mb-3 mb-md-4">
-                        <label className="form-label">Código Postal *</label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="postcode"
-                          required
-                        />
-                        <div className="invalid-feedback">
-                          Ingresá un código postal.
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-12 pt-3">
-                        <div className="js-form-message">
-
-                            <label className="d-flex align-items-start gap-2 mb-3"> 
-                              <input className="form-check-input flex-shrink-0 mt-0" type="checkbox" value="" /> 
-                              <small className="d-block text-body-secondary"> Mi información de facturación y envío es la misma.</small>
-                            </label>
-
-                            <label className="d-flex align-items-start gap-2"> 
-                              <input className="form-check-input flex-shrink-0 mt-0" type="checkbox" value="" /> 
-                              <small className="d-block text-body-secondary">Por favor, envíenme correos electrónicos con ofertas exclusivas, información y novedades de nuevos productos </small>
-                            </label>
-                        </div>
-                      </div>
-
-
-                  </div>
-
-
-                  {/* BOTÓN FINAL */}
-                  <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mt-2 mt-md-8">
-                    <Link to="/cart" className="order-2 order-md-1">
-                      <small className="bi bi-arrow-left me-1 d-md-none"></small> Regresar a mi Carrito
-                    </Link>
-
-                    <button
-                      type="submit"
-                      className="btn btn-primary btn-sm rounded-pill px-6 order-1 order-md-2 mb-5 mb-md-0 mt-5 mt-md-0 btn-checkout"
-                    >
-                        Continuar al pago
-                    </button>
-                  </div>
-
-
-                </form>
-              </div>
+            <div className="">
+              <OrderSummary />
             </div>
             
 
