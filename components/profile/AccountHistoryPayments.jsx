@@ -11,7 +11,7 @@ export default function AccountHistoryPayments({ onOpenInvoice }) {
             {/* End Header */}
 
             {/* Body */}
-            <div className="card-body p-0 mt-2 mt-md-3">
+            <div className="card-body p-0 mt-2 mt-md-2">
               {/* Card */}
               <div>
                 {/* Header */}

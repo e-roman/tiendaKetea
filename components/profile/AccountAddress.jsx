@@ -9,7 +9,7 @@ export default function AccountAddress() {
             {/* End Header */}
 
             {/* Body */}
-            <div className="card-body p-1 p-md-0 mt-2 mt-md-3">
+            <div className="card-body p-1 p-md-0 mt-2 mt-md-2">
                 <div className="row">
                 <div className="col-sm-6 mb-5 mb-sm-7">
                     {/* Radio Check */}

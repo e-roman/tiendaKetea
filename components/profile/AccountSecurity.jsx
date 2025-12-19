@@ -11,7 +11,7 @@ export default function AccountSecurity() {
                 </div>
 
                 {/* Body */}
-                <div className="card-body p-1 p-md-0 mt-2 mt-md-3">
+                <div className="card-body p-1 p-md-0 mt-2 mt-md-2">
                 <p className="card-text">
                     Comenzá ingresando tu contraseña para que podamos confirmar que sos vos. Luego te guiaremos por dos pasos simples más.
                 </p>

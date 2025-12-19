@@ -43,8 +43,7 @@ export default function PersonalInfo() {
 
                     <div className="col-sm-9">
                       <div className="input-group">
-                        <input type="text" className="form-control" name="firstName" id="firstNameLabel" placeholder="Clarice" aria-label="Clarice" defaultValue="Francisco"/>
-                        <input type="text" className="form-control" name="lastName" id="lastNameLabel" placeholder="Boone" aria-label="Boone" defaultValue="Perez" />/
+                        <input type="text" className="form-control" name="firstName" id="firstNameLabel" placeholder="Francisco Perez" aria-label="Francisco Perez" defaultValue="Francisco Perez"/>
                       </div>
                     </div>
                   </div>
