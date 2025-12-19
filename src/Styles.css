@@ -563,8 +563,8 @@ ul, ol {
     line-height: 20px;
     margin: 10px 0;
 }
-.pricing-meta ul{
-    align-items: center;
+.pricing-meta ul {
+    text-align: right;
 }
 .pricing-meta li {
     color: rgb(150, 152, 156);
@@ -808,7 +808,7 @@ button#notificationsDropdown:after {
     display: flex;
     align-items: center;
     width: 35%;
-    padding: 0.5rem 0.25rem;
+    padding: 0.3rem 0.25rem;
     text-align: center;
 }
 .btn-i-d .js-quantity-input {

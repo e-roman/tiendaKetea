@@ -76,7 +76,7 @@ export default function SidebarCart() {
                           <h5 className="mb-0 pe-4">{product.title}</h5>
                         </Link>
 
-                        <div className="mb-3 w-100">
+                        <div className="mb-2 w-100">
                         {/* Badges */}
                         {product.stock ? (
                           <>
@@ -130,11 +130,11 @@ export default function SidebarCart() {
                       </div>
 
                       {/* Precios */}
-                      <div className="pricing-meta my-1">
+                      <div className="pricing-meta my-0">
                         <ul>
                           {product.oldPrice && (
-                            <li className="old-price me-2">
-                              ${(product.oldPrice * product.quantity).toLocaleString()}
+                            <li className="old-price">
+                              ${(product.oldPrice).toLocaleString()}
                             </li>
                           )}
                           <li className="current-price font-medium">
@@ -207,35 +207,32 @@ export default function SidebarCart() {
 
 
 
-
-
-
-
-
-            {/* TOTAL */}
-            <div className="py-4 d-flex align-items-center justify-content-between">
-              <h3 className="mb-0">Total:</h3>
-              <h2 className="mb-0 font-bold">
-                ${cart.reduce((acc, p) => acc + p.price * p.quantity, 0).toLocaleString()}
-              </h2>
-            </div>
           </div>
         )}
       </div>
 
       {cart.length > 0 && (
         <div className="footer-sidebar">
+
+            {/* TOTAL */}
+            <div className="pb-4 d-flex align-items-center justify-content-between">
+              <h3 className="mb-0">Total:</h3>
+              <h2 className="mb-0 font-bold">
+                ${cart.reduce((acc, p) => acc + p.price * p.quantity, 0).toLocaleString()}
+              </h2>
+            </div>
+
           <div className="mb-md-3 w-100">
             <button className="btn btn-primary rounded-pill px-6 w-100" onClick={handleStartCheckout}>
               Iniciar compra
             </button>
           </div>
 
-          <div className="d-none d-md-block">
-            <Link className="btn bg-white btn-sm px-6 w-100" to="/">
+          {/* <div className="d-none d-md-block">
+            <Link className="btn bg-white btn-sm px-6 w-100" data-bs-dismiss="offcanvas">
               Ver más Productos
             </Link>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

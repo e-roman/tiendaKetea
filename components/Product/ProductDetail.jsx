@@ -271,7 +271,7 @@ const handleAddToCart = () => {
           className="btn btn-block rounded-pill btn-primary"
           onClick={handleAddToCart}
         >
-          Agregar {quantity} al carrito
+          Agregar  al carrito
         </button>
       </div>
 
