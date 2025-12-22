@@ -83,7 +83,7 @@ const decrease = (item) => {
 
           {/* LEFT COLUMN - PRODUCTS */}
           <div className="col-lg-8">
-            <div className="card border shadow-none mb-4 mb-md-5">
+            <div className="card shadow-none mb-4 mb-md-5">
               <div className="card-body px-4 pt-4 pb-5 py-md-5 px-md-5">
 
                 {/* TITLE */}
@@ -211,12 +211,12 @@ const decrease = (item) => {
           <div className="col-lg-4">
             <div className="ps-lg-4">
 
-              <div className="bg-white border shadow-soft rounded px-4 pt-4 pb-5 py-md-5 px-md-5 mb-4">
+              <div className="bg-white shadow-soft rounded px-4 pt-4 pb-5 pt-md-5 pb-md-5 px-md-5 mb-4">
                 <div className="border-bottom pb-4 mb-4">
-                  <h2 className="h4 mb-0">Resumen del pedido</h2>
+                  <h2 className="h4 font-bold mb-0">Resumen del pedido</h2>
                 </div>
 
-                <div className="border-bottom pb-4 mb-4">
+                <div className="border-bottom mb-4">
                   <div className="media align-items-center mb-3">
                     <h3 className="text-secondary font-size-1 mb-0 me-3">
                       Item subtotal ({totalItems})
@@ -297,10 +297,10 @@ const decrease = (item) => {
                   </div>
                 </div>
 
-                <div className="media align-items-center mb-0 mb-md-4">
-                  <h4 className="text-secondary font-size-1 mb-0 me-3">Total</h4>
+                <div className="media align-items-center mb-4">
+                  <h4 className="h4 font-bold mb-0 me-3">Total</h4>
                   <div className="media-body text-right">
-                    <span className="font-medium text-dark">
+                    <span className="h3 font-bold text-dark">
                       ${total.toLocaleString("es-AR")}
                     </span>
                   </div>
@@ -312,11 +312,8 @@ const decrease = (item) => {
               </div>
 
               {/* HELP */}
-              <div className="media align-items-center">
-                <figure className="ie-height-48 w-100 max-width-6 me-2">
-                  <img src="assets/svg/icons/help.svg" alt="Ayuda" />
-                </figure>
-                <div className="media-body text-secondary small">
+              <div className="media align-items-center justify-content-center">
+                <div className="media-body text-secondary small text-center">
                   <span className="font-medium me-1">¿Necesitás ayuda?</span>
                   <a className="link-muted" href="#">Escribinos</a>
                 </div>

@@ -63,7 +63,6 @@ export default function LogoutModal({ show, onClose }) {
                       role="status"
                       aria-hidden="true"
                     />
-                    Cerrando sesión...
                   </>
                 ) : (
                   "Cerrar sesión"

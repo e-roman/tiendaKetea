@@ -16,6 +16,8 @@ import Home from "../pages/Home";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
 import CheckoutPayment from "../pages/checkout/CheckoutPayment";
+import OrderComplete from "../pages/checkout/OrderComplete";
+
 import ProductPage from "../pages/Product";
 import SearchResults from "../pages/SearchResults";
 import MyProfile from "../pages/Profile";
@@ -26,6 +28,7 @@ const HIDE_COMPONENTS_ROUTES = [
   "/cart",
   "/checkout",
   "/checkout/payment",
+  "/order-complete",
 ];
 
 export default function App() {
@@ -63,6 +66,7 @@ export default function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout/payment" element={<CheckoutPayment />} />
+          <Route path="/order-complete" element={<OrderComplete />} />
           <Route path="/buscar/:query" element={<SearchResults />} />
           <Route path="/pages/Profile" element={<MyProfile />} />
         </Routes>

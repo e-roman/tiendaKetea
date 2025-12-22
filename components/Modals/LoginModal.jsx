@@ -181,7 +181,6 @@ const handleResetSubmit = (e) => {
                               role="status"
                               aria-hidden="true"
                             />
-                            Ingresando...
                           </>
                         ) : (
                           "Ingresar"
@@ -275,7 +274,6 @@ const handleResetSubmit = (e) => {
                             role="status"
                             aria-hidden="true"
                           />
-                          Registrando...
                         </>
                       ) : (
                         "Registrarme"
@@ -347,7 +345,6 @@ const handleResetSubmit = (e) => {
                         {loading ? (
                           <>
                             <span className="spinner-border spinner-border-sm me-2" />
-                            Enviando...
                           </>
                         ) : (
                           "Enviar"

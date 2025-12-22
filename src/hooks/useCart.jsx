@@ -18,6 +18,8 @@ export function CartProvider({ children }) {
     return SHIPPING_COSTS.hasOwnProperty(stored) ? stored : "standard";
   });
 
+  const [deliveryType, setDeliveryType] = useState("delivery");
+
   // Persistencia
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -73,6 +75,8 @@ export function CartProvider({ children }) {
         shippingCost,
         subtotal,
         total,
+        deliveryType,
+        setDeliveryType,
         setShipping,
         addToCart,
         removeFromCart,

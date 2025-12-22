@@ -155,11 +155,15 @@ const {
               </h4>
             </div>
 
-            <div className="d-flex align-items-center justify-content-between py-2 border-bottom">
-              <span className="text-muted">Envío</span>
-              <span className="font-medium">
+            <div className="d-flex align-items-center justify-content-between py-3 text-black border-bottom">
+              <span className="small">Entregas para el CP: 1706</span>
+
+              <div>
+                <button type="button" className="btn btn-sm btn-outline-dark rounded-pill py-0 px-2 small">Cambiar CP</button>
+              </div>
+              {/* <span className="font-medium">
                 {shippingCost === 0 ? "Gratis" : `$${shippingCost.toLocaleString("es-AR")}`}
-              </span>
+              </span> */}
             </div>
 
 
@@ -168,91 +172,98 @@ const {
                 Los productos Automower se retiran por el local.
               </div>
 
-              <div className="pb-2">
 
-                <p className="small text-black mb-2">
-                  <i className="bi bi-truck f-icons-18"></i> Envío a Domicilio
-                </p>
 
-                <div className="card border shadow-none mb-3">
-                  <div className="card-body p-3">
-                    <div className="form-check">
-                      <input
-                        type="radio"
-                        name="delivery"
-                        id="shipping-standard"
-                        className="form-check-input"
-                        checked={!pickup && shipping === "standard"}
-                        onChange={() => {
-                          setPickup(false);
-                          setShipping("standard");
-                        }}
-                      />
-                      <label className="form-check-label" htmlFor="shipping-standard">
-                        <span className="d-block text-dark font-size-1 font-medium mb-0">Envío grátis</span>
-                        <span className="d-block text-muted">Llega entre el miércoles 03/12 y el lunes 08/12</span>
-                      </label>
-                    </div>
-                  </div>
+            <div className="pb-2">
+
+              <p className="small text-black mb-2">
+                <i className="bi bi-truck f-icons-18"></i> Envío a Domicilio
+              </p>
+
+              {/* ENVÍO STANDARD */}
+              <label
+                className={`delivery-card ${!pickup && shipping === "standard" ? "active" : ""}`}
+              >
+                <input
+                  type="radio"
+                  name="delivery"
+                  checked={!pickup && shipping === "standard"}
+                  onChange={() => {
+                    setPickup(false);
+                    setShipping("standard");
+                  }}
+                />
+
+                <div className="delivery-indicator">
+                  <i className="bi bi-check-lg"></i>
                 </div>
 
-                <div className="card border shadow-none mb-3">
-                  <div className="card-body p-3">
-                    <div className="form-check">
-                      <input
-                        type="radio"
-                        name="delivery"
-                        id="shipping-express"
-                        className="form-check-input"
-                        checked={!pickup && shipping === "express"}
-                        onChange={() => {
-                          setPickup(false);
-                          setShipping("express");
-                        }}
-                      />
-                      <label className="form-check-label" htmlFor="shipping-express">
-                        <span className="d-block text-dark font-size-1 font-medium mb-0">Envío Express</span>
-                        <span className="d-block text-muted">El envío tiene un costo de $25500 y puede tardar entre 1 día hábil en todo el país.</span>
-                      </label>
-                    </div>
-                  </div>
+                <div className="delivery-content">
+                  <span className="delivery-title">Envío Personalizado</span>
+                  <span className="delivery-desc">
+                    Llega entre el Martes 23/12 y el Viernes 26/12
+                  </span>
+                </div>
+              </label>
+
+              {/* ENVÍO EXPRESS */}
+              <label
+                className={`delivery-card ${!pickup && shipping === "express" ? "active" : ""}`}
+              >
+                <input
+                  type="radio"
+                  name="delivery"
+                  checked={!pickup && shipping === "express"}
+                  onChange={() => {
+                    setPickup(false);
+                    setShipping("express");
+                  }}
+                />
+
+                <div className="delivery-indicator">
+                  <i className="bi bi-check-lg"></i>
                 </div>
 
-                <p className="small text-black mb-2">
-                  <i className="bi bi-geo-alt"></i> Retirar en Local:
-                </p>
-
-                <div className="card border shadow-none mb-3">
-                  <div className="card-body p-3">
-
-                    <div className="form-check">
-                      <input
-                        type="radio"
-                        name="delivery"
-                        id="pickup-local"
-                        className="form-check-input"
-                        checked={pickup}
-                        onChange={() => {
-                          setPickup(true);
-                          setShipping("standard"); // envío siempre en 0
-                        }}
-                      />
-                      <label className="form-check-label" htmlFor="pickup-local">
-                        <span className="d-block text-dark font-size-1 font-medium mb-0">
-                          Ketea Ramos Mejía
-                        </span>
-                        <span className="d-block text-muted">
-                          Cnel. Brandsen 2230, Ramos Mejía, Buenos Aires.
-                          <br />
-                          Lun a Vie. de 9 a 18 hrs.
-                        </span>
-                      </label>
-                    </div>
-
-
-                  </div>
+                <div className="delivery-content">
+                  <span className="delivery-title">Envío Express</span>
+                  <span className="delivery-desc">
+                    Tiene un costo de $25.500 y llega hoy
+                  </span>
                 </div>
-              </div>
+              </label>
+
+              <p className="small text-black mt-4 mb-2">
+                <i className="bi bi-geo-alt"></i> Retirar en local
+              </p>
+
+              {/* PICKUP */}
+              <label
+                className={`delivery-card ${pickup ? "active" : ""}`}
+              >
+                <input
+                  type="radio"
+                  name="delivery"
+                  checked={pickup}
+                  onChange={() => {
+                    setPickup(true);
+                    setShipping("standard");
+                  }}
+                />
+
+                <div className="delivery-indicator">
+                  <i className="bi bi-check-lg"></i>
+                </div>
+
+                <div className="delivery-content">
+                  <span className="delivery-title">Ketea Ramos Mejía</span>
+                  <span className="delivery-desc">
+                    Cnel. Brandsen 2230, Ramos Mejía<br />
+                    Lunes a Viernes de 9 a 18hs.
+                  </span>
+                </div>
+              </label>
+
+            </div>
 
 
 

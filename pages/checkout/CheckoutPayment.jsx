@@ -110,12 +110,12 @@ navigate("/checkout/payment");
           <div className="col-lg-4 order-lg-2 mb-4 mb-lg-0">
             <div className="ps-xl-4">
               <div ref={summaryWrapperRef}>
-              <div  ref={summaryRef} className="bg-white border rounded px-4 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
+              <div  ref={summaryRef} className="bg-white rounded px-4 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
 
                 {/* Title */}
-                <div className="border-bottom pb-4 mb-4">
+                {/* <div className="border-bottom pb-4 mb-4">
                   <h2 className="h4 mb-0">Resumen del pedido</h2>
-                </div>
+                </div> */}
 
                 {/* Lista dinámica del carrito */}
                 {cart.length === 0 && (
@@ -182,7 +182,7 @@ navigate("/checkout/payment");
                   </div>
 
                   <div className="media align-items-center mb-3">
-                      <h4 className="text-secondary font-size-1 mb-0 me-3">Método de envío</h4>
+                      <h4 className="text-secondary font-size-1 mb-0 me-3">Cósto del envío</h4>
 
                       <div className="media-body text-end">
                         <span className="font-medium text-secondary font-15">
@@ -205,7 +205,7 @@ navigate("/checkout/payment");
                 </div>
 
                 {/* TOTAL */}
-                <div className="media align-items-center mb-0 mb-md-4">
+                <div className="media align-items-center mb-3">
                   <h4 className="h3 font-bold mb-0 me-3">Total</h4>
                   <div className="media-body text-right">
                     <span className="h3 font-bold text-dark">
@@ -213,6 +213,22 @@ navigate("/checkout/payment");
                     </span>
                   </div>
                 </div>
+
+
+                <div className="summary-coupon">
+                  <div className="box-discount-coupon-applied">
+                      <div className="col-12 text-center">
+                        <div id="" className="btn btn-sm btn-outline-dark rounded-pill w-100" tabindex="0" role="button">
+                          <span>
+                            <svg className="coupon-icon" width="13px" height="13px" viewBox="0 0 1024 1024"><path d="M992.6,564.8L546.7,41.3C502.1-11,426.5-14,377.9,34.6L34.6,377.9C-14,426.5-11,502.1,41.3,546.6l523.4,445.9 c52.4,44.6,134.2,41.3,182.8-7.3l237.7-237.7C1033.9,699,1037.2,617.1,992.6,564.8z M709.5,802.8c-51.6,0-93.3-41.8-93.3-93.3 c0-51.5,41.8-93.3,93.3-93.3s93.3,41.8,93.3,93.3C802.8,761,761,802.8,709.5,802.8z"></path></svg>
+                            <span className="text-pre-line ps-2">Agregar cupón de descuento</span>
+                          </span>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+
+
               </div>
               </div>
             </div>

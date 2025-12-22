@@ -1,7 +1,7 @@
 // src/components/Header.jsx
 export default function BrandsLogos() {
   return (
-    <div className="container content-space-2">
+    <div className="container content-space-2 border-bottom">
       <div className="row">
 
         <div className="col text-center py-3">

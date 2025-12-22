@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-  <footer className="border-top">
+  <footer>
     <div className="container">
       <div className="row justify-content-lg-between content-space-t-2 content-space-b-lg-2">
         <div className="col-lg-3 mb-5">
@@ -10,7 +10,7 @@ export default function Footer() {
               <img className="brand" src="assets/img/logo/logo.svg" alt="Ketea S.A" />
             </a>
             {/*-- End Logo --*/}
-              <small>Coronel Brandsen 2230, Ramos Mejia, Buenos Aires</small>
+              <small>Coronel Brandsen 2230, <br className="d-none d-md-block"/>Ramos Mejia, Buenos Aires</small>
           </div>
         </div>
 
