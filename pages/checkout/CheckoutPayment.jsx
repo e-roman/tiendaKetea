@@ -15,14 +15,24 @@ useEffect(() => {
   if (!el || !wrapper) return;
 
   const offset = 120;
-  const initialTop = wrapper.getBoundingClientRect().top + window.scrollY;
 
   const onScroll = () => {
+    // No aplicar en responsive
+    if (window.innerWidth <= 960) {
+      el.style.position = "static";
+      el.style.width = "auto";
+      el.style.maxWidth = "none";
+      return;
+    }
+
+    const initialTop =
+      wrapper.getBoundingClientRect().top + window.scrollY;
+
     if (window.scrollY > initialTop - offset) {
       el.style.position = "fixed";
       el.style.top = `${offset}px`;
       el.style.width = `${wrapper.offsetWidth}px`;
-      el.style.maxWidth = "362px"; 
+      el.style.maxWidth = "362px";
     } else {
       el.style.position = "static";
       el.style.width = "auto";
@@ -31,9 +41,13 @@ useEffect(() => {
   };
 
   window.addEventListener("scroll", onScroll);
-  return () => window.removeEventListener("scroll", onScroll);
-}, []);
+  window.addEventListener("resize", onScroll);
 
+  return () => {
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", onScroll);
+  };
+}, []);
 
 const { cart, shipping, shippingCost } = useCart();
   const navigate = useNavigate();
@@ -102,15 +116,15 @@ navigate("/checkout/payment");
 
 
 
-    <div className="bg-light">
-      <div className="container">
+   <div className="bg-light bg-white-xs">
+      <div className="container px-xs-0">
         <div className="row">
 
           {/* ORDER SUMMARY – RIGHT COLUMN */}
           <div className="col-lg-4 order-lg-2 mb-4 mb-lg-0">
             <div className="ps-xl-4">
               <div ref={summaryWrapperRef}>
-              <div  ref={summaryRef} className="bg-white rounded px-4 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
+              <div  ref={summaryRef} className="bg-white rounded px-3 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
 
                 {/* Title */}
                 {/* <div className="border-bottom pb-4 mb-4">
@@ -238,7 +252,7 @@ navigate("/checkout/payment");
           {/* LEFT COLUMN (checkout actions, forms...) */}
           <div className="col-lg-8 order-lg-1">
 
-            <div className="">
+            <div className="px-0">
               <OrderSummary />
             </div>
             

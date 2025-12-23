@@ -47,7 +47,7 @@ export default function ProductGalleryMobile({ product }) {
     <>
 
     {/* Código + rating */}
-    <div className="d-flex align-items-center justify-content-between small mb-3 px-3">
+    <div className="d-flex align-items-center justify-content-between small mb-2 px-3">
       <p className="link-muted mb-0">
         <small>Código: {product.code || "N/A"}</small>
       </p>
@@ -96,7 +96,7 @@ export default function ProductGalleryMobile({ product }) {
           <img
             src={img}
             alt={product.title}
-            className="img-fluid w-100 rounded"
+            className="img-fluid w-100 rounded img-detail-mb"
             loading="lazy"
           />
         </SwiperSlide>

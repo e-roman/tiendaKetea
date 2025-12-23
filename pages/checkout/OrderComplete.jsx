@@ -29,8 +29,8 @@ export default function OrderComplete() {
         </div>
     </header>
 
-    <div className="bg-light py-10">
-      <div className="row mx-0 justify-content-center py-10">
+    <div className="bg-light py-5 py-md-10">
+      <div className="row mx-0 justify-content-center py-md-10">
         <div className="col-md-12 col-lg-4">
 
           <div className="card shadow-none border text-center p-5">
@@ -57,16 +57,16 @@ export default function OrderComplete() {
               </p>
             </div>
 
-            <div className="d-flex gap-3 justify-content-center">
+            <div className="d-md-flex gap-3 justify-content-center">
               <button
-                className="btn btn-sm btn-primary rounded-pill px-5"
+                className="btn btn-sm btn-primary rounded-pill px-5 w-xs-100 mb-3 mb-md-0"
                 onClick={() => navigate("/")}
               >
                 Volver al inicio
               </button>
 
               <button
-                className="btn btn-sm btn-outline-secondary rounded-pill px-5"
+                className="btn btn-sm btn-outline-secondary rounded-pill px-5 w-xs-100"
                 onClick={() => navigate("/pages/Profile?view=orders")}
               >
                 Ver mis pedidos

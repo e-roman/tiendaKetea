@@ -14,7 +14,14 @@ import TopAlert from "./TopAlert";
 import Topbar from "./Topbar";
 import LogoutModal from "../../Modals/LogoutModal";
 
-
+const MOCK_LAST_SEARCHES = [
+  "Robots",
+  "Accesorios de exterior de piscina",
+  "Climatización de Piscinas",
+  "Filtros",
+  "Bombas",
+  "Revestimientos",
+];
 export default function HeaderMobile() {
   const [profileOpen, setProfileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -45,13 +52,18 @@ useEffect(() => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleSearchSubmit = () => {
-    if (!query.trim()) return;
-    navigate(`/buscar/${encodeURIComponent(query)}`);
-    clearSearch();
-  };
+const handleSearchSubmit = () => {
+  if (!query.trim()) return;
 
+  navigate(`/buscar/${encodeURIComponent(query)}`);
+  closeSearch();
+};
 
+const closeSearch = () => {
+  setSearchOpen(false);
+  setQuery("");
+  setResults([]);
+};
   const { cart } = useCart(); // ← FIX
 
 
@@ -74,26 +86,38 @@ const handleInputChange = (e) => {
     return;
   }
 
-  const filtered = products
-    .filter(item =>
-      item.title.toLowerCase().includes(value.toLowerCase())
-    )
-    .slice(0, 6);
-
-  setResults(filtered);
+  runSearch(value);
 };
 
-  const clearSearch = () => {
-    setQuery("");
-    setResults([]);
-  };
-
+const clearSearch = () => {
+  setQuery("");
+  setResults([]);
+  setSearchOpen(true); // ← CLAVE
+};
 
 
   const goTo = (path) => {
     setOpen(false);
     navigate(path);
   };
+
+
+const runSearch = (value) => {
+  const term = value.toLowerCase();
+
+  const filtered = products
+    .filter(item => {
+      const inTitle = item.title.toLowerCase().includes(term);
+      const inCategories = item.categories?.some(cat =>
+        cat.toLowerCase().includes(term)
+      );
+
+      return inTitle || inCategories;
+    })
+    .slice(0, 6);
+
+  setResults(filtered);
+};
 
   return (
     <>
@@ -171,7 +195,7 @@ const handleInputChange = (e) => {
                 <input
                   id="search"
                   type="text"
-                  className="form-control form-control-md shadow-none input-search-mobile"
+                  className="shadow-none input-search-mobile"
                   placeholder="Buscar…"
                   value={query}
                   onChange={handleInputChange}
@@ -179,52 +203,70 @@ const handleInputChange = (e) => {
                   onKeyDown={(e) => e.key === "Enter" && handleSearchSubmit()}
                   autoComplete="off"
                 />
-              {isSearchActive && results.length > 0 && (
-                <div
+                {isSearchActive && (
+                  <div
                     className="search-dropdown search-dropdown-mb position-absolute w-100 p-3 bg-white shadow-sm"
                     style={{ zIndex: 999 }}
-                >
-                    {results.map((item) => (
-                    <Link
-                        key={item.id}
-                        to={`/product/${slugify(item.title)}`}
-                        className="d-flex align-items-start gap-3 py-2 px-1 border-bottom text-decoration-none text-dark"
-                        onClick={clearSearch}
-                    >
-                        <img
-                        src={item.image.replace("../", "/")}
-                        alt={item.title}
-                        width="55"
-                        height="55"
-                        className="rounded border"
-                        />
+                  >
+                    {/* 🔁 ÚLTIMAS BÚSQUEDAS (cuando NO hay texto) */}
+                    {!hasQuery && (
+                      <>
 
-                        <div>
-                        <strong className="d-block">{item.title}</strong>
+                        {MOCK_LAST_SEARCHES.map((term, index) => (
+                          <button
+                            key={index}
+                            type="button"
+                            className="d-flex align-items-center w-100 py-2 px-1 border-0 bg-transparent text-start"
+                            onClick={() => {
+                              setSearchOpen(true);
+                              setQuery(term);
+                              runSearch(term);
+                            }}
+                          >
+                            <i className="bi bi-clock-history me-2  font-14 pe-2"></i>
+                            <span className="font-14">{term}</span>
+                          </button>
 
-                        <span className="text-muted small">
-                            ${item.price.toLocaleString("es-AR")}
-                        </span>
 
-                        <div className="small text-secondary">
-                            {item.categories.slice(0, 2).join(" • ")}
-                        </div>
-                        </div>
-                    </Link>
-                    ))}
+                        ))}
+                      </>
+                    )}
 
-                    {/* Ver todos */}
-                    <div className="text-center mt-3">
-                    <Link
-                        to={`/buscar/${encodeURIComponent(query)}`}
-                        className="btn btn-sm btn-primary rounded-pill px-5"
-                        onClick={clearSearch}
-                    >
-                        Ver todos los resultados
-                    </Link>
-                    </div>
-                </div>
+                    {/* RESULTADOS */}
+                    {results.length > 0 && (
+                      <>
+                        {results.map((item) => (
+                          <Link
+                              key={item.id}
+                              to={`/product/${slugify(item.title)}`}
+                              className="d-flex align-items-start gap-3 py-2 px-1 border-bottom text-decoration-none text-dark"
+                              onClick={closeSearch}
+                            >
+                            <img
+                              src={item.image.replace("../", "/")}
+                              alt={item.title}
+                              width="55"
+                              height="55"
+                              className="rounded border"
+                            />
+
+                            <div>
+                              <strong className="d-block">{item.title}</strong>
+                              <span className="text-muted small">
+                                ${item.price.toLocaleString("es-AR")}
+                              </span>
+                              <div className="small text-secondary">
+                                {item.categories.slice(0, 2).join(" • ")}
+                              </div>
+                            </div>
+                          </Link>
+                        ))}
+                      </>
+                    )}
+
+                  </div>
                 )}
+
 
 
 

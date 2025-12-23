@@ -73,14 +73,16 @@ const [paymentMethod, setPaymentMethod] = useState(null);
 
           {(!paymentMethod || paymentMethod === "card") && (
             <button
-              className="btn btn-outline-secondary button-payment d-flex justify-content-between align-items-center text-black font-medium p-3"
+              className="btn btn-outline-secondary button-payment d-md-flex justify-content-between align-items-center text-left-xs text-black font-medium p-3"
               onClick={() => setPaymentMethod("card")}
             >
-              <span>
-                <i className="bi bi-credit-card me-2"></i>
-                Tarjeta de crédito o débito
-              </span>
-              <small className="text-black">Hasta 3 cuotas sin interés</small>
+              <div className="d-flex d-md-block">
+                <div><i className="bi bi-credit-card me-2"></i></div>
+                <div>
+                  <div className="w-xs-100"><span>Tarjeta de crédito o débito</span></div>
+                  <div className="w-xs-100"><small className="text-black">Hasta 3 cuotas sin interés</small></div>
+                </div>
+               </div>
             </button>
           )}
 
@@ -157,14 +159,14 @@ const [paymentMethod, setPaymentMethod] = useState(null);
                 </select>
               </div>
 
-              <div className="col-3 mt-3">
-                <select className="form-select mb-3">
+              <div className="col-md-3 mt-3">
+                <select className="form-select mb-md-3">
                   <option>DNI</option>
                   <option>CUIT</option>
                 </select>
               </div>
 
-              <div className="col-9 mt-3">
+              <div className="col-md-9 mt-3">
                   <input className="form-control" placeholder="Documento del titular" />
               </div>
 
@@ -244,15 +246,15 @@ const [paymentMethod, setPaymentMethod] = useState(null);
         {paymentMethod === "mp" && (
           <>
           <div className="row border  mx-0">
-            <div className="py-4 px-3 gy-2 gx-3 ">
-            <h5 className="mb-3 text-center pb-4">Pagá con tu cuenta de Mercado Pago</h5>
+            <div className="py-4 px-4 gy-2 gx-3">
+            <h5 className="mb-3 text-center pb-2 pb-md-4 text-left-xs">Pagá con tu cuenta de Mercado Pago</h5>
 
-            <div className="d-flex gap-4 text-center px-md-10">
-              <p className="small">
+            <div className="d-md-flex gap-4 text-center mb-6 mb-md-0 px-md-10">
+              <p className="small text-left-xs">
                 <i class="bi bi-wallet2"></i> Usá tus tarjetas guardadas, dinero disponible o cuotas sin tarjeta.
               </p>
 
-              <p className="small">
+              <p className="small text-left-xs">
                 <i class="bi bi-coin"></i> Accedé a Cuotas sin Tarjeta para comprar ahora y pagar después.
               </p>
             </div>

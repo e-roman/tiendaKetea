@@ -11,20 +11,31 @@ export default function Checkout() {
   
 const summaryRef = useRef(null);
 const summaryWrapperRef = useRef(null);
+
 useEffect(() => {
   const el = summaryRef.current;
   const wrapper = summaryWrapperRef.current;
   if (!el || !wrapper) return;
 
   const offset = 120;
-  const initialTop = wrapper.getBoundingClientRect().top + window.scrollY;
 
   const onScroll = () => {
+    // 🚫 No aplicar en responsive
+    if (window.innerWidth <= 960) {
+      el.style.position = "static";
+      el.style.width = "auto";
+      el.style.maxWidth = "none";
+      return;
+    }
+
+    const initialTop =
+      wrapper.getBoundingClientRect().top + window.scrollY;
+
     if (window.scrollY > initialTop - offset) {
       el.style.position = "fixed";
       el.style.top = `${offset}px`;
       el.style.width = `${wrapper.offsetWidth}px`;
-      el.style.maxWidth = "362px"; 
+      el.style.maxWidth = "362px";
     } else {
       el.style.position = "static";
       el.style.width = "auto";
@@ -33,7 +44,12 @@ useEffect(() => {
   };
 
   window.addEventListener("scroll", onScroll);
-  return () => window.removeEventListener("scroll", onScroll);
+  window.addEventListener("resize", onScroll);
+
+  return () => {
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("resize", onScroll);
+  };
 }, []);
 
 
@@ -112,15 +128,15 @@ navigate("/checkout/payment");
 
 
 
-    <div className="bg-light">
-      <div className="container">
+    <div className="bg-light bg-white-xs">
+      <div className="container px-xs-0">
         <div className="row">
 
           {/* ORDER SUMMARY – RIGHT COLUMN */}
           <div className="col-lg-4 order-lg-2 mb-4 mb-lg-0">
             <div className="ps-xl-4">
               <div ref={summaryWrapperRef}>
-              <div  ref={summaryRef} className="bg-white rounded px-4 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
+              <div  ref={summaryRef} className="bg-white rounded px-3 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
 
                 {/* Title */}
                 {/* <div className="border-bottom pb-4 mb-4">
@@ -251,7 +267,7 @@ navigate("/checkout/payment");
           <div className="col-lg-8 order-lg-1">
 
             <div className="card shadow-none mb-5">
-              <div className="card-body px-4 pt-5 pb-5 py-md-5 px-md-5">
+              <div className="card-body px-3 pt-5 pb-5 py-md-5 px-md-5">
                 <form
                   ref={formRef}
                   className={`needs-validation ${validated ? "was-validated" : ""}`}
@@ -440,7 +456,7 @@ navigate("/checkout/payment");
                         </div>
                       </div>
 
-                      <div className="col-md-8 mb-3">
+                      <div className="col-md-8 col-md-8 mb-3">
                         <label className="form-label">Calle *</label>
                         <input
                           type="text"
@@ -453,7 +469,7 @@ navigate("/checkout/payment");
                         </div>
                       </div>
 
-                      <div className="col-md-2 mb-3 mb-md-4">
+                      <div className="col-8 col-md-2 mb-3 mb-md-4">
                         <label className="form-label">Número *</label>
                         <input type="text" className="form-control" name="streetNumber" required/>
                         <div className="invalid-feedback">
@@ -461,7 +477,7 @@ navigate("/checkout/payment");
                         </div>
                       </div>
 
-                      <div className="col-md-2 mb-3 mb-md-4">
+                      <div className="col-4 col-md-2 mb-3 mb-md-4">
                         <label className="form-label">Depto.</label>
                         <input type="text" className="form-control" />
                       </div>

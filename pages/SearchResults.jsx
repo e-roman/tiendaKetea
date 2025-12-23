@@ -169,7 +169,7 @@ const results = useMemo(() => {
       <div>
 
         {/* BREADCRUMB */}
-        <div className="bg-light">
+        {/* <div className="bg-light">
           <div className="container py-4">
             <div className="d-flex align-items-center justify-content-between">
               <div>
@@ -183,7 +183,7 @@ const results = useMemo(() => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="container content-space-t-md-1 content-space-b-2 px-mobile">
           <div className="row">
@@ -224,10 +224,10 @@ const results = useMemo(() => {
 
             {/* RESULTADOS */}
             <div className="col-lg-9">
-            <div className="row align-items-center mb-3">
+            <div className="row align-items-center mb-1">
               
               <div className="col-sm mb-3 mb-sm-0">
-                <h6 className="mb-0">{results.length} productos</h6>
+                <h6 className="mb-0" aria-current="page">{results.length} productos: <b>"{query}"</b></h6>
               </div>
 
               <div className="col-sm-auto d-none d-lg-flex">
@@ -290,9 +290,106 @@ const results = useMemo(() => {
             </div>
 
 
+              {/* CHIPS DE FILTROS ACTIVOS */}
+              {(
+                filters.marcas.length ||
+                filters.categorias.length ||
+                filters.accionamiento.length ||
+                filters.descuentos.length ||
+                filters.precioMin ||
+                filters.precioMax
+              ) && (
+                <div className="row align-items-center mb-3">
+                  <div className="d-flex align-items-center justify-content-between gap-3 flex-wrap">
+                    
+                    {/* LISTA DE CHIPS */}
+                    <div className="d-flex gap-2 flex-wrap">
+                      
+                      {filters.marcas.map(m => (
+                        <button key={`marca-${m}`} type="button" className="chip">
+                          {m}
+                          <span
+                            className="icon-inline chip-remove-icon chip-close"
+                            onClick={() => toggleFilter("marcas", m)}
+                          />
+                        </button>
+                      ))}
+
+                      {filters.categorias.map(c => (
+                        <button key={`cat-${c}`} type="button" className="chip">
+                          {c}
+                          <span
+                            className="icon-inline chip-remove-icon chip-close"
+                            onClick={() => toggleFilter("categorias", c)}
+                          />
+                        </button>
+                      ))}
+
+                      {filters.accionamiento.map(a => (
+                        <button key={`acc-${a}`} type="button" className="chip">
+                          {a}
+                          <span
+                            className="icon-inline chip-remove-icon chip-close"
+                            onClick={() => toggleFilter("accionamiento", a)}
+                          />
+                        </button>
+                      ))}
+
+                      {filters.descuentos.map(d => (
+                        <button key={`desc-${d}`} type="button" className="chip">
+                          {d}% OFF
+                          <span
+                            className="icon-inline chip-remove-icon chip-close"
+                            onClick={() => toggleFilter("descuentos", d)}
+                          />
+                        </button>
+                      ))}
+
+                      {filters.precioMin && (
+                        <button type="button" className="chip">
+                          Desde ${filters.precioMin}
+                          <span
+                            className="icon-inline chip-remove-icon chip-close"
+                            onClick={() =>
+                              setFilters(prev => ({ ...prev, precioMin: "" }))
+                            }
+                          />
+                        </button>
+                      )}
+
+                      {filters.precioMax && (
+                        <button type="button" className="chip">
+                          Hasta ${filters.precioMax}
+                          <span
+                            className="icon-inline chip-remove-icon chip-close"
+                            onClick={() =>
+                              setFilters(prev => ({ ...prev, precioMax: "" }))
+                            }
+                          />
+                        </button>
+                      )}
+
+                    </div>
+
+                    {/* BORRAR TODO */}
+                    <div>
+                      <button
+                        type="button"
+                        className="btn btn-sm p-0 btn-link btn-link-primary font-14 font-medium"
+                        onClick={resetFilters}
+                      >
+                        Borrar filtros
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+              )}
+
+
 
             {/* RESULTS – DESKTOP */}
-            <div className="d-none d-lg-block">
+            <div className="d-none d-lg-block mt-4">
               {view === "grid" ? (
                 <div className="row gx-3">
                   {results.map(p => (
@@ -407,18 +504,19 @@ const results = useMemo(() => {
 
               {/* Footer */}
               <div className="py-3 px-4">
-                <button
-                  className="btn btn-outline-secondary w-100 mb-3"
-                  onClick={resetFilters}
-                >
-                  Limpiar
-                </button>
 
                 <button
-                  className="btn btn-primary w-100"
+                  className="btn btn-primary w-100  mb-3"
                   onClick={() => setShowFilters(false)}
                 >
                   Ver resultados
+                </button>
+
+                <button
+                  className="btn btn-outline-secondary w-100"
+                  onClick={resetFilters}
+                >
+                  Limpiar
                 </button>
               </div>
 

@@ -19408,9 +19408,9 @@ label.form-control {
 }
 .modal-close {
     position: absolute;
-    top: .75rem;
-    right: .75rem;
-    z-index: 2
+    top: 1rem;
+    right: 1rem;
+    z-index: 2;
 }
 .modal-top-cover {
     position: relative;
@@ -19569,7 +19569,8 @@ label.form-control {
 }
 .nav-segment {
     position: relative;
-    background-color: #f8fafd;
+    /* background-color: #f8fafd; */
+    background-color: #fff;
     padding: .25rem .25rem;
     border-radius: .5rem
 }
@@ -19581,7 +19582,8 @@ label.form-control {
     color: #677788;
     font-size: .875rem;
     padding: .5rem 1rem;
-    border-radius: .5rem
+    border-radius: .5rem;
+    border: .0625rem solid rgba(0, 0, 0, 0);
 }
 .nav-segment .nav-link:hover {
     color: #377dff
@@ -19589,7 +19591,8 @@ label.form-control {
 .nav-segment .nav-link.active {
     color: #1e2022;
     background-color: #fff;
-    box-shadow: 0 .1875rem .375rem 0 rgba(140, 152, 164, .25)
+    box-shadow: none; 
+    border: .0625rem solid rgba(33, 50, 91, .1);
 }
 .nav-segment.nav-pills {
     border-radius: 50rem

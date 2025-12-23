@@ -119,9 +119,9 @@ const handleResetSubmit = (e) => {
 
           <div className="modal-body modal-log">
            <div
-  className={`auth-step auth-step--${step}`}
-  data-direction={direction}
->
+              className={`auth-step auth-step--${step}`}
+              data-direction={direction}
+            >
             {/* LOGIN */}
             {step === "login" && (
               <div>

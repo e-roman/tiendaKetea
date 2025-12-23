@@ -14,7 +14,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="col-6 col-md-4 col-lg-3 ms-lg-auto mb-5 mb-lg-0">
+        <div className="col-md-6 col-md-4 col-lg-3 ms-lg-auto mb-5 mb-lg-0">
           <h5>Mi Cuenta</h5>
 
           {/*-- List --*/}
@@ -27,7 +27,7 @@ export default function Footer() {
         </div>
         {/*-- End Col --*/}
 
-        <div className="col-6 col-md-4 col-lg-3 mb-5 mb-lg-0">
+        <div className="col-md-6 col-md-4 col-lg-3 mb-5 mb-lg-0">
           <h5>Información</h5>
           {/*-- List --*/}
           <ul className="list-unstyled list-py-1">
