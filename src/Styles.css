@@ -37,7 +37,9 @@ input.form-control, select.form-select, label {
 .font-bold {
     font-weight: 600
 }
-
+.font-bold-xl {
+   font-weight: 800 
+}
 .font-size-01 {
     font-size:0.675rem;
     line-height: 1.7;
@@ -2611,7 +2613,7 @@ footer .btn-icon.btn-social {
         width: 100%;
     }
     .btn-checkout {
-        padding: 15px 0;
+        padding: 10px 0;
         width: 100%;
     }
 
@@ -2757,6 +2759,12 @@ footer .btn-icon.btn-social {
     .text-left-xs {
         text-align: left!important;
     }
+
+.px-card-xs {
+    padding-right: 0.714rem !important;
+    padding-left: 0.714rem !important;
+}
+
 }
 
 @media (min-width: 769px) {
@@ -3027,8 +3035,52 @@ button.btn-search-mobile {
 
 
 
-.img-detail-mb {
+/* .img-detail-mb {
     width: 90% !important;
     margin: 0 auto;
     display: block;
+} */
+
+.summary-details {
+  display: none;
+}
+
+.summary.open .summary-details {
+  display: block;
+}
+
+.summary-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s ease;
+}
+
+.summary.open .summary-details {
+  max-height: 100vh;
+}
+
+
+
+.summary-details {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+}
+
+.summary-container {
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-top: 13px;
+    padding-left: 1rem;
+    padding-right:1rem;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    width: 100%;
+    z-index: 6;
 }

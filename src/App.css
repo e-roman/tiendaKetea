@@ -18796,13 +18796,11 @@ label.form-control {
 .input-card .input-card-form:not(:last-child) {
     padding-right: 1rem
 }
-@media (min-width: 576px) {
     .input-card-pill {
         border-radius: 50rem
     }
-}
 @media (max-width: 575.98px) {
-    .input-card-sm {
+    /* .input-card-sm {
         display: grid
     }
     .input-card-sm .btn,
@@ -18819,7 +18817,7 @@ label.form-control {
     }
     .input-card-sm .input-card-form:not(:first-child)::before {
         display: none
-    }
+    } */
 }
 .col-form-label {
     font-size: .875rem

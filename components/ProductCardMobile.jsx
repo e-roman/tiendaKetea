@@ -80,7 +80,7 @@ export default function ProductCardMobile({ product, openProduct }) {
       </div>
 
       {/* Información principal */}
-      <div className="card-body p-2 px-3">
+      <div className="card-body px-card-xs py-2 px-3">
         <button
           className="text-body text-dark font-medium font-15 bg-transparent border-0 p-0 text-start text-clamp-2 mb-0 "
           onClick={() => openProduct(product.slug)}

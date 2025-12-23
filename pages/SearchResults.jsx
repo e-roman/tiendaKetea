@@ -227,7 +227,7 @@ const results = useMemo(() => {
             <div className="row align-items-center mb-1">
               
               <div className="col-sm mb-3 mb-sm-0">
-                <h6 className="mb-0" aria-current="page">{results.length} productos: <b>"{query}"</b></h6>
+                <h5 className="mb-0" aria-current="page">{results.length} productos: <b>"{query}"</b></h5>
               </div>
 
               <div className="col-sm-auto d-none d-lg-flex">
@@ -235,7 +235,7 @@ const results = useMemo(() => {
                   {/*!-- Select --*/}
                   <div className="d-flex align-items-center gap-2 mb-2 mb-sm-0 me-sm-2">
                     {/*!-- Select Wrapper --*/}
-                    <div>Ordenar por</div>
+                    <div className="small">Ordenar por</div>
                     <div className="filters-seleet" style={{minWidth: "190px"}}>
                       <select
                         className="form-select"
@@ -286,7 +286,7 @@ const results = useMemo(() => {
                 </div>
               </div>
 
-              <div className="col-12"><hr/></div>
+             
             </div>
 
 

@@ -80,7 +80,7 @@ const [paymentMethod, setPaymentMethod] = useState(null);
                 <div><i className="bi bi-credit-card me-2"></i></div>
                 <div>
                   <div className="w-xs-100"><span>Tarjeta de crédito o débito</span></div>
-                  <div className="w-xs-100"><small className="text-black">Hasta 3 cuotas sin interés</small></div>
+                  <div className="w-xs-100 d-none d-md-block"><small className="text-black">Hasta 3 cuotas sin interés</small></div>
                 </div>
                </div>
             </button>

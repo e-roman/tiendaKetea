@@ -1,20 +1,32 @@
-import React from "react";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper/modules";
+import { Navigation, Keyboard } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
 import products from "../../data/products.json";
 import ProductCard from "../../components/ProductCard";
+import ProductCardMobile from "../../components/ProductCardMobile";
 
 export default function ProductsSwiper({ openProduct }) {
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
+  const [isMobile, setIsMobile] = useState(
+    window.innerWidth <= 960
+  );
 
-const prevRef = useRef(null);
-const nextRef = useRef(null);
+  useEffect(() => {
+    const onResize = () => {
+      setIsMobile(window.innerWidth <= 960);
+    };
+
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <>
       {/* Título */}
@@ -39,48 +51,49 @@ const nextRef = useRef(null);
             aria-label="Siguiente"
           />
 
-<Swiper
-  modules={[Navigation, Keyboard]}
-  keyboard
-  spaceBetween={20}
-  slidesOffsetBefore={16} // ← fallback
-  onBeforeInit={(swiper) => {
-    swiper.params.navigation.prevEl = prevRef.current;
-    swiper.params.navigation.nextEl = nextRef.current;
-  }}
-  navigation={{
-    prevEl: prevRef.current,
-    nextEl: nextRef.current,
-  }}
-  breakpoints={{
-    0: {
-      spaceBetween: 10,
-      slidesPerView: 1.75,
-      slidesOffsetBefore: 16,
-      allowTouchMove: true,
-    },
-    576: {
-      spaceBetween: 10,
-      slidesPerView: 1.75,
-      slidesOffsetBefore: 16,
-      allowTouchMove: true,
-    },
-    992: {
-      slidesPerView: 4,
-      slidesOffsetBefore: 0, // desktop sin espacio
-      allowTouchMove: false,
-    },
-  }}
-  className="mySwiper"
->
-
+          <Swiper
+            modules={[Navigation, Keyboard]}
+            keyboard
+            spaceBetween={20}
+            slidesOffsetBefore={16}
+            onBeforeInit={(swiper) => {
+              swiper.params.navigation.prevEl = prevRef.current;
+              swiper.params.navigation.nextEl = nextRef.current;
+            }}
+            navigation={{
+              prevEl: prevRef.current,
+              nextEl: nextRef.current,
+            }}
+            breakpoints={{
+              0: {
+                slidesPerView: 1.75,
+                spaceBetween: 10,
+                slidesOffsetBefore: 16,
+                allowTouchMove: true,
+              },
+              960: {
+                slidesPerView: 4,
+                slidesOffsetBefore: 0,
+                allowTouchMove: false,
+              },
+            }}
+          >
             {products.map((product) => (
               <SwiperSlide key={product.slug}>
-                <ProductCard product={product} openProduct={openProduct} />
+                {isMobile ? (
+                  <ProductCardMobile
+                    product={product}
+                    openProduct={openProduct}
+                  />
+                ) : (
+                  <ProductCard
+                    product={product}
+                    openProduct={openProduct}
+                  />
+                )}
               </SwiperSlide>
             ))}
           </Swiper>
-
         </div>
       </div>
     </>
