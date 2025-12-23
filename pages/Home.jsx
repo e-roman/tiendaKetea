@@ -42,7 +42,7 @@ export default function Home() {
       <BlockServices />
 
       {/* Productos Destacados */}
-      <div className="container content-space-2 content-space-lg-2">
+      <div className="container content-space-2 content-space-lg-2 px-0 px-md-3">
         <div className="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
           <h2>Novedades</h2>
         </div>
@@ -91,10 +91,10 @@ export default function Home() {
       </div>
 
 
-      {/* Novedades */}
-      <div className="container content-space-2 content-space-lg-2">
+      {/* Ofertas */}
+      <div className="container content-space-2 content-space-lg-2 px-0 px-md-3">
         <div className="w-md-75 w-lg-50 text-center mx-md-auto mb-5 mb-md-9">
-          <h2>Novedades</h2>
+          <h2>Ofertas</h2>
         </div>
 
         {isMobile ? (

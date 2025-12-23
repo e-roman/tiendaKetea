@@ -8,11 +8,15 @@ export default function ProductCarousel({ products, openProduct }) {
     <Swiper
       spaceBetween={10}
       slidesPerView={1.75}
+      slidesOffsetBefore={16} // ← espacio SOLO al inicio
       grabCursor
     >
       {products.map((p) => (
         <SwiperSlide key={p.id}>
-          <ProductCardMobile product={p} openProduct={openProduct} />
+          <ProductCardMobile
+            product={p}
+            openProduct={openProduct}
+          />
         </SwiperSlide>
       ))}
     </Swiper>

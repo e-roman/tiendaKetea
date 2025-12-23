@@ -25,7 +25,7 @@ const nextRef = useRef(null);
       </div>
 
       {/* Swiper */}
-      <div className="container content-space-b-1 content-space-b-lg-3 position-relative otherProducts">
+      <div className="container content-space-b-1 content-space-b-lg-3 position-relative otherProducts px-0 px-md-3">
         <div>
           <button
             ref={prevRef}
@@ -39,34 +39,41 @@ const nextRef = useRef(null);
             aria-label="Siguiente"
           />
 
-          <Swiper
-            modules={[Navigation, Keyboard]}
-            keyboard
-            spaceBetween={20}
-            onBeforeInit={(swiper) => {
-              swiper.params.navigation.prevEl = prevRef.current;
-              swiper.params.navigation.nextEl = nextRef.current;
-            }}
-            navigation={{
-              prevEl: prevRef.current,
-              nextEl: nextRef.current,
-            }}
-            breakpoints={{
-              0: {
-                slidesPerView: 1.15,
-                allowTouchMove: true,
-              },
-              576: {
-                slidesPerView: 2.2,
-                allowTouchMove: true,
-              },
-              992: {
-                slidesPerView: 4,
-                allowTouchMove: false,
-              },
-            }}
-            className="mySwiper"
-          >
+<Swiper
+  modules={[Navigation, Keyboard]}
+  keyboard
+  spaceBetween={20}
+  slidesOffsetBefore={16} // ← fallback
+  onBeforeInit={(swiper) => {
+    swiper.params.navigation.prevEl = prevRef.current;
+    swiper.params.navigation.nextEl = nextRef.current;
+  }}
+  navigation={{
+    prevEl: prevRef.current,
+    nextEl: nextRef.current,
+  }}
+  breakpoints={{
+    0: {
+      spaceBetween: 10,
+      slidesPerView: 1.75,
+      slidesOffsetBefore: 16,
+      allowTouchMove: true,
+    },
+    576: {
+      spaceBetween: 10,
+      slidesPerView: 1.75,
+      slidesOffsetBefore: 16,
+      allowTouchMove: true,
+    },
+    992: {
+      slidesPerView: 4,
+      slidesOffsetBefore: 0, // desktop sin espacio
+      allowTouchMove: false,
+    },
+  }}
+  className="mySwiper"
+>
+
             {products.map((product) => (
               <SwiperSlide key={product.slug}>
                 <ProductCard product={product} openProduct={openProduct} />
