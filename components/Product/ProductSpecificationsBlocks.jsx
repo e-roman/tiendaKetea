@@ -68,7 +68,7 @@ return (
         </div>
       </div>
 
-      <div className="row justify-content-lg-between align-items-lg-center space-top-2 space-top-lg-3">
+      <div className="row justify-content-lg-between align-items-lg-center space-top-1 space-top-lg-3">
         <div className="col-lg-5 order-lg-2 space-1 space-lg-2">
           <div className="mb-6">
             <h3 className="font-weight-medium mb-4">Filtración fina y ultrafina</h3>

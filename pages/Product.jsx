@@ -51,7 +51,7 @@ export default function ProductPage() {
     <div>
       <AlertFloating />
 
-      <div className="container pt-0 pt-lg-5 px-0-xs">
+      <div className="container pt-3 pt-lg-5 px-0-xs">
         <div className="row mx-xs-0">
           <div className="col-lg-12 mb-3 mb-lg-0 d-none d-md-block">
             <nav aria-label="breadcrumb">

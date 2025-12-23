@@ -47,7 +47,7 @@ export default function ProductGalleryMobile({ product }) {
     <>
 
     {/* Código + rating */}
-    <div className="d-flex align-items-center justify-content-between small mb-2 px-3">
+    <div className="d-flex align-items-center justify-content-between small mb-3 px-3">
       <p className="link-muted mb-0">
         <small>Código: {product.code || "N/A"}</small>
       </p>
