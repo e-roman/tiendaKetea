@@ -23,14 +23,21 @@ const MOCK_LAST_SEARCHES = [
   "Revestimientos",
 ];
 export default function HeaderMobile() {
-  const [profileOpen, setProfileOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
+const [profileOpen, setProfileOpen] = useState(false);
+const [searchOpen, setSearchOpen] = useState(false);
 
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
+const [query, setQuery] = useState("");
+const [results, setResults] = useState([]);
 
-const isSearchActive = searchOpen || query.length > 0;
+// DERIVADOS
 const hasQuery = query.length > 0;
+const isSearchActive = searchOpen;
+
+
+// dropdown aparece solo cuando el input ya está abierto
+const showDropdown = searchOpen && (hasQuery || results.length === 0);
+
+
 useEffect(() => {
   const closeProfile = () => setProfileOpen(false);
 
@@ -92,9 +99,7 @@ const handleInputChange = (e) => {
 const clearSearch = () => {
   setQuery("");
   setResults([]);
-  setSearchOpen(true); // ← CLAVE
 };
-
 
   const goTo = (path) => {
     setOpen(false);
@@ -124,29 +129,29 @@ const runSearch = (value) => {
       {/* <TopAlert />
       <Topbar /> */}
 
-          <header
-            className={`header-mobile d-flex py-1 px-2 border-bottom ${
+      <header
+            className={`header-mobile d-flex border-bottom ${
               isSearchActive ? "search-open" : ""
             }`}
           >
 
             {/* LOGO */}
-            <Link to="/" className="navbar-brand header-actions">
+            <Link to="/" className="navbar-brand header-actions ps-2 ">
               <img src="assets/img/favicon/favicon.png" alt="Ketea S.A" height="42" />
             </Link>
 
 
 
             {/* BUSCADOR */}
-           <div className={`search-mobile ${isSearchActive ? "open" : ""}`}>
-              <div className="position-relative w-100 box-search">
-
+           <div>
+              <div className="box-search">
+                <div className={`search-mobile position-relative ${searchOpen ? "open" : ""}`}>
                 {/* Flecha volver (solo cuando search está activo) */}
                 {isSearchActive && (
                   <button
                     type="button"
                     className="btn btn-lg bg-transparent btn-back-search"
-                    onClick={() => setSearchOpen(false)}
+                    onClick={closeSearch}
                     aria-label="Volver"
                   >
                     <svg
@@ -192,23 +197,21 @@ const runSearch = (value) => {
                 )}
 
                 {/* Input */}
-                <input
-                  id="search"
-                  type="text"
-                  className="shadow-none input-search-mobile"
-                  placeholder="Buscar…"
-                  value={query}
-                  onChange={handleInputChange}
-                  onFocus={() => setSearchOpen(true)}
-                  onKeyDown={(e) => e.key === "Enter" && handleSearchSubmit()}
-                  autoComplete="off"
-                />
-                {isSearchActive && (
+                    <input
+                      type="text"
+                      className="input-search-mobile"
+                      value={query}
+                      onChange={handleInputChange}
+                      onFocus={() => setSearchOpen(true)}
+                    />
+              </div>
+
+                {showDropdown && (
                   <div
                     className="search-dropdown search-dropdown-mb position-absolute w-100 p-3 bg-white shadow-sm"
                     style={{ zIndex: 999 }}
                   >
-                    {/* 🔁 ÚLTIMAS BÚSQUEDAS (cuando NO hay texto) */}
+                    {/* ÚLTIMAS BÚSQUEDAS (cuando NO hay texto) */}
                     {!hasQuery && (
                       <>
 
@@ -287,7 +290,7 @@ const runSearch = (value) => {
 
 
 
-            <div className="header-actions">
+            <div className="header-actions d-flex align-items-center">
               {/* Perfil */}
                 <div className="nav-item ms-auto">
                   <div className="nav-header-menu">
@@ -391,25 +394,24 @@ const runSearch = (value) => {
                   </div>
 
                 </div>
+
+              {/* Carrito */}
+              <button
+                className="btn position-relative nav-cart"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#cartOffcanvas"
+              >
+                <i className="bi bi-cart3"></i>
+                {cart.length > 0 && ( 
+                  <span className="quantity-add">
+                    {cart.length}
+                  </span>
+                )}
+              </button>
+
             </div>
 
-
-            {/* Carrito */}
-             <div className="header-actions">
-                <button
-                  className="btn position-relative nav-cart"
-                  type="button"
-                  data-bs-toggle="offcanvas"
-                  data-bs-target="#cartOffcanvas"
-                >
-                  <i className="bi bi-cart3"></i>
-                  {cart.length > 0 && ( 
-                    <span className="quantity-add">
-                      {cart.length}
-                    </span>
-                  )}
-                </button>
-            </div>
 
       </header>
 

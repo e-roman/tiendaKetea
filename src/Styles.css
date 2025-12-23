@@ -2705,14 +2705,15 @@ footer .btn-icon.btn-social {
     align-items: center;
 }
 .search-mobile {
-  width: 70%;
+  width: 80%;
   transition: all 0.3s ease;
 }
+
 
 .header-mobile.search-open .search-mobile {
     position: fixed;
     inset: 0;
-    width: 100%;
+    width: 95vw;
     padding: 0;
     background: #fff;
     z-index: 1050;
@@ -2735,19 +2736,20 @@ footer .btn-icon.btn-social {
     border-radius: 0;
     border-bottom: .0625rem solid rgba(231,234,243,.7);
     height: 54px;
+    width: 97vw;
 }
 
 .header-mobile.search-open .header-actions {
   display: none;
 }
 
-.btn-close-search {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
+    .btn-close-search {
+        position: absolute;
+        right: 0;
+        top: 0;
+        /* transform: translateY(-50%); */
+        z-index: 9999;
+    }
 .modal-body.modal-log {
     padding: 1.314rem;
 }
