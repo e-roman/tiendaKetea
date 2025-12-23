@@ -29,12 +29,12 @@ export default function OrderComplete() {
         </div>
     </header>
 
-    <div className="container py-10">
-      <div className="row justify-content-center py-10">
-        <div className="col-md-8 col-lg-6">
+    <div className="bg-light py-10">
+      <div className="row mx-0 justify-content-center py-10">
+        <div className="col-md-12 col-lg-4">
 
-          <div className="card text-center p-5">
-            <div className="mb-4">
+          <div className="card shadow-none border text-center p-5">
+            <div className="mb-0">
               <i className="bi bi-check-circle-fill text-success" style={{ fontSize: "6rem" }}></i>
             </div>
 
@@ -45,7 +45,7 @@ export default function OrderComplete() {
               En breve recibirás un correo con los detalles de la compra.
             </p>
 
-            <div className="border rounded p-3 mb-4 bg-light">
+            <div className="border rounded p-3 mb-6 bg-light">
               <p className="mb-1">
                 <strong>N° de orden:</strong> #784512
               </p>
@@ -57,7 +57,7 @@ export default function OrderComplete() {
               </p>
             </div>
 
-            <div className="d-flex  gap-3 justify-content-center">
+            <div className="d-flex gap-3 justify-content-center">
               <button
                 className="btn btn-sm btn-primary rounded-pill px-5"
                 onClick={() => navigate("/")}
@@ -72,6 +72,7 @@ export default function OrderComplete() {
                 Ver mis pedidos
               </button>
             </div>
+
           </div>
 
         </div>

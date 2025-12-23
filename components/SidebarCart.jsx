@@ -118,7 +118,7 @@ const {
 
                     {/* Quantity + Precios */}
                     <div className="d-flex align-items-center justify-content-between gap-3 mt-2">
-                      <div className="w-35">
+                      <div className="w-md-35">
                         {/* Quantity */}
                         <QuantityControl
                           item={product}

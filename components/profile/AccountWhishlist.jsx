@@ -44,8 +44,8 @@ export default function AccountWhishlist() {
 
                   {/* IMAGE + INFO */}
                   <div>
-                    <div className="card card-bordered shadow-none text-start h-100">
-                      <div className="card-pinned">
+                    <div className="card card-bordered shadow-none text-start h-100 pb-3">
+                      <div className="card-pinned" style={{maxHeight:"220px"}}>
                         <img
                           className="img-fluid"
                           src={item.image}
@@ -136,8 +136,8 @@ export default function AccountWhishlist() {
         </div>
         {/* End Body */}
 
-        <div className="text-center">
-          <Link className="btn btn-primary btn-sm rounded-pill px-6 text-center" to="/"><i className="bi bi-arrow-left me-1"></i> Continuar comprando</Link>
+        <div className="text-center mt-10">
+          <Link className="btn btn-primary btn-sm rounded-pill px-6 text-center" to="/">Continuar comprando</Link>
         </div>
       </div>
 

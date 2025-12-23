@@ -4,7 +4,7 @@ import { useFavorites } from "../src/hooks/useFavorites";
 import { useCart } from "../src/hooks/useCart";
 import { useFloatingAlert } from "../src/context/FloatingAlertContext";
 
-export default function ProductCard({ product, openProduct }) {
+export default function ProductCardMobile({ product, openProduct }) {
   const { favorites, toggleFavorite } = useFavorites();
   const { cart, addToCart } = useCart();
   const { showAlert } = useFloatingAlert();
@@ -74,7 +74,7 @@ export default function ProductCard({ product, openProduct }) {
 
         {product.cuotasLabelBadge && (
           <div className="card-pinned-top-start">
-             <span className="badge py-1 px-2 badge-yellow">{product.cuotasLabelBadge}</span>
+            <span className="badge py-1 px-2 badge-yellow">{product.cuotasLabelBadge}</span>
           </div>
         )}
       </div>
@@ -82,18 +82,19 @@ export default function ProductCard({ product, openProduct }) {
       {/* Información principal */}
       <div className="card-body p-2 px-3">
         <button
-          className="text-body text-dark font-medium font-15 bg-transparent border-0 p-0 text-start text-clamp-2 mb-1 "
+          className="text-body text-dark font-medium font-15 bg-transparent border-0 p-0 text-start text-clamp-2 mb-0 "
           onClick={() => openProduct(product.slug)}
         >
           {product.title}
         </button>
 
-        <div className="pricing-meta mt-2 mb-1">
+        <div className="pricing-meta mt-1 mb-1">
           <ul className="list-unstyled d-flex align-items-center gap-1">
             <li className="current-price text-dark">
               ${formatPrice(product.price)}
             </li>
-
+          </ul>
+          <div className="d-flex gap-1">
             {product.oldPrice && product.oldPrice > product.price && (
               <li className="old-price text-muted">
                 ${formatPrice(product.oldPrice)}
@@ -103,16 +104,16 @@ export default function ProductCard({ product, openProduct }) {
             {product.discount > 0 && (
               <li>
                 <span className="badge py-1 px-2 badge-yellow">
-                  -{product.discount}%
+                  -{product.discount}% OFF
                 </span>
               </li>
             )}
-          </ul>
+          </div>
         </div>
 
         {product.installmentsLabel && (
-          <p className="small mb-0 font-13 font-bold">
-            Hasta <span>{product.installmentsLabel}</span> sin interés
+          <p className="small mb-0 py-1 font-13 font-bold">
+             <span>{product.installmentsLabel}</span> sin interés
           </p>
         )}
 
@@ -122,7 +123,7 @@ export default function ProductCard({ product, openProduct }) {
       </div>
 
       {/* Botón agregar al carrito */}
-      <div className="card-footer pt-2 px-3 pb-3">
+      {/* <div className="card-footer pt-2 px-3 pb-3">
         <button
           type="button"
           className={`btn btn-sm rounded-pill px-4 w-100 ${
@@ -141,7 +142,7 @@ export default function ProductCard({ product, openProduct }) {
             ? "Agregado al carrito"
             : "Agregar al carrito"}
         </button>
-      </div>
+      </div> */}
 
     </div>
   );

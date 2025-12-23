@@ -8,7 +8,7 @@ export default function Suscribe() {
            
             <div className="mb-5">
               <h1 className="font-bold">Suscribirse</h1>              
-              <p>Enterate sobre los nuevos productos y promociones.</p>
+              <p>Recibí todas nuestras Ofertas y Recomendaciones</p>
             </div>
 
             <form>

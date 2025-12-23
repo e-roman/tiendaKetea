@@ -15,7 +15,7 @@ export default function AccountNotificactions() {
           {/* End Header */}
 
           {/* Alert */}
-          <div className="alert alert-soft-danger text-center card-alert rounded-2 py-2">
+          <div className="alert alert-soft-danger text-center card-alert rounded-2 font-15 py-2">
             Necesitamos permiso de tu navegador para mostrar notificaciones.{" "}
             <a className="alert-link font-medium" href="#">
               Solicitar permiso
@@ -24,7 +24,7 @@ export default function AccountNotificactions() {
           {/* End Alert */}
 
           <div className="card-body p-1 p-md-0 mt-2 mt-md-5">
-           <h5 className="card-header-title pb-3">Enviarme:</h5>
+           <h4 className="card-header-title pb-3">Enviarme:</h4>
 
             {/* List Group */}
             <div className="list-group list-group-flush list-group-no-gutters">
@@ -97,8 +97,8 @@ export default function AccountNotificactions() {
         {/* Card */}
         <div className="card shadow-none p-2 p-lg-5">
           {/* Header */}
-          <div className="py-4 mb-3 pb-md-5 d-flex justify-content-between align-items-center border-bottom">
-            <h5 className="card-header-title">Newsletter</h5>
+          <div className="pb-4 pt-0 mb-3 pb-md-5 d-flex justify-content-between align-items-center border-bottom">
+            <h4 className="card-header-title">Newsletter</h4>
 
             <a
               id="toggleAll3"

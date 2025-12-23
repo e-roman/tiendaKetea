@@ -16,8 +16,14 @@ import LogoutModal from "../../Modals/LogoutModal";
 
 
 export default function HeaderMobile() {
-const [profileOpen, setProfileOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
+  const [query, setQuery] = useState("");
+  const [results, setResults] = useState([]);
+
+const isSearchActive = searchOpen || query.length > 0;
+const hasQuery = query.length > 0;
 useEffect(() => {
   const closeProfile = () => setProfileOpen(false);
 
@@ -45,10 +51,6 @@ useEffect(() => {
     clearSearch();
   };
 
-  const [query, setQuery] = useState("");
-  const [results, setResults] = useState([]);
-
-
 
   const { cart } = useCart(); // ← FIX
 
@@ -61,23 +63,25 @@ useEffect(() => {
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
 
-  const handleInputChange = (e) => {
-    const value = e.target.value;
-    setQuery(value);
+const handleInputChange = (e) => {
+  const value = e.target.value;
+  setQuery(value);
 
-    if (value.length < 2) {
-      setResults([]);
-      return;
-    }
+  if (!searchOpen) setSearchOpen(true);
 
-    const filtered = products
-      .filter((item) =>
-        item.title.toLowerCase().includes(value.toLowerCase())
-      )
-      .slice(0, 6);
+  if (value.length < 2) {
+    setResults([]);
+    return;
+  }
 
-    setResults(filtered);
-  };
+  const filtered = products
+    .filter(item =>
+      item.title.toLowerCase().includes(value.toLowerCase())
+    )
+    .slice(0, 6);
+
+  setResults(filtered);
+};
 
   const clearSearch = () => {
     setQuery("");
@@ -93,75 +97,184 @@ useEffect(() => {
 
   return (
     <>
-      <TopAlert />
-      <Topbar />
+      {/* <TopAlert />
+      <Topbar /> */}
 
-      <header className="header-mobile d-flex p-2">
-          {/* LOGO */}
-          <Link to="/" className="navbar-brand">
-            <img src="assets/img/favicon/favicon.png" alt="Ketea S.A" height="50" />
-          </Link>
+          <header
+            className={`header-mobile d-flex py-1 px-2 border-bottom ${
+              isSearchActive ? "search-open" : ""
+            }`}
+          >
+
+            {/* LOGO */}
+            <Link to="/" className="navbar-brand header-actions">
+              <img src="assets/img/favicon/favicon.png" alt="Ketea S.A" height="42" />
+            </Link>
 
 
 
-          {/* BUSCADOR */}
-          <div className="d-block" style={{width: "70%"}}>
-              <div className="d-flex position-relative">
-                <div className="position-relative w-100">
-                      <input 
-                          id="search"
-                          type="text"
-                          className="form-control form-control-md shadow-none input-search-mobile"
-                          placeholder="Buscar…"
-                          value={query}
-                          onChange={handleInputChange}
-                          onKeyDown={(e) => e.key === "Enter" && handleSearchSubmit()}
-                          autoComplete="off"
-                          />
+            {/* BUSCADOR */}
+           <div className={`search-mobile ${isSearchActive ? "open" : ""}`}>
+              <div className="position-relative w-100 box-search">
 
+                {/* Flecha volver (solo cuando search está activo) */}
+                {isSearchActive && (
                   <button
                     type="button"
-                    className="btn btn-lg bg-light btn-search-mobile"
-                    onClick={handleSearchSubmit}
+                    className="btn btn-lg bg-transparent btn-back-search"
+                    onClick={() => setSearchOpen(false)}
+                    aria-label="Volver"
                   >
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search-icon lucide-search">
-                      <path d="m21 21-4.34-4.34"/>
-                      <circle cx="11" cy="11" r="8"/>
-                  </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="22"
+                      height="22"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M15 18l-6-6 6-6" />
+                    </svg>
                   </button>
+                )}
 
+
+                {/* Botón lupa (solo cuando NO está activo) */}
+                {!isSearchActive && (
+                  <button
+                    type="button"
+                    className="btn btn-lg bg-transparent btn-search-mobile"
+                    onClick={() => setSearchOpen(true)}
+                    aria-label="Buscar"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="m21 21-4.34-4.34" />
+                      <circle cx="11" cy="11" r="8" />
+                    </svg>
+                  </button>
+                )}
+
+                {/* Input */}
+                <input
+                  id="search"
+                  type="text"
+                  className="form-control form-control-md shadow-none input-search-mobile"
+                  placeholder="Buscar…"
+                  value={query}
+                  onChange={handleInputChange}
+                  onFocus={() => setSearchOpen(true)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSearchSubmit()}
+                  autoComplete="off"
+                />
+              {isSearchActive && results.length > 0 && (
+                <div
+                    className="search-dropdown search-dropdown-mb position-absolute w-100 p-3 bg-white shadow-sm"
+                    style={{ zIndex: 999 }}
+                >
+                    {results.map((item) => (
+                    <Link
+                        key={item.id}
+                        to={`/product/${slugify(item.title)}`}
+                        className="d-flex align-items-start gap-3 py-2 px-1 border-bottom text-decoration-none text-dark"
+                        onClick={clearSearch}
+                    >
+                        <img
+                        src={item.image.replace("../", "/")}
+                        alt={item.title}
+                        width="55"
+                        height="55"
+                        className="rounded border"
+                        />
+
+                        <div>
+                        <strong className="d-block">{item.title}</strong>
+
+                        <span className="text-muted small">
+                            ${item.price.toLocaleString("es-AR")}
+                        </span>
+
+                        <div className="small text-secondary">
+                            {item.categories.slice(0, 2).join(" • ")}
+                        </div>
+                        </div>
+                    </Link>
+                    ))}
+
+                    {/* Ver todos */}
+                    <div className="text-center mt-3">
+                    <Link
+                        to={`/buscar/${encodeURIComponent(query)}`}
+                        className="btn btn-sm btn-primary rounded-pill px-5"
+                        onClick={clearSearch}
+                    >
+                        Ver todos los resultados
+                    </Link>
+                    </div>
                 </div>
+                )}
+
+
+
+                {/* Botón limpiar (solo cuando hay texto) */}
+                {hasQuery && (
+                  <button
+                    type="button"
+                    className="btn btn-link btn-close-search"
+                    onClick={clearSearch}
+                    aria-label="Limpiar búsqueda"
+                  >
+                    ✕
+                  </button>
+                )}
               </div>
-          </div>
 
-          <div className="d-flex">
+            </div>
 
-            <div>
+
+
+            <div className="header-actions">
               {/* Perfil */}
-              
                 <div className="nav-item ms-auto">
-                  <div>
+                  <div className="nav-header-menu">
                       <button
-                        className="btn btn-light position-relative btn-icon rounded-circle btn-icon-top"
                         type="button"
+                        className={`nav-header-menu-switch nav-button-mb ${profileOpen ? "open" : ""}`}
+                        aria-label="Menú de usuario"
+                        aria-expanded={profileOpen}
                         onClick={(e) => {
                           e.stopPropagation();
                           setProfileOpen(prev => !prev);
                         }}
-                        aria-expanded={profileOpen}
                       >
-                        <i className="bi bi-person-circle me-1"></i>
+                        <span />
+                        <span />
+                        <span />
+                        <span />
                       </button>
+
                   </div>
 
-                  <div className={`navProfile-xs border-bottom ${profileOpen ? "open" : ""}`} onClick={(e) => e.stopPropagation()}>
+                  <div id="nav-header-menu-mobile" className={`navProfile-xs border-bottom ${profileOpen ? "open" : ""}`} onClick={(e) => e.stopPropagation()}>
 
                     {/*LOGING*/}
                     {isLogged && (
                     <Link className="menu-user-info bg-primary py-3 d-flex" to="/pages/Profile?view=personalInfo" onClick={() => setProfileOpen(false)}>
                       <div className="photo-profile-xs"></div>
                       <div className="ps-2">
-                        <h4 className="text-white mb-0">Francisco Perez</h4>
+                        <h3 className="text-white mb-0">Francisco Perez</h3>
                         <p className="text-white small mb-0">Mi Perfil</p>
                       </div> 
                     </Link>
@@ -172,7 +285,7 @@ useEffect(() => {
                     <Link className="menu-user-info bg-primary py-3 d-flex" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">
                       <div className="photo-profile-xs"></div>
                       <div className="ps-2">
-                        <h4 className="text-white mb-0">Bienvenido</h4>
+                        <h3 className="text-white mb-0">Bienvenido</h3>
                         <p className="text-white small mb-0">Ingresa a tu cuenta para realizar compras</p>
                       </div> 
                     </Link>
@@ -180,9 +293,9 @@ useEffect(() => {
 
                     {isLogged && (
                       <>
-                      <div className="pt-2">
+                      <div>
                         {PROFILE_MENU.map(section => (
-                          <div className="px-3" key={section.title}>
+                          <div key={section.title}>
                             {section.items.map(item => (
                               <Link
                                 key={item.key}
@@ -204,7 +317,7 @@ useEffect(() => {
                     )}
 
                     
-                    <div className="px-3">
+                    <div>
                       <Link className="dropdown-item" to="/" onClick={() => setProfileOpen(false)}>
                         <i className="bi bi-heart me-2"></i> Incio
                       </Link>
@@ -236,15 +349,13 @@ useEffect(() => {
                   </div>
 
                 </div>
-
-
             </div>
 
 
             {/* Carrito */}
-            <div>
+             <div className="header-actions">
                 <button
-                  className="btn btn-light position-relative btn-icon rounded-circle btn-icon-top"
+                  className="btn position-relative nav-cart"
                   type="button"
                   data-bs-toggle="offcanvas"
                   data-bs-target="#cartOffcanvas"
@@ -257,31 +368,8 @@ useEffect(() => {
                   )}
                 </button>
             </div>
-          </div>
 
       </header>
-
-
-        {/* <button className="burger" onClick={() => setOpen(true)}>
-          <i className="bi bi-list"></i>
-        </button>
-
-      <div className={`mobile-menu ${open ? "open" : ""}`}>
-        <button className="close" onClick={() => setOpen(false)}>
-          <i className="bi bi-x"></i>
-        </button>
-
-        <nav>
-          <button onClick={() => goTo("/novedades")}>Novedades</button>
-          <button onClick={() => goTo("/descuentos")}>Descuentos</button>
-          <button onClick={() => goTo("/buscar")}>Buscar</button>
-        </nav>
-      </div> */}
-
-      <LogoutModal
-        show={showLogoutModal}
-        onClose={() => setShowLogoutModal(false)}
-      />
 
 
     </>

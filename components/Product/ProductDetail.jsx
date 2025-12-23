@@ -238,7 +238,7 @@ const handleAddToCart = () => {
       <div className="d-flex gap-3 py-4 mb-0 px-1 px-md-0">
 
         {/* Quantity */}
-        <div className="border rounded btn-i-d mb-4 mb-md-0">
+        <div className="border rounded btn-i-d btn-w-40  mb-0">
           <div className="d-flex align-items-center justify-content-between">
             <button
               type="button"
@@ -268,7 +268,7 @@ const handleAddToCart = () => {
         {/* Add to cart */}
         <button
           type="button"
-          className="btn btn-block rounded-pill btn-primary"
+          className="btn btn-sm btn-block rounded-pill btn-primary"
           onClick={handleAddToCart}
         >
           Agregar  al carrito

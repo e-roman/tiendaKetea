@@ -199,7 +199,7 @@ export default function MainHeader() {
                 <div className="card-body-height">
                   <div className="list-group notifications">
                       <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pt-2 pb-3 border-0 border-bottom" aria-current="true">
-                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light-blue notif-icon"><i className="bi bi-cart3"></i></div>
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light notif-icon"><i className="bi bi-cart3"></i></div>
                           <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
                               <div>
                                   <h6 className="mb-1">Nuevo pedido confirmado</h6>
@@ -209,7 +209,7 @@ export default function MainHeader() {
                           </div>
                       </Link>
                       <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 py-3 border-0 border-bottom" aria-current="true">
-                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light-blue notif-icon"><i className="bi bi-box-seam"></i></div>
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light notif-icon"><i className="bi bi-box-seam"></i></div>
                           <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
                               <div>
                                   <h6 className="mb-1">Tu paquete está en camino</h6>
@@ -219,7 +219,7 @@ export default function MainHeader() {
                           </div>
                       </Link>
                       <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pb-3 border-0 border-bottom" aria-current="true">
-                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light-blue notif-icon"><i className="bi bi-cart3"></i></div>
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light notif-icon"><i className="bi bi-cart3"></i></div>
                           <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
                               <div>
                                   <h6 className="mb-1">Nuevo pedido confirmado</h6>
@@ -229,7 +229,7 @@ export default function MainHeader() {
                           </div>
                       </Link>
                       <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 py-3 border-0 border-bottom" aria-current="true">
-                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light-blue notif-icon"><i className="bi bi-box-seam"></i></div>
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light notif-icon"><i className="bi bi-box-seam"></i></div>
                           <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
                               <div>
                                   <h6 className="mb-1">Tu paquete está en camino</h6>
@@ -240,7 +240,7 @@ export default function MainHeader() {
                       </Link>
 
                       <Link to="#" className="list-group-item list-group-item-action d-flex gap-3 ps-0 pt-3 border-0" aria-current="true">
-                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light-blue notif-icon"><i className="bi bi-box-seam"></i></div>
+                          <div className="rounded-circle flex-shrink-0 d-flex align-items-center justify-content-center bg-light notif-icon"><i className="bi bi-box-seam"></i></div>
                           <div className="d-flex gap-2 w-100 justify-content-between small lh-sm">
                               <div>
                                   <h6 className="mb-1">Pago rechazado</h6>
