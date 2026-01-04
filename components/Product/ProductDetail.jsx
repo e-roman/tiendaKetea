@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { Modal } from "bootstrap";
 import { useCart } from "../../src/hooks/useCart";
 import { useFavorites } from "../../src/hooks/useFavorites";
 import { useFloatingAlert } from "../../src/context/FloatingAlertContext";
 import AlertFloating from "../AlertFloating";
-
+import DiscountMethod from "../../components/Modals/MethodsDiscountModal";
 
 export default function ProductDetail({ product }) {
   const { cart, addToCart } = useCart();
@@ -55,6 +56,16 @@ const handleAddToCart = () => {
   }
 
   showAlert("Agregaste el producto al carrito", "success");
+};
+
+const openDiscountModal = (e) => {
+  e.preventDefault();
+
+  const modalEl = document.getElementById("signupModal");
+  if (!modalEl) return;
+
+  const modal = Modal.getOrCreateInstance(modalEl);
+  modal.show();
 };
   return (
     <>
@@ -200,11 +211,15 @@ const handleAddToCart = () => {
           <li>
             <div className="d-flex align-items-start">
               <i className="bi bi-credit-card flex-shrink-0 me-1 lh-1 f-icons-18"></i>
-              <p className="pb-3 mb-0 small lh-sm">
-                <span className="d-flex text-black">
-                  <div className="font-bold">{product.installmentsLabel}</div>. <a href="#">Ver tarjetas</a>
-                </span>
-              </p>
+<p className="pb-3 mb-0 small lh-sm">
+  <span className="d-flex text-black">
+    <span className="font-bold">{product.installmentsLabel}</span>
+    .{" "}
+    <a href="#" onClick={openDiscountModal}>
+      Ver tarjetas
+    </a>
+  </span>
+</p>
             </div>
           </li>
 
@@ -213,7 +228,7 @@ const handleAddToCart = () => {
               <i className="bi bi-cash-stack flex-shrink-0 me-1 lh-1 f-icons-18"></i>
               <p className="pb-3 mb-0 small lh-sm">
                 <span className="d-block text-black">
-                 <span className="font-bold">10% de descuento</span> pagando con transferencia o depósito. <a href="#"> Ver más detalles</a>
+                 <span className="font-bold">10% de descuento</span> pagando con transferencia o depósito. <a href="#" onClick={openDiscountModal}> Ver más detalles</a>
                 </span>
               </p>
             </div>
@@ -238,7 +253,7 @@ const handleAddToCart = () => {
       <div className="d-flex gap-3 py-4 mb-0 px-1 px-md-0">
 
         {/* Quantity */}
-        <div className="border rounded btn-i-d btn-w-40  mb-0">
+        <div className="border rounded btn-i-d btn-w-50  mb-0">
           <div className="d-flex align-items-center justify-content-between">
             <button
               type="button"
@@ -298,6 +313,10 @@ const handleAddToCart = () => {
           </span>
         </p>
       </div>
+
+
+      <DiscountMethod />
+
 
     </>
   );

@@ -49,41 +49,43 @@ export default function Home() {
 
         {isMobile ? (
           <ProductCarousel
-            products={destacados}
+            products={products.filter(p => p.isFeatured)}
             openProduct={openProduct}
           />
         ) : (
           <ProductGrid
-            products={destacados}
+            products={products}
             openProduct={openProduct}
+            type="novedades"
           />
         )}
+
       </div>
 
       {/* Banners */}
       <div className="container">
         <div className="row g-3 row-cols-1 row-cols-md-2">
           <div className="col mb-4 mb-md-0">
-            <div className="card card-lg bg-img-start" style={{backgroundImage: "url(assets/img/900x900/img3.jpg)", minHeight: "24rem"}}>
+            <div className="card card-lg shadow-none bg-img-start" style={{backgroundImage: "url(assets/img/banners/banner-md-3.png)", minHeight: "24rem"}}>
               <div className="card-body">
                 <span className="card-subtitle text-danger">Descuento del mes</span>
                 <h2 className="card-title display-4">30% OFF</h2>
 
-                <a className="btn btn-light btn-sm btn-transition rounded-pill px-6" href="#">Ver Productos</a>
+                <a className="btn btn-primary btn-sm btn-transition rounded-pill px-6" href="#">Ver Productos</a>
               </div>
             </div>
           </div>
 
           <div className="col">
-            <div className="card card-lg bg-img-start" style={{backgroundImage: "url(assets/img/900x900/img4.jpg)", minHeight: "24rem"}}>
+            <div className="card card-lg shadow-none bg-img-start" style={{backgroundImage: "url(assets/img/banners/banner-md-2-bg.png)", minHeight: "24rem"}}>
               <div className="card-body">
                 <div className="mb-4">
-                  <h2 className="card-title text-white">Lanzamiento</h2>
-                  <h3 className="card-title text-white font-medium ">Robot Dolphin Pool up</h3>
-                  <p className="card-text text-white">Barrefondo Para Piscina</p>
+                  <h2 className="card-title">Lanzamiento</h2>
+                  <h3 className="card-title font-medium ">Robot Dolphin Pool up</h3>
+                  <p className="card-text">Barrefondo Para Piscina</p>
                 </div>
 
-                <a className="btn btn-light btn-sm btn-transition rounded-pill px-6" href="#">Comprar</a>
+                <a className="btn btn-primary btn-sm btn-transition rounded-pill px-6" href="#">Ver Producto</a>
               </div>
             </div>
           </div>
@@ -99,15 +101,17 @@ export default function Home() {
 
         {isMobile ? (
           <ProductCarousel
-            products={destacados}
+            products={products.filter(p => p.categories.includes("ofertas"))}
             openProduct={openProduct}
           />
         ) : (
           <ProductGrid
-            products={destacados}
+            products={products}
             openProduct={openProduct}
+            type="ofertas"
           />
         )}
+
       </div>
 
       <Suscribe />

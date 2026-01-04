@@ -98,7 +98,7 @@ export default function DescuentosPage() {
             <div
               className="card card-lg bg-img-start"
               style={{
-                backgroundImage: "url(assets/img/900x900/img3.jpg)",
+                backgroundImage: "url(assets/img/900x900/banner-md-1.png)",
                 minHeight: "24rem",
               }}
             >

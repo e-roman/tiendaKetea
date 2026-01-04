@@ -9,8 +9,8 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/001.webp",
-    "title": "Robot limpia piscinas Dolphin Liberty 400",
+    "image": "../assets/img/products/dolphin-Liberty-400.png",
+    "title": "Robot Dolphin Liberty 400",
     "price": 4062555,
     "oldPrice": 4513950,
     "discount": 25,
@@ -37,8 +37,8 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/002.webp",
-    "title": "Robot limpia piscinas Dolphin Pool Up",
+    "image": "../assets/img/products/dolphin-Pool-up.png",
+    "title": "Robot Dolphin Pool Up",
     "price": 2078055,
     "oldPrice": 2308950,
     "discount": 25,
@@ -65,8 +65,8 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/003.webp",
-    "title": "Robot limpia piscinas Dolphin Liberty 600",
+    "image": "../assets/img/products/dolphin-Liberty-600.png",
+    "title": "Robot Dolphin Liberty 600",
     "price": 5742000,
     "oldPrice": 6380000,
     "discount": 25,
@@ -94,8 +94,8 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/004.webp",
-    "title": "Robot limpia piscinas Dolphin Wave 90i",
+    "image": "../assets/img/products/dolphin-Wave-90i.png",
+    "title": "Robot Dolphin Wave 90i",
     "price": 6992055,
     "oldPrice": 7768950,
     "discount": 25,
@@ -108,14 +108,13 @@
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "3x $2.330.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,467,331",
-    "isFeatured": true,
+    "isFeatured": false,
     "date": "2024-12-01",
     "code": "#32510A"
   },
-
   {
     "id": 5,
-    "slug": "robot-limpia-piscinas-sin-cable-dolphin-liberty-300",
+    "slug": "Robot-Piscina-Winny-300II",
     "images": [
       "../assets/img/productos/001.webp",
       "../assets/img/productos/001-1.webp",
@@ -123,24 +122,25 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/005.webp",
-    "title": "Robot limpia piscinas Dolphin Liberty 300",
-    "price": 3873555,
-    "oldPrice": 4303950,
-    "discount": 10,
+    "image": "../assets/img/products/winny-300II.png",
+    "title": "Robot Piscina Winny 300II",
+    "price": 6992055,
+    "oldPrice": 7768950,
+    "discount": 25,
     "categories": ["Robots", "Piscina", "destacados"],
-    "Marca": "Dolphin",
+    "Marca": "Winny",
     "envioGratis": true,
     "stock": true,
     "accionamiento": "Eléctrico",
     "cuotasLabelBadge": "Hasta 3 cuotas",
     "cuotasLabel": "Hasta 3 cuotas sin interés",
-    "installmentsLabel": "3x $1.291.185",
-    "taxLabel": "Impuestos Nacionales aprox. $811,447",
+    "installmentsLabel": "3x $2.330.685",
+    "taxLabel": "Impuestos Nacionales aprox. $1,467,331",
     "isFeatured": true,
-    "date": "2024-11-25",
+    "date": "2024-12-01",
     "code": "#32510A"
   },
+
 
   {
     "id": 6,
@@ -152,8 +152,8 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/006.webp",
-    "title": "Robot limpia piscinas Dolphin Liberty 200",
+    "image": "../assets/img/products/dolphin-Liberty-200.png",
+    "title": "Robot Dolphin Liberty 200",
     "price": 3306555,
     "oldPrice": 3673950,
     "discount": 10,
@@ -166,7 +166,7 @@
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "3x $1.102.185",
     "taxLabel": "Impuestos Nacionales aprox. $693,377",
-    "isFeatured": true,
+    "isFeatured": false,
     "date": "2024-11-22",
     "code": "#32510A"
   },
@@ -181,8 +181,8 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/007.webp",
-    "title": "Robot limpia piscinas Dolphin M700",
+    "image": "../assets/img/products/dolphin-Liberty-m700.png",
+    "title": "Robot Dolphin M700",
     "price": 6236055,
     "oldPrice": 6928950,
     "discount": 10,
@@ -195,7 +195,7 @@
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "3x $2.078.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,309,571",
-    "isFeatured": false,
+    "isFeatured": true,
     "date": "2024-08-10",
     "code": "#32510A"
   },
@@ -210,7 +210,7 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/008.webp",
+    "image": "../assets/img/products/dolphin-S400I.png",
     "title": "Robot Dolphin S400I",
     "price": 4440555,
     "oldPrice": 4933950,
@@ -239,7 +239,7 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/009.webp",
+    "image": "../assets/img/products/dolphin-Liberty-m600.png",
     "title": "Robot Dolphin M600",
     "price": 5669055,
     "oldPrice": 6298950,
@@ -268,7 +268,7 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/010.webp",
+    "image": "../assets/img/products/dolphin-S200.png",
     "title": "Robot Dolphin S200",
     "price": 2771160,
     "oldPrice": 3463950,
@@ -297,7 +297,7 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/011.webp",
+    "image": "../assets/img/products/dolphin-s100.png",
     "title": "Robot Dolphin S100",
     "price": 2512755,
     "oldPrice": 2791950,
@@ -326,8 +326,8 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/012.webp",
-    "title": "Robot Dolphin 2x2 PRO GYRO (olímpico)",
+    "image": "../assets/img/products/dolphin-pro-gyro.png",
+    "title": "Robot Dolphin Pro Gyro ",
     "price": 17387055,
     "oldPrice": null,
     "discount": 0,
@@ -339,7 +339,7 @@
     "cuotasLabel": "Hasta 6 cuotas sin interés",
     "installmentsLabel": "6x $2.897.842",
     "taxLabel": "Impuestos Nacionales aprox. $3,650,181",
-    "isFeatured": true,
+    "isFeatured": false,
     "date": "2024-11-27",
     "code": "#32510A"
   },
@@ -354,7 +354,7 @@
       "../assets/img/productos/001-3.webp",
       "../assets/img/productos/001-4.webp"
     ],
-    "image": "../assets/img/productos/013.webp",
+    "image": "../assets/img/products/automower-am305.png",
     "title": "Robot Cortacésped Automower AM305",
     "price": 12387055,
     "oldPrice": null,
@@ -370,5 +370,243 @@
     "isFeatured": false,
     "date": "2024-06-15",
     "code": "#32510A"
+  },
+
+  {
+    "id": 14,
+    "slug": "robot-limpia-piscinas-sin-cable-dolphin-liberty-300",
+    "images": [
+      "../assets/img/productos/001.webp",
+      "../assets/img/productos/001-1.webp",
+      "../assets/img/productos/001-2.webp",
+      "../assets/img/productos/001-3.webp",
+      "../assets/img/productos/001-4.webp"
+    ],
+    "image": "../assets/img/products/dolphin-Liberty-300.png",
+    "title": "Robot Dolphin Liberty 300",
+    "price": 3873555,
+    "oldPrice": 4303950,
+    "discount": 10,
+    "categories": ["Robots", "Piscina", "destacados"],
+    "Marca": "Dolphin",
+    "envioGratis": true,
+    "stock": true,
+    "accionamiento": "Eléctrico",
+    "cuotasLabelBadge": "Hasta 3 cuotas",
+    "cuotasLabel": "Hasta 3 cuotas sin interés",
+    "installmentsLabel": "3x $1.291.185",
+    "taxLabel": "Impuestos Nacionales aprox. $811,447",
+    "isFeatured": true,
+    "date": "2024-11-25",
+    "code": "#32510A"
+  },
+
+
+
+
+  {
+    "id": 15,
+    "slug": "robot-piscina-aiper-scuba-s1",
+    "images": [
+      "https://m.media-amazon.com/images/I/71w8VDRp+UL._AC_SL1500_.jpg"
+    ],
+    "image": "../assets/img/products/aiper-scuba-s1.png",
+    "title": "Aiper Scuba S1 Robotic Pool Cleaner",
+    "price": 494990,
+    "oldPrice": 729990,
+    "discount": 32,
+    "categories": ["Robots", "Piscina", "ofertas"],
+    "Marca": "Aiper",
+    "envioGratis": true,
+    "stock": true,
+    "accionamiento": "Batería",
+    "features": [
+      "Limpieza de piso y paredes",
+      "Autonomía hasta 90 minutos",
+      "Auto parking",
+      "Filtros de fácil acceso"
+    ],
+    "cuotasLabel": "Hasta 6 cuotas sin interés",
+    "installmentsLabel": "6x $82.498",
+    "taxLabel": "Impuestos Nacionales aprox. $103.947",
+    "isFeatured": false,
+    "date": "2024-11-10",
+    "code": "#AIP14"
+  },
+  {
+    "id": 16,
+    "slug": "robot-piscina-dolphin-nautilus-cc-plus",
+    "images": [
+      "https://m.media-amazon.com/images/I/81l6pjeF5DL._AC_SL1500_.jpg"
+    ],
+    "image": "../assets/img/products/dolphin-nautilus-cc-plus.png",
+    "title": "Dolphin Nautilus CC Plus",
+    "price": 759990,
+    "oldPrice": 839990,
+    "discount": 10,
+    "categories": ["Robots", "Piscina", "destacados"],
+    "Marca": "Dolphin",
+    "envioGratis": true,
+    "stock": true,
+    "accionamiento": "Eléctrico",
+    "features": [
+      "Limpieza inteligente con mapeo",
+      "Cepillos activos",
+      "Limpia paredes",
+      "Filtro superior extraíble"
+    ],
+    "cuotasLabel": "Hasta 12 cuotas sin interés",
+    "installmentsLabel": "12x $63.332",
+    "taxLabel": "Impuestos Nacionales aprox. $159.598",
+    "isFeatured": false,
+    "date": "2024-11-15",
+    "code": "#DOL15"
+  },
+  {
+    "id": 17,
+    "slug": "robot-piscina-bubot-300p",
+    "images": [
+      "https://m.media-amazon.com/images/I/61xXoKJ3mLL._AC_SL1500_.jpg"
+    ],
+    "image": "../assets/img/products/bublue-bubot-300p.png",
+    "title": "Bubot 300P",
+    "price": 158060,
+    "oldPrice": 179990,
+    "discount": 12,
+    "categories": ["Robots", "Piscina"],
+    "Marca": "Bubot",
+    "envioGratis": false,
+    "stock": false,
+    "accionamiento": "Batería",
+    "features": [
+      "Ideal para piscinas pequeñas",
+      "Sensor de obstáculos",
+      "Auto apagado",
+      "Ultra liviano"
+    ],
+    "cuotasLabel": "Hasta 3 cuotas sin interés",
+    "installmentsLabel": "3x $52.687",
+    "taxLabel": "Impuestos Nacionales aprox. $33.193",
+    "isFeatured": true,
+    "date": "2024-10-18",
+    "code": "#BUB16"
+  },
+  {
+    "id": 18,
+    "slug": "robot-piscina-betta-se-solar",
+    "images": [
+      "https://m.media-amazon.com/images/I/51Qr1oxhwvL._AC_SL1000_.jpg"
+    ],
+    "image": "../assets/img/products/betta-se-solar.png",
+    "title": "Betta SE Solar Pool Skimmer",
+    "price": 293860,
+    "oldPrice": 329990,
+    "discount": 11,
+    "categories": ["Robots", "Piscina"],
+    "Marca": "Betta",
+    "envioGratis": true,
+    "stock": true,
+    "accionamiento": "Solar + batería",
+    "features": [
+      "Limpieza de superficie",
+      "Funcionamiento 24/7",
+      "Carga solar automática",
+      "Resistente al agua salada"
+    ],
+    "cuotasLabel": "Hasta 6 cuotas sin interés",
+    "installmentsLabel": "6x $48.977",
+    "taxLabel": "Impuestos Nacionales aprox. $61.711",
+    "isFeatured": false,
+    "date": "2024-09-22",
+    "code": "#BET17"
+  },
+  {
+    "id": 19,
+    "slug": "robot-piscina-beatbot-aquasense-2",
+    "images": [
+      "https://m.media-amazon.com/images/I/71k3Jj8nS4L._AC_SL1500_.jpg"
+    ],
+    "image": "../assets/img/products/aiper-scuba-s1.png",
+    "title": "Beatbot AquaSense 2",
+    "price": 999000,
+    "oldPrice": 1599000,
+    "discount": 37,
+    "categories": ["Robots", "Piscina", "premium"],
+    "Marca": "Beatbot",
+    "envioGratis": true,
+    "stock": false,
+    "accionamiento": "Batería",
+    "features": [
+      "Control por app Wi-Fi",
+      "Limpieza piso, paredes y línea de agua",
+      "Dock automático",
+      "Sensores de navegación avanzada"
+    ],
+    "cuotasLabel": "Hasta 12 cuotas sin interés",
+    "installmentsLabel": "12x $83.250",
+    "taxLabel": "Impuestos Nacionales aprox. $209.790",
+    "isFeatured": true,
+    "date": "2024-12-05",
+    "code": "#BEA18"
+  },
+  {
+    "id": 20,
+    "slug": "robot-piscina-polaris-9550-sport",
+    "images": [
+      "https://m.media-amazon.com/images/I/81P0CwNxlsL._AC_SL1500_.jpg"
+    ],
+    "image": "../assets/img/products/polaris-9550-sport.png",
+    "title": "Polaris 9550 Sport",
+    "price": 1988314,
+    "oldPrice": 2199000,
+    "discount": 9,
+    "categories": ["Robots", "Piscina", "premium"],
+    "Marca": "Polaris",
+    "envioGratis": true,
+    "stock": true,
+    "accionamiento": "Eléctrico",
+    "features": [
+      "Tracción 4WD",
+      "Control remoto",
+      "Canasto de residuos de gran capacidad",
+      "Ideal piscinas grandes"
+    ],
+    "cuotasLabel": "Hasta 12 cuotas sin interés",
+    "installmentsLabel": "12x $165.693",
+    "taxLabel": "Impuestos Nacionales aprox. $417.546",
+    "isFeatured": false,
+    "date": "2024-10-01",
+    "code": "#POL19"
+  },
+
+  {
+    "id": 21,
+    "slug": "Cordless-Automatic-Powerful-Portable-Self-Parking",
+    "images": [
+      "../assets/img/productos/001.webp",
+      "../assets/img/productos/001-1.webp",
+      "../assets/img/productos/001-2.webp",
+      "../assets/img/productos/001-3.webp",
+      "../assets/img/productos/001-4.webp"
+    ],
+    "image": "../assets/img/products/winny-cordless-a1.png",
+    "title": " A1 Cordless Robotic Pool Cleaner",
+    "price": 6992055,
+    "oldPrice": 7768950,
+    "discount": 25,
+    "categories": ["Robots", "Piscina", "destacados"],
+    "Marca": "Winny",
+    "envioGratis": true,
+    "stock": true,
+    "accionamiento": "Eléctrico",
+    "cuotasLabelBadge": "Hasta 3 cuotas",
+    "cuotasLabel": "Hasta 3 cuotas sin interés",
+    "installmentsLabel": "3x $2.330.685",
+    "taxLabel": "Impuestos Nacionales aprox. $1,467,331",
+    "isFeatured": false,
+    "date": "2024-12-01",
+    "code": "#32510A"
   }
+
+
 ]

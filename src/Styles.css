@@ -576,10 +576,9 @@ ul, ol {
     text-decoration: line-through;
 }
 .pricing-meta li.current-price {
-    font-weight: 500;
+    font-weight: 600;
     color: rgb(39, 39, 39);
     font-size: 1.214rem;
-    font-weight: 800;
 }
 #cartOffcanvas .pricing-meta li.current-price {
     font-size: 1rem;
@@ -744,7 +743,6 @@ button#notificationsDropdown:after {
     padding: 0.25em 0.4em;
     font-size: 75%;
     font-weight: 500;
-    line-height: 1;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
@@ -828,7 +826,9 @@ button#notificationsDropdown:after {
     height: 46px;
     line-height: normal;
 }
-
+.btn-w-50 {
+    width: 50%;
+}
 .bootstrap-select>.dropdown-toggle {
     position: relative;
     width: 100%;
@@ -3085,4 +3085,82 @@ button.btn-search-mobile {
     position: relative;
     width: 100%;
     z-index: 6;
+}
+
+
+
+.sliderHome .swiper-wrapper {
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+.payment-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.payment-tabs button {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 8px 12px 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    /* line-height: 25px; */
+}
+
+.payment-tabs button.active {
+  border-color: #ff3b30;
+  color: #ff3b30;
+}
+
+.payment-section {
+  background: #fff;
+  color: #000;
+  border-radius: 12px;
+  padding: 20px 0;
+  margin-bottom: 5px;
+}
+
+.payment-section.highlight {
+  background: #fafafa;
+}
+
+.installments {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 8px;
+}
+
+.installment {
+  display: flex;
+  justify-content: space-between;
+  color: #000;
+}
+
+.card-logos {
+  display: flex;
+  gap: 10px;
+}
+.card-logos img {
+    width: 45px;
+}
+.payment-total {
+  font-weight: 400;
+}
+
+.discount {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.col1-pay {
+    width: 30%;
 }
