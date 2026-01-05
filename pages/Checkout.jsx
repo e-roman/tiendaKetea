@@ -268,19 +268,9 @@ navigate("/checkout/payment");
       </div>
 
 
-    <div className="bg-light">
-      <div className="container py-5">
-        <div className="row">
-          <div className="col-lg-8">
-            <StepsCheckout />
-          </div>
-        </div>
-      </div>
-    </div>
 
+    <div className="bg-light bg-white-xs pt-2 pt-md-6">
 
-
-    <div className="bg-light bg-white-xs">
       <div className="container px-xs-0">
         <div className="row">
 
@@ -417,6 +407,14 @@ navigate("/checkout/payment");
 
           {/* LEFT COLUMN (checkout actions, forms...) */}
           <div className="col-lg-8 order-lg-1">
+
+
+            <div className="card shadow-none mb-4">
+              <div className="card-body px-3 pt-5 pb-5 py-md-5 px-md-5">
+              <StepsCheckout />
+              </div>
+            </div>
+
 
             <div className="card shadow-none mb-5">
               <div className="card-body px-3 pt-5 pb-5 py-md-5 px-md-5">
@@ -719,6 +717,7 @@ navigate("/checkout/payment");
           
         </div>
       </div>
+
     </div>
     </>
   );

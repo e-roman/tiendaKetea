@@ -25,7 +25,7 @@ export const PROFILE_MENU = [
       {
         key: "orders",
         label: "Mis Compras",
-        icon: "bi-basket",
+        icon: "bi-cart-check",
       },
       {
         key: "payments",

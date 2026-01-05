@@ -4,8 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../src/context/AuthContext";
 import { useCart } from "../../../src/hooks/useCart";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
-import Select from "react-select"; // <- Import react-select
-import products from "../../../data/products.json"; // A
+import Select from "react-select"; 
+import products from "../../../data/products.json";
 
 import { PROFILE_MENU } from "../../../src/config/profileMenu";
 
@@ -143,7 +143,7 @@ const runSearch = (value) => {
 
 
             {/* BUSCADOR */}
-           <div>
+           <div className="w-100">
               <div className="box-search">
                 <div className={`search-mobile position-relative ${searchOpen ? "open" : ""}`}>
                 {/* Flecha volver (solo cuando search está activo) */}
@@ -241,7 +241,8 @@ const runSearch = (value) => {
                         {results.map((item) => (
                           <Link
                               key={item.id}
-                              to={`/product/${slugify(item.title)}`}
+                              // to={`/product/${slugify(item.title)}`}
+                              to={`/product/${item.slug}`}
                               className="d-flex align-items-start gap-3 py-2 px-1 border-bottom text-decoration-none text-dark"
                               onClick={closeSearch}
                             >
@@ -364,27 +365,27 @@ const runSearch = (value) => {
                     
                     <div>
                       <Link className="dropdown-item" to="/" onClick={() => setProfileOpen(false)}>
-                        <i className="bi bi-heart me-2"></i> Incio
+                        <i className="bi bi-house me-2"></i> Inicio
                       </Link>
 
                       <Link className="dropdown-item" to="/Novedades" onClick={() => setProfileOpen(false)}>
-                        <i className="bi bi-heart me-2"></i> Novedades
+                        <i className="bi bi-fire me-2"></i> Novedades
                       </Link>
                       <Link className="dropdown-item" to="/Descuentos" onClick={() => setProfileOpen(false)}>
-                        <i className="bi bi-bag-check me-2"></i> Descuentos
+                        <i className="bi bi-tags me-2"></i> Descuentos
                       </Link>
                       <Link className="dropdown-item" to="/pages/Contacto" onClick={() => setProfileOpen(false)}>
-                        <i className="bi bi-receipt me-2"></i> Sucursales
+                        <i className="bi bi-geo-alt me-2"></i> Sucursales
                       </Link>
                       <Link className="dropdown-item" to="/pages/Sucursales" onClick={() => setProfileOpen(false)}>
-                        <i className="bi bi-geo-alt me-2"></i> Contacto
+                        <i className="bi bi-envelope me-2"></i> Contacto
                       </Link>
                     </div>
                     <hr/>
 
                     <div className="px-3">
                     <button
-                      className="dropdown-item"
+                      className="dropdown-item px-2 ms-1"
                       onClick={() => setShowLogoutModal(true)}
                     >
                       Cerrar sesión

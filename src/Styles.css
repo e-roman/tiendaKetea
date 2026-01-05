@@ -2703,9 +2703,10 @@ footer .btn-icon.btn-social {
  header.header-mobile {
     height: 55px;
     align-items: center;
+    padding-right: 10px;
 }
 .search-mobile {
-  width: 80%;
+  /* width: 80%; */
   transition: all 0.3s ease;
 }
 
@@ -2740,7 +2741,7 @@ footer .btn-icon.btn-social {
 }
 
 .header-mobile.search-open .header-actions {
-  display: none;
+  display: none!important;
 }
 
     .btn-close-search {
@@ -2915,7 +2916,7 @@ footer .btn-icon.btn-social {
     background: #FFF;
     z-index: 9;
     top: 54px;
-    height: 100vh;
+    /* height: 100vh; */
     opacity: 0;
     visibility: hidden;
     transform: translateY(0);
@@ -2925,13 +2926,13 @@ footer .btn-icon.btn-social {
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1);
     border-top: solid 1px #e5d850;
     background: #fff159;
-
+    padding-bottom: 2rem;
 }
 .navProfile-xs:before {
     content: "";
     position: absolute;
     top: -6px;
-    right: 67px;
+    right: 69px;
     width: 10px;
     height: 10px;
     transform: rotate(45deg);
@@ -3004,10 +3005,11 @@ footer .btn-icon.btn-social {
 input.input-search-mobile {
     display: block;
     width: 100%;
-    padding: .6125rem 1rem .6125rem 3rem;
+    padding: .4125rem 1rem .6125rem 3rem;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
+    border-radius: 6px;
     color: #1e2022;
     background-color: #fff;
     background-clip: padding-box;

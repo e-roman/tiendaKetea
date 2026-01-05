@@ -63,7 +63,7 @@ export default function MainHeader() {
   const categoryOptions = [
     { value: "", label: "Buscar en Categoría" },
     { value: "productos-quimicos", label: "Productos Químicos" },
-    { value: "robots-dolphin", label: "Robots Dolphin" },
+    { value: "robots-dolphin", label: "Robots de Piscina" },
     { value: "accesorios-natacion", label: "Accesorios Natación" },
     { value: "inflables-juegos", label: "Inflables y juegos" },
     { value: "accesorios-limpieza", label: "Accesorios de limpieza" },
@@ -135,7 +135,8 @@ export default function MainHeader() {
                     {results.map((item) => (
                     <Link
                         key={item.id}
-                        to={`/product/${slugify(item.title)}`}
+                        // to={`/product/${slugify(item.title)}`}
+                        to={`/product/${item.slug}`}
                         className="d-flex align-items-center gap-3 py-2 px-1 border-bottom text-decoration-none text-dark"
                         onClick={clearSearch}
                     >
