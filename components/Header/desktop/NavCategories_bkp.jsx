@@ -1,34 +1,81 @@
-import { useState } from "react";
-import MegaMenu from "./MegaMenu";
-
+// src/components/header/NavCategories.jsx
 import { Link, NavLink } from "react-router-dom";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 
 import { useAuth } from "../../../src/context/AuthContext";
 
 
-export default function NavCategories({
-  setShowPriceModal,
-  setShowLogoutModal,
-  megaOpen,
-  setMegaOpen
-}) {
-  const { isLogged } = useAuth();
-
+export default function NavCategories({ setShowPriceModal, setShowLogoutModal }) {
+  const { isLogged, logout } = useAuth();
   return (
-    <nav className="navbar-nav-wrap border-bottom">
-      <div className="container position-relative">
+    <nav className="navbar-nav-wrap align-items-start border-bottom">
+      
+      <div className="container">
         <ul className="navbar-bottom d-flex align-items-center">
 
-          <li
-            className="nav-item position-static"
-            onMouseEnter={() => setMegaOpen(true)}
-          >
-            <button className="nav-link btn-drop">
-              ☰ Todas las categorías
-            </button>
+          {/* Categorías Mega Menu */}
+          <li className="nav-item position-relative">
+            <Dropdown as={ButtonGroup}>
+              <Dropdown.Toggle
+                id="pagesMegaMenu"
+                className="nav-link btn-drop ps-md-0 border-0"
+              >
+                Categorías
+              </Dropdown.Toggle>
 
-            {megaOpen && <MegaMenu />}
+              <Dropdown.Menu className="MenuCategorias" style={{ minWidth: "54rem" }}>
+                <div className="navbar-dropdown-menu-inner">
+                  <div className="row">
+                    <div className="col-sm mb-3 mb-sm-0">
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Productos Químicos</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Robots Dolphin</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Accesorios Natación</Link>
+                    </div>
+                    <div className="col-sm">
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Inflables y juegos</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Accesorios de limpieza</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Accesorios Vaso Piscina</Link>
+                    </div>
+                    <div className="col-sm">
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Accesorios de Spa</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Accesorios de exterior de piscina</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Bombas</Link>
+                    </div>
+                    <div className="col-sm">
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Borders Atérmicos</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Climatización de Piscinas</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Gabinetes</Link>
+                    </div>
+                    <div className="col-sm">
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Conducción de Fluidos</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Cuidado del agua</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Filtros</Link>
+                    </div>
+                    <div className="col-sm">
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Iluminación</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Revestimientos</Link>
+                      <Link className="dropdown-item" to="/pages/ProductsGrid">Riego</Link>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mega Menu Banner */}
+                <div className="navbar-dropdown-menu-shop-banner mt-2">
+                  <div className="d-flex">
+                    <div className="flex-shrink-0">
+                      <img className="navbar-dropdown-menu-shop-banner-img" src="../assets/img/mockups/img4.png" alt="Image Description" />
+                    </div>
+                    <div className="flex-grow-1 p-4">
+                      <span className="h4 d-block text-primary">Win T-Shirt</span>
+                      <p>Win one of our Front brand T-shirts.</p>
+                      <Link className="btn btn-sm btn-soft-primary btn-transition" to="../index.html">
+                        Learn more <i className="bi-chevron-right small"></i>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </Dropdown.Menu>
+            </Dropdown>
           </li>
 
           {/* Links simples */}
@@ -147,13 +194,8 @@ export default function NavCategories({
           )}
 
 
-
         </ul>
       </div>
-
-
-
-
     </nav>
   );
 }

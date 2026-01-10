@@ -35,6 +35,8 @@ export default function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
 
+ const [megaOpen, setMegaOpen] = useState(false);
+
   const hideComponent = HIDE_COMPONENTS_ROUTES.includes(location.pathname);
 
   useEffect(() => {
@@ -53,6 +55,14 @@ export default function App() {
       <PageLoader visible={loading} />
 
       {!hideComponent && <Header />}
+
+      {/* OVERLAY GLOBAL */}
+      {megaOpen && (
+        <div
+          className="layout-overlay"
+          onClick={() => setMegaOpen(false)}
+        />
+      )}
 
       <AlertFloating />
       <SidebarCart />

@@ -59,7 +59,7 @@ export default function MainHeader() {
   };
 
 
-    // Opciones para el select estilizado
+  // Opciones para el select
   const categoryOptions = [
     { value: "", label: "Buscar en Categoría" },
     { value: "productos-quimicos", label: "Productos Químicos" },
@@ -83,7 +83,7 @@ export default function MainHeader() {
   ];
 
   return (
-    <header className="py-2 border-bottom sticky-nav sticky-top bg-white">
+    <header className="py-1 border-bottom ">
       <div className="container d-flex align-items-center justify-content-between">
         
         {/* LOGO */}
@@ -283,6 +283,9 @@ export default function MainHeader() {
         </div>
 
       </div>
+
+
+      
     </header>
   );
 }

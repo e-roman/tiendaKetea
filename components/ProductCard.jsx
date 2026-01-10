@@ -82,13 +82,13 @@ export default function ProductCard({ product, openProduct }) {
       {/* Información principal */}
       <div className="card-body p-2 px-3">
         <button
-          className="text-body text-dark font-medium font-15 bg-transparent border-0 p-0 text-start text-clamp-2 mb-1 "
+          className="text-body text-dark font-medium font-16 bg-transparent border-0 p-0 text-start text-clamp-2 mb-1 "
           onClick={() => openProduct(product.slug)}
         >
           {product.title}
         </button>
 
-        <div className="pricing-meta mt-2 mb-1">
+        <div className="pricing-meta mt-1 mb-1">
           <ul className="list-unstyled d-flex align-items-center gap-1">
             <li className="current-price text-dark">
               ${formatPrice(product.price)}

@@ -23,6 +23,56 @@ export default function App() {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper sliderHome bg-light"
       >
+
+        <SwiperSlide>
+            <div className="">
+              <div className="row align-items-lg-center">
+                <div className="col-lg-12">
+                  <img src='assets/img/banners/hero-4.jpg' className='w-100'/>
+                </div>
+                {/*<!-- End Col*/}
+              </div>
+              {/*<!-- End Row*/}
+            </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+            <div className="">
+              <div className="row align-items-lg-center">
+                <div className="col-lg-12">
+                  <img src='assets/img/banners/hero-3.jpg' className='w-100'/>
+                </div>
+                {/*<!-- End Col*/}
+              </div>
+              {/*<!-- End Row*/}
+            </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+            <div className="">
+              <div className="row align-items-lg-center">
+                <div className="col-lg-12">
+                  <img src='assets/img/banners/hero-2.jpg' className='w-100'/>
+                </div>
+                {/*<!-- End Col*/}
+              </div>
+              {/*<!-- End Row*/}
+            </div>
+        </SwiperSlide>
+
+        <SwiperSlide>
+            <div className="">
+              <div className="row align-items-lg-center">
+                <div className="col-lg-12">
+                  <img src='assets/img/banners/hero-1.jpg' className='w-100'/>
+                </div>
+                {/*<!-- End Col*/}
+              </div>
+              {/*<!-- End Row*/}
+            </div>
+        </SwiperSlide>
+
+
         <SwiperSlide>
             <div className="container content-space-t-1 content-space-b-1">
               <div className="row align-items-lg-center">
@@ -39,7 +89,7 @@ export default function App() {
                 {/*<!-- End Col*/}
 
                 <div className="col-lg-6 order-lg-1">
-                  <div className="w-85 mx-auto">
+                  <div className="w-90 mx-auto">
                     <img className="img-fluid" src="assets/img/banners/sonar50.png" alt="Image Description" />
                   </div>
                 </div>
@@ -49,7 +99,7 @@ export default function App() {
             </div>
         </SwiperSlide>
         <SwiperSlide>
-            <div className="container content-space-t-2 content-space-b-3">
+            <div className="container content-space-t-1 content-space-b-3">
               <div className="row align-items-lg-center">
                 <div className="col-lg-5 order-lg-2 mb-7 mb-lg-0">
                   <div className="mb-6">
@@ -64,8 +114,8 @@ export default function App() {
                 {/*<!-- End Col*/}
 
                 <div className="col-lg-6 order-lg-1">
-                  <div className="w-75 mx-auto">
-                    <img className="img-fluid" src="assets/img/mockups/img6.png" alt="Image Description" />
+                  <div className="w-90 mx-auto">
+                    <img className="img-fluid" src="assets/img/banners/hero-5.png" alt="Image Description" />
                   </div>
                 </div>
                 {/*<!-- End Col*/}

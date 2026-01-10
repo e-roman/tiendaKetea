@@ -3,14 +3,14 @@
     "id": 1,
     "slug": "robot-limpia-piscinas-dolphin-liberty-400",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-Liberty-400.png",
-    "title": "Robot Dolphin Liberty 400",
+    "title": "Robot Piscina Dolphin Liberty 400",
     "price": 4062555,
     "oldPrice": 4513950,
     "discount": 25,
@@ -31,14 +31,14 @@
     "id": 2,
     "slug": "robot-limpia-piscinas-dolphin-pool-up",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-Pool-up.png",
-    "title": "Robot Dolphin Pool Up",
+    "title": "Robot Piscina Dolphin Pool Up",
     "price": 2078055,
     "oldPrice": 2308950,
     "discount": 25,
@@ -59,14 +59,14 @@
     "id": 3,
     "slug": "robot-limpia-piscinas-dolphin-liberty-600",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-Liberty-600.png",
-    "title": "Robot Dolphin Liberty 600",
+    "title": "Robot Piscina Dolphin Liberty 600",
     "price": 5742000,
     "oldPrice": 6380000,
     "discount": 25,
@@ -88,14 +88,14 @@
     "id": 4,
     "slug": "robot-limpia-piscinas-dolphin-wave-90i",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-Wave-90i.png",
-    "title": "Robot Dolphin Wave 90i",
+    "title": "Robot Piscina Dolphin Wave 90i",
     "price": 6992055,
     "oldPrice": 7768950,
     "discount": 25,
@@ -116,11 +116,11 @@
     "id": 5,
     "slug": "Robot-Piscina-Winny-300II",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/winny-300II.png",
     "title": "Robot Piscina Winny 300II",
@@ -146,14 +146,14 @@
     "id": 6,
     "slug": "robot-limpia-piscinas-sin-cable-dolphin-liberty-200",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-Liberty-200.png",
-    "title": "Robot Dolphin Liberty 200",
+    "title": "Robot Piscina Dolphin Liberty 200",
     "price": 3306555,
     "oldPrice": 3673950,
     "discount": 10,
@@ -175,14 +175,14 @@
     "id": 7,
     "slug": "robot-limpia-piscinas-dolphin-m700",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-Liberty-m700.png",
-    "title": "Robot Dolphin M700",
+    "title": "Robot Piscina Dolphin M700",
     "price": 6236055,
     "oldPrice": 6928950,
     "discount": 10,
@@ -204,14 +204,14 @@
     "id": 8,
     "slug": "robot-limpia-piscinas-dolphin-s400i",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-S400I.png",
-    "title": "Robot Dolphin S400I",
+    "title": "Robot Piscina Dolphin S400I",
     "price": 4440555,
     "oldPrice": 4933950,
     "discount": 10,
@@ -233,14 +233,14 @@
     "id": 9,
     "slug": "robot-limpia-piscinas-dolphin-m600",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-Liberty-m600.png",
-    "title": "Robot Dolphin M600",
+    "title": "Robot Piscina Dolphin M600",
     "price": 5669055,
     "oldPrice": 6298950,
     "discount": 10,
@@ -262,14 +262,14 @@
     "id": 10,
     "slug": "robot-limpia-piscinas-dolphin-s200",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-S200.png",
-    "title": "Robot Dolphin S200",
+    "title": "Robot Piscina Dolphin S200",
     "price": 2771160,
     "oldPrice": 3463950,
     "discount": 20,
@@ -291,14 +291,14 @@
     "id": 11,
     "slug": "robot-limpia-piscinas-dolphin-s100",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-s100.png",
-    "title": "Robot Dolphin S100",
+    "title": "Robot Piscina Dolphin S100",
     "price": 2512755,
     "oldPrice": 2791950,
     "discount": 10,
@@ -320,14 +320,14 @@
     "id": 12,
     "slug": "robot-limpia-piscinas-dolphin-2x2-pro-gyro-olimpico",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-pro-gyro.png",
-    "title": "Robot Dolphin Pro Gyro ",
+    "title": "Robot Piscina Dolphin Pro Gyro ",
     "price": 17387055,
     "oldPrice": null,
     "discount": 0,
@@ -348,11 +348,11 @@
     "id": 13,
     "slug": "robot-cortacesped-automower-am305",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/automower-am305.png",
     "title": "Robot Cortacésped Automower AM305",
@@ -376,14 +376,14 @@
     "id": 14,
     "slug": "robot-limpia-piscinas-sin-cable-dolphin-liberty-300",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/dolphin-Liberty-300.png",
-    "title": "Robot Dolphin Liberty 300",
+    "title": "Robot Piscina Dolphin Liberty 300",
     "price": 3873555,
     "oldPrice": 4303950,
     "discount": 10,
@@ -469,7 +469,7 @@
       "https://m.media-amazon.com/images/I/61xXoKJ3mLL._AC_SL1500_.jpg"
     ],
     "image": "../assets/img/products/bublue-bubot-300p.png",
-    "title": "Bubot 300P",
+    "title": "Robot Piscina Bubot 300P",
     "price": 158060,
     "oldPrice": 179990,
     "discount": 12,
@@ -583,11 +583,11 @@
     "id": 21,
     "slug": "Cordless-Automatic-Powerful-Portable-Self-Parking",
     "images": [
-      "../assets/img/productos/01.jpg",
-      "../assets/img/productos/02.jpg",
-      "../assets/img/productos/03.jpg",
-      "../assets/img/productos/04.jpg",
-      "../assets/img/productos/05.jpg"
+      "../assets/img/produc-detail/detail-1.png",
+      "../assets/img/produc-detail/detail-2.png",
+      "../assets/img/produc-detail/detail-3.png",
+      "../assets/img/produc-detail/detail-4.png",
+      "../assets/img/produc-detail/detail-5.png"
     ],
     "image": "../assets/img/products/winny-cordless-a1.png",
     "title": " A1 Cordless Robotic Pool Cleaner",

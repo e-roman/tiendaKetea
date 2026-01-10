@@ -1,29 +1,46 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import TopAlert from "./TopAlert";
 import Topbar from "./Topbar";
 import MainHeader from "./MainHeader";
 import NavCategories from "./NavCategories";
-import LogoutModal from "../../Modals/LogoutModal";
 
 export default function HeaderDesktop() {
-  const [showPriceModal, setShowPriceModal] = useState(false);
-  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const headerRef = useRef(null);
+  const [megaOpen, setMegaOpen] = useState(false);
+
+  useEffect(() => {
+    if (headerRef.current) {
+      document.documentElement.style.setProperty(
+        "--header-height",
+        `${headerRef.current.offsetHeight}px`
+      );
+    }
+  }, []);
 
   return (
     <>
-      <TopAlert />
-      <Topbar />
-      <MainHeader />
+      {/* NO sticky */}
+      <div ref={headerRef}>
+        <TopAlert />
+        <Topbar />
+      </div>
 
-      <NavCategories
-        setShowPriceModal={setShowPriceModal}
-        setShowLogoutModal={setShowLogoutModal}
-      />
+      {/* STICKY PURO */}
+      <div className="sticky-top bg-white">
+        <MainHeader />
+        <NavCategories
+          megaOpen={megaOpen}
+          setMegaOpen={setMegaOpen}
+        />
+      </div>
 
-      <LogoutModal
-        show={showLogoutModal}
-        onClose={() => setShowLogoutModal(false)}
-      />
+      {/* OVERLAY GLOBAL */}
+      {megaOpen && (
+        <div
+          className="layout-overlay"
+          onClick={() => setMegaOpen(false)}
+        />
+      )}
     </>
   );
 }

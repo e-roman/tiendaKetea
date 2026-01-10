@@ -19,8 +19,22 @@ export default function Footer() {
 
           {/*-- List --*/}
           <ul className="list-unstyled list-py-1">
-            <li><a className="link-sm text-secondary" href="#">Login</a></li>
-            <li><a className="link-sm text-secondary" href="#">Register</a></li>
+            <li>
+              <a
+                className="btn p-0"
+                data-bs-toggle="modal"
+                data-bs-target="#signupModal"
+              > Ingresar
+              </a>
+            </li>
+            <li>
+              <a
+                className="btn p-0"
+                data-bs-toggle="modal"
+                data-bs-target="#signupModal"
+              > Registrarse
+              </a>
+            </li>
             <li><a className="link-sm text-secondary" href="#">Recuperar contraseña</a></li>
           </ul>
           {/*-- End List --*/}
@@ -76,7 +90,7 @@ export default function Footer() {
 
       <hr className="my-0" />
 
-      <div className="row align-items-sm-center content-space-1">
+      <div className="row align-items-sm-center py-4">
         <div className="col-sm mb-4 mb-sm-0">
           <small>Copyright © Ketea S.A. Todos los derechos reservados.</small>
         </div>

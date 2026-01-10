@@ -235,7 +235,7 @@ const results = useMemo(() => {
                   {/*!-- Select --*/}
                   <div className="d-flex align-items-center gap-2 mb-2 mb-sm-0 me-sm-2">
                     {/*!-- Select Wrapper --*/}
-                    <div className="small">Ordenar por</div>
+                    <div className="small">Ordenar por:</div>
                     <div className="filters-seleet" style={{minWidth: "190px"}}>
                       <select
                         className="form-select"
