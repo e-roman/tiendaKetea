@@ -89,21 +89,24 @@ export default function ProductCard({ product, openProduct }) {
         </button>
 
         <div className="pricing-meta mt-1 mb-1">
-          <ul className="list-unstyled d-flex align-items-center gap-1">
-            <li className="current-price text-dark">
-              ${formatPrice(product.price)}
-            </li>
 
             {product.oldPrice && product.oldPrice > product.price && (
-              <li className="old-price text-muted">
-                ${formatPrice(product.oldPrice)}
-              </li>
+              <div className="old-price text-muted pb-1">
+                Desde: AR$ {formatPrice(product.oldPrice)}
+              </div>
             )}
+
+
+          <ul className="list-unstyled d-flex align-items-center gap-1">
+            <li className="current-price text-dark">
+              <span className="font-13">AR$</span> {formatPrice(product.price)}
+            </li>
+
 
             {product.discount > 0 && (
               <li>
-                <span className="badge py-1 px-2 badge-yellow">
-                  -{product.discount}%
+                <span className="badge font-12 py-1 px-2 badge-yellow">
+                  -{product.discount}% OFF
                 </span>
               </li>
             )}
@@ -115,6 +118,10 @@ export default function ProductCard({ product, openProduct }) {
             Hasta <span>{product.installmentsLabel}</span> sin interés
           </p>
         )}
+
+      <div className="pt-2">
+           <p className="text-pay">Pagá fácil y rápido con Mercado Pago o MODO</p>
+        </div>
 
         {/* {product.taxLabel && (
           <p className="small mb-0 font-12">{product.taxLabel}</p>

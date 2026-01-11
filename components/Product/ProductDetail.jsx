@@ -117,7 +117,7 @@ const openDiscountModal = (e) => {
 
 
       {/* Stock */}
-      <div className="d-flex justify-content-between pb-3 px-1 px-md-0">
+      <div className="d-flex justify-content-between pb-2 px-1 px-md-0">
         {product.stock <= 1 ? (
           <span className="badge py-1 px-2 bg-danger text-white rounded-1">
             ¡Último en stock!
@@ -132,26 +132,29 @@ const openDiscountModal = (e) => {
 
       {/* Precios */}
       <div className="d-none d-md-block mb-3">
-        <div className="d-flex align-items-center">
-          <div>
+        <div>
+          <div className="d-flex align-items-center pb-2">
             {product.oldPrice && (
-              <span className="h4 text-secondary me-1">
-                <del>${formatAR(product.oldPrice)}</del>
+              <span className="h4 text-secondary mb-0">
+                <del>AR${formatAR(product.oldPrice)}</del>
               </span>
             )}
+            {product.discount > 0 && (
+              <div className="ms-2">
+                <span className="badge badge-yellow py-1 px-2 text-dark rounded-1 font-15">
+                  - {product.discount}% OFF
+                </span>
+              </div>
+            )}
 
+          </div>
+
+         <div>
             <span className="h2 font-bold">
-              ${formatAR(product.price)}
+              AR${formatAR(product.price)}
             </span>
           </div>
 
-          {product.discount > 0 && (
-            <div className="ms-2">
-              <span className="badge badge-yellow py-1 px-2 text-dark rounded-1 font-15">
-                - {product.discount}% OFF
-              </span>
-            </div>
-          )}
         </div>
       </div>
 
@@ -211,15 +214,15 @@ const openDiscountModal = (e) => {
           <li>
             <div className="d-flex align-items-start">
               <i className="bi bi-credit-card flex-shrink-0 me-1 lh-1 f-icons-18"></i>
-<p className="pb-3 mb-0 small lh-sm">
-  <span className="d-flex text-black">
-    <span className="font-bold">{product.installmentsLabel}</span>
-    .{" "}
-    <a href="#" onClick={openDiscountModal}>
-      Ver tarjetas
-    </a>
-  </span>
-</p>
+              <p className="pb-3 mb-0 small lh-sm">
+                <span className="d-flex text-black">
+                  <span className="font-bold">{product.installmentsLabel}</span>
+                  .{" "}
+                  <a href="#" onClick={openDiscountModal}>
+                    Ver tarjetas
+                  </a>
+                </span>
+              </p>
             </div>
           </li>
 

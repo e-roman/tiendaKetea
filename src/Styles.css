@@ -52,7 +52,7 @@ input.form-control, select.form-select, label {
 }
 
 .font-12 {
-    font-size: 12px;
+    font-size: 12px !important;
 }
 .font-13 {
     font-size: 13px!important;
@@ -569,20 +569,20 @@ ul, ol {
 .pricing-meta ul {
     text-align: right;
 }
-.pricing-meta li {
+.pricing-meta {
     color: rgb(150, 152, 156);
     /* margin-right: 0.314rem; */
     font-size: .864rem;
 }
-.pricing-meta li.old-price {
+.pricing-meta .old-price {
     text-decoration: line-through;
 }
-.pricing-meta li.current-price {
+.pricing-meta .current-price {
     font-weight: 600;
     color: rgb(39, 39, 39);
     font-size: 1.214rem;
 }
-#cartOffcanvas .pricing-meta li.current-price {
+#cartOffcanvas .pricing-meta .current-price {
     font-size: 1rem;
     font-weight: 600;
 }
@@ -592,11 +592,12 @@ ul, ol {
     overflow: hidden;
     padding: 0 10px;
 }
-.card-pinned img {
-
+.text-pay {
+    font-size: .85rem;
+    font-weight: 400;
+    color: #08875b;
+    margin: 0;
 }
-
-
 .badge-stock {
     left: 0;
 }
