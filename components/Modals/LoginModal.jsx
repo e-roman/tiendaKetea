@@ -3,7 +3,17 @@ import { useAuth } from "../../src/context/AuthContext";
 import { Modal } from "bootstrap";
 
 export default function Login() {
-  
+useEffect(() => {
+  const handler = (e) => {
+    const nextStep = e.detail;
+    if (nextStep) setStep(nextStep);
+  };
+
+  window.addEventListener("authStep", handler);
+  return () => window.removeEventListener("authStep", handler);
+}, []);
+
+
 const [loading, setLoading] = useState(false);
 const [step, setStep] = useState("login");
 const [direction, setDirection] = useState("forward");

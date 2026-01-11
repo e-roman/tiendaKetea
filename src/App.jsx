@@ -7,6 +7,7 @@ import SidebarCart from "../components/SidebarCart";
 import { FloatingAlertProvider } from "../src/context/FloatingAlertContext";
 import AlertFloating from "../components/AlertFloating";
 import Login from "../components/Modals/LoginModal";
+import LogoutModal from "../components/Modals/LogoutModal";
 import SupportChat from "../components/SupportChat";
 
 import ScrollToTop from "../components/ScrollToTop";
@@ -34,6 +35,7 @@ const HIDE_COMPONENTS_ROUTES = [
 export default function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
+const [showLogoutModal, setShowLogoutModal] = useState(false);
 
  const [megaOpen, setMegaOpen] = useState(false);
 
@@ -54,7 +56,9 @@ export default function App() {
       <ScrollToTop />
       <PageLoader visible={loading} />
 
-      {!hideComponent && <Header />}
+      <Header setShowLogoutModal={setShowLogoutModal} />
+
+
 
       {/* OVERLAY GLOBAL */}
       {megaOpen && (
@@ -84,6 +88,12 @@ export default function App() {
 
       {!hideComponent && <Footer />}
       <Login />
+{showLogoutModal && (
+  <LogoutModal
+    show={showLogoutModal}
+    onClose={() => setShowLogoutModal(false)}
+  />
+)}
       <SupportChat />
     </FloatingAlertProvider>
   );

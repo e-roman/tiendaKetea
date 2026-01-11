@@ -160,6 +160,12 @@ button.btn-search {
 }
 
 
+.nav-link.btn-drop {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-left: 7px;
+}
 .btn-drop {
     background: transparent;
     color: #000;
@@ -2857,7 +2863,6 @@ footer .btn-icon.btn-social {
   border-radius: 4px;
   opacity: 1;
   left: 0;
-
   transform: rotate(0deg);
   transition: 0.25s ease-in-out;
 }
@@ -2891,6 +2896,10 @@ footer .btn-icon.btn-social {
 .nav-button-mb.open span:nth-child(3) {
   transform: rotate(-45deg);
 }
+
+
+
+
 
 .nav-cart {
     display: block;
@@ -3190,6 +3199,14 @@ button.btn-search-mobile {
 .sticky-top {
     z-index: 1050;
 }
+
+
+
+
+
+
+
+
 .mega-menu {
     position: absolute;
     top: 100%;

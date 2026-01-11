@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import TopAlert from "./TopAlert";
-import Topbar from "./Topbar";
+// import Topbar from "./Topbar";
 import MainHeader from "./MainHeader";
 import NavCategories from "./NavCategories";
 
-export default function HeaderDesktop() {
+export default function HeaderDesktop({ setShowLogoutModal }) {
   const headerRef = useRef(null);
   const [megaOpen, setMegaOpen] = useState(false);
 
@@ -22,7 +22,7 @@ export default function HeaderDesktop() {
       {/* NO sticky */}
       <div ref={headerRef}>
         <TopAlert />
-        <Topbar />
+        {/* <Topbar /> */}
       </div>
 
       {/* STICKY PURO */}
@@ -31,6 +31,7 @@ export default function HeaderDesktop() {
         <NavCategories
           megaOpen={megaOpen}
           setMegaOpen={setMegaOpen}
+          setShowLogoutModal={setShowLogoutModal}
         />
       </div>
 

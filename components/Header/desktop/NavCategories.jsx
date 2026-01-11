@@ -28,7 +28,10 @@ export default function NavCategories({
                 className="nav-link btn-drop"
                 onClick={() => setMegaOpen(prev => !prev)}
               >
-                ☰ Todas las categorías
+                <i className="bi bi-list"></i>
+                Todas las categorías
+                <i className="bi bi-chevron-down"></i>
+
               </button>
             </li>
 
@@ -84,16 +87,37 @@ export default function NavCategories({
                         <Link className="dropdown-item" to="/pages/Profile?view=orders"> <i className="bi bi-bag-check me-2"></i> Pedidos </Link>
                         <Link className="dropdown-item" to="/pages/Profile?view=payments"> <i className="bi bi-receipt me-2"></i> Comprobantes </Link>
                         <Link className="dropdown-item" to="/pages/Profile?view=address"> <i className="bi bi-geo-alt me-2"></i> Direcciones </Link>
-                        <Dropdown.Divider /> <button className="dropdown-item" onClick={()=> setShowLogoutModal(true)} > Cerrar sesión </button> </Dropdown.Menu>
+                        <Dropdown.Divider /> 
+                          <button
+                            className="dropdown-item"
+                            onClick={() => setShowLogoutModal(true)}
+                          >
+                            Cerrar sesión
+                          </button>
+                        </Dropdown.Menu>
                 </Dropdown>
             </li> 
             )} 
             
             {/* Login */} 
             {!isLogged && (
-              <li className="ms-auto position-relative"> 
-              <button className="btn btn-primary btn-drop btn-sm p-0" type="button" data-bs-toggle="modal" data-bs-target="#signupModal"> 
-                <i className="bi bi-person-circle me-1"></i> Ingresar </button> 
+              <li className="ms-auto position-relative d-flex gap-1"> 
+                <button className="btn btn-primary btn-drop btn-sm p-0" type="button" 
+                data-bs-toggle="modal" 
+                data-bs-target="#signupModal"
+                 onClick={() => window.dispatchEvent(new CustomEvent("authStep", { detail: "login" }))}
+                > 
+                  Mi Cuenta
+                </button> 
+                <span>/</span> 
+                <button
+                  className="btn btn-primary btn-drop btn-sm p-0"
+                  data-bs-toggle="modal"
+                  data-bs-target="#signupModal"
+                  onClick={() => window.dispatchEvent(new CustomEvent("authStep", { detail: "signup" }))}
+                >
+                  Registrarme
+                </button>
               </li> 
             )}
 

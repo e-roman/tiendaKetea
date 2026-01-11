@@ -21,17 +21,19 @@ export default function Footer() {
           <ul className="list-unstyled list-py-1">
             <li>
               <a
-                className="btn p-0"
+                className="btn link-sm text-secondary p-0"
                 data-bs-toggle="modal"
                 data-bs-target="#signupModal"
+                onClick={() => window.dispatchEvent(new CustomEvent("authStep", { detail: "login" }))}
               > Ingresar
               </a>
             </li>
             <li>
               <a
-                className="btn p-0"
+                className="btn link-sm text-secondary p-0"
                 data-bs-toggle="modal"
                 data-bs-target="#signupModal"
+                 onClick={() => window.dispatchEvent(new CustomEvent("authStep", { detail: "signup" }))}
               > Registrarse
               </a>
             </li>

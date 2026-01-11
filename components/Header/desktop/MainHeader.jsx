@@ -70,7 +70,7 @@ export default function MainHeader() {
 
 
   return (
-    <header className="py-1 border-bottom ">
+    <header className="py-2 border-bottom ">
       <div className="container d-flex align-items-center justify-content-between">
         
         {/* LOGO */}

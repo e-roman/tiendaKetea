@@ -1,5 +1,18 @@
-// src/components/header/megaMenuData.js
+// megaMenuData.js
 export const megaMenuData = [
+  {
+    id: "oferta-semana",
+    label: "Ofertas de la semana 🏷️",
+    sections: [],
+    highlight: true
+  },
+  {
+    id: "novedades",
+    label: "Novedades 🔥",
+    sections: [],
+    highlight: true
+  },
+
   {
     id: "piscinas",
     label: "Piscinas",
@@ -208,25 +221,5 @@ export const megaMenuData = [
       ]
     }
   ]
-},
-
-{
-  id: "oferta-semana",
-  label: "Oferta de la semana",
-  sections: [],
-  highlight: true
-},
-{
-  id: "mas-vendidos",
-  label: "Más vendidos",
-  sections: [],
-  highlight: true
-},
-{
-  id: "novedades",
-  label: "Novedades",
-  sections: [],
-  highlight: true
 }
-
 ];
