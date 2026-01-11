@@ -37,7 +37,7 @@ export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenIn
                   <div className="flex-shrink-0">
                     <img
                       className="max-width-9 mr-3"
-                      src="../assets/img/cards/img2.jpg"
+                      src="../assets/img/cards/visa.svg"
                       alt="Image Description"
                     />
                   </div>
@@ -83,7 +83,7 @@ export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenIn
                   <div className="flex-shrink-0">
                     <img
                       className="max-width-9 mr-3"
-                      src="../assets/img/cards/img1.jpg"
+                      src="../assets/img/cards/mastercard.svg"
                       alt="Image Description"
                     />
                   </div>

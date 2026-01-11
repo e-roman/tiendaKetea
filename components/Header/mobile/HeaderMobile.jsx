@@ -9,7 +9,7 @@ import products from "../../../data/products.json";
 
 import { PROFILE_MENU } from "../../../src/config/profileMenu";
 
-
+import SidebarCategories from "./SidebarCategories";
 import TopAlert from "./TopAlert";
 import Topbar from "./Topbar";
 import LogoutModal from "../../Modals/LogoutModal";
@@ -126,20 +126,164 @@ const runSearch = (value) => {
 
   return (
     <>
-      {/* <TopAlert />
-      <Topbar /> */}
+      <TopAlert />
+      {/* Offcanvas categorías */}
+      <SidebarCategories />
 
       <header
-            className={`header-mobile d-flex border-bottom ${
+            className={`header-mobile border-bottom sticky-top  ${
               isSearchActive ? "search-open" : ""
             }`}
           >
+            <div className="d-flex aling-center justify-content-between px-2">
+
+              {/* Categorias */}
+              <div className="nav-item">
+                <div className="nav-header-menu">
+                    <button
+                      type="button"
+                      className="nav-header-menu-switch nav-button-mb"
+                      aria-label="Menú Categorías"
+                      data-bs-toggle="offcanvas"
+                      data-bs-target="#categoriesOffcanvas"
+                    >
+                      <span />
+                      <span />
+                      <span />
+                      <span />
+                    </button>
+                </div>
+              </div>
+
 
             {/* LOGO */}
             <Link to="/" className="navbar-brand header-actions ps-2 ">
-              <img src="assets/img/favicon/favicon.png" alt="Ketea S.A" height="42" />
+              <img src="assets/img/logo/logo.svg" alt="Ketea S.A" height="42" />
             </Link>
 
+
+            <div className="header-actions d-flex align-items-center">
+              {/* Perfil */}
+              <div className="nav-item ms-auto">
+                <div className="nav-header-menu">
+                    <button
+                      type="button"
+                      className={`nav-header-menu-switch nav-button-mb ${profileOpen ? "open" : ""}`}
+                      aria-label="Menú de usuario"
+                      aria-expanded={profileOpen}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setProfileOpen(prev => !prev);
+                      }}
+                    >
+                      <span />
+                      <span />
+                      <span />
+                      <span />
+                    </button>
+
+                </div>
+
+                <div id="nav-header-menu-mobile" className={`navProfile-xs border-bottom ${profileOpen ? "open" : ""}`} onClick={(e) => e.stopPropagation()}>
+
+                  {/*LOGING*/}
+                  {isLogged && (
+                  <Link className="menu-user-info bg-primary py-3 d-flex" to="/pages/Profile?view=personalInfo" onClick={() => setProfileOpen(false)}>
+                    <div className="photo-profile-xs"></div>
+                    <div className="ps-2">
+                      <h3 className="text-white mb-0">Francisco Perez</h3>
+                      <p className="text-white small mb-0">Mi Perfil</p>
+                    </div> 
+                  </Link>
+                  )}
+                  
+                  {/*NO LOGING*/}
+                  {!isLogged && (
+                  <Link className="menu-user-info bg-primary py-3 d-flex" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">
+                    <div className="photo-profile-xs"></div>
+                    <div className="ps-2">
+                      <h3 className="text-white mb-0">Bienvenido</h3>
+                      <p className="text-white small mb-0">Ingresa a tu cuenta para realizar compras</p>
+                    </div> 
+                  </Link>
+                    )}
+
+                  {isLogged && (
+                    <>
+                    <div>
+                      {PROFILE_MENU.map(section => (
+                        <div key={section.title}>
+                          {section.items.map(item => (
+                            <Link
+                              key={item.key}
+                              className="dropdown-item"
+                              to={`/pages/Profile?view=${item.key}`}
+                              onClick={() => setProfileOpen(false)}
+                            >
+                              <i className={`bi ${item.icon} me-2`} />
+                              {item.label}
+                            </Link>
+                          ))}
+
+                          
+                        </div>
+                      ))}
+                      <hr />
+                      </div>
+                    </>
+                  )}
+
+                  
+                  <div>
+                    <Link className="dropdown-item" to="/" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-house me-2"></i> Inicio
+                    </Link>
+
+                    <Link className="dropdown-item" to="/Novedades" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-fire me-2"></i> Novedades
+                    </Link>
+                    <Link className="dropdown-item" to="/Descuentos" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-tags me-2"></i> Descuentos
+                    </Link>
+                    <Link className="dropdown-item" to="/pages/Contacto" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-geo-alt me-2"></i> Sucursales
+                    </Link>
+                    <Link className="dropdown-item" to="/pages/Sucursales" onClick={() => setProfileOpen(false)}>
+                      <i className="bi bi-envelope me-2"></i> Contacto
+                    </Link>
+                  </div>
+                  <hr/>
+
+                  <div className="px-3">
+                  <button
+                    className="dropdown-item px-2 ms-1"
+                    onClick={() => setShowLogoutModal(true)}
+                  >
+                    Cerrar sesión
+                  </button>
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* Carrito */}
+              <button
+                className="btn position-relative nav-cart"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#cartOffcanvas"
+              >
+                <i className="bi bi-cart3"></i>
+                {cart.length > 0 && ( 
+                  <span className="quantity-add">
+                    {cart.length}
+                  </span>
+                )}
+              </button>
+
+            </div>
+            </div>
 
 
             {/* BUSCADOR */}
@@ -286,130 +430,6 @@ const runSearch = (value) => {
                   </button>
                 )}
               </div>
-
-            </div>
-
-
-
-            <div className="header-actions d-flex align-items-center">
-              {/* Perfil */}
-                <div className="nav-item ms-auto">
-                  <div className="nav-header-menu">
-                      <button
-                        type="button"
-                        className={`nav-header-menu-switch nav-button-mb ${profileOpen ? "open" : ""}`}
-                        aria-label="Menú de usuario"
-                        aria-expanded={profileOpen}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setProfileOpen(prev => !prev);
-                        }}
-                      >
-                        <span />
-                        <span />
-                        <span />
-                        <span />
-                      </button>
-
-                  </div>
-
-                  <div id="nav-header-menu-mobile" className={`navProfile-xs border-bottom ${profileOpen ? "open" : ""}`} onClick={(e) => e.stopPropagation()}>
-
-                    {/*LOGING*/}
-                    {isLogged && (
-                    <Link className="menu-user-info bg-primary py-3 d-flex" to="/pages/Profile?view=personalInfo" onClick={() => setProfileOpen(false)}>
-                      <div className="photo-profile-xs"></div>
-                      <div className="ps-2">
-                        <h3 className="text-white mb-0">Francisco Perez</h3>
-                        <p className="text-white small mb-0">Mi Perfil</p>
-                      </div> 
-                    </Link>
-                    )}
-                    
-                    {/*NO LOGING*/}
-                    {!isLogged && (
-                    <Link className="menu-user-info bg-primary py-3 d-flex" type="button" data-bs-toggle="modal" data-bs-target="#signupModal">
-                      <div className="photo-profile-xs"></div>
-                      <div className="ps-2">
-                        <h3 className="text-white mb-0">Bienvenido</h3>
-                        <p className="text-white small mb-0">Ingresa a tu cuenta para realizar compras</p>
-                      </div> 
-                    </Link>
-                     )}
-
-                    {isLogged && (
-                      <>
-                      <div>
-                        {PROFILE_MENU.map(section => (
-                          <div key={section.title}>
-                            {section.items.map(item => (
-                              <Link
-                                key={item.key}
-                                className="dropdown-item"
-                                to={`/pages/Profile?view=${item.key}`}
-                                onClick={() => setProfileOpen(false)}
-                              >
-                                <i className={`bi ${item.icon} me-2`} />
-                                {item.label}
-                              </Link>
-                            ))}
-
-                            
-                          </div>
-                        ))}
-                        <hr />
-                        </div>
-                      </>
-                    )}
-
-                    
-                    <div>
-                      <Link className="dropdown-item" to="/" onClick={() => setProfileOpen(false)}>
-                        <i className="bi bi-house me-2"></i> Inicio
-                      </Link>
-
-                      <Link className="dropdown-item" to="/Novedades" onClick={() => setProfileOpen(false)}>
-                        <i className="bi bi-fire me-2"></i> Novedades
-                      </Link>
-                      <Link className="dropdown-item" to="/Descuentos" onClick={() => setProfileOpen(false)}>
-                        <i className="bi bi-tags me-2"></i> Descuentos
-                      </Link>
-                      <Link className="dropdown-item" to="/pages/Contacto" onClick={() => setProfileOpen(false)}>
-                        <i className="bi bi-geo-alt me-2"></i> Sucursales
-                      </Link>
-                      <Link className="dropdown-item" to="/pages/Sucursales" onClick={() => setProfileOpen(false)}>
-                        <i className="bi bi-envelope me-2"></i> Contacto
-                      </Link>
-                    </div>
-                    <hr/>
-
-                    <div className="px-3">
-                    <button
-                      className="dropdown-item px-2 ms-1"
-                      onClick={() => setShowLogoutModal(true)}
-                    >
-                      Cerrar sesión
-                    </button>
-                    </div>
-
-                  </div>
-
-                </div>
-
-              {/* Carrito */}
-              <button
-                className="btn position-relative nav-cart"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#cartOffcanvas"
-              >
-                <i className="bi bi-cart3"></i>
-                {cart.length > 0 && ( 
-                  <span className="quantity-add">
-                    {cart.length}
-                  </span>
-                )}
-              </button>
 
             </div>
 

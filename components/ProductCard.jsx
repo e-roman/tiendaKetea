@@ -119,7 +119,7 @@ export default function ProductCard({ product, openProduct }) {
           </p>
         )}
 
-      <div className="pt-2">
+        <div className="pt-2">
            <p className="text-pay">Pagá fácil y rápido con Mercado Pago o MODO</p>
         </div>
 

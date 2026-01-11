@@ -6,7 +6,7 @@ export default function Suscribe() {
         <div className="w-md-75 w-lg-60 text-center mx-md-auto">
           <div className="row justify-content-lg-between">
            
-            <div className="mb-5">
+            <div className="mb-3">
               <h1 className="font-bold">Suscribirse</h1>              
               <p>Recibí todas nuestras Ofertas y Recomendaciones</p>
             </div>

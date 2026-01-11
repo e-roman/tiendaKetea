@@ -276,7 +276,7 @@ const {
         <div className="footer-sidebar">
 
             {/* TOTAL */}
-            <div className="pb-4 d-flex align-items-center justify-content-between">
+            <div className="pb-3 pb-md-4 d-flex align-items-center justify-content-between">
               <h3 className="mb-0">Total:</h3>
               <h2 className="mb-0 font-bold">
                   ${total.toLocaleString("es-AR")}

@@ -70,7 +70,7 @@ export default function AccountInvoiceReceiptModal({ onClose }) {
           <div className="col-md-4">
             <small className="text-secondary mb-2 d-block">Método de pago:</small>
             <div className="d-flex align-items-center">
-              <img className="max-width-6 me-2" src="../assets/img/cards/img2.jpg" alt="Image Description" />
+              <img className="max-width-6 me-2" src="../assets/img/cards/visa.svg" alt="Image Description" />
               <span className="text-dark">•••• 3846</span>
             </div>
           </div>
