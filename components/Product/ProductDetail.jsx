@@ -242,7 +242,7 @@ const openDiscountModal = (e) => {
               <i className="bi bi-truck flex-shrink-0 me-1 lh-1 f-icons-18"></i>
               <p className="pb-3 mb-0 small lh-sm">
                 <span className="d-block text-black">
-                   <span className="font-bold">Envíos gratis</span> a partir de $99.000
+                   <span className="font-bold">Envíos grátis</span> a partir de $99.000
                 </span>
               </p>
             </div>
@@ -294,10 +294,12 @@ const openDiscountModal = (e) => {
       </div>
 
 
+
+
       {/* Compra protegida */}
-      <div className="d-flex align-items-start pt-3 px-1 px-md-0">
+      <div className="d-flex align-items-start pt-3 pb-2 px-1 px-md-0">
         <i className="bi bi-shield-check flex-shrink-0 me-1 lh-1 text-black f-icons-18"></i>
-        <p className="pb-3 mb-0 small lh-sm">
+        <p className="mb-0 small lh-sm">
           <b className="d-block text-black">Compra protegida</b>
           <span className="text-black">
             Tus datos cuidados durante toda la compra.
@@ -307,15 +309,16 @@ const openDiscountModal = (e) => {
 
 
       {/* Cambios y devoluciones */}
-      <div className="d-flex align-items-start pt-3 px-1 px-md-0">
+      <div className="d-flex align-items-start pt-3 pb-2 px-1 px-md-0">
         <i className="bi bi-arrow-clockwise flex-shrink-0 me-1 lh-1 text-black f-icons-18"></i>
-        <p className="pb-3 mb-0 small lh-sm">
+        <p className="mb-0 small lh-sm">
           <b className="d-block text-black">Cambios y devoluciones</b>
           <span className="text-black">
             Si no te gusta, podés cambiarlo por otro o devolverlo.
           </span>
         </p>
       </div>
+
 
 
       <DiscountMethod />

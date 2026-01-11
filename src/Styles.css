@@ -3279,3 +3279,11 @@ header{
 }
 
 
+.icon-verified {
+    margin-top: 0px;
+    margin-left: -3px;
+    margin-right: 6px;
+    width: 22px;
+    height: 23px;
+    display: flex;
+}
