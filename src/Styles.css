@@ -1118,7 +1118,10 @@ footer .btn-icon.btn-social {
 
 
 
-
+.css-13cymwt-control:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
 .css-13cymwt-control, .css-t3ipsp-control {
     min-height: 47px !important;
     width: 240px !important;
@@ -3195,14 +3198,17 @@ button.btn-search-mobile {
 }
 
 .mega-menu-inner {
-    min-height: 520px;
-    background: #fff;
+    min-height: 480px;
+
 }
 
 .mega-menu-left {
   width: 240px;
   border-right: 1px solid #eee;
   padding: 16px 0;
+  background: #fff;
+      border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px; 
 }
 
 .mega-menu-cat {
@@ -3212,7 +3218,7 @@ button.btn-search-mobile {
     border: 0;
     background: none;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .mega-menu-cat.active,
@@ -3223,6 +3229,9 @@ button.btn-search-mobile {
 .mega-menu-right {
   flex: 1;
   padding: 24px;
+  background: #fff;
+      border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px; 
 }
 .mega-menu-right ul li a {
     font-size: 14px;
@@ -3231,12 +3240,18 @@ button.btn-search-mobile {
     text-decoration: none;
     position: relative;
 }
+.mega-menu-right ul li a:hover {
+    text-decoration: underline;
+}
 .mega-title {
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-
+.mega-menu-cat.highlight {
+  font-weight: 700;
+  color: var(--bs-primary);
+}
 
 .layout-overlay {
   position: fixed;
@@ -3248,17 +3263,11 @@ button.btn-search-mobile {
   z-index: 900;
 }
 
-.mega-overlay {
-  position: fixed;
-  top: var(--header-height);
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.45);
-  z-index: 900;
+
+header{
+    z-index: 9999;
+    position: relative;
 }
-
-
 
 .navbar-nav-wrap {
   position: relative;

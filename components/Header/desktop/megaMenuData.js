@@ -127,19 +127,106 @@ export const megaMenuData = [
       }
     ]
   },
-  {
-    id: "oferta-semana",
-    label: "Oferta de la semana",
-    sections: []
-  },
-  {
-    id: "mas-vendidos",
-    label: "Más vendidos",
-    sections: []
-  },
-  {
-    id: "novedades",
-    label: "Novedades",
-    sections: []
-  }
+{
+  id: "accesorios-limpieza",
+  label: "Limpieza y mantenimiento",
+  sections: [
+    {
+      title: "Herramientas de limpieza",
+      items: [
+        "Redes de mano",
+        "Barridos y cepillos",
+        "Mangueras y poleas",
+        "Kits de prueba de agua",
+        "Termómetros"
+      ]
+    },
+    {
+      title: "Productos y repuestos",
+      items: [
+        "Cartuchos filtrantes",
+        "Repuestos de bombas",
+        "Accesorios skimmer",
+        "Kit de mantenimiento"
+      ]
+    }
+  ]
+},
+{
+  id: "automatizacion",
+  label: "Automatización y control",
+  sections: [
+    {
+      title: "Control automático",
+      items: [
+        "Dosificadores químicos",
+        "Timers y programadores",
+        "Control remoto vía app"
+      ]
+    }
+  ]
+},
+{
+  id: "iluminacion-agua",
+  label: "Iluminación & Efectos",
+  sections: [
+    {
+      title: "Luces y efectos",
+      items: [
+        "Luces LED piscina",
+        "Jet y fountains",
+        "Efectos de agua"
+      ]
+    }
+  ]
+},
+{
+  id: "seguridad-confort",
+  label: "Seguridad & Confort",
+  sections: [
+    {
+      title: "Accesorios",
+      items: [
+        "Cobertores",
+        "Alarmas de piscina",
+        "Escaleras & pasamanos"
+      ]
+    }
+  ]
+},
+{
+  id: "ocio",
+  label: "Diversión y ocio",
+  sections: [
+    {
+      title: "Juegos",
+      items: [
+        "Flotadores",
+        "Juegos acuáticos",
+        "Piscinas desmontables",
+        "Toboganes"
+      ]
+    }
+  ]
+},
+
+{
+  id: "oferta-semana",
+  label: "Oferta de la semana",
+  sections: [],
+  highlight: true
+},
+{
+  id: "mas-vendidos",
+  label: "Más vendidos",
+  sections: [],
+  highlight: true
+},
+{
+  id: "novedades",
+  label: "Novedades",
+  sections: [],
+  highlight: true
+}
+
 ];

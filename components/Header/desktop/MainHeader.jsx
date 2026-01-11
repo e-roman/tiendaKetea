@@ -5,9 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useCart } from "../../../src/hooks/useCart";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
-import Select from "react-select"; // <- Import react-select
-import products from "../../../data/products.json"; // A
-
+import Select from "react-select"; 
+import products from "../../../data/products.json"; 
+import { megaMenuData } from "./megaMenuData";
 
 
 export default function MainHeader() {
@@ -62,25 +62,12 @@ export default function MainHeader() {
   // Opciones para el select
   const categoryOptions = [
     { value: "", label: "Buscar en Categoría" },
-    { value: "productos-quimicos", label: "Productos Químicos" },
-    { value: "robots-dolphin", label: "Robots de Piscina" },
-    { value: "accesorios-natacion", label: "Accesorios Natación" },
-    { value: "inflables-juegos", label: "Inflables y juegos" },
-    { value: "accesorios-limpieza", label: "Accesorios de limpieza" },
-    { value: "accesorios-vaso-piscina", label: "Accesorios Vaso Piscina" },
-    { value: "accesorios-spa", label: "Accesorios de Spa" },
-    { value: "accesorios-exterior-piscina", label: "Accesorios de exterior de piscina" },
-    { value: "bombas", label: "Bombas" },
-    { value: "borders-atermicos", label: "Borders Atérmicos" },
-    { value: "climatizacion-piscinas", label: "Climatización de Piscinas" },
-    { value: "gabinetes", label: "Gabinetes" },
-    { value: "conduccion-fluidos", label: "Conducción de Fluidos" },
-    { value: "cuidado-agua", label: "Cuidado del agua" },
-    { value: "filtros", label: "Filtros" },
-    { value: "iluminacion", label: "Iluminación" },
-    { value: "revestimientos", label: "Revestimientos" },
-    { value: "riego", label: "Riego" },
+    ...megaMenuData.map(cat => ({
+      value: cat.id,
+      label: cat.label
+    }))
   ];
+
 
   return (
     <header className="py-1 border-bottom ">
