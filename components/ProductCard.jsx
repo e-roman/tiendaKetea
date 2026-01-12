@@ -71,13 +71,13 @@ export default function ProductCard({ product, openProduct }) {
       {/* Información principal */}
       <div className="card-body pt-0 pb-3 px-3">
         <button
-          className="text-body text-dark font-medium font-16 bg-transparent border-0 p-0 text-start text-clamp-2 mb-1 "
+          className="text-body text-dark font-medium font-16 bg-transparent border-0 p-0 text-start pb-1 "
           onClick={() => openProduct(product.slug)}
         >
           {product.title}
         </button>
 
-        <div className="pricing-meta mt-1 mb-1">
+        <div className="pricing-meta my-1 pb-1">
 
             {product.oldPrice && product.oldPrice > product.price && (
               <div className="old-price text-muted pb-1">
@@ -111,7 +111,7 @@ export default function ProductCard({ product, openProduct }) {
 
         {/* Badges */}
         {product.envioGratis || !product.stock ? (
-          <div>
+          <div className="pt-1">
             {!product.stock ? (
               <span className="badge py-1 px-2 bg-danger text-white">Sin Stock</span>
             ) : (
@@ -121,7 +121,7 @@ export default function ProductCard({ product, openProduct }) {
         ) : null}
 
 
-        <div className="py-1">
+        <div className="pt-2">
            <p className="text-pay small">Pagá fácil y rápido con Mercado Pago o MODO</p>
         </div>
 

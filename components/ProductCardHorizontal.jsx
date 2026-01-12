@@ -33,7 +33,7 @@ export default function ProductCardHorizontal({ product, openProduct }) {
   };
 
   return (
-    <div className="card card-bordered card-stretched-vertical shadow-none py-4">
+    <div className="card card-bordered card-stretched-vertical shadow-none py-2">
         <div className="d-flex px-3">
             <div className="col-3">
                 <div>
@@ -66,7 +66,7 @@ export default function ProductCardHorizontal({ product, openProduct }) {
                 </div>
             </div>
 
-            <div className="col-9 ps-6">
+            <div className="col-9 ps-6  d-flex align-items-center">
                 {/* Información principal */}
                 <div>
                     <div>
@@ -129,7 +129,7 @@ export default function ProductCardHorizontal({ product, openProduct }) {
                     )}
                 </div>
 
-                <div className="pt-2">
+                {/* <div className="pt-2">
                     <button
                     type="button"
                     className={`btn btn-sm rounded-pill px-10 btn-add-h ${
@@ -140,12 +140,10 @@ export default function ProductCardHorizontal({ product, openProduct }) {
                     >
                     {inCart ? "Agregado al carrito" : "Agregar al carrito"}
                     </button>
-                </div>
+                </div> */}
 
             </div>
-
         </div>
-
     </div>
   );
 }
