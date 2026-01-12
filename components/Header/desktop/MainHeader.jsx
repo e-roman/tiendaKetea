@@ -70,16 +70,16 @@ export default function MainHeader() {
 
 
   return (
-    <header className="py-2 border-bottom ">
-      <div className="container d-flex align-items-center justify-content-between">
+    <header className="py-2 ">
+      <div className="container d-flex align-items-center justify-content-between ">
         
         {/* LOGO */}
         <Link to="/" className="navbar-brand">
-          <img src="assets/img/logo/logo.svg" alt="Ketea S.A" height="60" />
+          <img src="assets/img/logo/logo-ketea.svg" alt="Ketea S.A" height="42" />
         </Link>
 
        {/* BUSCADOR */}
-        <div className="flex-grow-1 ps-4 pe-6 d-none d-md-block">
+        <div className="flex-grow-1 ps-6 pe-6 d-none d-md-block">
             <div className="d-flex position-relative">
                 <div>
                 <Select
@@ -104,7 +104,7 @@ export default function MainHeader() {
 
                 <button
                   type="button"
-                  className="btn btn-lg rounded-pill bg-light btn-search"
+                  className="btn btn-lg rounded-2 bg-light btn-search"
                   onClick={handleSearchSubmit}
                 >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search-icon lucide-search">

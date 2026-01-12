@@ -1,7 +1,7 @@
 export default function Suscribe() {
   return (
     <>
-    <div className="bg-light">
+    <div className="bg-white">
       <div className="container content-space-2">
         <div className="w-md-75 w-lg-60 text-center mx-md-auto">
           <div className="row justify-content-lg-between">
@@ -15,7 +15,7 @@ export default function Suscribe() {
               <div className="input-card input-card-pill shadow-none input-card-sm border mb-3 p-1 input-subscribe">
                 <div className="input-card-form">
                   <label htmlFor="subscribeForm" className="form-label visually-hidden">Enter email</label>
-                  <input type="text" className="form-control" id="subscribeForm" placeholder="Enter email"  />
+                  <input type="text" className="form-control" id="subscribeForm" placeholder="Escribe tu email"  />
                 </div>
                 <button type="button" className="btn btn-primary btn-sm rounded-pill">Suscribirse</button>
               </div>

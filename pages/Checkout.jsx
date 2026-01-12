@@ -142,7 +142,7 @@ navigate("/checkout/payment");
 
         <div className="summary-details">
             <div ref={summaryWrapperRef}>
-            <div  ref={summaryRef} className="bg-white rounded px-3 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
+            <div  ref={summaryRef} className="bg-white rounded border px-3 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
 
               {/* Title */}
               {/* <div className="border-bottom pb-4 mb-4">
@@ -201,7 +201,7 @@ navigate("/checkout/payment");
               <div className="border-bottom pb-2 mb-4">
                 <div className="media align-items-center mb-3">
                   <span className="text-dark font-size-1 mb-0 me-3">
-                    Item subtotal ({cart.length})
+                    Producto(s) ({cart.length})
                   </span>
                   <div className="media-body text-right">
                     <span className=" text-dark">
@@ -269,7 +269,7 @@ navigate("/checkout/payment");
 
 
 
-    <div className="bg-light bg-white-xs pt-2 pt-md-6">
+    <div className="bg-light-medium bg-white-xs pt-2 pt-md-6 space-bottom-md-3">
 
       <div className="container px-xs-0">
         <div className="row">
@@ -278,7 +278,7 @@ navigate("/checkout/payment");
           <div className="col-lg-4 order-lg-2 mb-4 mb-lg-0 d-none d-md-block">
             <div className="ps-xl-4">
               <div ref={summaryWrapperRef}>
-              <div  ref={summaryRef} className="bg-white rounded px-3 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
+              <div  ref={summaryRef} className="bg-white rounded border px-3 pt-4 pb-5 py-md-5 px-md-4 mb-4 summary-js-sticky">
 
                 {/* Title */}
                 {/* <div className="border-bottom pb-4 mb-4">
@@ -305,27 +305,8 @@ navigate("/checkout/payment");
                       </div>
 
                       <div className="media-body">
-                        <h2 className="h6">{product.title}</h2>
-
-                        {product.gender && (
-                          <div className="text-dark font-size-1">
-                            <span>Gender: </span>{product.gender}
-                          </div>
-                        )}
-
-                        {product.color && (
-                          <div className="text-dark font-size-1">
-                            <span>Color: </span>{product.color}
-                          </div>
-                        )}
-
-                        {product.size && (
-                          <div className="text-dark font-size-1">
-                            <span>Size: </span>{product.size}
-                          </div>
-                        )}
-
-                        <div className=" text-dark mt-2">
+                        <h2 className="h6 font-light">{product.title}</h2>
+                        <div className="text-dark font-bold mt-1">
                           ${product.price.toLocaleString("es-AR")}
                         </div>
                       </div>
@@ -336,8 +317,8 @@ navigate("/checkout/payment");
                 {/* SUBTOTALS */}
                 <div className="border-bottom pb-2 mb-4">
                   <div className="media align-items-center mb-3">
-                    <span className="text-dark font-size-1 mb-0 me-3">
-                      Item subtotal ({cart.length})
+                    <span className="text-dark font-size-2 font-medium mb-0 me-3">
+                      Producto(s) ({cart.length})
                     </span>
                     <div className="media-body text-right">
                       <span className=" text-dark">
@@ -350,7 +331,7 @@ navigate("/checkout/payment");
                   </div>
 
                   <div className="media align-items-center mb-3">
-                      <span className="text-dark font-size-1 mb-0 me-3">Método de envío</span>
+                      <span className="text-dark font-size-2 font-medium mb-0 me-3">Método de envío</span>
                       <div className="media-body text-end">
                         <span className="text-dark font-15">
                           {deliveryType === "pickup"
@@ -363,7 +344,7 @@ navigate("/checkout/payment");
                     </div>
                     {shipping === "express" && (
                       <div className="d-flex justify-content-between mb-3">
-                        <span className="text-dark font-size-1">
+                        <span className="text-dark font-size-2 font-medium">
                           Costo de envío
                         </span>
                         <span className=" text-dark">
@@ -409,14 +390,14 @@ navigate("/checkout/payment");
           <div className="col-lg-8 order-lg-1">
 
 
-            <div className="card shadow-none mb-4">
+            <div className="card shadow-none border mb-4">
               <div className="card-body px-3 pt-5 pb-5 py-md-5 px-md-5">
               <StepsCheckout />
               </div>
             </div>
 
 
-            <div className="card shadow-none mb-5">
+            <div className="card shadow-none border mb-5">
               <div className="card-body px-3 pt-5 pb-5 py-md-5 px-md-5">
                 <form
                   ref={formRef}
@@ -436,7 +417,7 @@ navigate("/checkout/payment");
 
                   <label className="d-flex align-items-center gap-2">
                     <input type="checkbox" className="form-check-input mt-0" />
-                    <small>Quiero recibir ofertas y novedades por email</small>
+                    <p className="mb-0">Quiero recibir ofertas y novedades por email</p>
                   </label>
                 </div>
 
@@ -677,14 +658,9 @@ navigate("/checkout/payment");
                     <div className="col-12 pt-3">
                         <div className="js-form-message">
 
-                            <label className="d-flex align-items-start gap-2 mb-3"> 
+                            <label className="d-flex align-items-center gap-2 mb-3"> 
                               <input className="form-check-input flex-shrink-0 mt-0" type="checkbox" value="" /> 
-                              <small className="d-block text-body-secondary"> Mi información de facturación y envío es la misma.</small>
-                            </label>
-
-                            <label className="d-flex align-items-start gap-2"> 
-                              <input className="form-check-input flex-shrink-0 mt-0" type="checkbox" value="" /> 
-                              <small className="d-block text-body-secondary">Quiero recibir ofertas y novedades por e-mail</small>
+                              <p className="d-block text-body-secondary mb-0"> Mi información de facturación y envío es la misma.</p>
                             </label>
                         </div>
                       </div>
@@ -701,7 +677,7 @@ navigate("/checkout/payment");
 
                     <button
                       type="submit"
-                      className="btn btn-primary btn-sm rounded-pill px-6 order-1 order-md-2 mb-5 mb-md-0 mt-5 mt-md-0 btn-checkout"
+                      className="btn btn-primary btn-sm font-16 px-6 order-1 order-md-2 mb-5 mb-md-0 mt-5 mt-md-0 btn-checkout"
                     >
                         Continuar al pago
                     </button>

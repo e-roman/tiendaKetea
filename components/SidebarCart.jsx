@@ -284,7 +284,7 @@ const {
             </div>
 
           <div className="mb-md-3 w-100">
-            <button className="btn btn-primary rounded-pill px-6 w-100" onClick={handleStartCheckout}>
+            <button className="btn btn-primary font-18 px-6 w-100" onClick={handleStartCheckout}>
               Iniciar compra
             </button>
           </div>

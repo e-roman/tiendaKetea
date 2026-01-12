@@ -6,8 +6,8 @@ export default function ProductGrid({
   type // "ofertas" | "novedades"
 }) {
   const limitByType = {
-    ofertas: 8,
-    novedades: 4
+    ofertas: 5,
+    novedades: 5
   };
 
   const limit = limitByType[type] ?? 4;
@@ -21,7 +21,7 @@ export default function ProductGrid({
     .slice(0, limit);
 
   return (
-    <div className="row g-3 row-cols-2 row-cols-md-3 row-cols-lg-4">
+    <div className="row g-2 row-cols-2 row-cols-md-3 row-cols-lg-5">
       {filteredProducts.map((p) => (
         <div className="col" key={p.id}>
           <ProductCard product={p} openProduct={openProduct} />

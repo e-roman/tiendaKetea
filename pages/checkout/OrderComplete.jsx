@@ -29,7 +29,7 @@ export default function OrderComplete() {
         </div>
     </header>
 
-    <div className="bg-light py-5 py-md-10">
+    <div className="bg-light-medium py-5 py-md-10">
       <div className="row mx-0 justify-content-center py-md-10">
         <div className="col-md-12 col-lg-4">
 

@@ -25,7 +25,7 @@ export default function NavCategories({
             {/* BOTÓN */}
             <li className="nav-item position-static">
               <button
-                className="nav-link btn-drop"
+                className="nav-link btn-drop ps-1"
                 onClick={() => setMegaOpen(prev => !prev)}
               >
                 <i className="bi bi-list"></i>

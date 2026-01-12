@@ -61,17 +61,6 @@ export default function ProductCard({ product, openProduct }) {
           </button>
         </div>
 
-        {/* Badges */}
-        {product.envioGratis || !product.stock ? (
-          <div className="badge-envio">
-            {!product.stock ? (
-              <span className="badge py-1 px-2 bg-danger text-white">Sin Stock</span>
-            ) : (
-              <span className="badge py-1 px-2 bg-dark me-1">Envío Grátis</span>
-            )}
-          </div>
-        ) : null}
-
         {product.cuotasLabelBadge && (
           <div className="card-pinned-top-start">
              <span className="badge py-1 px-2 badge-yellow">{product.cuotasLabelBadge}</span>
@@ -80,7 +69,7 @@ export default function ProductCard({ product, openProduct }) {
       </div>
 
       {/* Información principal */}
-      <div className="card-body p-2 px-3">
+      <div className="card-body pt-0 pb-3 px-3">
         <button
           className="text-body text-dark font-medium font-16 bg-transparent border-0 p-0 text-start text-clamp-2 mb-1 "
           onClick={() => openProduct(product.slug)}
@@ -92,7 +81,7 @@ export default function ProductCard({ product, openProduct }) {
 
             {product.oldPrice && product.oldPrice > product.price && (
               <div className="old-price text-muted pb-1">
-                Desde: AR$ {formatPrice(product.oldPrice)}
+                AR$ {formatPrice(product.oldPrice)}
               </div>
             )}
 
@@ -114,13 +103,26 @@ export default function ProductCard({ product, openProduct }) {
         </div>
 
         {product.installmentsLabel && (
-          <p className="small mb-0 font-13 font-bold">
-            Hasta <span>{product.installmentsLabel}</span> sin interés
+          <p className="small mb-0 font-13 font-medium">
+            Hasta <span className="font-bold">{product.installmentsLabel}</span> sin interés
           </p>
         )}
 
-        <div className="pt-2">
-           <p className="text-pay">Pagá fácil y rápido con Mercado Pago o MODO</p>
+
+        {/* Badges */}
+        {product.envioGratis || !product.stock ? (
+          <div>
+            {!product.stock ? (
+              <span className="badge py-1 px-2 bg-danger text-white">Sin Stock</span>
+            ) : (
+              <span className="badge py-1 px-2 bg-dark me-1">Envío Grátis</span>
+            )}
+          </div>
+        ) : null}
+
+
+        <div className="py-1">
+           <p className="text-pay small">Pagá fácil y rápido con Mercado Pago o MODO</p>
         </div>
 
         {/* {product.taxLabel && (
@@ -129,10 +131,10 @@ export default function ProductCard({ product, openProduct }) {
       </div>
 
       {/* Botón agregar al carrito */}
-      <div className="card-footer pt-2 px-3 pb-3">
+      {/* <div className="card-footer pt-2 px-3 pb-3">
         <button
           type="button"
-          className={`btn btn-sm rounded-pill px-4 w-100 ${
+          className={`btn btn-sm px-4 w-100 ${
             !hasStock
               ? "btn-secondary"
               : inCart
@@ -148,7 +150,7 @@ export default function ProductCard({ product, openProduct }) {
             ? "Agregado al carrito"
             : "Agregar al carrito"}
         </button>
-      </div>
+      </div> */}
 
     </div>
   );

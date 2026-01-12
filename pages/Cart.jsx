@@ -29,67 +29,52 @@ export default function MyCart() {
   const total = subtotal + shippingCost;
   
  
-const increase = (item) => {
-  setLoadingItemId(item.id);
+  const increase = (item) => {
+    setLoadingItemId(item.id);
 
-  setTimeout(() => {
-    updateQuantity(item.id, item.quantity + 1);
-    setLoadingItemId(null);
-  }, 300);
-};
+    setTimeout(() => {
+      updateQuantity(item.id, item.quantity + 1);
+      setLoadingItemId(null);
+    }, 300);
+  };
 
-const decrease = (item) => {
-  if (item.quantity <= 1) return;
+  const decrease = (item) => {
+    if (item.quantity <= 1) return;
 
-  setLoadingItemId(item.id);
+    setLoadingItemId(item.id);
 
-  setTimeout(() => {
-    updateQuantity(item.id, item.quantity - 1);
-    setLoadingItemId(null);
-  }, 300);
-};
+    setTimeout(() => {
+      updateQuantity(item.id, item.quantity - 1);
+      setLoadingItemId(null);
+    }, 300);
+  };
 
   return (
     <>
-    <header className="py-2 border-bottom sticky-nav bg-white">
-      <div className="container d-flex align-items-center justify-content-between">
-        
-        {/* LOGO */}
-        <div>
-        <Link to="/" className="navbar-brand">
-          <img src="assets/img/logo/logo.svg" alt="Logo" height="60" />
-        </Link>
-        </div>
-
-        <div>
-          <div className="security-seal">
-            <span className="d-inline-block">
-              <img alt="Compra Segura" src="https://checkout-front.tiendanube.com/production/2.3.619/_next/server/static/img/safe-shopping.svg" className="security-seal-badge" /></span>
-              <span className="d-inline-block text-left">
-                <p className="m-none text-uppercase text-semi-bold mb-0"><b>Compra Segura</b></p>
-              <p className="m-none text-uppercase mb-0">100% Protegido</p></span>
-          </div>
-        </div>
-
-        </div>
-    </header>
 
 
 
 
-    <div className="bg-light">
-      <div className="container space-1 space-md-2">
+    <div className="bg-light-medium">
+      <div className="container space-1 space-md-t-1 space-bottom-md-3">
         <div className="row">
+
+        <div className="col-lg-12 pb-4">
+          <h1 className="h3 mb-0">Mi Carrito</h1>
+        </div>
+
+
+
 
           {/* LEFT COLUMN - PRODUCTS */}
           <div className="col-lg-8">
-            <div className="card shadow-none mb-4 mb-md-5">
-              <div className="card-body px-4 pt-4 pb-5 py-md-5 px-md-5">
+            <div className="card shadow-none border mb-4 mb-md-5">
+              <div className="card-body px-4 pt-4 pb-5 py-md-4 px-md-5">
 
                 {/* TITLE */}
                 <div className="d-flex justify-content-between align-items-end border-bottom pb-3 mb-7">
-                  <h1 className="h3 mb-0">Productos seleccionados</h1>
-                  <span>{cart.length} items</span>
+                  <h1 className="h4 mb-0 ">Productos seleccionados</h1>
+                  <span className="text-dark">{cart.length} Producto(s)</span>
                 </div>
 
                 {/* PRODUCTS LIST */}
@@ -164,19 +149,17 @@ const decrease = (item) => {
 
                           {/* Quantity + Price */}
                           <div className="d-flex align-items-center justify-content-between gap-3 mb-3">
-                            
                             <QuantityControl
                               item={item}
                               onIncrease={increase}
                               onDecrease={decrease}
                             />
-
                           </div>
 
                           <button
                             type="button"
                             onClick={() => removeFromCart(item.id)}
-                            className="d-block text-secondary font-size-1 mb-1 bg-transparent border-0 p-0"
+                            className="d-block text-dark font-size-1 mb-1 bg-transparent border-0 p-0"
                           >
                             <i className="bi bi-trash me-1"></i>
                             Eliminar
@@ -185,7 +168,7 @@ const decrease = (item) => {
 
                         {/* PRICE (final individual) */}
                         <div className="col-6 col-md-3 text-md-right">
-                          <span className="font-medium">
+                          <span className="font-bold text-dark">
                            ${(item.price * item.quantity).toLocaleString("es-AR")}
                           </span>
                         </div>
@@ -195,6 +178,10 @@ const decrease = (item) => {
 
 
                 </form>
+
+                <div>
+                  <p className="font-15 text-dark m-0"><b>Llega en 1 día hábil</b> seleccionando <b>Envío Express</b> al comprar</p>
+                </div>
               </div>
             </div>
 
@@ -211,15 +198,15 @@ const decrease = (item) => {
           <div className="col-lg-4">
             <div className="ps-lg-4">
 
-              <div className="bg-white shadow-soft rounded px-4 pt-4 pb-5 pt-md-5 pb-md-5 px-md-5 mb-4">
-                <div className="border-bottom pb-4 mb-4">
+              <div className="bg-white shadow-soft rounded border px-4 pt-4 pb-5 pt-md-4 pb-md-4 px-md-4 mb-4">
+                <div className="border-bottom pb-3 mb-4">
                   <h2 className="h4 font-bold mb-0">Resumen del pedido</h2>
                 </div>
 
                 <div className="border-bottom mb-4">
                   <div className="media align-items-center mb-3">
-                    <h3 className="text-secondary font-size-1 mb-0 me-3">
-                      Item subtotal ({totalItems})
+                    <h3 className=" font-size-1 mb-0 me-3">
+                      Productos  ({totalItems})
                     </h3>
                     <div className="media-body text-right">
                       <span className="font-medium text-dark">
@@ -229,7 +216,7 @@ const decrease = (item) => {
                   </div>
 
                   <div className="media align-items-center mb-3">
-                    <h4 className="text-secondary font-size-1 mb-0 me-3">
+                    <h4 className="font-size-1 mb-0 me-3">
                       Envío
                     </h4>
                     <div className="media-body text-right">
@@ -305,14 +292,22 @@ const decrease = (item) => {
                     </span>
                   </div>
                 </div>
-
-                <Link className="btn btn-sm font-16 btn-primary rounded-pill w-100" to="/checkout">
-                  Finalizar
+              
+                <Link className="btn btn-sm font-16 btn-primary font-medium w-100" to="/checkout">
+                  Comenzar compra
                 </Link>
+
               </div>
 
               {/* HELP */}
-              <div className="media align-items-center justify-content-center">
+              <div>
+                <div className="mb-5">
+                  <div className="d-flex">
+                   <i className="bi bi-tags pe-1"></i>
+                   <span className="font-14 text-dark font-medium m-0 "> Si tenes un <b>cupón de descuento</b>, podés aplicarlo en el siguiente paso antes de finalizar la compra.</span>
+                  </div>
+                </div>
+
                 <div className="media-body text-secondary small text-center">
                   <span className="font-medium me-1">¿Necesitás ayuda?</span>
                   <a className="link-muted" href="#">Escribinos</a>

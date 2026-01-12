@@ -4,19 +4,19 @@ import { useLocation, useNavigate } from "react-router-dom";
 const steps = [
   {
     id: 1,
-    label: "Carrito",
+    label: "Mi Carrito",
     path: "/cart",
     icon: "bi-cart"
   },
   {
     id: 2,
-    label: "Entrega",
+    label: "Datos de envío",
     path: "/checkout",
     icon: "bi-truck"
   },
   {
     id: 3,
-    label: "Pago",
+    label: "Método de pago",
     path: "/checkout/payment",
     icon: "bi-credit-card"
   },

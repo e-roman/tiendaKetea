@@ -133,7 +133,7 @@ const toggleSummary = () => {
 
         <div className="summary-details">
               <div ref={summaryWrapperRef}>
-              <div  ref={summaryRef} className="bg-white rounded px-3 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
+              <div  ref={summaryRef} className="bg-white rounded border px-3 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
 
                 {/* Title */}
                 {/* <div className="border-bottom pb-4 mb-4">
@@ -258,7 +258,7 @@ const toggleSummary = () => {
       </div>
 
 
-    <div className="bg-light">
+    <div className="bg-light-medium">
       <div className="container py-5">
         <div className="row">
           <div className="col-lg-8">
@@ -270,7 +270,7 @@ const toggleSummary = () => {
 
 
 
-   <div className="bg-light bg-white-xs">
+   <div className="bg-light-medium bg-white-xs space-bottom-md-4">
       <div className="container px-xs-0">
         <div className="row">
 
@@ -278,7 +278,7 @@ const toggleSummary = () => {
           <div className="col-lg-4 order-lg-2 mb-4 mb-lg-0 d-none d-md-block ">
             <div className="ps-xl-4">
               <div ref={summaryWrapperRef}>
-              <div  ref={summaryRef} className="bg-white rounded px-3 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
+              <div  ref={summaryRef} className="bg-white rounded border px-3 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
 
                 {/* Title */}
                 {/* <div className="border-bottom pb-4 mb-4">

@@ -49,7 +49,7 @@ export default function ProductPage() {
   const subcategory = product.subcategory || "Detalle";
 
   return (
-    <div>
+    <div className="bg-white">
       <AlertFloating />
 
       <div className="container pt-3 pt-lg-5 px-0-xs">
@@ -93,8 +93,9 @@ export default function ProductPage() {
 
       <ProductSpecificationsBlocks />
       
+      <div className="bg-light-medium">
       <ProductsOthers currentProduct={product} openProduct={openProduct} />
-
+      </div>
 
       <Suscribe />
       <BrandsLogos />

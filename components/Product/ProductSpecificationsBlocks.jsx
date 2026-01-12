@@ -17,12 +17,14 @@ return (
           <div className="pe-lg-4">
             <h3 className="h4 font-weight-medium"> Sobre Dolphin S100</h3>
             <p> Dolphin utiliza el flujo de agua multidireccional, que le permite navegar de manera precisa por su piscina.
-                El microprocesador avanzado en el robot decide lógicamente qué flujos de agua usar para lograr sus objetivos. El PowerStream le permite al Dolphin que se aferre a las paredes mientras limpia. El resultado es una mayor movilidad y una piscina totalmente limpia.</p>
+                El microprocesador avanzado en el robot decide lógicamente qué flujos de agua usar para lograr sus objetivos. 
+                El PowerStream le permite al Dolphin que se aferre a las paredes mientras limpia. 
+                El resultado es una mayor movilidad y una piscina totalmente limpia. <a href="#" className="font-medium">Descargar manual</a></p>
           </div>
         </div>
 
         <div className="col-md-6 mb-5 mb-md-0">
-          <h3 className="h4 font-weight-medium">Datos técnicos</h3>
+          <h3 className="h4 font-weight-medium">Especificaciones técnicas</h3>
 
           <div className="row">
             <div className="col-sm-6">
@@ -48,14 +50,7 @@ return (
     </div>
    
 
-
-
-
-
-
-
-
-    <div className="container" id="">
+    <div className="container space-bottom-lg-3">
       <div className="row justify-content-lg-between align-items-lg-center">
         <div className="col-lg-5 space-1 space-lg-2">
           <h3 className="font-weight-medium mb-4">Navegación de Prescisión</h3>

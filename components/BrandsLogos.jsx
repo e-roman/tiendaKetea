@@ -12,6 +12,7 @@ const BRANDS = [
 
 export default function BrandsLogos() {
   return (
+    <div className="bg-white">
     <div className="container content-space-2 border-bottom">
       <Swiper
         spaceBetween={24}
@@ -42,6 +43,7 @@ export default function BrandsLogos() {
           </SwiperSlide>
         ))}
       </Swiper>
+    </div>
     </div>
   );
 }

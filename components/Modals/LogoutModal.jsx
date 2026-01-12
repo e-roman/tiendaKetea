@@ -4,7 +4,7 @@ import { useAuth } from "../../src/context/AuthContext";
 export default function LogoutModal({ show, onClose }) {
   const { logout } = useAuth();
   const [loading, setLoading] = useState(false);
-  
+
   // Si no se muestra, no renderizamos nada
 if (!show) {
   return (
@@ -72,13 +72,13 @@ if (!show) {
           <div className="modal-content position-relative">
 
             {/* Close */}
-            <button
+            {/* <button
               type="button"
               className="btn-close position-absolute"
               style={{ top: "0.75rem", right: "0.75rem" }}
               onClick={onClose}
               disabled={loading}
-            />
+            /> */}
 
             <div className="modal-body text-center p-5">
               <h2 id="logoutModalTitle" className="mb-3">
@@ -89,7 +89,7 @@ if (!show) {
                 ¿Confirmás que deseas cerrar tu sesión?
               </p>
 
-              <div className="d-grid gap-2">
+              <div className="d-grid gap-3">
 
                 <button
                   type="button"

@@ -6,7 +6,7 @@ const [paymentMethod, setPaymentMethod] = useState(null);
 
   return (
     <>
-    <div className="card shadow-none p-3 p-md-5 mb-3">
+    <div className="card shadow-none border p-3 p-md-5 mb-3">
       {/* Email */}
       <div className="d-flex align-items-center mb-3 text-black font-15">
         <i className="bi bi-envelope me-2"></i>
@@ -61,7 +61,10 @@ const [paymentMethod, setPaymentMethod] = useState(null);
       </div>
     </div>
 
-     <div className="card shadow-none p-3 p-md-5">
+
+    
+
+    <div className="card shadow-none border p-3 p-md-5">
 
         {/* MÉTODO DE PAGO */}
         <div className="mb-3">
@@ -76,9 +79,9 @@ const [paymentMethod, setPaymentMethod] = useState(null);
               className="btn btn-outline-secondary button-payment d-md-flex justify-content-between align-items-center text-left-xs text-black font-medium p-3"
               onClick={() => setPaymentMethod("card")}
             >
-              <div className="d-flex d-md-block">
+              <div className="d-flex w-100">
                 <div><i className="bi bi-credit-card me-2"></i></div>
-                <div>
+                <div className="d-flex justify-content-between w-100">
                   <div className="w-xs-100"><span>Tarjeta de crédito o débito</span></div>
                   <div className="w-xs-100 d-none d-md-block"><small className="text-black">Hasta 3 cuotas sin interés</small></div>
                 </div>

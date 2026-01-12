@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-  <footer>
+  <footer className="bg-white">
     <div className="container">
       <div className="row justify-content-lg-between content-space-t-2 content-space-b-lg-2">
         <div className="col-lg-3 mb-5">

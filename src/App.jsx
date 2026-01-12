@@ -26,7 +26,6 @@ import NovedadesPage from "../pages/Novedades";
 import DescuentosPage from "../pages/Descuentos";
 
 const HIDE_COMPONENTS_ROUTES = [
-  "/cart",
   "/checkout",
   "/checkout/payment",
   "/order-complete",
@@ -56,8 +55,8 @@ const [showLogoutModal, setShowLogoutModal] = useState(false);
       <ScrollToTop />
       <PageLoader visible={loading} />
 
-      <Header setShowLogoutModal={setShowLogoutModal} />
-
+      
+      {!hideComponent && <Header setShowLogoutModal={setShowLogoutModal} />}
 
 
       {/* OVERLAY GLOBAL */}
@@ -88,12 +87,12 @@ const [showLogoutModal, setShowLogoutModal] = useState(false);
 
       {!hideComponent && <Footer />}
       <Login />
-{showLogoutModal && (
-  <LogoutModal
-    show={showLogoutModal}
-    onClose={() => setShowLogoutModal(false)}
-  />
-)}
+      {showLogoutModal && (
+        <LogoutModal
+          show={showLogoutModal}
+          onClose={() => setShowLogoutModal(false)}
+        />
+      )}
       <SupportChat />
     </FloatingAlertProvider>
   );

@@ -2175,7 +2175,7 @@ progress {
     color: #1e2022;
     background-color: #fff;
     background-clip: padding-box;
-    border: .0625rem solid rgba(33, 50, 91, .1);
+    border: .0625rem solid rgba(33, 50, 91, .15);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -2430,7 +2430,7 @@ textarea.form-control-lg {
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    border: 1px solid rgba(33, 50, 91, .1);
+    border: 1px solid rgba(33, 50, 91, .3);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -6859,31 +6859,31 @@ fieldset:disabled .btn {
     transform: translateY(-50%)!important
 }
 .border {
-    border: .0625rem solid rgba(231,234,243,.7)!important
+    border: .0625rem solid rgba(33, 50, 91, 0.1)!important
 }
 .border-0 {
     border: 0!important
 }
 .border-top {
-    border-top: .0625rem solid rgba(231,234,243,.7)!important
+    border-top: .0625rem solid rgba(33, 50, 91, 0.1)!important
 }
 .border-top-0 {
     border-top: 0!important
 }
 .border-end {
-    border-right: .0625rem solid rgba(231,234,243,.7)!important
+    border-right: .0625rem solid rgba(33, 50, 91, 0.1)!important
 }
 .border-end-0 {
     border-right: 0!important
 }
 .border-bottom {
-    border-bottom: .0625rem solid rgba(231,234,243,.7)!important
+    border-bottom: .0625rem solid rgba(33, 50, 91, 0.1)!important
 }
 .border-bottom-0 {
     border-bottom: 0!important
 }
 .border-start {
-    border-left: .0625rem solid rgba(231,234,243,.7)!important
+    border-left: .0625rem solid rgba(33, 50, 91, 0.1)!important
 }
 .border-start-0 {
     border-left: 0!important
@@ -16732,13 +16732,13 @@ input[type=number] {
 }
 .card-pinned-top-start {
     position: absolute;
-    top: 1rem;
-    left: 1rem
+    top: 0.7rem;
+    left: 0.7rem
 }
 .card-pinned-top-end {
     position: absolute;
-    top: 1rem;
-    right: 1rem
+    top: 0.7rem;
+    right: 0.7rem
 }
 .card-pinned-bottom-start {
     position: absolute;
