@@ -23,7 +23,8 @@
     "cuotasLabel": "12 cuotas sin interés",
     "installmentsLabel": "3x $1.354.185",
     "taxLabel": "Impuestos Nacionales aprox. $852,136",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-09-01",
     "code": "#32510A"
   },
@@ -51,7 +52,8 @@
     "cuotasLabel": "12 cuotas sin interés",
     "installmentsLabel": "3x $692.685",
     "taxLabel": "Impuestos Nacionales aprox. $436,392",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-10-20",
     "code": "#32510A"
   },
@@ -79,7 +81,8 @@
     "cuotasLabel": "12 cuotas sin interés",
     "installmentsLabel": "3x $1.914.000",
     "taxLabel": "Impuestos Nacionales aprox. $1,205,820",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-09-15",
     "code": "#32510A"
   },
@@ -108,7 +111,8 @@
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "3x $2.330.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,467,331",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-12-01",
     "code": "#32510A"
   },
@@ -137,6 +141,7 @@
     "installmentsLabel": "3x $2.330.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,467,331",
     "isFeatured": true,
+    "mostSale": true,
     "date": "2024-12-01",
     "code": "#32510A"
   },
@@ -166,7 +171,8 @@
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "3x $1.102.185",
     "taxLabel": "Impuestos Nacionales aprox. $693,377",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-11-22",
     "code": "#32510A"
   },
@@ -196,6 +202,7 @@
     "installmentsLabel": "3x $2.078.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,309,571",
     "isFeatured": true,
+    "mostSale": true,
     "date": "2024-08-10",
     "code": "#32510A"
   },
@@ -224,7 +231,8 @@
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "3x $1.480.185",
     "taxLabel": "Impuestos Nacionales aprox. $932,516",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-08-01",
     "code": "#32510A"
   },
@@ -253,7 +261,8 @@
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "3x $1.889.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,190,501",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-07-28",
     "code": "#32510A"
   },
@@ -282,7 +291,8 @@
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "3x $923.720",
     "taxLabel": "Impuestos Nacionales aprox. $582,045",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-07-12",
     "code": "#32510A"
   },
@@ -311,7 +321,8 @@
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "3x $837.585",
     "taxLabel": "Impuestos Nacionales aprox. $525,579",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-07-01",
     "code": "#32510A"
   },
@@ -339,7 +350,8 @@
     "cuotasLabel": "Hasta 6 cuotas sin interés",
     "installmentsLabel": "6x $2.897.842",
     "taxLabel": "Impuestos Nacionales aprox. $3,650,181",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-11-27",
     "code": "#32510A"
   },
@@ -367,7 +379,8 @@
     "cuotasLabel": "",
     "installmentsLabel": "6x $2.897.842",
     "taxLabel": "Impuestos Nacionales aprox. $3,650,181",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-06-15",
     "code": "#32510A"
   },
@@ -397,6 +410,7 @@
     "installmentsLabel": "3x $1.291.185",
     "taxLabel": "Impuestos Nacionales aprox. $811,447",
     "isFeatured": true,
+    "mostSale": true,
     "date": "2024-11-25",
     "code": "#32510A"
   },
@@ -429,7 +443,8 @@
     "cuotasLabel": "Hasta 6 cuotas sin interés",
     "installmentsLabel": "6x $82.498",
     "taxLabel": "Impuestos Nacionales aprox. $103.947",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-11-10",
     "code": "#AIP14"
   },
@@ -458,7 +473,8 @@
     "cuotasLabel": "Hasta 12 cuotas sin interés",
     "installmentsLabel": "12x $63.332",
     "taxLabel": "Impuestos Nacionales aprox. $159.598",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-11-15",
     "code": "#DOL15"
   },
@@ -470,8 +486,8 @@
     ],
     "image": "../assets/img/products/bublue-bubot-300p.png",
     "title": "Robot limpia piscina Bubot 300P",
-    "price": 158060,
-    "oldPrice": 179990,
+    "price": 1580600,
+    "oldPrice": 1799900,
     "discount": 12,
     "categories": ["Robots", "Piscina"],
     "Marca": "Bubot",
@@ -488,6 +504,7 @@
     "installmentsLabel": "3x $52.687",
     "taxLabel": "Impuestos Nacionales aprox. $33.193",
     "isFeatured": true,
+    "mostSale": true,
     "date": "2024-10-18",
     "code": "#BUB16"
   },
@@ -516,7 +533,8 @@
     "cuotasLabel": "Hasta 6 cuotas sin interés",
     "installmentsLabel": "6x $48.977",
     "taxLabel": "Impuestos Nacionales aprox. $61.711",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-09-22",
     "code": "#BET17"
   },
@@ -528,8 +546,8 @@
     ],
     "image": "../assets/img/products/aiper-scuba-s1.png",
     "title": "Beatbot AquaSense 2",
-    "price": 999000,
-    "oldPrice": 1599000,
+    "price": 2090000,
+    "oldPrice": 2990000,
     "discount": 37,
     "categories": ["Robots", "Piscina", "premium"],
     "Marca": "Beatbot",
@@ -546,6 +564,7 @@
     "installmentsLabel": "12x $83.250",
     "taxLabel": "Impuestos Nacionales aprox. $209.790",
     "isFeatured": true,
+    "mostSale": true,
     "date": "2024-12-05",
     "code": "#BEA18"
   },
@@ -574,7 +593,8 @@
     "cuotasLabel": "Hasta 12 cuotas sin interés",
     "installmentsLabel": "12x $165.693",
     "taxLabel": "Impuestos Nacionales aprox. $417.546",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-10-01",
     "code": "#POL19"
   },
@@ -603,7 +623,8 @@
     "cuotasLabel": "Hasta 3 cuotas sin interés",
     "installmentsLabel": "3x $2.330.685",
     "taxLabel": "Impuestos Nacionales aprox. $1,467,331",
-    "isFeatured": false,
+    "isFeatured": true,
+    "mostSale": true,
     "date": "2024-12-01",
     "code": "#32510A"
   }

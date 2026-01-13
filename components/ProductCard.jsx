@@ -80,15 +80,18 @@ export default function ProductCard({ product, openProduct }) {
         <div className="pricing-meta my-1 pb-1">
 
             {product.oldPrice && product.oldPrice > product.price && (
-              <div className="old-price text-muted pb-1">
-                AR$ {formatPrice(product.oldPrice)}
+              <div className="d-flex align-items-center gap-1 pb-1">
+                <span className="font-13">Antes</span>
+                <div className="old-price text-muted">
+                  {formatPrice(product.oldPrice)}
+                </div>
               </div>
             )}
 
 
           <ul className="list-unstyled d-flex align-items-center gap-1">
             <li className="current-price text-dark">
-              <span className="font-13">AR$</span> {formatPrice(product.price)}
+               {formatPrice(product.price)}
             </li>
 
 

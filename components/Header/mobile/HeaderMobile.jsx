@@ -240,13 +240,13 @@ const runSearch = (value) => {
                     </Link>
 
                     <Link className="dropdown-item" to="/Novedades" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-fire me-2"></i> Novedades
+                      <i className="bi bi-star me-2"></i> Novedades
                     </Link>
                     <Link className="dropdown-item" to="/Descuentos" onClick={() => setProfileOpen(false)}>
                       <i className="bi bi-tags me-2"></i> Descuentos
                     </Link>
-                    <Link className="dropdown-item" to="/pages/Contacto" onClick={() => setProfileOpen(false)}>
-                      <i className="bi bi-geo-alt me-2"></i> Sucursales
+                    <Link className="dropdown-item" to="/pages/Mas-vendido" onClick={() => setProfileOpen(false)}>
+                     <i className="bi bi-fire me-2"></i> Más vendido
                     </Link>
                     <Link className="dropdown-item" to="/pages/Sucursales" onClick={() => setProfileOpen(false)}>
                       <i className="bi bi-envelope me-2"></i> Contacto

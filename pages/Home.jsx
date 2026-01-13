@@ -8,8 +8,6 @@ import HeroSlider from "../components/HeroSlider";
 import BlockServices from "../components/BlockServices";
 import Block2ColsBanners from "../components/Block2ColsBanners";
 import Block3ColsBanners from "../components/Block3ColsBanners";
-// import Suscribe from "../components/Suscribe";
-import BrandsLogos from "../components/BrandsLogos";
 
 import ProductGrid from "../components/Home/ProductGrid";
 import ProductCarousel from "../components/Home/ProductCarousel";
@@ -48,10 +46,10 @@ export default function Home() {
       {/* Productos Destacados */}
       <div className="container content-space-1 content-space-lg-1 px-0 px-md-3">
 
-        <div className="w-md-75 mb-5 mb-md-4 d-md-flex align-items-center px-3 px-md-0">
-          <h2 className="font-medium pb-2 pb-md-0">Últimas novedades en robotos limpia psicinas.</h2>
+        <div className="w-100 mb-5 mb-md-4 d-md-flex align-items-center justify-content-between px-3 px-md-0">
+          <h3 className="font-medium pb-2 pb-md-0">Últimas novedades en robotos limpia psicinas.</h3>
           <div className="ps-md-2">
-            <Link to="/Novedades" className="font-18 font-medium">Ver todos</Link>
+            <Link to="/Novedades" className="font-16 font-medium">Ver todos</Link>
           </div>
         </div>
 
@@ -76,10 +74,10 @@ export default function Home() {
 
       {/* Ofertas */}
       <div className="container content-space-1 content-space-t-lg-1 px-0 px-md-3">
-        <div className="w-md-75 mb-5 mb-md-4 d-md-flex align-items-center px-3 px-md-0">
-          <h2 className="font-medium pb-2 pb-md-0">Las mejores ofertas de la semana.</h2>
+        <div className="w-100 mb-5 mb-md-4 d-md-flex align-items-center justify-content-between px-3 px-md-0">
+          <h3 className="font-medium pb-2 pb-md-0">Las mejores ofertas de la semana.</h3>
           <div className="ps-md-2">
-            <Link to="/Ofertas" className="font-18 font-medium">Ver todos</Link>
+            <Link to="/Ofertas" className="font-16 font-medium">Ver todos</Link>
           </div>
         </div>
 
@@ -103,9 +101,6 @@ export default function Home() {
        <Block3ColsBanners/>
 
 
-
-      {/* <Suscribe /> */}
-      <BrandsLogos />
     </>
   );
 }

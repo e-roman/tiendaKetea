@@ -18,9 +18,6 @@ import ProductsOthers from "../components/Product/ProductsOthers";
 import { useFloatingAlert } from "../src/context/FloatingAlertContext";
 import AlertFloating from "../components/AlertFloating";
 
-import Suscribe from "../components/Suscribe";
-import BrandsLogos from "../components/BrandsLogos";
-
 export default function ProductPage() {
   const isMobile = useIsMobile(768); 
 
@@ -96,9 +93,6 @@ export default function ProductPage() {
       <div className="bg-light-medium">
       <ProductsOthers currentProduct={product} openProduct={openProduct} />
       </div>
-
-      <Suscribe />
-      <BrandsLogos />
 
 
     </div>

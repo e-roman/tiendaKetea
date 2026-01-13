@@ -1,19 +1,15 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import products from "../data/products.json";
 import ProductCard from "../components/ProductCard";
 import ProductCardMobile from "../components/ProductCardMobile";
 
-import Suscribe from "../components/Suscribe";
-import BrandsLogos from "../components/BrandsLogos";
-
 export default function NovedadesPage() {
   const navigate = useNavigate();
 
-  const [isMobile, setIsMobile] = useState(
-    window.innerWidth <= 960
-  );
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 960);
+  const [limit, setLimit] = useState(10);
 
   useEffect(() => {
     const onResize = () => {
@@ -28,14 +24,20 @@ export default function NovedadesPage() {
     navigate(`/product/${slug}`);
   };
 
-  // Filtrar productos por categorías
-  const destacados = products.filter((p) =>
-    p.categories.includes("destacados")
+  /* =========================
+     PRODUCTOS DESTACADOS
+     (SIN OFERTAS)
+  ========================== */
+  const destacados = products.filter(
+    (p) => p.isFeatured && !p.categories.includes("ofertas")
   );
+
+  // Aplicar límite
+  const visibles = destacados.slice(0, limit);
 
   return (
     <>
-      {/* Banners */}
+      {/* BANNER */}
       <div className="container-fluid ps-0 content-space-t-0 content-space-b-0 content-space-lg-b-0 content-space-lg-t-0">
         <div className="row g-3 row-cols-1">
           <div className="col mb-4 mb-md-0">
@@ -52,10 +54,22 @@ export default function NovedadesPage() {
         </div>
       </div>
 
-      {/* Productos Destacados */}
+      {/* PRODUCTOS DESTACADOS */}
       <div className="container content-space-t-0 content-space-b-1 content-space-lg-1 px-2 px-md-3">
-        <div className="row g-2 g-md-3 row-cols-2 row-cols-md-3 row-cols-lg-4">
-          {destacados.map((p) => (
+
+        <div className="w-md-100 mb-5 mb-md-4 d-md-flex align-items-center justify-content-between px-3 px-md-0">
+          <h3 className="font-medium pb-2 pb-md-0 mb-0">
+            Productos Destacados
+          </h3>
+          <div className="ps-md-2">
+            <Link to="/Novedades" className="font-16 font-medium">
+              Ver todos
+            </Link>
+          </div>
+        </div>
+
+        <div className="row g-2 g-md-2 row-cols-2 row-cols-md-3 row-cols-lg-5 mb-3 mb-md-6">
+          {visibles.map((p) => (
             <div className="col" key={p.id}>
               {isMobile ? (
                 <ProductCardMobile
@@ -71,12 +85,19 @@ export default function NovedadesPage() {
             </div>
           ))}
         </div>
+
+        {/* BOTÓN CARGAR MÁS */}
+        {limit < destacados.length && (
+          <div className="text-center mt-8">
+            <button
+              className="btn btn-outline-primary border-primary px-5 py-2"
+              onClick={() => setLimit(limit + 12)}
+            >
+              Cargar más
+            </button>
+          </div>
+        )}
       </div>
-
-
-
-      <Suscribe />
-      <BrandsLogos />
     </>
   );
 }

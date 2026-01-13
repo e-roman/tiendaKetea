@@ -5,11 +5,11 @@ import products from "../data/products.json";
 import ProductCard from "../components/ProductCard";
 import ProductCardMobile from "../components/ProductCardMobile";
 
-export default function DescuentosPage() {
+export default function MasVendidoPage() {
   const navigate = useNavigate();
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 960);
-  const [visibleRows, setVisibleRows] = useState(3); // 👈 inicia con 3 rows
+  const [visibleRows, setVisibleRows] = useState(3); // inicia con 3 rows
 
   useEffect(() => {
     const onResize = () => {
@@ -24,12 +24,14 @@ export default function DescuentosPage() {
     navigate(`/product/${slug}`);
   };
 
-  // Productos en oferta
-  const descuentos = products.filter((p) =>
-    p.categories.includes("ofertas")
-  );
+  /* =========================
+     PRODUCTOS MÁS VENDIDOS
+  ========================== */
+  const mostSale = products.filter((p) => p.mostSale === true);
 
-  // Configuración de filas/categorías
+  /* =========================
+     CONFIG DE ROWS
+  ========================== */
   const categoriesConfig = [
     { title: "Robots Limpia Piscinas." },
     { title: "Seguridad y Confort." },
@@ -40,7 +42,6 @@ export default function DescuentosPage() {
     { title: "Otra Categoría 4." },
   ];
 
-  // Rows visibles
   const visibleCategories = categoriesConfig.slice(0, visibleRows);
 
   return (
@@ -62,7 +63,7 @@ export default function DescuentosPage() {
         </div>
       </div>
 
-      {/* ROWS DE CATEGORÍAS */}
+      {/* ROWS DE MÁS VENDIDOS */}
       <div className="container content-space-t-0 content-space-b-1 content-space-lg-1 px-2 px-md-3">
 
         {visibleCategories.map((cat, index) => (
@@ -72,7 +73,7 @@ export default function DescuentosPage() {
                 {cat.title}
               </h3>
               <div className="ps-md-2">
-                <Link to="/Ofertas" className="font-16 font-medium">
+                <Link to="/Mas-vendidos" className="font-16 font-medium">
                   Ver todos
                 </Link>
               </div>
@@ -80,7 +81,7 @@ export default function DescuentosPage() {
 
             {/* SOLO 5 PRODUCTOS */}
             <div className="row g-2 row-cols-2 row-cols-md-3 row-cols-lg-5 mb-6">
-              {descuentos.slice(0, 5).map((p) => (
+              {mostSale.slice(0, 5).map((p) => (
                 <div className="col" key={p.id}>
                   {isMobile ? (
                     <ProductCardMobile

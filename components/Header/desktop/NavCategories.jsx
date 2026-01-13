@@ -50,25 +50,16 @@ export default function NavCategories({
 
             <li className="nav-item">
               <NavLink to="/Descuentos" className="nav-link">
-                Descuentos
+                Ofertas de la semana
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink to="/MasVendido" className="nav-link">
+              <NavLink to="/Mas-vendido" className="nav-link">
                 Más vendido
               </NavLink>
             </li>
 
-
-            <li className="nav-item">
-              <button
-                className="nav-link bg-transparent border-0"
-                onClick={() => setShowPriceModal(true)}
-              >
-                Lista de Precios
-              </button>
-            </li>
 
             <li className="nav-item">
               <NavLink to="/Sucursales" className="nav-link">

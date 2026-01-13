@@ -122,9 +122,9 @@ export default function ProductCardHorizontalMobile({ product, openProduct }) {
                     </p>
                     )}
 
-                    {product.taxLabel && (
-                    <p className="small mb-0 font-12">{product.taxLabel}</p>
-                    )}
+                    <div className="pt-2">
+                        <p className="text-pay small">Pagá fácil y rápido con Mercado Pago o MODO</p>
+                    </div>
                 </div>
             </div>
 

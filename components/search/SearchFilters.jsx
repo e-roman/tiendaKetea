@@ -136,7 +136,7 @@ export default function SearchFilters({
       </div>
 
 
-      <button className="btn btn-sm btn-secondary w-100 d-none d-lg-block" onClick={resetFilters}>
+      <button className="btn btn-sm btn-border border-primary text-primary w-100 d-none d-lg-block" onClick={resetFilters}>
         Limpiar filtros
       </button>
     </div>

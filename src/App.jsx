@@ -24,6 +24,7 @@ import SearchResults from "../pages/SearchResults";
 import MyProfile from "../pages/Profile";
 import NovedadesPage from "../pages/Novedades";
 import DescuentosPage from "../pages/Descuentos";
+import MasVendidoPage from "../pages/MasVendido";
 
 const HIDE_COMPONENTS_ROUTES = [
   "/checkout",
@@ -75,6 +76,7 @@ const [showLogoutModal, setShowLogoutModal] = useState(false);
           <Route path="/" element={<Home />} />
           <Route path="/novedades" element={<NovedadesPage />} />
           <Route path="/descuentos" element={<DescuentosPage />} />
+          <Route path="/Mas-vendido" element={<MasVendidoPage />} />
           <Route path="/product/:slug" element={<ProductPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />

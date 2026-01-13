@@ -54,7 +54,7 @@ export default function ProductsSwiper({ openProduct }) {
           <Swiper
             modules={[Navigation, Keyboard]}
             keyboard
-            spaceBetween={20}
+            spaceBetween={8}
             slidesOffsetBefore={16}
             onBeforeInit={(swiper) => {
               swiper.params.navigation.prevEl = prevRef.current;
@@ -72,7 +72,7 @@ export default function ProductsSwiper({ openProduct }) {
                 allowTouchMove: true,
               },
               960: {
-                slidesPerView: 4,
+                slidesPerView: 5,
                 slidesOffsetBefore: 0,
                 allowTouchMove: false,
               },

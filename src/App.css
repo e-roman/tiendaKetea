@@ -2385,7 +2385,7 @@ textarea.form-control-lg {
 .form-select:focus {
     border-color: rgba(140, 152, 164, .25);
     outline: 0;
-    box-shadow: 0 0 1rem 0 rgba(140, 152, 164, .25)
+    box-shadow:none
 }
 .form-select[multiple],
 .form-select[size]:not([size="1"]) {
@@ -24549,6 +24549,8 @@ a:hover .text-inherit {
     color: #1e2022;
     background-color: rgba(33, 50, 91, .1)
 }
+
+
 .swiper-container {
     width: 100%;
     height: 100%

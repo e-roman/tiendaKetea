@@ -78,22 +78,6 @@ export default function ProductCardHorizontal({ product, openProduct }) {
                     </button>
 
 
-                    {/* Badges */}
-                    {product.envioGratis || !product.stock ? (
-                    <div className="badge-envio-h">
-                        {!product.stock ? (
-                        <span className="badge py-1 px-2 bg-danger text-white">Sin Stock</span>
-                        ) : (
-                        <span className="badge py-1 px-2 bg-dark">Envío Gratis</span>
-                        )}
-                    </div>
-                    ) : null}
-                    </div>
-
-
-
-
-
                     <div className="pricing-meta mt-2">
                     <ul className="d-flex mb-2">
                         {product.oldPrice && product.oldPrice > product.price && (
@@ -104,7 +88,7 @@ export default function ProductCardHorizontal({ product, openProduct }) {
 
                         {product.discount > 0 && (
                         <li>
-                            <span className="badge py-1 px-2 badge-yellow">
+                            <span className="badge py-1 px-2 font-13 badge-yellow">
                             -{product.discount}%
                             </span>
                         </li>
@@ -124,9 +108,23 @@ export default function ProductCardHorizontal({ product, openProduct }) {
                     </p>
                     )}
 
-                    {product.taxLabel && (
-                    <p className="small mb-0 font-12">{product.taxLabel}</p>
-                    )}
+                    {/* Badges */}
+                    {product.envioGratis || !product.stock ? (
+                    <div className="badge-envio-h">
+                        {!product.stock ? (
+                        <span className="badge py-1 px-2 bg-danger text-white">Sin Stock</span>
+                        ) : (
+                        <span className="badge py-1 px-2 bg-dark">Envío Gratis</span>
+                        )}
+                    </div>
+                    ) : null}
+                    </div>
+
+
+
+                    <div className="pt-2">
+                        <p className="text-pay small">Pagá fácil y rápido con Mercado Pago o MODO</p>
+                    </div>
                 </div>
 
                 {/* <div className="pt-2">

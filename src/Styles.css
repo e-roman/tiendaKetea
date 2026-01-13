@@ -1115,7 +1115,6 @@ footer .btn-icon.btn-social {
 
 
 
-
 @media (max-width: 768px) {
     .sticky-nav.sticky-top {
         top: 27px;
@@ -2103,11 +2102,20 @@ footer .btn-icon.btn-social {
 
 
 
-
+.swiper-horizontal .swiper-button-prev, 
+.swiper-horizontal .swiper-button-next, 
+.swiper-horizontal .swiper-button-prev, 
+.swiper-horizontal .swiper-button-next {
+    margin-top: calc(0px - (15px / 1));
+}
 
 .otherProducts .swiper-button-prev, 
 .otherProducts .swiper-button-next {
-    top: 35%;
+    top: 40%;
+}
+.otherProducts .swiper-button-next.swiper-button-disabled,
+.otherProducts .swiper-button-prev.swiper-button-disabled {
+    opacity: 0 !important;
 }
 
 
@@ -2368,6 +2376,8 @@ footer .btn-icon.btn-social {
   justify-content: center;
   z-index: 999;
 }
+
+
 #sectionHome,
 .navbar-nav-wrap {
     z-index: 6666;
