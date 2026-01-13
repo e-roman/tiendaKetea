@@ -121,7 +121,7 @@ export default function PersonalInfo() {
               <div className="card-footer px-0 pt-0 pb-4 mt-3 mt-md-0">
                 <div className="d-md-flex justify-content-end gap-3">
                   <a className="btn btn-sm border-0 btn-white w-xs-100 d-none d-md-block" href="javascript:;">Cancelar</a>
-                  <a className="btn btn-sm rounded-pill px-4 btn-primary w-xs-100" href="javascript:;">Guardar cambios</a>
+                  <a className="btn btn-sm px-4 btn-primary w-xs-100" href="javascript:;">Guardar cambios</a>
                 </div>
               </div>
               {/*!-- End Footer --*/}
@@ -238,7 +238,7 @@ export default function PersonalInfo() {
               <div className="card-footer px-0 pt-0 pb-4 mt-3 mt-md-0">
                 <div className="d-md-flex justify-content-end gap-3">
                   <a className="btn btn-sm border-0 btn-white w-xs-100 d-none d-md-block" href="javascript:;">Cancelar</a>
-                  <a className="btn btn-sm rounded-pill px-4 btn-primary w-xs-100" href="javascript:;">Guardar cambios</a>
+                  <a className="btn btn-sm px-4 btn-primary w-xs-100" href="javascript:;">Guardar cambios</a>
                 </div>
               </div>
               {/*!-- End Footer --*/}
@@ -267,7 +267,7 @@ export default function PersonalInfo() {
                 </div>
 
                 <div className="d-flex justify-content-end px-0 pt-0 pb-4 mt-5 mt-md-0">
-                  <button type="submit" className="btn btn-sm rounded-pill px-4 btn-danger">Eliminar</button>
+                  <button type="submit" className="btn btn-sm px-4 btn-danger">Eliminar</button>
                 </div>
               </div>
               {/*!-- End Body --*/}

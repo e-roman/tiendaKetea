@@ -105,7 +105,7 @@ export default function AccountAddCardModal({ onClose }) {
                 <div className="d-md-flex justify-content-end gap-3 py-5 py-md-0 pt-md-0">
                     <button
                         type="button"
-                        className="btn btn-sm rounded-pill btn-primary px-6 w-100 w-md-auto
+                        className="btn btn-sm btn-primary px-6 w-100 w-md-auto
                                 order-1 order-md-2 mb-4 mb-md-0"
                         onClick={onClose}
                     >
@@ -113,7 +113,7 @@ export default function AccountAddCardModal({ onClose }) {
                     </button>
                     <button
                         type="button"
-                        className="btn btn-sm rounded-pill border-0 btn-white px-6 w-100 w-md-auto
+                        className="btn btn-sm border-0 btn-white px-6 w-100 w-md-auto
                                 order-2 order-md-1"
                         onClick={onClose}
                     >

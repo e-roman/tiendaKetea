@@ -17,7 +17,7 @@ export default function Suscribe() {
                   <label htmlFor="subscribeForm" className="form-label visually-hidden">Enter email</label>
                   <input type="text" className="form-control" id="subscribeForm" placeholder="Escribe tu email"  />
                 </div>
-                <button type="button" className="btn btn-primary btn-sm rounded-pill">Suscribirse</button>
+                <button type="button" className="btn btn-primary btn-sm">Suscribirse</button>
               </div>
             </form>
 

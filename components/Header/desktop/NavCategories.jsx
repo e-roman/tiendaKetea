@@ -55,6 +55,13 @@ export default function NavCategories({
             </li>
 
             <li className="nav-item">
+              <NavLink to="/MasVendido" className="nav-link">
+                Más vendido
+              </NavLink>
+            </li>
+
+
+            <li className="nav-item">
               <button
                 className="nav-link bg-transparent border-0"
                 onClick={() => setShowPriceModal(true)}

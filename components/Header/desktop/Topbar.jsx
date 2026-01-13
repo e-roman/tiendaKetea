@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export default function Topbar() {
   return (
-    <div className="topbar d-none d-lg-block border-bottom" id="sectionHome">
+    <div className="topbar d-none d-lg-block border-bottom bg-white" id="sectionHome">
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-5">

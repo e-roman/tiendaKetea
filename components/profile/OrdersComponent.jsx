@@ -105,7 +105,7 @@ const EmptyState = ({ text }) => (
   <div className="text-center content-space-1">
     <img className="avatar avatar-xl mb-3" src="../assets/svg/illustrations/empty-cart.svg" alt="Sin datos" />
     <p className="card-text">{text}</p>
-    <Link className="btn btn-primary btn-sm rounded-pill px-4" to="/">Ir a comprar</Link>
+    <Link className="btn btn-primary btn-sm px-4" to="/">Ir a comprar</Link>
   </div>
 );
 

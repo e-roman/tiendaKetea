@@ -1,20 +1,15 @@
+import { Link } from "react-router-dom";
+
+
 export default function Footer() {
   return (
   <footer className="bg-white">
     <div className="container">
-      <div className="row justify-content-lg-between content-space-t-2 content-space-b-lg-2">
-        <div className="col-lg-3 mb-5">
-          <div className="d-flex align-items-start flex-column h-100">
-            {/*-- Logo --*/}
-            <a className="w-100 mb-3 mb-lg-auto" href="index.html" aria-label="Front">
-              <img className="brand" src="assets/img/logo/logo.svg" alt="Ketea S.A" />
-            </a>
-            {/*-- End Logo --*/}
-              <small>Coronel Brandsen 2230, <br className="d-none d-md-block"/>Ramos Mejia, Buenos Aires</small>
-          </div>
-        </div>
 
-        <div className="col-md-6 col-md-4 col-lg-3 ms-lg-auto mb-5 mb-lg-0">
+      <div className="row justify-content-lg-between content-space-t-1 content-space-b-lg-1">
+
+
+        <div className="col-6 col-sm-4 col-lg-2 mb-7 mb-lg-0">
           <h5>Mi Cuenta</h5>
 
           {/*-- List --*/}
@@ -43,68 +38,105 @@ export default function Footer() {
         </div>
         {/*-- End Col --*/}
 
-        <div className="col-md-6 col-md-4 col-lg-3 mb-5 mb-lg-0">
+        <div className="col-6 col-sm-4 col-lg-2 mb-7 mb-lg-0">
           <h5>Información</h5>
           {/*-- List --*/}
           <ul className="list-unstyled list-py-1">
             <li><a className="link-sm text-secondary" href="#">Preguntas frecuentes</a></li>
             <li><a className="link-sm text-secondary" href="#">Como comprar</a></li>
             <li><a className="link-sm text-secondary" href="#">Políticas de privacidad</a></li>
+            <li><a className="link-sm text-secondary" href="#">Términos y condiciones</a></li>
             <li><a className="link-sm text-secondary" href="#">Preferencias de cookies</a></li>
           </ul>
           {/*-- End List --*/}
         </div>
         {/*-- End Col --*/}
 
-        <div className="col-md-4 col-lg-2 mb-5 mb-lg-0">
+        <div className="col-sm-4 col-lg-2 mb-7 mb-lg-0">
           <h5 className="mb-3">Contacto</h5>
 
           {/*-- List --*/}
           <ul className="list-unstyled list-py-1 mb-3">
-            <li><a className="link-sm link-secondary" href="#"><i className="bi bi-envelope"></i> info@ketea.com.ar</a></li>
-            <li><a className="link-sm link-secondary" href="#"><i className="bi bi-phone"></i> (+54) 911 3065-5787</a></li>
+            <li><a className="link-sm link-secondary" href="#"> info@ketea.com.ar</a></li>
+            <li><a className="link-sm link-secondary" href="#"> (+54) 911 3065-5787</a></li>
           </ul>
           {/*-- End List --*/}
         
-          {/*-- Button Group --*/}
-          <div className="btn-group">
-          {/*-- Socials --*/}
-            <ul className="list-inline mb-0">
-              <li className="list-inline-item">
-                <a className="btn btn-soft-secondary btn-social btn-icon rounded-pill" href="https://www.facebook.com/keteaSA/?locale=es_LA">
-                  <i className="bi-facebook"></i>
-                </a>
-              </li>
 
-              <li className="list-inline-item">
-                <a className="btn btn-soft-secondary btn-social btn-icon rounded-pill" href="https://www.instagram.com/keteapiscinas/?hl=es">
-                  <i className="bi-instagram"></i>
-                </a>
-              </li>
-            </ul>
-          {/*-- End Socials --*/}
-          </div>
-          {/*-- End Button Group --*/}
         </div>
         {/*-- End Col --*/}
+
+
+
+        <div className="col-md-7 col-lg-5">
+          <div className="mb-4">
+            <h4 className="font-medium">Subscribite al Newsletter</h4>
+            <p className="font-15">Recibe nuestras ofertas semanales y promociones especiales.</p>
+          </div>
+
+
+          <form>
+            <div className="input-card shadow-none input-card-sm border mb-3 p-1 input-subscribe">
+              <div className="input-card-form">
+                <label for="subscribeForm" className="form-label visually-hidden">Enter email</label>
+                <input className="form-control" id="subscribeForm" placeholder="Escribe tu email" type="text" />
+                </div>
+                <button type="button" className="btn btn-primary btn-sm">Suscribirse</button>
+              </div>
+          </form>
+
+          <div>
+            <small>Puedes darte de baja en cualquier momento. <Link to="pliticas-privacidad" className="link-primary">Ver Política de Privacidad</Link></small>
+          </div>
+
+
+          {/* <!-- End Subscribe Form --> */}
+        </div>
+
+
+
+
+
       </div>
       {/*-- End Row --*/}
 
       <hr className="my-0" />
 
-      <div className="row align-items-sm-center py-4">
+      <div className="row align-items-center justify-content-between py-4">
         <div className="col-sm mb-4 mb-sm-0">
-          <small>Copyright © Ketea S.A. Todos los derechos reservados.</small>
+          <small className="text-black"><b>©Ketea S.A.</b> Todos los derechos reservados.</small>
         </div>
 
-        <div className="col-sm-auto">
+
+        <div className="col-sm mb-4 mb-sm-0">
+          <div className="d-flex gap-2">
+              <div><img src="../assets/img/cards/visa.svg" alt="Visa" /></div>
+              <div><img src="../assets/img/cards/mastercard.svg" alt="Mastercard" /></div>
+              <div><img src="../assets/img/cards/amex.svg" alt="Amex" /></div>
+              <div><img src="../assets/img/cards/argencard.svg" alt="argencard"/></div>
+              <div><img src="../assets/img/cards/naranja.svg" alt="naranja" /></div>
+              <div><img src="../assets/img/cards/cencosud.svg" alt="cencosud" /></div>
+              <div><img src="../assets/img/cards/nativa.svg" alt="Nativa" /></div>
+              <div><img src="../assets/img/cards/cabal.svg" alt="Cabal" /></div>
+          </div>
+        </div>
+   
+
+        <div className="col-sm text-md-end">
           {/*-- List --*/}
-          <ul className="list-inline list-separator">
+          <ul className="list-inline">
             <li className="list-inline-item">
-              <a className="link-sm link-secondary" href="page-privacy.html">Política de Privacidad</a>
+              <small className="font-bold text-black pe-1">Seguinos en:</small>
             </li>
             <li className="list-inline-item">
-              <a className="link-sm link-secondary" href="page-terms.html">Terminos y condiciones</a>
+                <a className="btn btn-soft-secondary btn-social btn-icon rounded-pill" href="https://www.facebook.com/keteaSA/?locale=es_LA">
+                  <i className="bi-facebook"></i>
+                </a>
+            </li>
+            <li className="list-inline-item">
+                <a className="btn btn-soft-secondary btn-social btn-icon rounded-pill" href="https://www.instagram.com/keteapiscinas/?hl=es">
+                  <i className="bi-instagram"></i>
+                </a>
             </li>
           </ul>
           {/*-- End List --*/}

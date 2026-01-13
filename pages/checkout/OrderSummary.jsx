@@ -312,7 +312,7 @@ const [paymentMethod, setPaymentMethod] = useState(null);
 
         <Link
           to="/order-complete"
-          className="btn btn-primary btn-sm rounded-pill px-6 order-1 order-md-2 mb-5 mb-md-0 mt-5 mt-md-0 btn-checkout"
+          className="btn btn-primary btn-sm px-6 order-1 order-md-2 mb-5 mb-md-0 mt-5 mt-md-0 btn-checkout"
         >
           Realizar pago
         </Link>

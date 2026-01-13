@@ -48,7 +48,7 @@ const {
     <div className="offcanvas offcanvas-end" id="cartOffcanvas" tabIndex="-1">
       {/* HEADER */}
       <div className="offcanvas-header justify-content-between align-items-center border-bottom py-3 px-3">
-        <h4 className="mb-0">Carrito de Compras</h4>
+        <h4 className="font-bold mb-0">Carrito de Compras</h4>
         <button className="btn-close" data-bs-dismiss="offcanvas"></button>
       </div>
 
@@ -62,7 +62,7 @@ const {
               </div>
               <h1 className="h2 mb-2">Tu carrito está vacío.</h1>
               <p>Antes de finalizar la compra, debes añadir algunos productos a tu carrito.</p>
-              <button className="btn btn-primary btn-sm rounded-pill px-6" data-bs-dismiss="offcanvas">Agregar Productos</button>
+              <button className="btn btn-primary btn-sm px-6" data-bs-dismiss="offcanvas">Agregar Productos</button>
             </div>
           </div>
         ) : (
@@ -159,7 +159,7 @@ const {
               <span className="small">Entregas para el CP: 1706</span>
 
               <div>
-                <button type="button" className="btn btn-sm btn-outline-dark rounded-pill py-0 px-2 small">Cambiar CP</button>
+                <button type="button" className="btn btn-sm btn-outline-dark py-0 px-2 small">Cambiar CP</button>
               </div>
               {/* <span className="font-medium">
                 {shippingCost === 0 ? "Gratis" : `$${shippingCost.toLocaleString("es-AR")}`}

@@ -107,7 +107,7 @@ export default function AccountHistoryPayments({ onOpenInvoice }) {
                     <div className="card-body p-3">
                       <div className="d-flex align-items-center justify-content-between pb-2">
                         <div className="d-flex align-items-center justify-content-between gap-2"><p className="font-size-1 mb-0">Referencia</p>  <h4 className="h6 mb-0">#3682303 </h4></div>
-                        <div><span className="badge px-2 py-1 bg-soft-warning text-warning rounded-pill font-13 ms-2">Pendiente</span></div>
+                        <div><span className="badge px-2 py-1 bg-soft-warning text-warning font-13 ms-2">Pendiente</span></div>
                       </div>
                       <h4 className="h6">Monto</h4>
                       <h5 className="font-weight-normal">$1.262.399</h5>
@@ -124,7 +124,7 @@ export default function AccountHistoryPayments({ onOpenInvoice }) {
                     <div className="card-body p-3">
                       <div className="d-flex align-items-center justify-content-between pb-2">
                         <div className="d-flex align-items-center justify-content-between gap-2"><p className="font-size-1 mb-0">Referencia</p>  <h4 className="h6 mb-0">#3682303 </h4></div>
-                        <div><span className="badge px-2 py-1 bg-soft-success text-success rounded-pill font-13 ms-2">Recibido</span></div>
+                        <div><span className="badge px-2 py-1 bg-soft-success text-success font-13 ms-2">Recibido</span></div>
                       </div>
                       <h4 className="h6">Monto</h4>
                       <h5 className="font-weight-normal">$1.262.399</h5>
@@ -141,7 +141,7 @@ export default function AccountHistoryPayments({ onOpenInvoice }) {
                     <div className="card-body p-3">
                       <div className="d-flex align-items-center justify-content-between pb-2">
                         <div className="d-flex align-items-center justify-content-between gap-2"><p className="font-size-1 mb-0">Referencia</p>  <h4 className="h6 mb-0">#3682303 </h4></div>
-                        <div><span className="badge px-2 py-1 bg-soft-success text-success rounded-pill font-13 ms-2">Recibido</span></div>
+                        <div><span className="badge px-2 py-1 bg-soft-success text-success font-13 ms-2">Recibido</span></div>
                       </div>
                       <h4 className="h6">Monto</h4>
                       <h5 className="font-weight-normal">$1.262.399</h5>

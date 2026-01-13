@@ -286,7 +286,7 @@ const openDiscountModal = (e) => {
         {/* Add to cart */}
         <button
           type="button"
-          className="btn btn-sm btn-block rounded-pill btn-primary"
+          className="btn btn-sm btn-block btn-primary"
           onClick={handleAddToCart}
         >
           Agregar  al carrito

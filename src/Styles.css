@@ -121,15 +121,7 @@ button.btn-search {
     width: 20px;
 }
 
-.input-subscribe input {
-    background: transparent;
-    padding-left: 20px;
-    line-height: 25px;
-    font-size: 1rem;
-}
-.input-subscribe input:focus {
-    background: transparent;
-}
+
 
 
 
@@ -3353,4 +3345,19 @@ header{
     width: 22px;
     height: 23px;
     display: flex;
+}
+
+
+
+
+
+.bg-img-3cols {
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background-position: right 50%;
+}
+.bg-img-lg {
+    /* background-size: cover; */
+    background-repeat: no-repeat;
+    background-position: top right;
 }

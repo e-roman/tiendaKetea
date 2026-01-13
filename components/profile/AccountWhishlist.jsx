@@ -137,7 +137,7 @@ export default function AccountWhishlist() {
         {/* End Body */}
 
         <div className="text-center mt-10">
-          <Link className="btn btn-primary btn-sm rounded-pill px-6 text-center" to="/">Continuar comprando</Link>
+          <Link className="btn btn-primary btn-sm px-6 text-center" to="/">Continuar comprando</Link>
         </div>
       </div>
 

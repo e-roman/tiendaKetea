@@ -43,7 +43,7 @@ export default function AccountSecurity() {
                     {/* End Form */}
 
                     <div className="d-flex justify-content-end">
-                    <button type="submit" className="btn btn-primary rounded-pill btn-sm px-4 w-xs-100">
+                    <button type="submit" className="btn btn-primary btn-sm px-4 w-xs-100">
                         Establecer
                     </button>
                     </div>
@@ -141,7 +141,7 @@ export default function AccountSecurity() {
 
                     <div className="d-md-flex justify-content-end gap-3 mt-5 mt-md-8">
                     <a className="btn border-0 btn-sm px-4 btn-white w-xs-100 d-none d-md-block" href="javascript:;">Cancelar</a>
-                    <button type="submit" className="btn btn-sm px-4 rounded-pill btn-primary w-xs-100">
+                    <button type="submit" className="btn btn-sm px-4 btn-primary w-xs-100">
                         Actualizar Contraseña
                     </button>
                     </div>

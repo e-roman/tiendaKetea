@@ -70,7 +70,7 @@ export default function MainHeader() {
 
 
   return (
-    <header className="py-2 ">
+    <header className="py-2 border-bottom">
       <div className="container d-flex align-items-center justify-content-between ">
         
         {/* LOGO */}
@@ -153,7 +153,7 @@ export default function MainHeader() {
                     <div className="text-center mt-3">
                     <Link
                         to={`/buscar/${encodeURIComponent(query)}`}
-                        className="btn btn-sm btn-primary rounded-pill px-5"
+                        className="btn btn-sm btn-primary px-5"
                         onClick={clearSearch}
                     >
                         Ver todos los resultados

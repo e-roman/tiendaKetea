@@ -59,14 +59,14 @@ export default function OrderComplete() {
 
             <div className="d-md-flex gap-3 justify-content-center">
               <button
-                className="btn btn-sm btn-primary rounded-pill px-5 w-xs-100 mb-3 mb-md-0"
+                className="btn btn-sm btn-primary px-5 w-xs-100 mb-3 mb-md-0"
                 onClick={() => navigate("/")}
               >
                 Volver al inicio
               </button>
 
               <button
-                className="btn btn-sm btn-outline-secondary rounded-pill px-5 w-xs-100"
+                className="btn btn-sm btn-outline-secondary px-5 w-xs-100"
                 onClick={() => navigate("/pages/Profile?view=orders")}
               >
                 Ver mis pedidos

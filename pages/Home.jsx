@@ -1,10 +1,14 @@
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import products from "../data/products.json";
 import ProductCard from "../components/ProductCard";
 
 import HeroSlider from "../components/HeroSlider";
 import BlockServices from "../components/BlockServices";
-import Suscribe from "../components/Suscribe";
+import Block2ColsBanners from "../components/Block2ColsBanners";
+import Block3ColsBanners from "../components/Block3ColsBanners";
+// import Suscribe from "../components/Suscribe";
 import BrandsLogos from "../components/BrandsLogos";
 
 import ProductGrid from "../components/Home/ProductGrid";
@@ -43,8 +47,11 @@ export default function Home() {
 
       {/* Productos Destacados */}
       <div className="container content-space-2 content-space-lg-1 px-0 px-md-3">
-        <div className="w-md-75 mb-5 mb-md-4">
-          <h2 className="font-bold">Novedades</h2>
+        <div className="w-md-75 mb-5 mb-md-4 d-flex align-items-center">
+          <h2 className="font-medium">Últimas novedades en robotos limpia psicinas.</h2>
+          <div className="ps-md-2">
+            <Link to="/Novedades" className="font-18 font-medium">Ver todos</Link>
+          </div>
         </div>
 
         {isMobile ? (
@@ -62,45 +69,18 @@ export default function Home() {
 
       </div>
 
-      {/* Banners */}
-      <div className="container">
-        <div className="row g-3 row-cols-1 row-cols-md-2">
-          <div className="col mb-4 mb-md-0">
-            {/* <div className="card card-lg shadow-none bg-img-start" style={{backgroundImage: "url(assets/img/banners/banner-md-3.png)", minHeight: "24rem"}}> */}
-            <div className="card card-lg shadow-none bg-img-start">
 
-              <div className="card-body">
-                <span className="card-subtitle text-danger">Descuento del mes</span>
-                <h2 className="card-title display-4">30% OFF</h2>
-
-                <a className="btn btn-primary btn-sm btn-transition rounded-pill px-6" href="#">Ver Productos</a>
-              </div>
-            </div>
-          </div>
-
-          <div className="col">
-            <div className="card card-lg shadow-none bg-img-start">
-              <div className="card-body">
-                <div className="mb-4">
-                  <h2 className="card-title">Lanzamiento</h2>
-                  <h3 className="card-title font-medium ">Robot Dolphin Pool up</h3>
-                  <p className="card-text">Barrefondo Para Piscina</p>
-                </div>
-
-                <a className="btn btn-primary btn-sm btn-transition rounded-pill px-6" href="#">Ver Producto</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Block2ColsBanners/>
 
 
       {/* Ofertas */}
-      <div className="container content-space-2 content-space-lg-1 px-0 px-md-3">
-        <div className="w-md-75 mb-5 mb-md-4">
-          <h2 className="font-bold">Ofertas</h2>
+      <div className="container content-space-1 content-space-t-lg-1 px-0 px-md-3">
+        <div className="w-md-75 mb-5 mb-md-4 d-flex align-items-center">
+          <h2 className="font-medium mb-0">Las mejores ofertas de la semana.</h2>
+          <div className="ps-md-2">
+            <Link to="/ofertas" className="font-18 font-medium">Ver todos</Link>
+          </div>
         </div>
-
 
         {isMobile ? (
           <ProductCarousel
@@ -117,7 +97,13 @@ export default function Home() {
 
       </div>
 
-      <Suscribe />
+
+
+       <Block3ColsBanners/>
+
+
+
+      {/* <Suscribe /> */}
       <BrandsLogos />
     </>
   );
