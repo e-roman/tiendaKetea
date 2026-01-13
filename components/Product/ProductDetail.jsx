@@ -75,7 +75,7 @@ const openDiscountModal = (e) => {
       {/* Código + rating */}
       <div className="d-none d-md-flex align-items-center justify-content-between small mb-2">
         <p className="link-muted mb-0">
-          <small>Código: {product.code || "N/A"}</small>
+          <small className="font-medium">Código: {product.code || "N/A"}</small>
         </p>
 
         <div className="d-flex align-items-center">

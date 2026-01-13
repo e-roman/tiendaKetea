@@ -36,6 +36,7 @@ export default function Footer() {
                 </a>
               </li>
               <li><a className="link-sm text-secondary" href="#">Recuperar contraseña</a></li>
+              <li><a className="link-sm text-secondary" href="#">Botón de arrepentimiento</a></li>
             </ul>
             {/*-- End List --*/}
           </div>
@@ -60,6 +61,7 @@ export default function Footer() {
 
             {/*-- List --*/}
             <ul className="list-unstyled list-py-1 mb-3">
+              <li><a className="link-sm link-secondary" href="#"> Dónde Encontrarnos</a></li>
               <li><a className="link-sm link-secondary" href="#"> info@ketea.com.ar</a></li>
               <li><a className="link-sm link-secondary" href="#"> (+54) 911 3065-5787</a></li>
             </ul>
@@ -74,14 +76,14 @@ export default function Footer() {
           <div className="col-md-7 col-lg-5">
             <div className="mb-3">
               <h5>Subscribite al Newsletter</h5>
-              <p className="link-sm">Recibe nuestras ofertas semanales y promociones especiales.</p>
+              <p className="link-sm">Recibe nuestras ofertas semanales y promociones semanales.</p>
             </div>
 
 
             <form>
               <div className="input-card shadow-none input-card-sm border mb-3 p-1 input-subscribe">
                 <div className="input-card-form">
-                  <label for="subscribeForm" className="form-label visually-hidden">Enter email</label>
+                  <label htmlFor="subscribeForm" className="form-label visually-hidden">Enter email</label>
                   <input className="form-control" id="subscribeForm" placeholder="Escribe tu email" type="text" />
                   </div>
                   <button type="button" className="btn btn-primary btn-sm font-medium">Suscribirse</button>

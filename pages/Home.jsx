@@ -13,49 +13,62 @@ import ProductGrid from "../components/Home/ProductGrid";
 import ProductCarousel from "../components/Home/ProductCarousel";
 import useMediaQuery from "../src/hooks/useMediaQuery";
 
+/* 🔹 Helper: Ofertas variadas por categoría */
+const getWeeklyOffers = (products, limitPerCategory = 2) => {
+  const offers = products.filter(
+    (p) => p.categories.includes("ofertas") || p.discount > 0
+  );
+
+  const grouped = {};
+
+  offers.forEach((p) => {
+    const mainCategory = p.categories[0]; // Piscinas / Accesorios / Químicos
+
+    if (!grouped[mainCategory]) {
+      grouped[mainCategory] = [];
+    }
+
+    if (grouped[mainCategory].length < limitPerCategory) {
+      grouped[mainCategory].push(p);
+    }
+  });
+
+  return Object.values(grouped)
+    .flat()
+    .sort(() => Math.random() - 0.5);
+};
+
 export default function Home() {
   const navigate = useNavigate();
   const isMobile = useMediaQuery("(max-width: 768px)");
 
+  const weeklyOffers = getWeeklyOffers(products, 2);
+
   const openProduct = (slug) => {
     navigate(`/product/${slug}`);
   };
-
-  const destacados = products.filter((p) =>
-    p.categories.includes("destacados")
-  );
-  const ofertas = products.filter((p) =>
-    p.categories.includes("ofertas")
-  );
-
-  // const navigate = useNavigate();
-
-  // const openProduct = (slug) => {
-  //   navigate(`/product/${slug}`);
-  // };
-
-  // // Filtrar productos por categorías
-  // const destacados = products.filter((p) => p.categories.includes("destacados"));
-  // const ofertas = products.filter((p) => p.categories.includes("ofertas"));
 
   return (
     <>
       <HeroSlider />
       <BlockServices />
 
-      {/* Productos Destacados */}
+      {/* 🔹 Productos Destacados */}
       <div className="container content-space-1 content-space-lg-1 px-0 px-md-3">
-
         <div className="w-100 mb-5 mb-md-4 d-md-flex align-items-center justify-content-between px-3 px-md-0">
-          <h3 className="font-medium pb-2 pb-md-0">Últimas novedades en robotos limpia psicinas.</h3>
+          <h3 className="font-medium pb-2 pb-md-0">
+            Últimas novedades en robots limpia piscinas.
+          </h3>
           <div className="ps-md-2">
-            <Link to="/Novedades" className="font-16 font-medium">Ver todos</Link>
+            <Link to="/Novedades" className="font-16 font-medium">
+              Ver todos
+            </Link>
           </div>
         </div>
 
         {isMobile ? (
           <ProductCarousel
-            products={products.filter(p => p.isFeatured)}
+            products={products.filter((p) => p.isFeatured)}
             openProduct={openProduct}
           />
         ) : (
@@ -65,42 +78,37 @@ export default function Home() {
             type="novedades"
           />
         )}
-
       </div>
 
+      <Block2ColsBanners />
 
-      <Block2ColsBanners/>
-
-
-      {/* Ofertas */}
+      {/*  Mejores ofertas de la semana */}
       <div className="container content-space-1 content-space-t-lg-1 px-0 px-md-3">
         <div className="w-100 mb-5 mb-md-4 d-md-flex align-items-center justify-content-between px-3 px-md-0">
-          <h3 className="font-medium pb-2 pb-md-0">Las mejores ofertas de la semana.</h3>
+          <h3 className="font-medium pb-2 pb-md-0">
+            Las mejores ofertas de la semana.
+          </h3>
           <div className="ps-md-2">
-            <Link to="/Ofertas" className="font-16 font-medium">Ver todos</Link>
+            <Link to="/Descuentos" className="font-16 font-medium">
+              Ver todos
+            </Link>
           </div>
         </div>
 
         {isMobile ? (
           <ProductCarousel
-            products={products.filter(p => p.categories.includes("ofertas"))}
+            products={weeklyOffers}
             openProduct={openProduct}
           />
         ) : (
           <ProductGrid
-            products={products}
+            products={weeklyOffers}
             openProduct={openProduct}
-            type="ofertas"
           />
         )}
-
       </div>
 
-
-
-       <Block3ColsBanners/>
-
-
+      <Block3ColsBanners />
     </>
   );
 }

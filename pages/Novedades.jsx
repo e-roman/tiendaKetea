@@ -28,12 +28,32 @@ export default function NovedadesPage() {
      PRODUCTOS DESTACADOS
      (SIN OFERTAS)
   ========================== */
-  const destacados = products.filter(
-    (p) => p.isFeatured && !p.categories.includes("ofertas")
-  );
+// Base: destacados sin ofertas
+const destacados = products.filter(
+  (p) => p.isFeatured && !p.categories.includes("ofertas")
+);
 
-  // Aplicar límite
-  const visibles = destacados.slice(0, limit);
+// Robots
+const robots = destacados.filter((p) =>
+  p.categories.some((c) =>
+    c.toLowerCase().includes("robot")
+  )
+);
+
+// Otros productos
+const otros = destacados.filter((p) =>
+  !p.categories.some((c) =>
+    c.toLowerCase().includes("robot")
+  )
+);
+
+// Armado final:
+// 5 robots + mix del resto
+const visibles = [
+  ...robots.slice(0, 5),
+  ...otros
+].slice(0, limit);
+
 
   return (
     <>

@@ -10,7 +10,7 @@ export default function ProductGrid({
     novedades: 5
   };
 
-  const limit = limitByType[type] ?? 4;
+  const limit = limitByType[type] ?? 5;
 
   const filteredProducts = products
     .filter(p => {
