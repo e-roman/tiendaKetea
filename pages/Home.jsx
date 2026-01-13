@@ -46,9 +46,10 @@ export default function Home() {
       <BlockServices />
 
       {/* Productos Destacados */}
-      <div className="container content-space-2 content-space-lg-1 px-0 px-md-3">
-        <div className="w-md-75 mb-5 mb-md-4 d-flex align-items-center">
-          <h2 className="font-medium">Últimas novedades en robotos limpia psicinas.</h2>
+      <div className="container content-space-1 content-space-lg-1 px-0 px-md-3">
+
+        <div className="w-md-75 mb-5 mb-md-4 d-md-flex align-items-center px-3 px-md-0">
+          <h2 className="font-medium pb-2 pb-md-0">Últimas novedades en robotos limpia psicinas.</h2>
           <div className="ps-md-2">
             <Link to="/Novedades" className="font-18 font-medium">Ver todos</Link>
           </div>
@@ -75,10 +76,10 @@ export default function Home() {
 
       {/* Ofertas */}
       <div className="container content-space-1 content-space-t-lg-1 px-0 px-md-3">
-        <div className="w-md-75 mb-5 mb-md-4 d-flex align-items-center">
-          <h2 className="font-medium mb-0">Las mejores ofertas de la semana.</h2>
+        <div className="w-md-75 mb-5 mb-md-4 d-md-flex align-items-center px-3 px-md-0">
+          <h2 className="font-medium pb-2 pb-md-0">Las mejores ofertas de la semana.</h2>
           <div className="ps-md-2">
-            <Link to="/ofertas" className="font-18 font-medium">Ver todos</Link>
+            <Link to="/Ofertas" className="font-18 font-medium">Ver todos</Link>
           </div>
         </div>
 

@@ -82,14 +82,14 @@ export default function ProductCardMobile({ product, openProduct }) {
       {/* Información principal */}
       <div className="card-body px-card-xs py-2 px-3">
         <button
-          className="text-body text-dark font-medium font-15 bg-transparent border-0 p-0 text-start text-clamp-2 mb-0 "
+          className="text-body text-dark font-16 bg-transparent border-0 p-0 text-start mb-0 "
           onClick={() => openProduct(product.slug)}
         >
           {product.title}
         </button>
 
         <div className="pricing-meta mt-1 mb-1">
-          <div className="d-flex gap-1">
+          <div className="d-flex gap-1 my-2">
             {product.oldPrice && product.oldPrice > product.price && (
               <li className="old-price text-muted">
                 AR${formatPrice(product.oldPrice)}
@@ -117,7 +117,7 @@ export default function ProductCardMobile({ product, openProduct }) {
           </p>
         )}
 
-        <div className="pt-2">
+        <div className="pt-2 pb-3">
            <p className="text-pay">Pagá fácil y rápido con Mercado Pago o MODO</p>
         </div>
 

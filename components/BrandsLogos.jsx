@@ -4,10 +4,12 @@ import "swiper/css";
 
 const BRANDS = [
   "../assets/img/brands/07.jpg",
+  "../assets/img/brands/02.jpg",
   "../assets/img/brands/01.jpg",
   "../assets/img/brands/04.jpg",
+    "../assets/img/brands/05.jpg",
   "../assets/img/brands/03.jpg",
-  "../assets/img/brands/05.jpg",
+
 ];
 
 export default function BrandsLogos() {

@@ -69,9 +69,9 @@ export default function Footer() {
 
 
         <div className="col-md-7 col-lg-5">
-          <div className="mb-4">
-            <h4 className="font-medium">Subscribite al Newsletter</h4>
-            <p className="font-15">Recibe nuestras ofertas semanales y promociones especiales.</p>
+          <div className="mb-3">
+            <h5>Subscribite al Newsletter</h5>
+            <p className="link-sm">Recibe nuestras ofertas semanales y promociones especiales.</p>
           </div>
 
 
@@ -81,12 +81,12 @@ export default function Footer() {
                 <label for="subscribeForm" className="form-label visually-hidden">Enter email</label>
                 <input className="form-control" id="subscribeForm" placeholder="Escribe tu email" type="text" />
                 </div>
-                <button type="button" className="btn btn-primary btn-sm">Suscribirse</button>
+                <button type="button" className="btn btn-primary btn-sm font-medium">Suscribirse</button>
               </div>
           </form>
 
           <div>
-            <small>Puedes darte de baja en cualquier momento. <Link to="pliticas-privacidad" className="link-primary">Ver Política de Privacidad</Link></small>
+            <small className="link-sm">Puedes darte de baja en cualquier momento. <Link to="pliticas-privacidad" className="link-primary">Política de Privacidad</Link></small>
           </div>
 
 
@@ -126,15 +126,15 @@ export default function Footer() {
           {/*-- List --*/}
           <ul className="list-inline">
             <li className="list-inline-item">
-              <small className="font-bold text-black pe-1">Seguinos en:</small>
+              <small className="font-mdium text-black pe-1">Seguinos en:</small>
             </li>
             <li className="list-inline-item">
-                <a className="btn btn-soft-secondary btn-social btn-icon rounded-pill" href="https://www.facebook.com/keteaSA/?locale=es_LA">
+                <a className="btn text-secondary btn-social btn-icon" href="https://www.facebook.com/keteaSA/?locale=es_LA">
                   <i className="bi-facebook"></i>
                 </a>
             </li>
             <li className="list-inline-item">
-                <a className="btn btn-soft-secondary btn-social btn-icon rounded-pill" href="https://www.instagram.com/keteapiscinas/?hl=es">
+                <a className="btn text-secondary btn-social btn-icon" href="https://www.instagram.com/keteapiscinas/?hl=es">
                   <i className="bi-instagram"></i>
                 </a>
             </li>

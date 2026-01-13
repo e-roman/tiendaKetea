@@ -3361,3 +3361,71 @@ header{
     background-repeat: no-repeat;
     background-position: top right;
 }
+
+
+
+
+/*BANNERS*/
+
+    @media (min-width: 769px), print {
+        .grid-card>div {
+            padding: 24px;
+        }
+        .grid-card .banner-img img {
+            max-height: 100%;
+            max-width: none;
+        }
+        .banner-img {
+            align-items: center;
+            max-width: calc(50% - 28px);
+        }
+    }
+
+
+.shadow-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.grid-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    overflow: hidden;
+}
+
+.grid-card>div {
+    padding: 2rem 1.5rem 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 50%;
+    box-sizing: border-box;
+}
+.grid-card>div .card-link {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: .25px;
+    line-height: 1.5rem;
+    color: #0059ff;
+}
+
+.grid-card .banner-img {
+    line-height: 0;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    min-height: 235px;
+}
+
+.banner-img {
+    max-width: calc(50% - 16px);
+    line-height: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: right;
+}

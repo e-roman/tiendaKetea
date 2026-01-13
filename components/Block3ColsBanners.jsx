@@ -8,43 +8,61 @@ export default function Block3ColsBanners() {
         <div className="row g-3 row-cols-1 row-cols-md-3 content-space-b-md-2">
 
 
-          <div className="col-md-4 mb-4 mb-md-0">
-            <div className="card card-lg border shadow-none bg-img-3cols h-100" style={{backgroundImage: "url(assets/img/banners/item-3col-1.png)", minHeight: "15rem"}}>
-              <div className="card-body p-4 d-flex flex-column justify-content-between">
+          <div className="col-md-4 mb-1 mb-md-0">
+            <div className="grid-card h-100">
                 <div>
-                  <h3 className="font-bold text-dark">Bombas de Aguas</h3>
-                  <span>Descuento del mes</span>
+                    <div>
+                      <h3 className="font-bold text-dark">Bombas de Aguas</h3>
+                      <span>Descuento del mes</span>
+                    </div>
+                    <div className="d-inline-block text-align-center height-auto card-link">
+                      <Link className="btn btn-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link>
+                    </div>
                 </div>
-                <div><Link className="btn btn-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link></div>
-              </div>
+                <div className="banner-img">
+                    <img src="assets/img/banners/item-3col-1.png" alt="Bombas de Aguas"/>
+                </div>
             </div>
           </div>
           
 
-          <div className="col-md-4 mb-4 mb-md-0">
-            <div className="card card-lg border shadow-none bg-img-3cols h-100" style={{backgroundImage: "url(assets/img/banners/item-3col-2.png)", minHeight: "15rem"}}>
-              <div className="card-body p-4 d-flex flex-column justify-content-between">
+
+          <div className="col-md-4 mb-1 mb-md-0">
+            <div className="grid-card h-100">
                 <div>
-                  <h3 className="font-bold text-dark">Bombas de Aguas</h3>
-                  <span>Descuento del mes</span>
+                    <div>
+                      <h3 className="font-bold text-dark">Bombas de Aguas</h3>
+                      <span>Descuento del mes</span>
+                    </div>
+                    <div className="d-inline-block text-align-center height-auto card-link">
+                      <Link className="btn btn-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link>
+                    </div>
                 </div>
-                <div><Link className="btn btn-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link></div>
-              </div>
+                <div className="banner-img">
+                    <img src="assets/img/banners/item-3col-2.png" alt="Bombas de Aguas"/>
+                </div>
             </div>
           </div>
           
 
+
           <div className="col-md-4 mb-4 mb-md-0">
-            <div className="card card-lg border shadow-none bg-img-3cols h-100" style={{backgroundImage: "url(assets/img/banners/item-3col-3.png)", minHeight: "15rem"}}>
-              <div className="card-body p-4 d-flex flex-column justify-content-between">
-                <div>
-                  <h3 className="font-bold text-dark">Bombas de Aguas</h3>
-                  <span>Descuento del mes</span>
-                </div>
-                <div><Link className="btn btn-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link></div>
+              <div className="grid-card h-100">
+                  <div>
+                      <div>
+                        <h3 className="font-bold text-dark">Bombas de Aguas</h3>
+                        <span>Descuento del mes</span>
+                      </div>
+                      <div className="d-inline-block text-align-center height-auto card-link">
+                        <Link className="btn btn-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link>
+                      </div>
+                  </div>
+                  <div className="banner-img">
+                      <img src="assets/img/banners/item-3col-3.png" alt="Bombas de Aguas"/>
+                  </div>
               </div>
-            </div>
           </div>
+
           
         </div>
       </div>
