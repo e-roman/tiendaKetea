@@ -8,10 +8,13 @@ import SteppersCheck from "./components/SteppersCheck";
 export default function CheckoutShipping() {
   const navigate = useNavigate();
   const formRef = useRef(null);
+
   const [validated, setValidated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
 
   const [summaryOpen, setSummaryOpen] = useState(false);
-  
+
   const {
     cart,
     shipping,
@@ -25,13 +28,22 @@ export default function CheckoutShipping() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formRef.current.checkValidity()) {
+    const form = formRef.current;
+
+    if (!form.checkValidity()) {
+      e.stopPropagation();
       setValidated(true);
+      setShowAlert(true);
+
+      // opcional: scroll al inicio del formulario
+      form.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
 
+    setShowAlert(false);
     navigate("/checkout/pago");
   };
+
 
   const subtotal = cart.reduce(
     (acc, p) => acc + p.price * (p.quantity || 1),
@@ -115,10 +127,35 @@ export default function CheckoutShipping() {
           <div>
             <div  className="bg-white px-3 pt-4 pb-5 py-md-5 px-md-5 mb-0">
 
-              {/* Lista dinámica del carrito */}
-              {cart.length === 0 && (
-                <p className="text-muted">No hay productos en el carrito.</p>
-              )}
+            {/* Lista dinámica del carrito */}
+            {cart.length === 0 && (
+              <p className="text-muted">No hay productos en el carrito.</p>
+            )}
+
+            {cart.map((product) => (
+              <div key={product.id} className="border-bottom pb-3 mb-3">
+                <div className="d-flex align-items-start">
+                  <div className="position-relative me-3" style={{ width: 60 }}>
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="img-fluid rounded"
+                    />
+                    <span className="badge bg-primary position-absolute top-0 start-100 translate-middle rounded-circle">
+                      {product.quantity || 1}
+                    </span>
+                  </div>
+
+                  <div className="flex-grow-1">
+                    <p className="mb-1 font-14">{product.title}</p>
+                    <small className="text-muted">
+                      ${product.price.toLocaleString("es-AR")}
+                    </small>
+                  </div>
+                </div>
+              </div>
+            ))}
+
 
               {/* SUBTOTALS */}
               <div className="border-bottom pb-4 mb-4">
@@ -173,9 +210,7 @@ export default function CheckoutShipping() {
           </div>
       </div>
     </div>
-    {/* ./ Summary Mobile  */}          
-
-
+    {/* ./ Summary Mobile  */}         
 
 
 
@@ -199,6 +234,13 @@ export default function CheckoutShipping() {
                 noValidate
                 onSubmit={handleSubmit}
               >
+
+              {showAlert && (
+                <div className="alert alert-danger py-3 font-medium mb-4 font-15" role="alert">
+                  <i className="bi bi-exclamation-triangle-fill me-1 mt-1"></i> <strong>Revisá los datos del formulario.</strong> Hay campos obligatorios incompletos o incorrectos.
+                </div>
+              )}
+
                 <div className="card shadow-none py-4 px-0 px-md-4 mb-md-4">
                   <h2 className="h3 font-bold text-black mb-4">Datos de entrega</h2>
 

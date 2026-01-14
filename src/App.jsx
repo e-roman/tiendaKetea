@@ -31,7 +31,7 @@ const HIDE_COMPONENTS_ROUTES = [
   "/checkout",
   "/checkout/entrega",
   "/checkout/pago",
-  "/order-complete",
+  "/pago-realizado",
 ];
 
 export default function App() {

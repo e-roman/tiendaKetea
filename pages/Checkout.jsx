@@ -69,6 +69,7 @@ const {
 
   const formRef = useRef(null);
   const [validated, setValidated] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -78,11 +79,15 @@ const {
     if (!form.checkValidity()) {
       e.stopPropagation();
       setValidated(true);
+      setShowAlert(true);
+
+      // opcional: scroll al inicio del formulario
+      form.scrollIntoView({ behavior: "smooth", block: "start" });
       return;
     }
 
-  navigate("/checkout/entrega");
-
+    setShowAlert(false);
+    navigate("/checkout/pago");
   };
 
   const subtotal = cart.reduce(
@@ -99,46 +104,69 @@ const {
       <HeaderCheckOut />
 
 
-      {/*Mobile Summary */}
-      <div className={`summary d-block d-md-none fixed sticky ${summaryOpen ? "open" : ""}`}>
-        <div
-          className="summary-container"
-          role="button"
-          onClick={toggleSummary}
-        >
-          <span className="summary-title pull-left">
-            <span className="summary-arrow summary-arrow-rounded">
-              <i className={`bi ${summaryOpen ? "bi-arrow-up-circle" : "bi-arrow-down-circle"}`} />
-            </span>
-            <span className="small ps-1">
-              {summaryOpen ? "Ocultar detalles" : "Ver detalles de mi compra"}
-            </span>
+    {/* <!- Summary Mobile --> */}
+    <div className={`summary d-block d-md-none fixed sticky ${summaryOpen ? "open" : ""}`}>
+      <div
+        className="summary-container"
+        role="button"
+        onClick={toggleSummary}
+      >
+        <span className="summary-title pull-left">
+          <span className="summary-arrow summary-arrow-rounded">
+            <i className={`bi ${summaryOpen ? "bi-arrow-up-circle" : "bi-arrow-down-circle"}`} />
           </span>
-
-          <span className="summary-total font-bold-xl font-16">
-            ${total.toLocaleString("es-AR")}
+          <span className="small ps-1">
+            {summaryOpen ? "Ocultar detalles" : "Ver detalles de mi compra"}
           </span>
-        </div>
+        </span>
 
+        <span className="summary-total font-bold-xl font-16">
+          ${total.toLocaleString("es-AR")}
+        </span>
+      </div>
 
-        <div className="summary-details">
-            <div ref={summaryWrapperRef}>
-            <div  ref={summaryRef} className="bg-white px-3 pt-4 pb-5 py-md-5 px-md-5 mb-4 summary-js-sticky">
+      <div className="summary-details bg-white">
+          <div>
+            <div  className="bg-white px-3 pt-4 pb-5 py-md-5 px-md-5 mb-0">
 
+            {/* Lista dinámica del carrito */}
+            {cart.length === 0 && (
+              <p className="text-muted">No hay productos en el carrito.</p>
+            )}
 
-              {/* Lista dinámica del carrito */}
-              {cart.length === 0 && (
-                <p className="text-muted">No hay productos en el carrito.</p>
-              )}
+            {cart.map((product) => (
+              <div key={product.id} className="border-bottom pb-3 mb-3">
+                <div className="d-flex align-items-start">
+                  <div className="position-relative me-3" style={{ width: 60 }}>
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="img-fluid rounded"
+                    />
+                    <span className="badge bg-primary position-absolute top-0 start-100 translate-middle rounded-circle">
+                      {product.quantity || 1}
+                    </span>
+                  </div>
+
+                  <div className="flex-grow-1">
+                    <p className="mb-1 font-14">{product.title}</p>
+                    <small className="text-muted">
+                      ${product.price.toLocaleString("es-AR")}
+                    </small>
+                  </div>
+                </div>
+              </div>
+            ))}
+
 
               {/* SUBTOTALS */}
-              <div className="border-bottom pb-2 mb-4">
+              <div className="border-bottom pb-4 mb-4">
                 <div className="media align-items-center mb-3">
-                  <span className="text-dark 15 mb-0 me-3">
-                    Producto ({cart.length})
-                  </span>
+                  <h3 className="text-dark font-15">
+                    Item subtotal ({cart.length})
+                  </h3>
                   <div className="media-body text-right">
-                    <span className=" text-dark">
+                    <span className="font-medium text-dark">
                       $
                       {cart
                         .reduce((acc, p) => acc + p.price * (p.quantity || 1), 0)
@@ -148,24 +176,21 @@ const {
                 </div>
 
                 <div className="media align-items-center mb-3">
-                    <span className="text-dark 15 mb-0 me-3">Método de envío</span>
+                    <h4 className="text-dark font-15">Método de envío</h4>
+
                     <div className="media-body text-end">
-                      <span className="text-dark font-15">
-                        {deliveryType === "pickup"
-                          ? "Retiro en local"
-                          : shipping === "express"
-                          ? "Envío Express"
-                          : "Envío Estándar"}
+                      <span className="font-medium text-dark font-15">
+                        {shipping === "express" ? "Express" : "Grátis"}
                       </span>
                     </div>
                   </div>
                   {shipping === "express" && (
                     <div className="d-flex justify-content-between mb-3">
-                      <span className="text-dark 15">
+                      <span className="text-dark font-15">
                         Costo de envío
                       </span>
-                      <span className=" text-dark">
-                        $25.500
+                      <span className="font-medium text-dark">
+                        $25500
                       </span>
                     </div>
                   )}
@@ -174,9 +199,9 @@ const {
               </div>
 
               {/* TOTAL */}
-              <div className="media align-items-center mb-3">
+              <div className="media align-items-center">
                 <h4 className="h4 font-bold mb-0 me-3">Total</h4>
-                <div className="media-body text-right">
+                <div className="media-body text-end">
                   <span className="h3 font-bold text-dark">
                     ${total.toLocaleString("es-AR")}
                   </span>
@@ -184,11 +209,10 @@ const {
               </div>
 
             </div>
-            </div>
-        </div>
+          </div>
       </div>
-      {/*./ Mobile Summary */}  
-
+    </div>
+    {/* ./ Summary Mobile  */}         
 
 
 
@@ -324,6 +348,15 @@ const {
               noValidate
               onSubmit={handleSubmit}
             >
+
+
+              {showAlert && (
+                <div className="alert alert-danger py-3 font-medium mb-4 font-15" role="alert">
+                  <i className="bi bi-exclamation-triangle-fill me-1 mt-1"></i> <strong>Revisá los datos del formulario.</strong> Hay campos obligatorios incompletos o incorrectos.
+                </div>
+              )}
+
+
               <div className="card shadow-none mb-0">
                 <div className="card-body rounded px-1 pt-5 pb-5 py-md-4 px-md-5">
 

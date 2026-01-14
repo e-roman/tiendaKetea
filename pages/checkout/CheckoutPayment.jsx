@@ -126,10 +126,35 @@ const {
           <div>
             <div  className="bg-white px-3 pt-4 pb-5 py-md-5 px-md-5 mb-0">
 
-              {/* Lista dinámica del carrito */}
-              {cart.length === 0 && (
-                <p className="text-muted">No hay productos en el carrito.</p>
-              )}
+            {/* Lista dinámica del carrito */}
+            {cart.length === 0 && (
+              <p className="text-muted">No hay productos en el carrito.</p>
+            )}
+
+            {cart.map((product) => (
+              <div key={product.id} className="border-bottom pb-3 mb-3">
+                <div className="d-flex align-items-start">
+                  <div className="position-relative me-3" style={{ width: 60 }}>
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      className="img-fluid rounded"
+                    />
+                    <span className="badge bg-primary position-absolute top-0 start-100 translate-middle rounded-circle">
+                      {product.quantity || 1}
+                    </span>
+                  </div>
+
+                  <div className="flex-grow-1">
+                    <p className="mb-1 font-14">{product.title}</p>
+                    <small className="text-muted">
+                      ${product.price.toLocaleString("es-AR")}
+                    </small>
+                  </div>
+                </div>
+              </div>
+            ))}
+
 
               {/* SUBTOTALS */}
               <div className="border-bottom pb-4 mb-4">
@@ -367,9 +392,9 @@ const {
                         Si estás en una computadora, tené el celular a mano.
                       </p>
 
-                      <button className="btn btn-danger px-5 py-2">
+                      <Link to="/checkout/pago-realizado" className="btn btn-danger px-5 py-2">
                         Pagar con MODO
-                      </button>
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -400,9 +425,9 @@ const {
 
                   {paymentMethod === "mp" && (
                     <div className="mt-4 ms-4 ps-1">
-                      <button className="btn btn-danger px-5 py-2">
+                      <Link to="/checkout/pago-realizado" className="btn btn-danger px-5 py-2">
                         Pagar con Mercado Pago
-                      </button>
+                      </Link>
                     </div>
                   )}
                 </div>
@@ -439,8 +464,8 @@ const {
                   </label>
 
                 {paymentMethod === "card" && (
-                  <div className="mt-4 p-3 border rounded mx-md-4 bg-light">
-                    <p className="text-dark font-medium mb-3">Ingresá los datos de tu tarjeta</p>
+                  <div className="mt-4 mb-3 mb-md-5 p-3 p-md-5 border rounded mx-md-4 bg-white shadow-sm">
+                    <p className="text-dark font-bold mb-4">Ingresá los datos de tu tarjeta</p>
 
                     {/* Número de tarjeta */}
                     <div className="mb-3">
@@ -467,7 +492,7 @@ const {
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="CVV"
+                          placeholder="CVV / CVC"
                         />
                       </div>
                     </div>
@@ -479,12 +504,12 @@ const {
                       <input
                         type="text"
                         className="form-control"
-                        placeholder="Ej. Juan Zapata"
+                        placeholder="Ej. Francisco Pérez"
                       />
                     </div>
 
                     {/* SELECT DE CUOTAS */}
-                    <div className="mb-4">
+                    <div className="mb-6">
                       <label className="form-label">Cuotas disponibles</label>
                       <select className="form-select">
                         <option value="1">Total - $ 769.198,00</option>
@@ -506,9 +531,9 @@ const {
                       </select>
                     </div>
 
-                    <button className="btn btn-danger px-10 w-xs-100 py-2">
+                    <Link to="/pago-realizado" className="btn btn-danger px-10 w-100 py-2">
                       Pagar
-                    </button>
+                    </Link>
 
                   </div>
                 )}

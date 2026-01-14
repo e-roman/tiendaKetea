@@ -29,7 +29,7 @@ export default function OrderComplete() {
         </div>
     </header>
 
-    <div className="bg-light-medium py-5 py-md-10">
+    <div className="bg-light-medium py-5 py-md-3">
       <div className="row mx-0 justify-content-center py-md-10">
         <div className="col-md-12 col-lg-4">
 
@@ -40,33 +40,33 @@ export default function OrderComplete() {
 
             <h1 className="h2 mb-3 font-bold">¡Pago realizado con éxito!</h1>
 
-            <p className="text-muted mb-4">
+            <p className="text-dark mb-4">
               Tu pedido fue confirmado correctamente.  
               En breve recibirás un correo con los detalles de la compra.
             </p>
 
-            <div className="border rounded p-3 mb-6 bg-light">
-              <p className="mb-1">
+            <div className="border rounded p-3 mb-6 bg-light ">
+              <p className="text-dark mb-2">
                 <strong>N° de orden:</strong> #784512
               </p>
-              <p className="mb-1">
+              <p className="text-dark mb-2">
                 <strong>Método de pago:</strong> Tarjeta de crédito
               </p>
-              <p className="mb-0">
+              <p className="text-dark mb-0">
                 <strong>Total:</strong> $11.284.320,00
               </p>
             </div>
 
             <div className="d-md-flex gap-3 justify-content-center">
               <button
-                className="btn btn-sm btn-primary px-5 w-xs-100 mb-3 mb-md-0"
+                className="btn btn-sm font-medium font-16 btn-primary px-5 w-xs-100 mb-3 mb-md-0"
                 onClick={() => navigate("/")}
               >
                 Volver al inicio
               </button>
 
               <button
-                className="btn btn-sm btn-outline-secondary px-5 w-xs-100"
+                className="btn btn-sm font-medium font-16 btn-outline-secondary px-5 w-xs-100"
                 onClick={() => navigate("/pages/Profile?view=orders")}
               >
                 Ver mis pedidos
