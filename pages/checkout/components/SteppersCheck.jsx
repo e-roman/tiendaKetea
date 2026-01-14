@@ -14,7 +14,7 @@ const steps = [
   {
     id: 3,
     label: "Pago",
-    path: "/checkout/payment",
+    path: "/checkout/pago",
   },
 ];
 

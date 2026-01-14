@@ -2200,10 +2200,10 @@ footer .btn-icon.btn-social {
 
 /* STEP */
 .stepper-step {
-  position: relative;
-  /* flex: 1; */
-  gap:2rem;
-  display: flex;
+    position: relative;
+    /* flex: 1; */
+    gap: 1rem;
+    display: flex;
 }
 
 /* Último step no estira */

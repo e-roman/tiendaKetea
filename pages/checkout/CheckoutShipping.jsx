@@ -10,6 +10,8 @@ export default function CheckoutShipping() {
   const formRef = useRef(null);
   const [validated, setValidated] = useState(false);
 
+  const [summaryOpen, setSummaryOpen] = useState(false);
+  
   const {
     cart,
     shipping,
@@ -28,7 +30,7 @@ export default function CheckoutShipping() {
       return;
     }
 
-    navigate("/checkout/payment");
+    navigate("/checkout/pago");
   };
 
   const subtotal = cart.reduce(
@@ -77,15 +79,114 @@ export default function CheckoutShipping() {
     };
   }, []);
 
+
+ const toggleSummary = () => {
+  setSummaryOpen(prev => !prev);
+};
+
   return (
     <>
       <HeaderCheckOut />
 
-      <div className="bg-white pt-3 pb-5">
+
+
+    {/* <!- Summary Mobile --> */}
+    <div className={`summary d-block d-md-none fixed sticky ${summaryOpen ? "open" : ""}`}>
+      <div
+        className="summary-container"
+        role="button"
+        onClick={toggleSummary}
+      >
+        <span className="summary-title pull-left">
+          <span className="summary-arrow summary-arrow-rounded">
+            <i className={`bi ${summaryOpen ? "bi-arrow-up-circle" : "bi-arrow-down-circle"}`} />
+          </span>
+          <span className="small ps-1">
+            {summaryOpen ? "Ocultar detalles" : "Ver detalles de mi compra"}
+          </span>
+        </span>
+
+        <span className="summary-total font-bold-xl font-16">
+          ${total.toLocaleString("es-AR")}
+        </span>
+      </div>
+
+      <div className="summary-details bg-white">
+          <div>
+            <div  className="bg-white px-3 pt-4 pb-5 py-md-5 px-md-5 mb-0">
+
+              {/* Lista dinámica del carrito */}
+              {cart.length === 0 && (
+                <p className="text-muted">No hay productos en el carrito.</p>
+              )}
+
+              {/* SUBTOTALS */}
+              <div className="border-bottom pb-4 mb-4">
+                <div className="media align-items-center mb-3">
+                  <h3 className="text-dark font-15">
+                    Item subtotal ({cart.length})
+                  </h3>
+                  <div className="media-body text-right">
+                    <span className="font-medium text-dark">
+                      $
+                      {cart
+                        .reduce((acc, p) => acc + p.price * (p.quantity || 1), 0)
+                        .toLocaleString("es-AR")}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="media align-items-center mb-3">
+                    <h4 className="text-dark font-15">Método de envío</h4>
+
+                    <div className="media-body text-end">
+                      <span className="font-medium text-dark font-15">
+                        {shipping === "express" ? "Express" : "Grátis"}
+                      </span>
+                    </div>
+                  </div>
+                  {shipping === "express" && (
+                    <div className="d-flex justify-content-between mb-3">
+                      <span className="text-dark font-15">
+                        Costo de envío
+                      </span>
+                      <span className="font-medium text-dark">
+                        $25500
+                      </span>
+                    </div>
+                  )}
+
+
+              </div>
+
+              {/* TOTAL */}
+              <div className="media align-items-center">
+                <h4 className="h4 font-bold mb-0 me-3">Total</h4>
+                <div className="media-body text-end">
+                  <span className="h3 font-bold text-dark">
+                    ${total.toLocaleString("es-AR")}
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+      </div>
+    </div>
+    {/* ./ Summary Mobile  */}          
+
+
+
+
+
+
+
+
+      <div className="bg-light-medium bg-white-xs pt-3 pb-5">
         <div className="container">
 
           {/* STEPS */}
-          <SteppersCheck step={2} />
+          <SteppersCheck />
 
           <div className="row mt-4">
 
@@ -98,7 +199,7 @@ export default function CheckoutShipping() {
                 noValidate
                 onSubmit={handleSubmit}
               >
-                <div className="card shadow-none bg-light-md p-4 mb-4">
+                <div className="card shadow-none py-4 px-0 px-md-4 mb-md-4">
                   <h2 className="h3 font-bold text-black mb-4">Datos de entrega</h2>
 
                   <div className="row">
@@ -150,10 +251,9 @@ export default function CheckoutShipping() {
                 </div>
 
                 {/* ================= TIPO DE ENTREGA ================= */}
-                <div className="card shadow-none bg-light-md p-4 mb-4">
+                <div className="card shadow-none py-4 px-0 px-md-4 mb-md-4">
                   <h2 className="h3 font-bold text-black mb-4">Tipo de Entrega</h2>
-                  <div class="alert alert-warning  mb-6" role="alert">
-                    <h4 className="font-bold mb-2"><span className="font-bold mb-1">Importante</span> </h4>
+                  <div class="alert alert-warning mb-4" role="alert">
                     <p className="font-14 mb-0"><b>Retiro en sucursal</b>: sólo podrá retirar la compra el titular de la tarjeta. Si pagás con 2 tarjetas, deberá presentarse quien abonó el mayor monto.</p>
                   </div>
 
@@ -276,7 +376,7 @@ export default function CheckoutShipping() {
 
                     <div className="bg-white rounded border px-3 pt-4 pb-5 py-md-4 px-md-4 mb-3">
                       <div className="mb-5 border-bottom pb-2">
-                        <h4 className="font-bold">Detalle de la compra</h4>
+                        <h4 className="font-bold">Resumen de la compra</h4>
                       </div>
 
                       {/* LISTA DEL CARRITO */}
@@ -313,7 +413,7 @@ export default function CheckoutShipping() {
 
                         <div className="media align-items-center mb-3">
                           <span className="text-dark font-15 me-3">
-                            Producto(s) ({cart.length})
+                            Producto ({cart.length})
                           </span>
                           <div className="media-body text-end">
                             <span className="text-dark">

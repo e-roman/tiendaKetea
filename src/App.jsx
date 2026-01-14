@@ -30,7 +30,7 @@ import MasVendidoPage from "../pages/MasVendido";
 const HIDE_COMPONENTS_ROUTES = [
   "/checkout",
   "/checkout/entrega",
-  "/checkout/payment",
+  "/checkout/pago",
   "/order-complete",
 ];
 
@@ -83,8 +83,8 @@ const [showLogoutModal, setShowLogoutModal] = useState(false);
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout/entrega" element={<CheckoutShipping />} />
-          <Route path="/checkout/payment" element={<CheckoutPayment />} />
-          <Route path="/order-complete" element={<OrderComplete />} />
+          <Route path="/checkout/pago" element={<CheckoutPayment />} />
+          <Route path="/pago-realizado" element={<OrderComplete />} />
           <Route path="/buscar/:query" element={<SearchResults />} />
           <Route path="/pages/Profile" element={<MyProfile />} />
         </Routes>

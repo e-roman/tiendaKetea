@@ -135,7 +135,7 @@ const {
               <div className="border-bottom pb-2 mb-4">
                 <div className="media align-items-center mb-3">
                   <span className="text-dark 15 mb-0 me-3">
-                    Producto(s) ({cart.length})
+                    Producto ({cart.length})
                   </span>
                   <div className="media-body text-right">
                     <span className=" text-dark">
@@ -194,13 +194,13 @@ const {
 
 
       {/*Col Right Summary */}
-      <div className="bg-white bg-white-xs pt-2 pt-md-4 space-bottom-md-3">
+      <div className="bg-light-medium bg-white-xs pt-2 pt-md-4 space-bottom-md-3">
 
-        <div className="container px-xs-0">
+        <div className="container">
 
 
         <div>
-          <div className="container pb-4">
+          <div className="container pt-4 pb-0 pt-md-0 pb-md-4 ">
             <div className="row">
               <div className="col-lg-8 ps-0">
                 <SteppersCheck />
@@ -208,6 +208,7 @@ const {
             </div>
           </div>
         </div>
+
 
 
 
@@ -220,7 +221,7 @@ const {
 
                 <div className="bg-white rounded border px-3 pt-4 pb-5 py-md-4 px-md-4 mb-3">
                   <div className="mb-5 border-bottom pb-2">
-                    <h4 className="font-bold">Detalle de la compra</h4>
+                    <h4 className="font-bold">Resumen de la compra</h4>
                   </div>
 
                   {/* Lista dinámica del carrito */}
@@ -315,7 +316,7 @@ const {
 
 
           {/* LEFT COLUMN */}
-          <div className="col-lg-8 order-lg-1 pe-4">
+          <div className="col-lg-8 order-lg-1 pe-md-4">
 
             <form
               ref={formRef}
@@ -324,7 +325,7 @@ const {
               onSubmit={handleSubmit}
             >
               <div className="card shadow-none mb-0">
-                <div className="card-body rounded bg-light-md px-3 pt-5 pb-5 py-md-4 px-md-5">
+                <div className="card-body rounded px-1 pt-5 pb-5 py-md-4 px-md-5">
 
                   {/* DATOS DE CONTACTO */}
                   <div className="border-bottom pb-4 mb-5">
@@ -426,7 +427,7 @@ const {
 
 
               {/* BOTÓN FINAL */}
-              <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4">
+              <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mb-10 mb-md-0 mt-4">
                 <Link to="/cart" className="order-2 order-md-1">
                   <small className="bi bi-arrow-left me-1"></small>
                   Regresar a mi Carrito
