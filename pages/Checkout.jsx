@@ -87,7 +87,7 @@ const {
     }
 
     setShowAlert(false);
-    navigate("/checkout/pago");
+    navigate("/checkout/entrega");
   };
 
   const subtotal = cart.reduce(
@@ -351,7 +351,7 @@ const {
 
 
               {showAlert && (
-                <div className="alert alert-danger py-3 font-medium mb-4 font-15" role="alert">
+                <div className="alert alert-danger font-medium mb-3 font-15" role="alert">
                   <i className="bi bi-exclamation-triangle-fill me-1 mt-1"></i> <strong>Revisá los datos del formulario.</strong> Hay campos obligatorios incompletos o incorrectos.
                 </div>
               )}

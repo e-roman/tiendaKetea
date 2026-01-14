@@ -5025,14 +5025,7 @@ fieldset:disabled .btn {
 .alert-warning .alert-link {
     color: #76614a
 }
-.alert-danger {
-    color: #8e2e48;
-    background-color: #fbdbe4;
-    border-color: #fac9d7
-}
-.alert-danger .alert-link {
-    color: #72253a
-}
+
 .alert-light {
     color: #949699;
     background-color: #fdfeff;
@@ -14825,6 +14818,23 @@ input[type=number] {
 .alert-danger .alert-link {
     color: #fff
 }
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 0.3125rem;
+}
+
+.alert-danger-light {
+    color: #73231d;
+    background-color: #f8dad7;
+    border-color: #f6cbc7;
+}
+.alert-danger-light .alert-link {
+    color: #73231d;
+}
+
 .alert-light {
     color: #000;
     background-color: #f7faff;

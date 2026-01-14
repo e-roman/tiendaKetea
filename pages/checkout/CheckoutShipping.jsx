@@ -236,7 +236,7 @@ export default function CheckoutShipping() {
               >
 
               {showAlert && (
-                <div className="alert alert-danger py-3 font-medium mb-4 font-15" role="alert">
+                <div className="alert alert-danger font-medium mb-3 font-15" role="alert">
                   <i className="bi bi-exclamation-triangle-fill me-1 mt-1"></i> <strong>Revisá los datos del formulario.</strong> Hay campos obligatorios incompletos o incorrectos.
                 </div>
               )}
@@ -263,40 +263,63 @@ export default function CheckoutShipping() {
 
                     <div className="col-md-6 mb-3">
                       <label className="form-label">Tipo de domicilio</label>
-                      <select className="form-select">
-                        <option>Casa</option>
-                        <option>Departamento</option>
+                      <select className="form-select" required>
+                        <option value="" disabled selected>
+                          Casa
+                        </option>
+                        <option value="BA">Departamento</option>
                       </select>
+                      <div className="invalid-feedback">
+                        Seleccioná una opción.
+                      </div>
                     </div>
 
                     <div className="col-md-6 mb-3">
                       <label className="form-label">
                         Piso / Departamento *
                       </label>
-                      <input type="text" className="form-control" />
+                      <input type="text" className="form-control"/>
                     </div>
 
                     <div className="col-md-6 mb-3">
-                      <label className="form-label">Provincia</label>
-                      <select className="form-select">
-                        <option>Buenos Aires</option>
+                      <label className="form-label">Provincia *</label>
+                      <select className="form-select" required>
+                        <option value="" disabled selected>
+                          Seleccionar provincia
+                        </option>
+                        <option value="BA">Buenos Aires</option>
+                        <option value="CABA">CABA</option>
                       </select>
+                      <div className="invalid-feedback">
+                        Seleccioná una provincia.
+                      </div>
                     </div>
 
+
                     <div className="col-md-6 mb-3">
-                      <label className="form-label">Ciudad</label>
-                      <select className="form-select">
-                        <option>Seleccionar</option>
+                      <label className="form-label">Ciudad *</label>
+                      <select className="form-select" required>
+                        <option value="" disabled selected>
+                          Seleccionar Ciudad
+                        </option>
+                        <option value="CABA">CABA</option>
+                        <option value="CABA">Haedo</option>
+                        <option value="CABA">Morón</option>
+                        <option value="CABA">Ramos Mejía</option>
                       </select>
+                      <div className="invalid-feedback">
+                        Seleccioná una provincia.
+                      </div>
                     </div>
+
                   </div>
                 </div>
 
                 {/* ================= TIPO DE ENTREGA ================= */}
                 <div className="card shadow-none py-4 px-0 px-md-4 mb-md-4">
-                  <h2 className="h3 font-bold text-black mb-4">Tipo de Entrega</h2>
+                  <h2 className="h3 font-bold text-black mb-3">Tipo de Entrega</h2>
                   <div class="alert alert-warning mb-4" role="alert">
-                    <p className="font-14 mb-0"><b>Retiro en sucursal</b>: sólo podrá retirar la compra el titular de la tarjeta. Si pagás con 2 tarjetas, deberá presentarse quien abonó el mayor monto.</p>
+                    <p className="font-13 font-medium mb-0"><b>Retiro en sucursal</b>: sólo podrá retirar la compra el titular de la tarjeta. Si pagás con 2 tarjetas, deberá presentarse quien abonó el mayor monto.</p>
                   </div>
 
                   <p className="font-bold font-14 text-black mb-2">
