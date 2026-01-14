@@ -2,9 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../../src/hooks/useCart";
 import { useRef, useState, useEffect } from "react";
 
-import HeaderCheckOut from "../checkout/HeaderCheckOut";
-import SteppersCheck from "./SteppersCheck";
-import OrderSummary from "./OrderSummary";
+import HeaderCheckOut from "../checkout/components/HeaderCheckOut";
+import SteppersCheck from "./components/SteppersCheck";
+import OrderSummary from "./components/OrderSummary";
+
 
 
 export default function CheckoutPayment() {
@@ -189,7 +190,7 @@ const {
 
 
 
-      <div className="bg-light-medium bg-white-xs pt-2 pt-md-4 space-bottom-md-3">
+      <div className="bg-white bg-white-xs pt-2 pt-md-4 space-bottom-md-3">
 
         <div className="container px-xs-0">
 
@@ -332,7 +333,7 @@ const {
 
 
           {/* LEFT COLUMN (checkout actions, forms...) */}
-          <div className="col-lg-8 order-lg-1">
+          <div className="col-lg-8 pe-md-4">
 
             <div className="px-0">
               <OrderSummary />

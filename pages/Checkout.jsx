@@ -2,8 +2,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../src/hooks/useCart";
 import { useRef, useState, useEffect } from "react";
 
-import HeaderCheckOut from "./checkout/HeaderCheckOut";
-import SteppersCheck from "./checkout/SteppersCheck";
+import HeaderCheckOut from "./checkout/components/HeaderCheckOut";
+import SteppersCheck from "./checkout/components/SteppersCheck";
 
 
 export default function Checkout() {
@@ -81,7 +81,7 @@ const {
       return;
     }
 
-  navigate("/checkout/payment");
+  navigate("/checkout/entrega");
 
   };
 
@@ -155,7 +155,7 @@ const {
                           ? "Retiro en local"
                           : shipping === "express"
                           ? "Envío Express"
-                          : "Envío estándar"}
+                          : "Envío Estándar"}
                       </span>
                     </div>
                   </div>
@@ -194,7 +194,7 @@ const {
 
 
       {/*Col Right Summary */}
-      <div className="bg-light-medium bg-white-xs pt-2 pt-md-4 space-bottom-md-3">
+      <div className="bg-white bg-white-xs pt-2 pt-md-4 space-bottom-md-3">
 
         <div className="container px-xs-0">
 
@@ -281,7 +281,7 @@ const {
                             ? "Retiro en local"
                             : shipping === "express"
                             ? "Envío Express"
-                            : "Envío estándar"}
+                            : "Envío Gratis"}
                         </span>
                       </div>
                     </div>
@@ -311,8 +311,11 @@ const {
             </div>
           </div>
 
+
+
+
           {/* LEFT COLUMN */}
-          <div className="col-lg-8 order-lg-1">
+          <div className="col-lg-8 order-lg-1 pe-4">
 
             <form
               ref={formRef}
@@ -320,8 +323,8 @@ const {
               noValidate
               onSubmit={handleSubmit}
             >
-              <div className="card shadow-none mb-5">
-                <div className="card-body px-3 pt-5 pb-5 py-md-5 px-md-5">
+              <div className="card shadow-none mb-0">
+                <div className="card-body rounded bg-light-md px-3 pt-5 pb-5 py-md-4 px-md-5">
 
                   {/* DATOS DE CONTACTO */}
                   <div className="border-bottom pb-4 mb-5">
@@ -344,124 +347,11 @@ const {
                     </label>
                   </div>
 
-                  {/* MÉTODOS DE ENVÍO */}
-                  <div className="pb-4">
+ 
 
-                    <p className="small text-black mb-2">
-                      <i className="bi bi-truck f-icons-18"></i> Envío a Domicilio
-                    </p>
-
-                    <div>
-                      {/* ENVÍO STANDARD */}
-                      <label
-                        className={`delivery-card w-100 ${
-                          deliveryType === "delivery" && shipping === "standard"
-                            ? "active"
-                            : ""
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name="delivery"
-                          checked={
-                            deliveryType === "delivery" &&
-                            shipping === "standard"
-                          }
-                          onChange={() => {
-                            setDeliveryType("delivery");
-                            setShipping("standard");
-                          }}
-                        />
-
-                        <div className="delivery-indicator">
-                          <i className="bi bi-check-lg"></i>
-                        </div>
-
-                        <div className="delivery-content">
-                          <span className="delivery-title">
-                            Envío Personalizado
-                          </span>
-                          <span className="delivery-desc">
-                            Llega entre el Martes 23/12 y el Viernes 26/12
-                          </span>
-                        </div>
-                      </label>
-
-                      {/* ENVÍO EXPRESS */}
-                      <label
-                        className={`delivery-card w-100 ${
-                          deliveryType === "delivery" && shipping === "express"
-                            ? "active"
-                            : ""
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name="delivery"
-                          checked={
-                            deliveryType === "delivery" &&
-                            shipping === "express"
-                          }
-                          onChange={() => {
-                            setDeliveryType("delivery");
-                            setShipping("express");
-                          }}
-                        />
-
-                        <div className="delivery-indicator">
-                          <i className="bi bi-check-lg"></i>
-                        </div>
-
-                        <div className="delivery-content">
-                          <span className="delivery-title">Envío Express</span>
-                          <span className="delivery-desc">
-                            Tiene un costo de $25.500 y llega hoy
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-
-                    <p className="small text-black mt-4 mb-2">
-                      <i className="bi bi-geo-alt"></i> Retirar en local
-                    </p>
-
-                    <div>
-                      <label
-                        className={`delivery-card ${
-                          deliveryType === "pickup" ? "active" : ""
-                        }`}
-                      >
-                        <input
-                          type="radio"
-                          name="delivery"
-                          checked={deliveryType === "pickup"}
-                          onChange={() => {
-                            setDeliveryType("pickup");
-                            setShipping("standard");
-                          }}
-                        />
-
-                        <div className="delivery-indicator">
-                          <i className="bi bi-check-lg"></i>
-                        </div>
-
-                        <div className="delivery-content">
-                          <span className="delivery-title">
-                            Ketea Ramos Mejía
-                          </span>
-                          <span className="delivery-desc">
-                            Cnel. Brandsen 2230, Ramos Mejía
-                            <br />
-                            Lunes a Viernes de 9 a 18hs.
-                          </span>
-                        </div>
-                      </label>
-                    </div>
-
-                  </div>
 
                   {/* DATOS DE FACTURACIÓN */}
-                  <div className="border-bottom pb-5 mb-7">
+                  <div className=" mb-0">
 
                     <h2 className="h3 font-bold mb-4">
                       Datos de facturación
@@ -532,6 +422,9 @@ const {
                 </div>
               </div>
 
+
+
+
               {/* BOTÓN FINAL */}
               <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mt-4">
                 <Link to="/cart" className="order-2 order-md-1">
@@ -543,7 +436,7 @@ const {
                   type="submit"
                   className="btn btn-primary btn-sm font-16 px-6 order-1 order-md-2 mb-5 mb-md-0"
                 >
-                  Continuar al pago
+                  Continuar
                 </button>
               </div>
 

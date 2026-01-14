@@ -90,7 +90,7 @@ export default function MyProfile() {
           <div className="row align-items-center">
             <div className="col">
               <div className="d-none d-lg-block">
-                <h1 className="h2 text-white">Mi Cuenta</h1>
+                <h1 className="h2 text-white font-bold">Mi Cuenta</h1>
               </div>
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb breadcrumb-light mb-0">

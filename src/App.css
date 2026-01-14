@@ -2168,7 +2168,7 @@ progress {
 .form-control {
     display: block;
     width: 100%;
-    padding: .6125rem 1rem;
+    padding: .5125rem 1rem;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
@@ -2370,7 +2370,7 @@ textarea.form-control-lg {
     background-repeat: no-repeat;
     background-position: right 1rem center;
     background-size: 16px 12px;
-    border: .0625rem solid rgba(33, 50, 91, .1);
+    border:.0625rem solid rgb(0 0 0 / 15%);
     border-radius: .3125rem;
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     -webkit-appearance: none;
@@ -3312,9 +3312,9 @@ fieldset:disabled .btn {
     border-color: #71869d
 }
 .btn-outline-secondary:hover {
-    color: #fff;
-    background-color: #71869d;
-    border-color: #71869d
+    color: #377dff;
+    background-color: transparent;
+    border-color: #377dff;
 }
 .btn-check:focus+.btn-outline-secondary,
 .btn-outline-secondary:focus {

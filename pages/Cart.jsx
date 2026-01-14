@@ -72,7 +72,7 @@ export default function MyCart() {
             <form>    
               {cart.map((item) => (
                 <div key={item.slug} className="card shadow-none border mb-3">
-                  <div className="card-body px-4 pt-4 pb-5 pt-md-5 pb-md-4 px-md-4">
+                  <div className="card-body px-4 pt-4 pb-5 pt-md-5 pb-md-3 px-md-4">
 
 
                       {cart.length === 0 && (
@@ -80,7 +80,7 @@ export default function MyCart() {
                       )}
 
                       
-                        <div className="border-bottom pb-5 mb-4">
+                        <div className="border-bottom pb-3 mb-3">
                           <div className="row">
 
                             {/* IMAGE + INFO */}
@@ -176,7 +176,7 @@ export default function MyCart() {
                     
 
                     <div>
-                      <p className="font-15 text-dark m-0"><b>Llega en 1 día hábil</b> seleccionando <b>Envío Express</b> al comprar</p>
+                      <p className="font-14 font-medium text-dark m-0">Llega en 1 día hábil seleccionando <b>Envío Express</b> al comprar</p>
                     </div>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export default function MyCart() {
 
 
             {/* BACK TO HOME */}
-            <div className="d-flex justify-content-start d-none d-md-block">
+            <div className="d-flex justify-content-start d-none d-md-block pt-4">
               <Link to="/">
                 <i className="bi bi-arrow-left me-1"></i>
                 Continuar comprando
@@ -206,7 +206,7 @@ export default function MyCart() {
 
                 <div className="border-bottom mb-4">
                   <div className="media align-items-center mb-3">
-                    <h3 className=" font-size-1 mb-0 me-3">
+                    <h3 className="font-14 mb-1 me-3">
                       Productos  ({totalItems})
                     </h3>
                     <div className="media-body text-right">
@@ -217,7 +217,7 @@ export default function MyCart() {
                   </div>
 
                   <div className="media align-items-center mb-3">
-                    <h4 className="font-size-1 mb-0 me-3">
+                    <h4 className="font-14 mb-0 me-3">
                       Envío
                     </h4>
                     <div className="media-body text-right">
@@ -230,8 +230,8 @@ export default function MyCart() {
                   </div>
 
                   {/* SHIPPING OPTIONS */}
-                  <div className="card border-0 shadow-none mb-3">
-                    <div className="mt-2 mb-3">
+                  <div className="card border-0 shadow-none mb-2">
+                    <div className="mt-2 pt-4 mb-3 border-top">
                       <div className="form-check w-100">
                        <input
                             type="radio"
@@ -246,7 +246,7 @@ export default function MyCart() {
                             className="form-check-label w-100 ps-2"
                             htmlFor="shipping-standard"
                           >
-                          <span className="d-block text-dark font-size-1 font-medium mb-1">
+                          <span className="d-block text-dark font-size-1 font-bold mb-1">
                             Envío Gratis
                           </span>
                           <span className="d-block text-muted">
@@ -270,7 +270,7 @@ export default function MyCart() {
                           <label
                             className="form-check-label w-100 ps-2"
                             htmlFor="shipping-express">
-                          <span className="d-block text-dark font-size-1 font-medium mb-1">
+                          <span className="d-block text-dark font-size-1 font-bold mb-1">
                             <div className="d-flex justify-content-between">
                               <div>Envío Express</div> <div><span className="font-bold">$25500</span> </div>
                             </div>
@@ -282,6 +282,33 @@ export default function MyCart() {
                       </div>
                     </div>
                     
+                    {/* <div className="my-2">
+                      <div className="form-check w-100">
+                        <input
+                            type="radio"
+                            id="shipping-express"
+                            name="shipping"
+                            className="form-check-input"
+                            checked={shipping === "express"}
+                            onChange={() => setShipping("express")}
+                          />
+
+                          <label
+                            className="form-check-label w-100 ps-2"
+                            htmlFor="shipping-express">
+                          <span className="d-block text-dark font-size-1 font-bold mb-1">
+                            <div className="d-flex justify-content-between">
+                              <div>Retirar en local</div> 
+                            </div>
+                          </span>
+                          <span className="d-block text-muted">
+                            De lunes a viernes de 10 a 18 hs.
+                          </span>
+                        </label>
+                      </div>
+                    </div> */}
+
+
                   </div>
                 </div>
 
@@ -315,7 +342,7 @@ export default function MyCart() {
               {/* HELP */}
               <div className="pt-5">
                 <div className="media-body text-secondary small text-center">
-                  <span className="text-dark me-1">¿Necesitás ayuda?</span>
+                  <span className="text-dark me-1"><i className="bi bi-chat-square"></i> ¿Necesitás ayuda?</span>
                   <a className="link-muted font-medium" href="#">Escribinos</a>
                 </div>
               </div>

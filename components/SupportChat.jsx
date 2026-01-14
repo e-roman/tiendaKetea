@@ -38,7 +38,7 @@ export default function SupportChat() {
         }`}
         onClick={toggleChat}
       >
-        ¿Necesitás ayuda?
+        <i className="bi bi-chat-square-tex"></i> ¿Necesitás ayuda?
       </div>
 
       {/* BUTTON */}

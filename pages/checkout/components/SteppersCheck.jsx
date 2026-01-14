@@ -3,13 +3,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 const steps = [
   {
     id: 1,
-    label: "Mi Carrito",
-    path: "/cart",
+    label: "Datos Personales",
+    path: "/checkout",
   },
   {
     id: 2,
-    label: "Datos Personales",
-    path: "/checkout",
+    label: "Domicilio y Entrega",
+    path: "/checkout/entrega",
   },
   {
     id: 3,

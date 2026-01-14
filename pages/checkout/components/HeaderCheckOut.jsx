@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import StepsCheckout from "../checkout/SteppersCheck";
+import StepsCheckout from "./SteppersCheck";
 
 
 export default function HeaderCheckOut() {

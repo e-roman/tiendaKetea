@@ -10,6 +10,9 @@ body {
 .bg-light-medium {
     background-color: rgb(245, 245, 245);
 }
+.bg-light-md {
+background-color: rgb(250, 250, 250);
+}
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
     --bs-gutter-x: 1rem;
 }
@@ -2577,9 +2580,9 @@ footer .btn-icon.btn-social {
 
 /* ================= ACTIVE ================= */
 
-.delivery-card.active {
+/* .delivery-card.active {
   border: 1px solid #000;
-}
+} */
 
 .delivery-card.active::before {
   background: #000;

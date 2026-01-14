@@ -30,8 +30,6 @@ export default function NavCategories({
               >
                 <i className="bi bi-list"></i>
                 Todas las categorías
-                <i className="bi bi-chevron-down"></i>
-
               </button>
             </li>
 
