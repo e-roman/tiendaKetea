@@ -2209,15 +2209,16 @@ footer .btn-icon.btn-social {
 
 /* BUTTON */
 .stepper-step-button {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: none;
-  border: 0;
-  padding: 0;
-  color: #6c757d;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 8px;
+    /* flex-direction: column; */
+    /* align-items: center; */
+    background: none;
+    border: 0;
+    padding: 0;
+    color: #6c757d;
 }
 
 /* INDICATOR */
@@ -3438,4 +3439,9 @@ header{
     display: flex;
     align-items: flex-end;
     justify-content: right;
+}
+
+
+.form-check-input {
+        border: 1px solid rgba(33, 50, 91, .3);
 }

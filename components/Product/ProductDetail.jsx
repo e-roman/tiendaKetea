@@ -111,7 +111,7 @@ const openDiscountModal = (e) => {
 
 
       {/* Subtítulo / descripción corta */}
-      <div className="mb-2">
+      <div className="mb-3">
         <p className="mb-0">{product.shortDescription}</p>
       </div>
 

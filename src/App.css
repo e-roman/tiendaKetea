@@ -2175,7 +2175,7 @@ progress {
     color: #1e2022;
     background-color: #fff;
     background-clip: padding-box;
-    border: .0625rem solid rgba(33, 50, 91, .15);
+    border: .0625rem solid rgb(0 0 0 / 15%);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -2422,15 +2422,15 @@ textarea.form-control-lg {
     margin-left: -1.5em
 }
 .form-check-input {
-    width: 1em;
-    height: 1em;
+    width: 1.114em;
+    height: 1.114em;
     margin-top: .25em;
     vertical-align: top;
     background-color: #fff;
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    border: 1px solid rgba(33, 50, 91, .3);
+    border: .0625rem solid rgb(0 0 0 / 20%);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;

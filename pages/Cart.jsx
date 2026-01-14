@@ -68,122 +68,123 @@ export default function MyCart() {
 
           {/* LEFT COLUMN - PRODUCTS */}
           <div className="col-lg-8">
-            <div className="card shadow-none border mb-4 mb-md-5">
-              <div className="card-body px-4 pt-4 pb-5 py-md-4 px-md-5">
 
-                {/* TITLE */}
-                <div className="d-flex justify-content-between align-items-end border-bottom pb-3 mb-7">
-                  <h1 className="h4 mb-0 ">Productos seleccionados</h1>
-                  <span className="text-dark">{cart.length} Producto(s)</span>
-                </div>
+            <form>    
+              {cart.map((item) => (
+                <div key={item.slug} className="card shadow-none border mb-3">
+                  <div className="card-body px-4 pt-4 pb-5 pt-md-5 pb-md-4 px-md-4">
 
-                {/* PRODUCTS LIST */}
-                <form>
-                  {cart.length === 0 && (
-                    <p className="text-muted">Tu carrito está vacío.</p>
-                  )}
 
-                  {cart.map((item) => (
-                    <div key={item.slug} className="border-bottom pb-5 mb-5">
-                      <div className="row">
+                      {cart.length === 0 && (
+                        <p className="text-muted">Tu carrito está vacío.</p>
+                      )}
 
-                        {/* IMAGE + INFO */}
-                        <div className="col-md-6 mb-3 mb-md-0">
-                          <div className="media">
-                            <div className="max-width-15 w-100 me-3">
-                              <img
-                                className="img-fluid"
-                                src={item.image}
-                                alt={item.title}
-                              />
+                      
+                        <div className="border-bottom pb-5 mb-4">
+                          <div className="row">
+
+                            {/* IMAGE + INFO */}
+                            <div className="col-md-6 mb-3 mb-md-0">
+                              <div className="media">
+                                <div className="max-width-15 w-100 me-3">
+                                  <img
+                                    className="img-fluid"
+                                    src={item.image}
+                                    alt={item.title}
+                                  />
+                                </div>
+
+                                <div className="media-body">
+                                  <Link
+                                    to={`/product/${item.slug}`}
+                                    className="text-dark text-decoration-none"
+                                  >
+                                    <h2 className="h5 mb-1">{item.title}</h2>
+                                  </Link>
+
+                                  {/* PRECIOS (oldPrice + price) */}
+                                  <div className="pricing-meta my-1">
+                                    <ul className="d-flex align-items-center p-0 m-0 list-unstyled">
+                                      {item.oldPrice && (
+                                        <li className="old-price me-2">
+                                          ${item.oldPrice.toLocaleString()}
+                                        </li>
+                                      )}
+                                      <li className="current-price font-medium">
+                                        ${item.price.toLocaleString()}
+                                      </li>
+                                    </ul>
+                                  </div>
+
+                                  {/* BADGES */}
+                                  {item.stock ? (
+                                    <>
+                                      {item.discount > 0 && (
+                                        <span className="badge py-1 px-2 badge-yellow me-1">
+                                          -{item.discount}%
+                                        </span>
+                                      )}
+
+                                      {item.envioGratis && (
+                                        <span className="badge py-1 px-2 bg-dark text-white me-1">
+                                          Envío Gratis
+                                        </span>
+                                      )}
+                                    </>
+                                  ) : (
+                                    <span className="badge py-1 px-2 bg-danger text-white">
+                                      Sin Stock
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
                             </div>
 
-                            <div className="media-body">
-                              <Link
-                                to={`/product/${item.slug}`}
-                                className="text-dark text-decoration-none"
-                              >
-                                <h2 className="h5 mb-1">{item.title}</h2>
-                              </Link>
+                            {/* QUANTITY + REMOVE */}
+                            <div className="col-5 col-md-2 offset-md-1">
 
-                              {/* PRECIOS (oldPrice + price) */}
-                              <div className="pricing-meta my-1">
-                                <ul className="d-flex align-items-center p-0 m-0 list-unstyled">
-                                  {item.oldPrice && (
-                                    <li className="old-price me-2">
-                                      ${item.oldPrice.toLocaleString()}
-                                    </li>
-                                  )}
-                                  <li className="current-price font-medium">
-                                    ${item.price.toLocaleString()}
-                                  </li>
-                                </ul>
+                              {/* Quantity + Price */}
+                              <div className="d-flex align-items-center justify-content-between gap-3 mb-3">
+                                <QuantityControl
+                                  item={item}
+                                  onIncrease={increase}
+                                  onDecrease={decrease}
+                                />
                               </div>
 
-                              {/* BADGES */}
-                              {item.stock ? (
-                                <>
-                                  {item.discount > 0 && (
-                                    <span className="badge py-1 px-2 badge-yellow me-1">
-                                      -{item.discount}%
-                                    </span>
-                                  )}
+                              <button
+                                type="button"
+                                onClick={() => removeFromCart(item.id)}
+                                className="d-block text-dark font-size-1 mb-1 bg-transparent border-0 p-0"
+                              >
+                                <i className="bi bi-trash me-1"></i>
+                                Eliminar
+                              </button>
+                            </div>
 
-                                  {item.envioGratis && (
-                                    <span className="badge py-1 px-2 bg-dark text-white me-1">
-                                      Envío Gratis
-                                    </span>
-                                  )}
-                                </>
-                              ) : (
-                                <span className="badge py-1 px-2 bg-danger text-white">
-                                  Sin Stock
-                                </span>
-                              )}
+                            {/* PRICE (final individual) */}
+                            <div className="col-6 col-md-3 text-md-right">
+                              <span className="font-bold text-dark">
+                                ${(item.price * item.quantity).toLocaleString("es-AR")}
+                              </span>
                             </div>
                           </div>
                         </div>
+                      
 
-                        {/* QUANTITY + REMOVE */}
-                        <div className="col-5 col-md-2 offset-md-1">
 
-                          {/* Quantity + Price */}
-                          <div className="d-flex align-items-center justify-content-between gap-3 mb-3">
-                            <QuantityControl
-                              item={item}
-                              onIncrease={increase}
-                              onDecrease={decrease}
-                            />
-                          </div>
+                    
 
-                          <button
-                            type="button"
-                            onClick={() => removeFromCart(item.id)}
-                            className="d-block text-dark font-size-1 mb-1 bg-transparent border-0 p-0"
-                          >
-                            <i className="bi bi-trash me-1"></i>
-                            Eliminar
-                          </button>
-                        </div>
-
-                        {/* PRICE (final individual) */}
-                        <div className="col-6 col-md-3 text-md-right">
-                          <span className="font-bold text-dark">
-                           ${(item.price * item.quantity).toLocaleString("es-AR")}
-                          </span>
-                        </div>
-                      </div>
+                    <div>
+                      <p className="font-15 text-dark m-0"><b>Llega en 1 día hábil</b> seleccionando <b>Envío Express</b> al comprar</p>
                     </div>
-                  ))}
-
-
-                </form>
-
-                <div>
-                  <p className="font-15 text-dark m-0"><b>Llega en 1 día hábil</b> seleccionando <b>Envío Express</b> al comprar</p>
+                  </div>
                 </div>
-              </div>
-            </div>
+              ))}  
+            </form>        
+
+
+
 
             {/* BACK TO HOME */}
             <div className="d-flex justify-content-start d-none d-md-block">
@@ -196,7 +197,7 @@ export default function MyCart() {
 
           {/* RIGHT COLUMN - ORDER SUMMARY */}
           <div className="col-lg-4">
-            <div className="ps-lg-4">
+            <div className="ps-lg-2">
 
               <div className="bg-white shadow-soft rounded border px-4 pt-4 pb-5 pt-md-4 pb-md-4 px-md-4 mb-4">
                 <div className="border-bottom pb-3 mb-4">
@@ -209,7 +210,7 @@ export default function MyCart() {
                       Productos  ({totalItems})
                     </h3>
                     <div className="media-body text-right">
-                      <span className="font-medium text-dark">
+                      <span className="font-bold text-dark">
                         ${subtotal.toLocaleString("es-AR")}
                       </span>
                     </div>
@@ -230,8 +231,8 @@ export default function MyCart() {
 
                   {/* SHIPPING OPTIONS */}
                   <div className="card border-0 shadow-none mb-3">
-                    <div className="my-2">
-                      <div className="form-check">
+                    <div className="mt-2 mb-3">
+                      <div className="form-check w-100">
                        <input
                             type="radio"
                             id="shipping-standard"
@@ -242,21 +243,21 @@ export default function MyCart() {
                           />
 
                           <label
-                            className="form-check-label"
+                            className="form-check-label w-100 ps-2"
                             htmlFor="shipping-standard"
                           >
                           <span className="d-block text-dark font-size-1 font-medium mb-1">
-                            Envío grátis
+                            Envío Gratis
                           </span>
                           <span className="d-block text-muted">
-                            El envío puede tardar entre 5 y 6 días hábiles.
+                            Puede demorar entre 5 y 6 días hábiles.
                           </span>
                         </label>
                       </div>
                     </div>
 
                     <div className="my-2">
-                      <div className="form-check">
+                      <div className="form-check w-100">
                         <input
                             type="radio"
                             id="shipping-express"
@@ -267,11 +268,11 @@ export default function MyCart() {
                           />
 
                           <label
-                            className="form-check-label"
+                            className="form-check-label w-100 ps-2"
                             htmlFor="shipping-express">
                           <span className="d-block text-dark font-size-1 font-medium mb-1">
                             <div className="d-flex justify-content-between">
-                              <div>Envío Express</div> <div>$25500 </div>
+                              <div>Envío Express</div> <div><span className="font-bold">$25500</span> </div>
                             </div>
                           </span>
                           <span className="d-block text-muted">
@@ -301,16 +302,9 @@ export default function MyCart() {
 
               {/* HELP */}
               <div>
-                <div className="mb-5">
-                  <div className="d-flex">
-                   <i className="bi bi-tags pe-1"></i>
-                   <span className="font-14 text-dark font-medium m-0 "> Si tenes un <b>cupón de descuento</b>, podés aplicarlo en el siguiente paso antes de finalizar la compra.</span>
-                  </div>
-                </div>
-
                 <div className="media-body text-secondary small text-center">
-                  <span className="font-medium me-1">¿Necesitás ayuda?</span>
-                  <a className="link-muted" href="#">Escribinos</a>
+                  <span className="text-dark me-1">¿Necesitás ayuda?</span>
+                  <a className="link-muted font-medium" href="#">Escribinos</a>
                 </div>
               </div>
 
