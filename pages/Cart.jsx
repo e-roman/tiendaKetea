@@ -300,8 +300,20 @@ export default function MyCart() {
 
               </div>
 
+              <div className="summary-coupon mt-2 px-md-2">
+                <form>
+                  <label className="font-bold text-dark pb-2" htmlFor="cuponDescuento">¿Tenés un cupón de descuento?</label>
+                  <div className="d-flex gap-1">
+                    <input type="email" className="form-control rounded-1" name="email" id="cuponDescuento" placeholder="Ingresa código del cupón"/>
+                    <button className="btn btn-primary rounded-1 py-2 font-15" type="submit" id="subscribeButtonExample3">Aplicar</button>
+                  </div>
+                </form>
+              </div>
+
+
+
               {/* HELP */}
-              <div>
+              <div className="pt-5">
                 <div className="media-body text-secondary small text-center">
                   <span className="text-dark me-1">¿Necesitás ayuda?</span>
                   <a className="link-muted font-medium" href="#">Escribinos</a>

@@ -1,27 +1,22 @@
 import { useLocation, useNavigate } from "react-router-dom";
 
-
 const steps = [
   {
     id: 1,
     label: "Mi Carrito",
     path: "/cart",
-    icon: "bi-cart"
   },
   {
     id: 2,
-    label: "Datos de envío",
+    label: "Datos Personales",
     path: "/checkout",
-    icon: "bi-truck"
   },
   {
     id: 3,
-    label: "Método de pago",
+    label: "Pago",
     path: "/checkout/payment",
-    icon: "bi-credit-card"
   },
 ];
-
 
 export default function SteppersCheck() {
   const location = useLocation();
@@ -55,7 +50,7 @@ export default function SteppersCheck() {
                     {isComplete ? (
                       <i className="bi bi-check" />
                     ) : (
-                      <i className={`bi ${step.icon}`} />
+                      step.id
                     )}
                   </span>
                 </span>
@@ -75,4 +70,3 @@ export default function SteppersCheck() {
     </div>
   );
 }
-

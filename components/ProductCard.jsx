@@ -71,7 +71,7 @@ export default function ProductCard({ product, openProduct }) {
       {/* Información principal */}
       <div className="card-body pt-0 pb-3 px-3">
         <button
-          className="text-body text-dark font-medium font-16 bg-transparent border-0 p-0 text-start pb-1 "
+          className="text-body text-dark font-16 bg-transparent border-0 p-0 text-start pb-1 "
           onClick={() => openProduct(product.slug)}
         >
           {product.title}

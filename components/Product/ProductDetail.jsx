@@ -212,13 +212,12 @@ const openDiscountModal = (e) => {
         <ul className="pb-0 text-black">
 
           <li>
-            <div className="d-flex align-items-start">
+            <div className="d-flex align-items-center mb-3">
               <i className="bi bi-credit-card flex-shrink-0 me-1 lh-1 f-icons-18"></i>
-              <p className="pb-3 mb-0 small lh-sm">
+              <p className="mb-0 small lh-sm">
                 <span className="d-flex text-black">
                   <span className="font-bold">{product.installmentsLabel}</span>
-                  .{" "}
-                  <a href="#" onClick={openDiscountModal}>
+                  <a href="#" className="ps-1" onClick={openDiscountModal}>
                     Ver tarjetas
                   </a>
                 </span>
@@ -227,9 +226,9 @@ const openDiscountModal = (e) => {
           </li>
 
           <li>
-            <div className="d-flex align-items-start">
+            <div className="d-flex align-items-start mb-3">
               <i className="bi bi-cash-stack flex-shrink-0 me-1 lh-1 f-icons-18"></i>
-              <p className="pb-3 mb-0 small lh-sm">
+              <p className="mb-0 small lh-sm">
                 <span className="d-block text-black">
                  <span className="font-bold">10% de descuento</span> pagando con transferencia o depósito. <a href="#" onClick={openDiscountModal}> Ver más detalles</a>
                 </span>
@@ -238,15 +237,27 @@ const openDiscountModal = (e) => {
           </li>
 
           <li>
-            <div className="d-flex align-items-start">
+            <div className="d-flex align-items-center mb-3">
               <i className="bi bi-truck flex-shrink-0 me-1 lh-1 f-icons-18"></i>
-              <p className="pb-3 mb-0 small lh-sm">
+              <p className="mb-0 small lh-sm">
                 <span className="d-block text-black">
                    <span className="font-bold">Envíos grátis</span> a partir de $99.000
                 </span>
               </p>
             </div>
           </li>
+
+          <li>
+            <div className="d-flex align-items-center mb-2">
+              <i className="bi bi-shop flex-shrink-0 me-1 lh-1 f-icons-18"></i>
+              <p className="mb-0 small lh-sm">
+                <span className="d-block text-black">
+                   <span className="font-bold">Retiro Gratis</span> en sucursal ¡Retiralo YA!
+                </span>
+              </p>
+            </div>
+          </li>
+
 
         </ul>
       </div>

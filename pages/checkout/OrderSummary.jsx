@@ -6,7 +6,9 @@ const [paymentMethod, setPaymentMethod] = useState(null);
 
   return (
     <>
-    <div className="card shadow-none border p-3 p-md-5 mb-3">
+
+
+    <div className="card shadow-none p-3 p-md-5 mb-3">
       {/* Email */}
       <div className="d-flex align-items-center mb-3 text-black font-15">
         <i className="bi bi-envelope me-2"></i>
@@ -62,9 +64,8 @@ const [paymentMethod, setPaymentMethod] = useState(null);
     </div>
 
 
-    
 
-    <div className="card shadow-none border p-3 p-md-5">
+    <div className="card shadow-none p-3 p-md-5">
 
         {/* MÉTODO DE PAGO */}
         <div className="mb-3">

@@ -2198,7 +2198,8 @@ footer .btn-icon.btn-social {
 /* STEP */
 .stepper-step {
   position: relative;
-  flex: 1;
+  /* flex: 1; */
+  gap:2rem;
   display: flex;
 }
 
@@ -2244,16 +2245,16 @@ footer .btn-icon.btn-social {
 /* ========================= */
 /* CONNECTOR (la clave) */
 /* ========================= */
-.stepper-step:not(:last-child)::after {
+/* .stepper-step:not(:last-child)::after {
   content: "";
   position: absolute;
-  top: 18px; /* centro del círculo */
+  top: 18px; 
   left: 12%;
   width: 100%;
   height: 2px;
   background-color: #e7eaee;
   z-index: 1;
-}
+} */
 
 /* Conector completo */
 .stepper-step.complete:not(:last-child)::after {
