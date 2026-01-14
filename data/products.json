@@ -607,8 +607,8 @@
       "https://www.poolex.fr/media/product/jetpro9kw-1.jpg",
       "https://www.poolex.fr/media/product/jetpro9kw-2.jpg"
     ],
-    "image": "https://www.poolex.fr/media/product/jetpro9kw-1.jpg",
-    "title": "Heat Pump Poolex Jet Pro 9 kW",
+    "image": "../assets/img/products/bomba-calor-inverter-1.png",
+    "title": " Bomba De Calor Inverter 45m Lts Con App",
     "price": 3590000,
     "oldPrice": 3990000,
     "discount": 10,
@@ -631,8 +631,8 @@
     "images": [
       "https://www.poolex.fr/media/product/jetcity6kw-1.jpg"
     ],
-    "image": "https://www.poolex.fr/media/product/jetcity6kw-1.jpg",
-    "title": "Heat Pump Poolex Jet City 6 kW",
+    "image": "../assets/img/products/bomba-calor-inverter-2.png",
+    "title": "Piscina Bomba De Calor Inver Perfect",
     "price": 2799000,
     "oldPrice": null,
     "discount": 0,
@@ -652,8 +652,8 @@
   {
     "id": 403,
     "slug": "heat-pump-vulcano-inverter-11kw",
-    "image": "https://vulcano-sa.com.ar/wp-content/uploads/bomba-calor-inverter.png",
-    "title": "Bomba de Calor Vulcano Inverter 11 kW",
+    "image": "../assets/img/products/bomba-calor-inverter-3.png",
+    "title": "Bomba De Calor Pool Inverter 25 Vulcano",
     "price": 5390000,
     "oldPrice": 5990000,
     "discount": 10,
@@ -673,8 +673,8 @@
   {
     "id": 404,
     "slug": "heat-pump-vulcano-eco-14kw",
-    "image": "https://vulcano-sa.com.ar/wp-content/uploads/bomba-calor-eco.png",
-    "title": "Bomba de Calor Vulcano Eco 14 kW",
+    "image": "../assets/img/products/bomba-calor-inverter-4.png",
+    "title": " Bomba De Calor Pool Inverter 80 Plus Vulcano",
     "price": 6299000,
     "oldPrice": 6999000,
     "discount": 10,
@@ -697,7 +697,7 @@
     "images": [
       "https://www.vagnerpool.com/media/rapid-inverter-8-5kw.jpg"
     ],
-    "image": "https://www.vagnerpool.com/media/rapid-inverter-8-5kw.jpg",
+    "image": "../assets/img/products/bomba-calor-inverter-5.png",
     "title": "Heat Pump Vagner Rapid Inverter 8.5 kW",
     "price": 4899000,
     "oldPrice": null,
@@ -721,9 +721,9 @@
     "id": 406,
     "slug": "filtro-hayward-sand60",
     "images": [
-      "https://hayward.com/media/filtro-sand60-1.jpg"
+      "../assets/img/products/Hayward-Sand.jpg"
     ],
-    "image": "https://hayward.com/media/filtro-sand60-1.jpg",
+    "image": "../assets/img/products/Hayward-Sand.png",
     "title": "Filtro de Arena Hayward Sand 60",
     "price": 1299000,
     "oldPrice": 1499000,
@@ -744,7 +744,7 @@
   {
     "id": 407,
     "slug": "filtro-vulcano-vc250",
-    "image": "https://piscinasquelle.com.py/media/vc250.jpg",
+    "image": "../assets/img/products/Filtro-de-Arena-Vulcano-VC-250.png",
     "title": "Filtro de Arena Vulcano VC-250",
     "price": 1599000,
     "oldPrice": 1799000,
@@ -765,7 +765,7 @@
   {
     "id": 408,
     "slug": "filtro-cartucho-easypool",
-    "image": "https://example.com/pool-filter-cartridge.jpg",
+    "image": "../assets/img/products/Filtro-de-Cartucho-EasyPool.png",
     "title": "Filtro de Cartucho EasyPool",
     "price": 799000,
     "oldPrice": null,
@@ -786,7 +786,7 @@
   {
     "id": 409,
     "slug": "filtro-d-easypool-de-inyeccion",
-    "image": "https://example.com/pool-d-filter.jpg",
+    "image": "../assets/img/products/Filtro-D-EasyPool.png",
     "title": "Filtro D | EasyPool D.E.",
     "price": 2100000,
     "oldPrice": 2290000,
@@ -807,7 +807,7 @@
   {
     "id": 410,
     "slug": "filtro-vulcano-vc150",
-    "image": "https://example.com/vc150.jpg",
+    "image": "../assets/img/products/Filtro-de-Arena-Vulcano-VC-150.png",
     "title": "Filtro de Arena Vulcano VC-150",
     "price": 1199000,
     "oldPrice": 1359000,
@@ -830,7 +830,7 @@
   {
     "id": 411,
     "slug": "cloro-granulado-instantaneo-nataclor-5kg",
-    "image": "https://ipcboedo.com.ar/product/producto-1/",
+    "image": "../assets/img/products/Cloro-Granulado-Instantáneo-Nataclor-5kg.png",
     "title": "Cloro Granulado Instantáneo Nataclor 5kg",
     "price": 88900,
     "oldPrice": 99900,
@@ -851,7 +851,7 @@
   {
     "id": 412,
     "slug": "natbio-clarificador-nataclor-1l",
-    "image": "https://www.mercadolibre.com.ar/MLA26164776", 
+    "image": "../assets/img/products/clarificador.png", 
     "title": "NatBio Clarificador Nataclor 1L",
     "price": 58900,
     "oldPrice": null,
@@ -872,7 +872,7 @@
   {
     "id": 413,
     "slug": "cloro-pastillas-nataclor-multiaccion-1kg",
-    "image": "https://listado.mercadolibre.com.ar/nataclor-cloro",
+    "image": "../assets/img/products/Pastillas-Cloro-Multiacción-Nataclor-1kg.png",
     "title": "Pastillas Cloro Multiacción Nataclor 1kg",
     "price": 148900,
     "oldPrice": 159900,
@@ -893,7 +893,7 @@
   {
     "id": 414,
     "slug": "regulador-ph-nataclor-10l",
-    "image": "https://www.nataclor.com.ar/cdn/shop/products/ph-minus.png",
+    "image": "../assets/img/products/ph-minus.png",
     "title": "Regulador de pH Nataclor 10L",
     "price": 69900,
     "oldPrice": 77900,
@@ -914,7 +914,7 @@
   {
     "id": 415,
     "slug": "cloro-granulado-nataclor-20kg",
-    "image": "https://latiendarodante.com.ar/productos/cloro-granulado-activo-nataclor-x-20-kg-piscinas-revestidas/",
+    "image": "../assets/img/products/granulado.png",
     "title": "Cloro Granulado Activo Nataclor 20kg",
     "price": 206394,
     "oldPrice": null,
@@ -937,7 +937,7 @@
   {
     "id": 416,
     "slug": "valvula-multipuerto-hayward-sp0714t",
-    "image": "https://py.ebay.com/media/hayward-sp0714t.jpg",
+    "image": "../assets/img/products/valvula-multipuerto-hayward.png",
     "title": "Válvula Multipuerto Hayward SP0714T",
     "price": 221588,
     "oldPrice": 248000,
@@ -958,7 +958,7 @@
   {
     "id": 417,
     "slug": "valvula-mpv-waterco-50mm",
-    "image": "https://py.ebay.com/media/mpv-waterco-50mm.jpg",
+    "image": "../assets/img/products/valvula-mpv-waterco-50mm.png",
     "title": "Válvula Multipuerto Waterco MPV 50mm",
     "price": 156951,
     "oldPrice": null,
@@ -979,7 +979,7 @@
   {
     "id": 418,
     "slug": "kit-ionizador-vulcano-bae-bas",
-    "image": "https://articulo.mercadolibre.com.ar/MLA-1363871895-ionizador-para-piscinas-p-bombas-vulcano-bae-bas-160v-_JM",
+    "image": "../assets/img/products/ionizador-vulcano-bae-bas.png",
     "title": "Ionizador para Piscinas Vulcano BAE BAS 160V",
     "price": 84900,
     "oldPrice": 89900,
@@ -1000,7 +1000,7 @@
   {
     "id": 419,
     "slug": "valvula-6-vias-vulcano",
-    "image": "https://vulcano-sa.com.ar/wp-content/uploads/valvula-multipuerto.png",
+    "image": "../assets/img/products/valvula-6-vias-vulcano.png",
     "title": "Válvula Multipuerto Vulcano 6 Vías",
     "price": 189900,
     "oldPrice": 209900,
@@ -1021,7 +1021,7 @@
   {
     "id": 420,
   "slug": "valvula-spx071621-hayward",
-  "image": "https://py.ebay.com/media/spx071621.jpg",
+  "image": "../assets/img/products/valvula-spx071621-hayward.png",
   "title": "Válvula Hayward SPX071621",
   "price": 1220588,
   "oldPrice": null,
@@ -1043,7 +1043,7 @@
   {
     "id": 421,
     "slug": "sacabojas-nataclor",
-    "image": "https://nataclor.com.ar/cdn/shop/products/barrefondo.png",
+    "image": "../assets/img/products/sacabojas-nataclor.png",
     "title": "Sacahojas Nataclor",
     "price": 45900,
     "oldPrice": null,
@@ -1064,7 +1064,7 @@
   {
     "id": 422,
     "slug": "cepillo-piscina-grande",
-    "image": "https://nataclor.com.ar/cdn/shop/products/cepillo.png",
+    "image": "../assets/img/products/cepillo-piscina-grande.png",
     "title": "Cepillo para Piscina Grande",
     "price": 32900,
     "oldPrice": null,
@@ -1084,11 +1084,11 @@
   },
   {
     "id": 423,
-    "slug": "mango-telescopico-nataclor",
-    "image": "https://nataclor.com.ar/cdn/shop/products/mango-telescopico.png",
-    "title": "Mango Telescópico Nataclor",
-    "price": 24900,
-    "oldPrice": null,
+    "slug": "Boya-dosificadora-Satelital",
+    "image": "../assets/img/products/Boya-dosificadora-Satelital.png",
+    "title": "Boya Dosificadora Satelital",
+    "price": 91700,
+    "oldPrice": 131000,
     "discount": 0,
     "categories": ["Accesorios"],
     "Marca": "Nataclor",
@@ -1106,7 +1106,7 @@
   {
     "id": 424,
     "slug": "kit-limpieza-piscina-completo",
-    "image": "https://example.com/kit-limpieza-piscina.jpg",
+    "image": "../assets/img/products/kit-limpieza-piscina-completo.png",
     "title": "Kit de Limpieza Piscina Completo",
     "price": 89900,
     "oldPrice": 99900,
@@ -1127,7 +1127,7 @@
   {
     "id": 425,
     "slug": "manguera-limpieza-piscina",
-    "image": "https://example.com/manguera-limpieza.jpg",
+    "image": "../assets/img/products/manguera-limpieza-piscina.png",
     "title": "Manguera para Limpieza de Piscina 10m",
     "price": 59900,
     "oldPrice": null,

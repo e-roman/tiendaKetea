@@ -198,7 +198,7 @@ const handleResetSubmit = (e) => {
                       </button>
                   </div>
 
-                  <div className="text-center my-3">
+                  <div className="text-center my-4">
                     <p className="divider-text mb-0">O</p>
                   </div>
 
