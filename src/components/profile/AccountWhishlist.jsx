@@ -1,7 +1,7 @@
 
 
 import { Link } from "react-router-dom";
-import { useFavorites } from "../../src/hooks/useFavorites";
+import { useFavorites } from "@/hooks/useFavorites";
 
 export default function AccountWhishlist() {
   const { favorites, toggleFavorite } = useFavorites();

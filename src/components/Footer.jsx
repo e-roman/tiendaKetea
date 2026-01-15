@@ -81,7 +81,7 @@ export default function Footer() {
 
 
             <form>
-              <div className="input-card shadow-none input-card-sm border mb-3 p-1 input-subscribe">
+              <div className="input-card shadow-none input-card-sm dorder-dark mb-3 p-1 input-subscribe">
                 <div className="input-card-form">
                   <label htmlFor="subscribeForm" className="form-label visually-hidden">Enter email</label>
                   <input className="form-control" id="subscribeForm" placeholder="Escribe tu email" type="text" />

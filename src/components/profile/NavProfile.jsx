@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { PROFILE_MENU } from "../../src/config/profileMenu";
+import { PROFILE_MENU } from "@/config/profileMenu";
 
 export default function NavProfile({ currentView }) {
   const navigate = useNavigate();

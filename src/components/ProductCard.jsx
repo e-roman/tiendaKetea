@@ -1,10 +1,10 @@
 // src/components/ProductCard.jsx
 import { useState, useEffect } from "react";
-import { useFavorites } from "../src/hooks/useFavorites";
-import { useCart } from "../src/hooks/useCart";
-import { useFloatingAlert } from "../src/context/FloatingAlertContext";
+import { useFavorites } from "@/hooks/useFavorites";
+import { useCart } from "@/hooks/useCart";
+import { useFloatingAlert } from "@/context/FloatingAlertContext";
 
-export default function ProductCardMobile({ product, openProduct }) {
+export default function ProductCard({ product, openProduct }) {
   const { favorites, toggleFavorite } = useFavorites();
   const { cart, addToCart } = useCart();
   const { showAlert } = useFloatingAlert();
@@ -22,21 +22,36 @@ export default function ProductCardMobile({ product, openProduct }) {
 
   const formatPrice = (value) => (value ? value.toLocaleString("es-AR") : "0");
 
-  const handleAddToCart = () => {
-    if (!hasStock || inCart) return;
+const handleAddToCart = () => {
+  if (!hasStock || inCart) return;
 
-    addToCart(product);
-    showAlert("Agregaste el producto al carrito", "success");
-  };
+  addToCart(product);
+  showAlert({
+    type: "success",
+    action: "cart",
+    product: {
+      image: product.image,
+      title: product.title,
+      price: product.price,
+    },
+  });
+};
 
-  const handleToggleFavorite = () => {
-    const wasFavorite = isFav;
-    toggleFavorite(product);
-    showAlert(
-      wasFavorite ? "Eliminaste un favorito" : "Agregaste a favoritos",
-      "success"
-    );
-  };
+const handleToggleFavorite = () => {
+  const wasFavorite = isFav;
+
+  toggleFavorite(product);
+  showAlert({
+    type: "success",
+    action: wasFavorite ? "favorite-remove" : "favorite-add",
+    product: {
+      image: product.image,
+      title: product.title,
+      price: product.price,
+    },
+  });
+};
+
 
   return (
     <div className="card card-bordered shadow-none text-start h-100">
@@ -61,46 +76,40 @@ export default function ProductCardMobile({ product, openProduct }) {
           </button>
         </div>
 
-        {/* Badges */}
-        {product.envioGratis || !product.stock ? (
-          <div className="badge-envio">
-            {!product.stock ? (
-              <span className="badge py-1 px-2 bg-danger text-white">Sin Stock</span>
-            ) : (
-              <span className="badge py-1 px-2 bg-dark me-1">Envío Grátis</span>
-            )}
-          </div>
-        ) : null}
-
         {product.cuotasLabelBadge && (
           <div className="card-pinned-top-start">
-            <span className="badge py-1 px-2 badge-yellow">{product.cuotasLabelBadge}</span>
+             <span className="badge py-1 px-2 badge-yellow">{product.cuotasLabelBadge}</span>
           </div>
         )}
       </div>
 
       {/* Información principal */}
-      <div className="card-body px-card-xs py-2 px-3">
+      <div className="card-body pt-0 pb-3 px-3">
         <button
-          className="text-body text-dark font-16 bg-transparent border-0 p-0 text-start mb-0 "
+          className="text-body text-dark font-16 bg-transparent border-0 p-0 text-start pb-1 "
           onClick={() => openProduct(product.slug)}
         >
           {product.title}
         </button>
 
-        <div className="pricing-meta mt-1 mb-1">
-          <div className="d-flex gap-1 my-2">
+        <div className="pricing-meta my-1 pb-1">
+
             {product.oldPrice && product.oldPrice > product.price && (
-              <li className="old-price text-muted">
-                AR${formatPrice(product.oldPrice)}
-              </li>
+              <div className="d-flex align-items-center gap-1 pb-1">
+                <span className="font-13">Antes</span>
+                <div className="old-price text-muted">
+                  {formatPrice(product.oldPrice)}
+                </div>
+              </div>
             )}
-          </div>
+
 
           <ul className="list-unstyled d-flex align-items-center gap-1">
             <li className="current-price text-dark">
-              AR${formatPrice(product.price)}
+               {formatPrice(product.price)}
             </li>
+
+
             {product.discount > 0 && (
               <li>
                 <span className="badge font-12 py-1 px-2 badge-yellow">
@@ -112,15 +121,27 @@ export default function ProductCardMobile({ product, openProduct }) {
         </div>
 
         {product.installmentsLabel && (
-          <p className="small mb-0 py-1 font-13 font-bold">
-             <span>{product.installmentsLabel}</span> sin interés
+          <p className="small mb-0 font-13 font-medium">
+            Hasta <span className="font-bold">{product.installmentsLabel}</span> sin interés
           </p>
         )}
 
-        <div className="pt-2 pb-3">
-           <p className="text-pay">Pagá fácil y rápido con Mercado Pago o MODO</p>
-        </div>
 
+        {/* Badges */}
+        {product.envioGratis || !product.stock ? (
+          <div className="pt-1">
+            {!product.stock ? (
+              <span className="badge py-1 px-2 bg-danger text-white">Sin Stock</span>
+            ) : (
+              <span className="badge py-1 px-2 bg-dark me-1">Envío Grátis</span>
+            )}
+          </div>
+        ) : null}
+
+
+        <div className="pt-2">
+           <p className="text-pay small">Pagá fácil y rápido con Mercado Pago o MODO</p>
+        </div>
 
         {/* {product.taxLabel && (
           <p className="small mb-0 font-12">{product.taxLabel}</p>
@@ -131,7 +152,7 @@ export default function ProductCardMobile({ product, openProduct }) {
       {/* <div className="card-footer pt-2 px-3 pb-3">
         <button
           type="button"
-          className={`btn btn-sm rounded-pill px-4 w-100 ${
+          className={`btn btn-sm px-4 w-100 ${
             !hasStock
               ? "btn-secondary"
               : inCart

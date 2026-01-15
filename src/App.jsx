@@ -1,17 +1,17 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer";
-import SidebarCart from "../components/SidebarCart";
-import { FloatingAlertProvider } from "../src/context/FloatingAlertContext";
-import AlertFloating from "../components/AlertFloating";
-import Login from "../components/Modals/LoginModal";
-import LogoutModal from "../components/Modals/LogoutModal";
-import SupportChat from "../components/SupportChat";
+import Header from "@/components/Header/Header";
+import Footer from "@/components/Footer";
+import SidebarCart from "@/components/SidebarCart";
+import { FloatingAlertProvider } from "@/context/FloatingAlertContext";
+import AlertFloating from "@/components/alert/AlertFloating";
+import Login from "@/components/Modals/LoginModal";
+import LogoutModal from "@/components/Modals/LogoutModal";
+import SupportChat from "@/components/SupportChat";
 
-import ScrollToTop from "../components/ScrollToTop";
-import PageLoader from "../components/PageLoader";
+import ScrollToTop from "@/components/ScrollToTop";
+import PageLoader from "@/components/PageLoader";
 
 import Home from "../pages/Home";
 import Cart from "../pages/Cart";

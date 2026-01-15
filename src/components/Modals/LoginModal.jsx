@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { useAuth } from "../../src/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 import { Modal } from "bootstrap";
 
 export default function Login() {

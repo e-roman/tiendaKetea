@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import NavProfile from "../components/profile/NavProfile";
+import NavProfile from "@/components/profile/NavProfile";
 
-import AccountAddCardModal from "../components/Modals/accountAddCardModal";
-import AccountEditCardModal from "../components/Modals/accountEditCardModal";
-import AccountInvoiceReceiptModal from "../components/Modals/accountInvoiceReceiptModal";
+import AccountAddCardModal from "@/components/Modals/accountAddCardModal";
+import AccountEditCardModal from "@/components/Modals/accountEditCardModal";
+import AccountInvoiceReceiptModal from "@/components/Modals/accountInvoiceReceiptModal";
 
-import AccountAddress from "../components/profile/AccountAddress";
-import AccountNotifications from "../components/profile/AccountNotifications";
-import AccountOrders from "../components/profile/AccountOrders";
-import AccountHistoryPayments from "../components/profile/AccountHistoryPayments";
-import AccountNotificaciones from "../components/profile/AccountNotificaciones";
-import AccountSecurity from "../components/profile/AccountSecurity";
-import AccountWhishlist from "../components/profile/AccountWhishlist";
-import AccountPayment from "../components/profile/AccountPayment";
-import PersonalInfo from "../components/profile/PersonalInfo";
+import AccountAddress from "@/components/profile/AccountAddress";
+import AccountNotifications from "@/components/profile/AccountNotifications";
+import AccountOrders from "@/components/profile/AccountOrders";
+import AccountHistoryPayments from "@/components/profile/AccountHistoryPayments";
+import AccountNotificaciones from "@/components/profile/AccountNotificaciones";
+import AccountSecurity from "@/components/profile/AccountSecurity";
+import AccountWhishlist from "@/components/profile/AccountWhishlist";
+import AccountPayment from "@/components/profile/AccountPayment";
+import PersonalInfo from "@/components/profile/PersonalInfo";
 
 export default function MyProfile() {
 

@@ -1,8 +1,8 @@
 // src/components/ProductCard.jsx
 import { useState, useEffect } from "react";
-import { useFavorites } from "../src/hooks/useFavorites";
-import { useCart } from "../src/hooks/useCart";
-import { useFloatingAlert } from "../src/context/FloatingAlertContext";
+import { useFavorites } from "@/hooks/useFavorites";
+import { useCart } from "@/hooks/useCart";
+import { useFloatingAlert } from "@/context/FloatingAlertContext";
 
 export default function ProductCardHorizontal({ product, openProduct }) {
   const { favorites, toggleFavorite } = useFavorites();

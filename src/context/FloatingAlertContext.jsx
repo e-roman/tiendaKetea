@@ -1,21 +1,24 @@
-// src/context/FloatingAlertContext.jsx
 import { createContext, useContext, useState } from "react";
 
-const FloatingAlertContext = createContext();
+const FloatingAlertContext = createContext(null);
 
 export function FloatingAlertProvider({ children }) {
   const [alert, setAlert] = useState({
     visible: false,
-    message: "",
     type: "success",
+    action: null,
+    product: null,
   });
 
-  const showAlert = (message, type = "success", duration = 3000) => {
-    setAlert({ visible: true, message, type });
+  const showAlert = (data) => {
+    setAlert({
+      visible: true,
+      ...data,
+    });
 
     setTimeout(() => {
       setAlert((prev) => ({ ...prev, visible: false }));
-    }, duration);
+    }, 4000);
   };
 
   return (
@@ -25,6 +28,4 @@ export function FloatingAlertProvider({ children }) {
   );
 }
 
-export function useFloatingAlert() {
-  return useContext(FloatingAlertContext);
-}
+export const useFloatingAlert = () => useContext(FloatingAlertContext);

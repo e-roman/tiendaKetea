@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Modal } from "bootstrap";
-import { useCart } from "../../src/hooks/useCart";
-import { useFavorites } from "../../src/hooks/useFavorites";
-import { useFloatingAlert } from "../../src/context/FloatingAlertContext";
-import AlertFloating from "../AlertFloating";
-import DiscountMethod from "../../components/Modals/MethodsDiscountModal";
+import { useCart } from "@/hooks/useCart";
+import { useFavorites } from "@/hooks/useFavorites";
+import { useFloatingAlert } from "@/context/FloatingAlertContext";
+import AlertFloating from "@/components/alert/AlertFloating";
+import DiscountMethod from "@/components/Modals/MethodsDiscountModal";
 
 export default function ProductDetail({ product }) {
   const { cart, addToCart } = useCart();

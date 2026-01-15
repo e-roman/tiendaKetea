@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { useAuth } from "../../../src/context/AuthContext";
-import { useCart } from "../../../src/hooks/useCart";
+import { useAuth } from "@/context/AuthContext";
+import { useCart } from "@/hooks/useCart";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 import Select from "react-select"; 
-import products from "../../../data/products.json";
+import products from "@/data/products.json";
 
-import { PROFILE_MENU } from "../../../src/config/profileMenu";
+import { PROFILE_MENU } from "@/config/profileMenu";
 
 import SidebarCategories from "./SidebarCategories";
 import TopAlert from "./TopAlert";

@@ -1,22 +1,22 @@
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import productsData from "../data/products.json";
+import productsData from "@/data/products.json";
 
-import useIsMobile from "../src/hooks/useIsMobile";
+import useIsMobile from "@/hooks/useIsMobile";
 
-import ProductGallery from "../components/Product/ProductGallery";
-import ProductGalleryMobile from "../components/Product/ProductGalleryMobile";
+import ProductGallery from "@/components/Product/ProductGallery";
+import ProductGalleryMobile from "@/components/Product/ProductGalleryMobile";
 
-import ProductDetail from "../components/Product/ProductDetail";
+import ProductDetail from "@/components/Product/ProductDetail";
 
-import ProductSpecificationsBlocks from "../components/Product/ProductSpecificationsBlocks";
-import ProductSpecifications from "../components/Product/ProductSpecifications";
+import ProductSpecificationsBlocks from "@/components/Product/ProductSpecificationsBlocks";
+import ProductSpecifications from "@/components/Product/ProductSpecifications";
 
-import ProductsOthers from "../components/Product/ProductsOthers";
+import ProductsOthers from "@/components/Product/ProductsOthers";
 
-import { useFloatingAlert } from "../src/context/FloatingAlertContext";
-import AlertFloating from "../components/AlertFloating";
+import { useFloatingAlert } from "@/context/FloatingAlertContext";
+import AlertFloating from "@/components/alert/AlertFloating";
 
 export default function ProductPage() {
   const isMobile = useIsMobile(768); 

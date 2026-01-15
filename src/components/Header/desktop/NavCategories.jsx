@@ -1,7 +1,7 @@
 import MegaMenu from "./MegaMenu";
 import { Link, NavLink } from "react-router-dom";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
-import { useAuth } from "../../../src/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 
 export default function NavCategories({
   setShowPriceModal,

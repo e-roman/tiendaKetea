@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Offcanvas } from "bootstrap";
-import { useCart } from "../src/hooks/useCart";
+import { useCart } from "@/hooks/useCart";
 import { useNavigate, Link } from "react-router-dom";
 
 import QuantityControl from "./QuantityControl";

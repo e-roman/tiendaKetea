@@ -1,12 +1,12 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useMemo } from "react";
-import productsData from "../data/products.json";
-import ProductCard from "../components/ProductCard";
-import ProductCardHorizontal from "../components/ProductCardHorizontal";
-import ProductCardHorizontalMobile from "../components/ProductCardHorizontalMobile";
-import SearchFilters from "../components/search/SearchFilters";
+import productsData from "@/data/products.json";
+import ProductCard from "@/components/ProductCard";
+import ProductCardHorizontal from "@/components/ProductCardHorizontal";
+import ProductCardHorizontalMobile from "@/components/ProductCardHorizontalMobile";
+import SearchFilters from "@/components/search/SearchFilters";
 
-import SearchSort from "../components/search/SearchSort";
+import SearchSort from "@/components/search/SearchSort";
 
 export default function SearchResults() {
   const [view, setView] = useState("grid"); // "grid" | "list"

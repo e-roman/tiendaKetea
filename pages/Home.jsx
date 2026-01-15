@@ -1,19 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import products from "../data/products.json";
-import ProductCard from "../components/ProductCard";
+import products from "@/data/products.json";
+import ProductCard from "@/components/ProductCard";
 
-import HeroSlider from "../components/HeroSlider";
-import BlockServices from "../components/BlockServices";
-import Block2ColsBanners from "../components/Block2ColsBanners";
-import Block3ColsBanners from "../components/Block3ColsBanners";
+import HeroSlider from "@/components/HeroSlider";
+import BlockServices from "@/components/BlockServices";
+import Block2ColsBanners from "@/components/Block2ColsBanners";
+import Block3ColsBanners from "@/components/Block3ColsBanners";
 
-import ProductGrid from "../components/Home/ProductGrid";
-import ProductCarousel from "../components/Home/ProductCarousel";
-import useMediaQuery from "../src/hooks/useMediaQuery";
+import ProductGrid from "@/components/Home/ProductGrid";
+import ProductCarousel from "@/components/Home/ProductCarousel";
+import useMediaQuery from "@/hooks/useMediaQuery";
 
-/* 🔹 Helper: Ofertas variadas por categoría */
+/* Helper: Ofertas variadas por categoría */
 const getWeeklyOffers = (products, limitPerCategory = 2) => {
   const offers = products.filter(
     (p) => p.categories.includes("ofertas") || p.discount > 0
@@ -53,10 +53,10 @@ export default function Home() {
       <HeroSlider />
       <BlockServices />
 
-      {/* 🔹 Productos Destacados */}
+      {/* Productos Destacados */}
       <div className="container content-space-1 content-space-lg-1 px-0 px-md-3">
-        <div className="w-100 mb-5 mb-md-4 d-md-flex align-items-center justify-content-between px-3 px-md-0">
-          <h3 className="font-medium pb-2 pb-md-0">
+         <div className="w-100 d-md-flex align-items-center justify-content-between mb-2 mb-md-3 px-3 px-md-0">
+          <h3 className="font-medium mb-0">
             Últimas novedades en robots limpia piscinas.
           </h3>
           <div className="ps-md-2">
@@ -84,8 +84,8 @@ export default function Home() {
 
       {/*  Mejores ofertas de la semana */}
       <div className="container content-space-1 content-space-t-lg-1 px-0 px-md-3">
-        <div className="w-100 mb-5 mb-md-4 d-md-flex align-items-center justify-content-between px-3 px-md-0">
-          <h3 className="font-medium pb-2 pb-md-0">
+        <div className="w-100 d-md-flex align-items-center justify-content-between mb-2 mb-md-3 px-3 px-md-0">
+          <h3 className="font-medium mb-0">
             Las mejores ofertas de la semana.
           </h3>
           <div className="ps-md-2">

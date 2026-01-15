@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { useAuth } from "../../src/context/AuthContext";
+import { useAuth } from "@/context/AuthContext";
 
 export default function LogoutModal({ show, onClose }) {
   const { logout } = useAuth();

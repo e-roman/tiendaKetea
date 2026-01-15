@@ -3,10 +3,10 @@ import { useState } from "react";
 // src/components/header/MainHeader.jsx
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useCart } from "../../../src/hooks/useCart";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
+import { useCart } from "@/hooks/useCart";
 import Select from "react-select"; 
-import products from "../../../data/products.json"; 
+import products from "@/data/products.json"; 
 import { megaMenuData } from "./megaMenuData";
 
 

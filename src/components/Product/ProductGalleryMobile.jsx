@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { useCart } from "../../src/hooks/useCart";
-import { useFavorites } from "../../src/hooks/useFavorites";
-import { useFloatingAlert } from "../../src/context/FloatingAlertContext";
-import AlertFloating from "../AlertFloating";
+import { useCart } from "@/hooks/useCart";
+import { useFavorites } from "@/hooks/useFavorites";
+import { useFloatingAlert } from "@/context/FloatingAlertContext";
+import AlertFloating from "@/components/alert/AlertFloating";
 
 // src/components/Product/ProductGalleryMobile.jsx
 import { Swiper, SwiperSlide } from "swiper/react";

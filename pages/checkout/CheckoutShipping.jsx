@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useCart } from "../../src/hooks/useCart";
+import { useCart } from "@/hooks/useCart";
 import { useRef, useState, useEffect } from "react";
 
 import HeaderCheckOut from "./components/HeaderCheckOut";

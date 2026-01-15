@@ -1,9 +1,9 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import products from "../data/products.json";
-import ProductCard from "../components/ProductCard";
-import ProductCardMobile from "../components/ProductCardMobile";
+import products from "@/data/products.json";
+import ProductCard from "@/components/ProductCard";
+import ProductCardMobile from "@/components/ProductCardMobile";
 
 export default function MasVendidoPage() {
   const navigate = useNavigate();

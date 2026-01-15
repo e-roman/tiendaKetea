@@ -1,4 +1,4 @@
-import useMediaQuery from "../../src/hooks/useMediaQuery";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import HeaderDesktop from "./desktop/HeaderDesktop";
 import HeaderMobile from "./mobile/HeaderMobile";
 

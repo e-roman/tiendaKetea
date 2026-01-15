@@ -1,9 +1,9 @@
 
 import { Link } from "react-router-dom";
-import { useCart } from "../src/hooks/useCart";
+import { useCart } from "@/hooks/useCart";
 import { useState } from "react";
 
-import QuantityControl from "../components/QuantityControl";
+import QuantityControl from "@/components/QuantityControl";
 
 export default function MyCart() {
  const [loadingItemId, setLoadingItemId] = useState(null);
