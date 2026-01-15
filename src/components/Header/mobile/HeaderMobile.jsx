@@ -352,7 +352,7 @@ const runSearch = (value) => {
 
                 {showDropdown && (
                   <div
-                    className="search-dropdown search-dropdown-mb position-absolute w-100 p-3 bg-white shadow-sm"
+                    className="search-dropdown search-dropdown-mb position-absolute w-100 p-3 bg-white"
                     style={{ zIndex: 999 }}
                   >
                     {/* ÚLTIMAS BÚSQUEDAS (cuando NO hay texto) */}

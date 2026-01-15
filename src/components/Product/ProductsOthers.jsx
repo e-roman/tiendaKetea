@@ -6,9 +6,9 @@ import { Navigation, Keyboard } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import products from "../../data/products.json";
-import ProductCard from "../../components/ProductCard";
-import ProductCardMobile from "../../components/ProductCardMobile";
+import products from "@/data/products.json";
+import ProductCard from "@/components/ProductCard";
+import ProductCardMobile from "@/components/ProductCardMobile";
 
 export default function ProductsSwiper({ openProduct }) {
   const prevRef = useRef(null);

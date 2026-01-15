@@ -4,7 +4,7 @@ export default function BlockServices() {
    
     <div className=" ">
       <div className="container">
-        <div className="card shadow-none rounded-3 border">
+        <div className="card shadow-none rounded-3">
           <div className="row card-body">
             <div className="col-md-4 mb-7 mb-md-0">
               {/*-- Contacts --*/}

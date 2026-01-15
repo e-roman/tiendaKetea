@@ -1,12 +1,10 @@
 import { useState } from "react";
-
-// src/components/header/MainHeader.jsx
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
+import Select from "react-select";
+
 import { useCart } from "@/hooks/useCart";
-import Select from "react-select"; 
-import products from "@/data/products.json"; 
+import products from "@/data/products.json";
 import { megaMenuData } from "./megaMenuData";
 
 
@@ -68,6 +66,23 @@ export default function MainHeader() {
     }))
   ];
 
+const highlightMatch = (text, query) => {
+  if (!query) return text;
+
+  const q = query.toLowerCase();
+  if (!q.includes("robot")) return text;
+
+  return text.split(/(robots?)/i).map((part, i) =>
+    part.toLowerCase().includes("robot") ? (
+      <span key={i} className="text-primary">
+        {part}
+      </span>
+    ) : (
+      part
+    )
+  );
+};
+
 
   return (
     <header className="py-2 border-bottom">
@@ -116,7 +131,7 @@ export default function MainHeader() {
                 {/* DROPDOWN DE RESULTADOS */}
                 {results.length > 0 && (
                 <div
-                    className="search-dropdown position-absolute w-100 mt-2 p-3 bg-white rounded shadow-sm"
+                    className="search-dropdown position-absolute w-100 mt-2 p-2 bg-white rounded"
                     style={{ zIndex: 999 }}
                 >
                     {results.map((item) => (
@@ -124,36 +139,40 @@ export default function MainHeader() {
                         key={item.id}
                         // to={`/product/${slugify(item.title)}`}
                         to={`/product/${item.slug}`}
-                        className="d-flex align-items-center gap-3 py-2 px-1 border-bottom text-decoration-none text-dark"
+                        className="picture-link d-flex align-items-center gap-3 py-2 px-1 text-decoration-none "
                         onClick={clearSearch}
                     >
+                        <div className="picture">
                         <img
                         src={item.image.replace("../", "/")}
                         alt={item.title}
-                        width="55"
-                        height="55"
-                        className="rounded border"
                         />
-
+                        </div>
                         <div>
-                        <strong className="d-block">{item.title}</strong>
-
-                        <span className="text-muted small">
-                            ${item.price.toLocaleString("es-AR")}
+                        <span className="d-block">
+                          {/* <span className="text-primary">
+                            {item.categories.slice(0, 1).join(" - ")}
+                          </span> . */} {highlightMatch(item.title, query)}
                         </span>
 
-                        <div className="small text-secondary">
-                            {item.categories.slice(0, 2).join(" • ")}
+                        <div className="d-flex gap-2 text-dark small font-medium pricing-meta my-1">
+                            ${item.price.toLocaleString("es-AR")}
+                            <div class="old-price text-muted">${item.oldPrice.toLocaleString("es-AR")}</div>
+                            <div class="badge font-12 font-medium py-1 px-2 badge-yellow">-{item.discount} % OFF</div>
                         </div>
+
+                        {/* <div className="small text-secondary">
+                            {item.categories.slice(0, 2).join(" - ")}
+                        </div> */}
                         </div>
                     </Link>
                     ))}
 
                     {/* Ver todos */}
-                    <div className="text-center mt-3">
+                    <div className="text-center border-top pt-2 mt-3">
                     <Link
                         to={`/buscar/${encodeURIComponent(query)}`}
-                        className="btn btn-sm btn-primary px-5"
+                        className="btn btn-sm btn-outline text-primary font-bold px-5"
                         onClick={clearSearch}
                     >
                         Ver todos los resultados
