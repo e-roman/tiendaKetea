@@ -1,7 +1,7 @@
 
 import { useEffect } from "react";
 
-export default function accountEditCardModal({ onClose }) {
+export default function AccountEditCardModal({ onClose }) {
   // Cerrar con Escape
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onClose(); };
