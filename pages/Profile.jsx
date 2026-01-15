@@ -5,7 +5,7 @@ import NavProfile from "@/components/profile/NavProfile";
 
 import AccountAddCardModal from "@/components/Modals/AccountAddCardModal";
 import AccountEditCardModal from "@/components/Modals/AccountEditCardModal";
-// import AccountInvoiceReceiptModal from "@/components/Modals/AccountInvoiceReceiptModal";
+import AccountInvoiceReceiptModal from "@/components/Modals/AccountInvoiceReceiptModal";
 
 import AccountAddress from "@/components/profile/AccountAddress";
 import AccountNotifications from "@/components/profile/AccountNotifications";

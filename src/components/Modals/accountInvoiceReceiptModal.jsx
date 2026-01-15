@@ -1,6 +1,7 @@
 
 
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function AccountInvoiceReceiptModal({ onClose }) {
 
@@ -102,17 +103,17 @@ export default function AccountInvoiceReceiptModal({ onClose }) {
         </ul>
 
         <div className="d-flex justify-content-end gap-3">
-          <a className="btn btn-white btn-xs" href="#"><i className="bi-file-earmark-arrow-down-fill me-1"></i> PDF</a>
-          <a className="btn btn-white btn-xs" href="#"><i className="bi-printer-fill me-1"></i> Imprimir Recibo</a>
+          <Link className="btn btn-white btn-xs" to="#"><i className="bi-file-earmark-arrow-down-fill me-1"></i> PDF</Link>
+          <Link className="btn btn-white btn-xs" to="#"><i className="bi-printer-fill me-1"></i> Imprimir Recibo</Link>
         </div>
 
         <hr className="my-5" />
 
         <p className="modal-footer-text">
           Si tiene alguna pregunta, no dudes en comunnicarte con nosotros
-          <a href="mailto:ketea.tienda@gmail.com"> ketea.tienda@gmail.com </a>
+          <Link to="mailto:ketea.tienda@gmail.com"> ketea.tienda@gmail.com </Link>
           o llamar al 
-          <a className="text-nowrap" href="#">+11 66725846</a>
+          <Link className="text-nowrap" to="#">+11 66725846</Link>
         </p>
 
       </div>
