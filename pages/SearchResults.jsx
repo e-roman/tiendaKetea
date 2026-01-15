@@ -391,9 +391,9 @@ const results = useMemo(() => {
             {/* RESULTS – DESKTOP */}
             <div className="d-none d-lg-block mt-4">
               {view === "grid" ? (
-                <div className="row gx-2">
+                <div className="row gx-3">
                   {results.map(p => (
-                    <div className="col-xl-3 col-lg-4 mb-3" key={p.id}>
+                    <div className="col-xl-4 col-lg-4 mb-3" key={p.id}>
                       <ProductCard product={p} openProduct={openProduct} />
                     </div>
                   ))}

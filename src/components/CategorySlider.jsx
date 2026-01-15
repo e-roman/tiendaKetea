@@ -32,7 +32,7 @@ export default function CategorySlider({
   if (!categoryProducts.length) return null;
 
   return (
-    <div className="rowCategory mb-6 position-relative">
+    <div className="rowCategory mb-10 position-relative">
       {/* Header */}
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h3 className="mb-0">{title}</h3>

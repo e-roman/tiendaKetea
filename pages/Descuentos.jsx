@@ -41,7 +41,7 @@ export default function DescuentosPage() {
       </div>
 
       {/* CATEGORÍAS */}
-      <div className="container content-space-b-1 px-2 px-md-3">
+      <div className="container content-space-b-1 px-2 px-md-3 pt-4 pb-8 pt-md-8 pb-md-10">
         {categoriesConfig.slice(0, visibleRows).map((cat) => (
           <CategorySlider
             key={cat.category}

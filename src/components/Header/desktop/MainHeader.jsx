@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
 import Select from "react-select";
@@ -83,9 +84,35 @@ const highlightMatch = (text, query) => {
   );
 };
 
+useEffect(() => {
+  const handleClickOutside = (e) => {
+    if (searchRef.current && !searchRef.current.contains(e.target)) {
+      clearSearch();
+    }
+  };
+
+  const onKey = (e) => {
+    if (e.key === "Escape") {
+      clearSearch();
+    }
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+  window.addEventListener("keydown", onKey);
+
+  return () => {
+    document.removeEventListener("mousedown", handleClickOutside);
+    window.removeEventListener("keydown", onKey);
+  };
+}, []);
+
+
+const searchRef = useRef(null);
+
+
 
   return (
-    <header className="py-2 border-bottom">
+    <header className="py-3 border-bottom">
       <div className="container d-flex align-items-center justify-content-between ">
         
         {/* LOGO */}
@@ -105,7 +132,8 @@ const highlightMatch = (text, query) => {
                 />
                 </div>
 
-                <div className="position-relative w-100">
+                <div ref={searchRef} className="position-relative w-100">
+
                     <input 
                         id="search"
                         type="text"
@@ -119,7 +147,7 @@ const highlightMatch = (text, query) => {
 
                 <button
                   type="button"
-                  className="btn btn-lg rounded-2 bg-light btn-search"
+                  className="btn btn-lg rounded-1 btn-search"
                   onClick={handleSearchSubmit}
                 >
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search-icon lucide-search">
@@ -139,7 +167,7 @@ const highlightMatch = (text, query) => {
                         key={item.id}
                         // to={`/product/${slugify(item.title)}`}
                         to={`/product/${item.slug}`}
-                        className="picture-link d-flex align-items-center gap-3 py-2 px-1 text-decoration-none "
+                        className="result-link d-flex align-items-center gap-3 py-2 px-1 text-decoration-none "
                         onClick={clearSearch}
                     >
                         <div className="picture">
