@@ -2965,16 +2965,20 @@ footer .btn-icon.btn-social {
   }
 }
 
+.rowChips {
+    max-width: 90%;
+}
 
 .chip {
     position: relative;
-    margin:0 10px 0 0;
-    padding: 8px 35px 8px 12px;
-    font-size: 12px;
+    margin:0 8px 0 0;
+    padding: 8px 30px 8px 16px;
+    font-size: 13px;
     font-weight: bold;
     white-space: normal;
     word-break: break-word;
     line-height: 18px;
+    color: #727272;
     border: 0;
     border-radius: 20px;
     -webkit-transition: all .4s ease;
@@ -2982,8 +2986,7 @@ footer .btn-icon.btn-social {
     -moz-transition: all .4s ease;
     -o-transition: all .4s ease;
     transition: all .4s ease;
-    /* background: #efefef; */
-    background: #ffffff;
+    background:#eeeeee;
     font-weight: 500;
 }
 .chip-close {
@@ -2993,16 +2996,16 @@ footer .btn-icon.btn-social {
 
 .chip-remove-icon {
     position: absolute;
-    top: 7px;
+    top: 8px;
     right: 8px;
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     padding: 4px 6px 3px 6px;
     border-radius: 50%;
+    background-size: 10px;
 }
 .chip-remove-icon {
-    background-color: #fff;
     fill: #000;
 }
 
