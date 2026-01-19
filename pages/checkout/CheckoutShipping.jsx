@@ -265,6 +265,9 @@ export default function CheckoutShipping() {
                       <label className="form-label">Tipo de domicilio</label>
                       <select className="form-select" required>
                         <option value="" disabled selected>
+                          Seleecionar
+                        </option>
+                        <option value="AB">
                           Casa
                         </option>
                         <option value="BA">Departamento</option>

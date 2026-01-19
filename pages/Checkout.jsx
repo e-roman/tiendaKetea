@@ -281,7 +281,7 @@ const {
                   <div className="border-bottom pb-2 mb-4">
                     <div className="media align-items-center mb-3">
                       <span className="text-dark font-15 me-3">
-                        Producto(s) ({cart.length})
+                        Producto(s) <b>({cart.length})</b>
                       </span>
                       <div className="media-body text-end">
                         <span className="text-dark">

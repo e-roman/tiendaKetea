@@ -42,7 +42,10 @@ export default function ProductDetail({ product }) {
     toggleFavorite(product);
     const newFavState = !isFavorite;
     setIsFavorite(newFavState);
-    showAlert(newFavState ? "Agregaste a favoritos" : "Eliminaste un favorito", "success");
+    showAlert({
+      product,
+      action: newFavState ? "favorite-add" : "favorite-remove"
+    });
   };
 
 const handleAddToCart = () => {
@@ -55,7 +58,10 @@ const handleAddToCart = () => {
     addToCart({ ...product, quantity });
   }
 
-  showAlert("Agregaste el producto al carrito", "success");
+showAlert({
+  product,
+  action: "cart"
+});
 };
 
 const openDiscountModal = (e) => {

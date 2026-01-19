@@ -1,31 +1,59 @@
 import { useState } from "react";
-
 import SearchFilterChips from "./SearchFilterChips";
 
+/* ============================= */
+/* RANGOS DE PRECIO              */
+/* ============================= */
+const priceRanges = [
+  { id: "lt-85430", label: "Menos de $ 85.430", count: 199, min: 0, max: 85430 },
+  { id: "85430-199990", label: "$ 85.430 a $ 199.990", count: 196, min: 85430, max: 199990 },
+  { id: "gt-199990", label: "$ 199.990 o más", count: 205, min: 199990, max: null }
+];
 
-function FilterGroup({ title, children }) {
-  const [open, setOpen] = useState(true);
+/* ============================= */
+/* LISTA REUTILIZABLE DE FILTROS */
+/* ============================= */
+function FilterList({ items, selected, onToggle, maxVisible = 8 }) {
+  const [expanded, setExpanded] = useState(false);
+
+  const visibleItems = expanded ? items : items.slice(0, maxVisible);
 
   return (
-    <div className="mb-4">
-      <button
-        type="button"
-        className="btn btn-link text-dark w-100 d-flex justify-content-between align-items-center p-0"
-        onClick={() => setOpen(!open)}
-      >
-        <span className="fw-semibold">{title}</span>
-        <i className={`bi bi-chevron-${open ? "up" : "down"}`} />
-      </button>
+    <>
+      <div className="check-filter-result d-flex flex-column gap-1">
+        {visibleItems.map((item, index) => (
+          <label
+            key={`${item.value}-${index}`}
+            className="form-check small"
+          >
+            <input
+              className="form-check-input me-2"
+              type="checkbox"
+              checked={selected.includes(item.value)}
+              onChange={() => onToggle(item.value)}
+            />
+            {item.label}{" "}
+            <span className="text-muted">({item.count})</span>
+          </label>
+        ))}
+      </div>
 
-      {open && (
-        <div className="mt-2">
-          {children}
-        </div>
+      {items.length > maxVisible && (
+        <button
+          type="button"
+          className="btn btn-link px-0 mt-0 font-15"
+          onClick={() => setExpanded(!expanded)}
+        >
+          {expanded ? "Ver menos" : "Ver más"}
+        </button>
       )}
-    </div>
+    </>
   );
 }
 
+/* ============================= */
+/* SEARCH FILTERS (GRANDE)       */
+/* ============================= */
 export default function SearchFilters({
   filters,
   setFilters,
@@ -46,185 +74,161 @@ export default function SearchFilters({
     filters.cuotasSinInteres ||
     filters.envioGratis ||
     filters.llegaHoy ||
-    filters.llegaManana ||
-    filters.retiroInmediato ||
-    filters.compraInternacional;
+    filters.retiroInmediato;
 
   return (
-    <div>
+    <aside>
 
-
-
-<div className="mb-4 d-flex flex-column gap-2 bg-white p-3 rounded-2">
-
-  <div className="form-check form-switch d-flex justify-content-between align-items-center mb-2 ps-0">
-     <label className="form-check-label">Cuotas sin interés</label>
-    <input
-      className="form-check-input me-0"
-      type="checkbox"
-      checked={filters.cuotasSinInteres}
-      onChange={() => setFilters(f => ({ ...f, cuotasSinInteres: !f.cuotasSinInteres }))}
-    />
-   
-  </div>
-
-  <div className="form-check form-switch d-flex justify-content-between align-items-center mb-2 ps-0">
-    <label className="form-check-label">Envío gratis</label>
-    <input
-      className="form-check-input me-0"
-      type="checkbox"
-      checked={filters.envioGratis}
-      onChange={() => setFilters(f => ({ ...f, envioGratis: !f.envioGratis }))}
-    />
-  </div>
-
-  <div className="form-check form-switch d-flex justify-content-between align-items-center mb-2 ps-0">
-     <label className="form-check-label">Envío Express</label>
-    <input
-      className="form-check-input me-0"
-      type="checkbox"
-      checked={filters.llegaHoy}
-      onChange={() => setFilters(f => ({ ...f, llegaHoy: !f.llegaHoy }))}
-    />
-  </div>
-
-  <div className="form-check form-switch d-flex justify-content-between align-items-center mb-0 ps-0">
-    <label className="form-check-label">Retiro inmediato</label>
-    <input
-      className="form-check-input me-0"
-      type="checkbox"
-      checked={filters.retiroInmediato}
-      onChange={() => setFilters(f => ({ ...f, retiroInmediato: !f.retiroInmediato }))}
-    />
-  </div>
-
-</div>
-
-
-
-      <div>
-        {hasActiveFilters && (
-          <SearchFilterChips
-            filters={filters}
-            toggleFilter={toggleFilter}
-            resetFilters={resetFilters}
-          />
-        )}
+      {/* SWITCHES RÁPIDOS */}
+      <div className="mb-4 bg-white p-3 rounded-2 d-flex flex-column row-gap-3">
+        {[
+          ["Cuotas sin interés", "cuotasSinInteres"],
+          ["Envío gratis", "envioGratis"],
+          ["Envío Express", "llegaHoy"],
+          ["Retiro inmediato", "retiroInmediato"]
+        ].map(([label, key]) => (
+          <div
+            key={key}
+            className="form-check form-switch d-flex justify-content-between align-items-center ps-0"
+          >
+            <label className="form-check-label">{label}</label>
+            <input
+              className="form-check-input"
+              type="checkbox"
+              checked={filters[key]}
+              onChange={() =>
+                setFilters(f => ({ ...f, [key]: !f[key] }))
+              }
+            />
+          </div>
+        ))}
       </div>
 
+      {/* CHIPS */}
+      {hasActiveFilters && (
+        <SearchFilterChips
+          filters={filters}
+          toggleFilter={toggleFilter}
+          resetFilters={resetFilters}
+        />
+      )}
 
+      {/* MARCA */}
+      <div className="mb-4">
+        <p className="text-dark font-bold mb-2">Marca</p>
+        <FilterList
+          items={marcas.map(m => ({
+            value: m,
+            label: m,
+            count: 0 // o el count real después
+          }))}
+          selected={filters.marcas}
+          onToggle={v => toggleFilter("marcas", v)}
+        />
+      </div>
 
-      {/* MARCAS */}
-      <FilterGroup title="Marca">
-        <div className="d-flex flex-column gap-1">
-          {marcas.map(m => {
-            const id = `marca-${m}`;
-            return (
-              <div className="form-check" key={m}>
-                <input
-                  id={id}
-                  className="form-check-input me-0"
-                  type="checkbox"
-                  checked={filters.marcas.includes(m)}
-                  onChange={() => toggleFilter("marcas", m)}
-                />
-                <label className="form-check-label" htmlFor={id}>
-                  {m}
-                </label>
-              </div>
-            );
-          })}
-        </div>
-      </FilterGroup>
+      {/* CATEGORÍA */}
+      <div className="mb-4">
+        <p className="text-dark font-bold mb-2">Categoría</p>
+        <FilterList
+            items={categorias.map(c => ({
+              value: c,
+              label: c,
+              count: 0
+            }))}
+            selected={filters.categorias}
+            onToggle={v => toggleFilter("categorias", v)}
+          />
 
-      {/* CATEGORÍAS */}
-      <FilterGroup title="Categorías">
-        <div className="d-flex flex-column gap-1">
-          {categorias.map(c => {
-            const id = `categoria-${c}`;
-            return (
-              <div className="form-check" key={c}>
-                <input
-                  id={id}
-                  className="form-check-input me-0"
-                  type="checkbox"
-                  checked={filters.categorias.includes(c)}
-                  onChange={() => toggleFilter("categorias", c)}
-                />
-                <label className="form-check-label" htmlFor={id}>
-                  {c}
-                </label>
-              </div>
-            );
-          })}
-        </div>
-      </FilterGroup>
+      </div>
 
       {/* ACCIONAMIENTO */}
-      <FilterGroup title="Accionamiento">
-        <div className="d-flex flex-column gap-1">
-          {accionamientos.map(a => {
-            const id = `accionamiento-${a}`;
-            return (
-              <div className="form-check" key={a}>
-                <input
-                  id={id}
-                  className="form-check-input me-0"
-                  type="checkbox"
-                  checked={filters.accionamiento.includes(a)}
-                  onChange={() => toggleFilter("accionamiento", a)}
-                />
-                <label className="form-check-label" htmlFor={id}>
-                  {a}
-                </label>
-              </div>
-            );
-          })}
-        </div>
-      </FilterGroup>
+      <div className="mb-4">
+        <p className="text-dark font-bold mb-2">Accionamiento</p>
+        <FilterList
+          items={accionamientos.map(a => ({
+            value: a,
+            label: a,
+            count: 0
+          }))}
+          selected={filters.accionamiento}
+          onToggle={v => toggleFilter("accionamiento", v)}
+        />
+      </div>
 
       {/* DESCUENTOS */}
-      <FilterGroup title="Descuentos">
-        <div className="d-flex flex-column gap-1">
-          {descuentos.sort((a, b) => b - a).map(d => {
-            const id = `descuento-${d}`;
-            return (
-              <div className="form-check" key={d}>
-                <input
-                  id={id}
-                  className="form-check-input me-0"
-                  type="checkbox"
-                  checked={filters.descuentos.includes(d)}
-                  onChange={() => toggleFilter("descuentos", d)}
-                />
-                <label className="form-check-label" htmlFor={id}>
-                  {d}% OFF
-                </label>
-              </div>
-            );
-          })}
-        </div>
-      </FilterGroup>
+      <div className="mb-4">
+        <p className="text-dark font-bold mb-2">Descuentos</p>
+        <FilterList
+          items={descuentos.map(d => ({
+            value: d,
+            label: `Desde ${d}% OFF`,
+            count: 0
+          }))}
+          selected={filters.descuentos}
+          onToggle={v => toggleFilter("descuentos", v)}
+        />
+      </div>
 
       {/* PRECIO */}
-      <FilterGroup title="Precio">
-        <div className="d-flex flex-column gap-2">
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Desde"
-            value={filters.precioMin}
-            onChange={e => setFilters(prev => ({ ...prev, precioMin: e.target.value }))}
-          />
-          <input
-            type="number"
-            className="form-control"
-            placeholder="Hasta"
-            value={filters.precioMax}
-            onChange={e => setFilters(prev => ({ ...prev, precioMax: e.target.value }))}
-          />
+      <div className="mb-4">
+        <p className="text-dark font-bold mb-2">Precio</p>
+
+        {/* RANGOS */}
+        <div className="d-flex flex-column gap-1 mb-2">
+          {priceRanges.map(range => (
+            <label key={range.id} className="form-check small">
+              <input
+                className="form-check-input me-2"
+                type="radio"
+                name="priceRange"
+                checked={
+                  filters.precioMin === range.min &&
+                  filters.precioMax === range.max
+                }
+                onChange={() =>
+                  setFilters(f => ({
+                    ...f,
+                    precioMin: range.min,
+                    precioMax: range.max
+                  }))
+                }
+              />
+              {range.label}{" "}
+              <span className="text-muted">({range.count})</span>
+            </label>
+          ))}
         </div>
-      </FilterGroup>
+
+        {/* MIN / MAX */}
+        <div className="d-flex align-items-center gap-2">
+          <input
+            type="number"
+            className="form-control form-control-sm"
+            placeholder="Min"
+            value={filters.precioMin ?? ""}
+            onChange={e =>
+              setFilters(f => ({ ...f, precioMin: Number(e.target.value) }))
+            }
+          />
+
+          <span className="text-muted">-</span>
+
+          <input
+            type="number"
+            className="form-control form-control-sm"
+            placeholder="Max"
+            value={filters.precioMax ?? ""}
+            onChange={e =>
+              setFilters(f => ({ ...f, precioMax: Number(e.target.value) }))
+            }
+          />
+
+          <button type="button" className="btn btn-sm btn-primary">
+            →
+          </button>
+        </div>
+      </div>
 
       {/* RESET */}
       <button
@@ -233,6 +237,7 @@ export default function SearchFilters({
       >
         Borrar filtros
       </button>
-    </div>
+
+    </aside>
   );
 }

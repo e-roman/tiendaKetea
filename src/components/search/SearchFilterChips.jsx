@@ -17,11 +17,11 @@ export default function SearchFilterChips({
         </button>
       </div>
 
-      <div className="d-flex flex-wrap mb-2">
+      <div className="d-flex flex-wrap row-gap-2 mb-2">
         {filters.marcas.map(m => (
           <button
             key={m}
-            className="chip mb-2"
+            className="chip"
             onClick={() => toggleFilter("marcas", m)}
           >
             {m}

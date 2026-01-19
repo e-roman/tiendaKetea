@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
+import Select from "react-select";
 
 import { useCart } from "@/hooks/useCart";
 import products from "@/data/products.json";
@@ -131,6 +132,9 @@ export default function MainHeader() {
   }, []);
 
 
+  const selectedCategory =
+  categoryOptions.find(opt => opt.value === category) || categoryOptions[0];
+
   return (
     <header className="py-3 border-bottom">
       <div className="container d-flex align-items-center justify-content-between">
@@ -142,7 +146,57 @@ export default function MainHeader() {
 
 
         {/* BUSCADOR */}
-        <div className="search-content-field d-flex align-items-stretch px-8 w-100">
+        <div className="search-content-field d-flex align-items-stretch px-6 w-100">
+
+          {/* SELECT CATEGORÍA */}
+          <div className="search-select">
+            <Select
+              value={selectedCategory}
+              options={categoryOptions}
+              isSearchable={false}
+              onChange={(opt) => setCategory(opt.value)}
+              classNamePrefix="custom-select"
+              styles={{
+                container: (base) => ({
+                  ...base,
+                  width: "fit-content",
+                }),
+
+                control: (base) => ({
+                  ...base,
+                  minHeight: 44,
+                  backgroundColor: "#f4f4f4",
+                  border: "1px solid #f4f4f4",
+                  borderTopRightRadius: 0,
+                  borderBottomRightRadius: 0,
+                  boxShadow: "none",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                }),
+
+                valueContainer: (base) => ({
+                  ...base,
+                  padding: "0 12px",
+                  whiteSpace: "nowrap",
+                }),
+
+                singleValue: (base) => ({
+                  ...base,
+                  whiteSpace: "nowrap",
+                }),
+
+                indicatorsContainer: (base) => ({
+                  ...base,
+                  paddingRight: 8,
+                }),
+
+                menu: (base) => ({
+                  ...base,
+                  zIndex: 9999,
+                }),
+              }}
+            />
+          </div>
 
           {/* INPUT BUSCADOR */}
           <div

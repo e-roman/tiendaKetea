@@ -139,7 +139,7 @@ export default function SearchResults() {
       <div className="row">
 
         {!noResultsFromSearch && (
-          <div className="col-lg-3 d-none d-lg-block">
+          <div className="col-lg-3 d-none d-lg-block pe-md-4">
 
             {/* TITULO */}
             <div className="mb-3">
