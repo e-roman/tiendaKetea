@@ -1,42 +1,75 @@
 import { useState, useEffect, useRef } from "react";
-
 import { Link, useNavigate } from "react-router-dom";
 import { Dropdown, ButtonGroup } from "react-bootstrap";
-import Select from "react-select";
 
 import { useCart } from "@/hooks/useCart";
 import products from "@/data/products.json";
 import { megaMenuData } from "./megaMenuData";
 
-
 export default function MainHeader() {
-
   const navigate = useNavigate();
+  const searchRef = useRef(null);
 
-  const handleSearchSubmit = () => {
-    if (!query.trim()) return;
-    navigate(`/buscar/${encodeURIComponent(query)}`);
-    clearSearch();
-  };
+  const { cart } = useCart();
 
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  const [showRecent, setShowRecent] = useState(false); 
+
+  const [category, setCategory] = useState("");
+  const selectRef = useRef(null);
+  const [selectWidth, setSelectWidth] = useState(null);
+  useEffect(() => {
+    if (!category) {
+      const defaultSpan = document.createElement("span");
+      defaultSpan.style.visibility = "hidden";
+      defaultSpan.style.position = "absolute";
+      defaultSpan.style.fontSize = "1rem";
+      defaultSpan.style.fontFamily = "inherit";
+      defaultSpan.style.whiteSpace = "nowrap";
+      defaultSpan.textContent = "Categoría";
+      document.body.appendChild(defaultSpan);
+      setSelectWidth(defaultSpan.offsetWidth + 36);
+      defaultSpan.remove();
+      return;
+    }
 
 
-  const { cart } = useCart(); // ← FIX
+    const option = megaMenuData.find(c => c.id === category);
+    if (!option) return;
 
+    const span = document.createElement("span");
+    span.style.visibility = "hidden";
+    span.style.position = "absolute";
+    span.style.fontSize = "1rem";
+    span.style.fontFamily = "inherit";
+    span.style.whiteSpace = "nowrap";
+    span.textContent = option.label;
+    document.body.appendChild(span);
 
-  const slugify = (text) =>
-    text
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/(^-|-$)/g, "");
+    setSelectWidth(span.offsetWidth + 36); // padding + caret
+    span.remove();
+  }, [category]);
+
+  // últimas búsquedas
+  const recentSearches = [
+    { id: 1, label: "Robot" },
+    { id: 2, label: "Filtros" },
+    { id: 3, label: "Bombas" },
+    { id: 4, label: "Accesorios de exterior de piscina" },
+    { id: 5, label: "Climatización de Piscinas" },
+  ];
+
+  const handleSearchSubmit = (value = query) => {
+    if (!value.trim()) return;
+    navigate(`/buscar/${encodeURIComponent(value)}`);
+    clearSearch();
+  };
 
   const handleInputChange = (e) => {
     const value = e.target.value;
     setQuery(value);
+    setShowRecent(false);
 
     if (value.length < 2) {
       setResults([]);
@@ -44,7 +77,7 @@ export default function MainHeader() {
     }
 
     const filtered = products
-      .filter((item) =>
+      .filter(item =>
         item.title.toLowerCase().includes(value.toLowerCase())
       )
       .slice(0, 6);
@@ -55,168 +88,192 @@ export default function MainHeader() {
   const clearSearch = () => {
     setQuery("");
     setResults([]);
+    setShowRecent(false);
   };
-
 
   // Opciones para el select
   const categoryOptions = [
-    { value: "", label: "Buscar en Categoría" },
-    ...megaMenuData.map(cat => ({
-      value: cat.id,
-      label: cat.label
-    }))
+    { value: "", label: "Categoría" },
+  ...megaMenuData
+    .filter(c => !c.highlight)
+    .map(cat => ({ value: cat.id, label: cat.label }))
   ];
 
-const highlightMatch = (text, query) => {
-  if (!query) return text;
 
-  const q = query.toLowerCase();
-  if (!q.includes("robot")) return text;
+  const highlightMatch = (text, query) => {
+    if (!query) return text;
+    const regex = new RegExp(`(${query})`, "gi");
 
-  return text.split(/(robots?)/i).map((part, i) =>
-    part.toLowerCase().includes("robot") ? (
-      <span key={i} className="text-primary">
-        {part}
-      </span>
-    ) : (
-      part
-    )
-  );
-};
-
-useEffect(() => {
-  const handleClickOutside = (e) => {
-    if (searchRef.current && !searchRef.current.contains(e.target)) {
-      clearSearch();
-    }
+    return text.split(regex).map((part, i) =>
+      part.toLowerCase() === query.toLowerCase() ? (
+        <span key={i} className="text-primary">{part}</span>
+      ) : part
+    );
   };
 
-  const onKey = (e) => {
-    if (e.key === "Escape") {
-      clearSearch();
-    }
-  };
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (searchRef.current && !searchRef.current.contains(e.target)) {
+        clearSearch();
+      }
+    };
 
-  document.addEventListener("mousedown", handleClickOutside);
-  window.addEventListener("keydown", onKey);
+    const onKey = (e) => {
+      if (e.key === "Escape") clearSearch();
+    };
 
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-    window.removeEventListener("keydown", onKey);
-  };
-}, []);
+    document.addEventListener("mousedown", handleClickOutside);
+    window.addEventListener("keydown", onKey);
 
-
-const searchRef = useRef(null);
-
-
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, []);
 
   return (
     <header className="py-3 border-bottom">
-      <div className="container d-flex align-items-center justify-content-between ">
-        
+      <div className="container d-flex align-items-center justify-content-between">
+
         {/* LOGO */}
         <Link to="/" className="navbar-brand">
-          <img src="assets/img/logo/logo-ketea.svg" alt="Ketea S.A" height="42" />
+          <img src="../assets/img/logo/logo-ketea.svg" alt="Ketea S.A" height="42" />
         </Link>
 
-       {/* BUSCADOR */}
-        <div className="flex-grow-1 ps-6 pe-6 d-none d-md-block">
-            <div className="d-flex position-relative">
-                <div>
-                <Select
-                    options={categoryOptions}
-                    defaultValue={categoryOptions[0]}
-                    classNamePrefix="custom-select"
-                    isSearchable={false}
-                />
-                </div>
+        {/* BUSCADOR */}
+        <div className="d-none d-md-flex search-content-field w-100 px-4">
+            <div>
+            <select
+              className="form-select cat-select-search"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              style={{
+                minWidth: "110px",
+                width: selectWidth ? `${selectWidth}px` : "auto"
+              }}
+            >
+              {categoryOptions.map(opt => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
+              ))}
+            </select>
 
-                <div ref={searchRef} className="position-relative w-100">
-
-                    <input 
-                        id="search"
-                        type="text"
-                        className="form-control form-control-lg shadow-none input-search"
-                        placeholder="Buscar productos, marcas y más…"
-                        value={query}
-                        onChange={handleInputChange}
-                        onKeyDown={(e) => e.key === "Enter" && handleSearchSubmit()}
-                        autoComplete="off"
-                        />
-
-                <button
-                  type="button"
-                  className="btn btn-lg rounded-1 btn-search"
-                  onClick={handleSearchSubmit}
-                >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-search-icon lucide-search">
-                    <path d="m21 21-4.34-4.34"/>
-                    <circle cx="11" cy="11" r="8"/>
-                </svg>
-                </button>
-
-                {/* DROPDOWN DE RESULTADOS */}
-                {results.length > 0 && (
-                <div
-                    className="search-dropdown position-absolute w-100 mt-2 p-2 bg-white rounded"
-                    style={{ zIndex: 999 }}
-                >
-                    {results.map((item) => (
-                    <Link
-                        key={item.id}
-                        // to={`/product/${slugify(item.title)}`}
-                        to={`/product/${item.slug}`}
-                        className="result-link d-flex align-items-center gap-3 py-2 px-1 text-decoration-none "
-                        onClick={clearSearch}
-                    >
-                        <div className="picture">
-                        <img
-                        src={item.image.replace("../", "/")}
-                        alt={item.title}
-                        />
-                        </div>
-                        <div>
-                        <span className="d-block">
-                          {/* <span className="text-primary">
-                            {item.categories.slice(0, 1).join(" - ")}
-                          </span> . */} {highlightMatch(item.title, query)}
-                        </span>
-
-                        <div className="d-flex gap-2 text-dark small font-medium pricing-meta my-1">
-                            ${item.price.toLocaleString("es-AR")}
-                            <div class="old-price text-muted">${item.oldPrice.toLocaleString("es-AR")}</div>
-                            <div class="badge font-12 font-medium py-1 px-2 badge-yellow">-{item.discount} % OFF</div>
-                        </div>
-
-                        {/* <div className="small text-secondary">
-                            {item.categories.slice(0, 2).join(" - ")}
-                        </div> */}
-                        </div>
-                    </Link>
-                    ))}
-
-                    {/* Ver todos */}
-                    <div className="text-center border-top pt-2 mt-3">
-                    <Link
-                        to={`/buscar/${encodeURIComponent(query)}`}
-                        className="btn btn-sm btn-outline text-primary font-bold px-5"
-                        onClick={clearSearch}
-                    >
-                        Ver todos los resultados
-                    </Link>
-                    </div>
-                </div>
-                )}
-               </div>
             </div>
+
+
+          <div ref={searchRef} className="position-relative w-100">
+
+            <input
+              type="text"
+              className="form-control form-control-lg input-search"
+              placeholder="Buscar productos, marcas y más…"
+              value={query}
+              autoComplete="off"
+              onFocus={() => {
+                if (!query) setShowRecent(true); // NUEVO
+              }}
+              onChange={handleInputChange}
+              onKeyDown={(e) => e.key === "Enter" && handleSearchSubmit()}
+            />
+
+            <button
+              type="button"
+              className="btn btn-lg btn-search"
+              onClick={() => handleSearchSubmit()}
+            >
+              <i className="bi bi-search" />
+            </button>
+
+            {/* ===================== */}
+            {/* DROPDOWN */}
+            {/* ===================== */}
+            {(results.length > 0 || showRecent) && (
+              <div
+                className="search-dropdown position-absolute w-100 mt-2 bg-white rounded"
+                style={{ zIndex: 999 }}
+              >
+
+                {/* ÚLTIMAS BÚSQUEDAS */}
+                {showRecent && (
+                  <>
+                    <div className="px-2 pt-3 pb-2">
+                      <h6 className="font-bold mb-2">Últimas búsquedas</h6>
+                    </div>
+
+                    {recentSearches.map(item => (
+                      <button
+                        key={item.id}
+                        className="w-100 text-start d-flex align-items-center gap-3 px-2 py-2 border-0 bg-white result-link mb-1"
+                        onClick={() => handleSearchSubmit(item.label)}
+                      >
+                        <i className="bi bi-clock-history text-muted"></i>
+                        <span>{item.label}</span>
+                      </button>
+                    ))}
+                  </>
+                )}
+
+                {/* RESULTADOS */}
+                {results.length > 0 && (
+                  <>
+                    <div className="px-2 pt-3 pb-1">
+                      <h6 className="font-bold mb-0">Productos</h6>
+                    </div>
+
+                    {results.map(item => (
+                      <Link
+                        key={item.id}
+                        to={`/product/${item.slug}`}
+                        className="result-link"
+                        onClick={clearSearch}
+                      > 
+                        <div className="picture">
+                          <img
+                            src={item.image.replace("../", "/")}
+                            alt={item.title}
+                            width="48"
+                          />
+                        </div>
+
+                        <div className="col_right_result">
+                          <div className="font-16">
+                            {highlightMatch(item.title, query)}
+                          </div>
+                          <div className="d-flex gap-2 text-dark small font-medium pricing-meta my-1">
+                            {/* price siempre debería existir */}
+                            ${item.price.toLocaleString("es-AR")}
+                            
+                            {/* oldPrice solo si no es null o undefined */}
+                            {item.oldPrice != null && (
+                              <div className="old-price text-muted">
+                                ${item.oldPrice.toLocaleString("es-AR")}
+                              </div>
+                            )}
+
+                            {/* badge, si corresponde */}
+                            {item.discount ? (
+                              <div className="badge font-12 font-medium py-1 px-2 badge-yellow">
+                                -{item.discount} % OFF
+                              </div>
+                            ) : null}
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </>
+                )}
+
+              </div>
+            )}
+          </div>
         </div>
 
         {/* ICONOS */}
         <div className="d-flex align-items-center gap-1">
 
         {/* FAVORITOS */}
-        <Link className="btn btn-light position-relative btn-icon rounded-circle btn-icon-top" to="/pages/Profile?view=favorites"><i className="bi bi-heart"></i></Link>
+        <Link className="btn position-relative btn-icon-top" to="/pages/Profile?view=favorites"><i className="bi bi-heart"></i></Link>
 
 
           {/* NOTIFICACIONES */}
@@ -300,7 +357,7 @@ const searchRef = useRef(null);
           {/* Carrito */}
           <div className="dropdown">
               <button
-                className="btn btn-light position-relative btn-icon rounded-circle btn-icon-top"
+                className="btn position-relative btn-icon-top"
                 type="button"
                 data-bs-toggle="offcanvas"
                 data-bs-target="#cartOffcanvas"
@@ -316,10 +373,8 @@ const searchRef = useRef(null);
 
         </div>
 
+        
       </div>
-
-
-      
     </header>
   );
 }

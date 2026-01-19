@@ -358,7 +358,6 @@ const runSearch = (value) => {
                     {/* ÚLTIMAS BÚSQUEDAS (cuando NO hay texto) */}
                     {!hasQuery && (
                       <>
-
                         {MOCK_LAST_SEARCHES.map((term, index) => (
                           <button
                             key={index}
@@ -373,8 +372,6 @@ const runSearch = (value) => {
                             <i className="bi bi-clock-history me-2  font-14 pe-2"></i>
                             <span className="font-14">{term}</span>
                           </button>
-
-
                         ))}
                       </>
                     )}

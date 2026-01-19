@@ -2478,7 +2478,7 @@ textarea.form-control-lg {
     opacity: .5
 }
 .form-check-label {
-    color: #677788
+    color: #000
 }
 .form-switch {
     padding-left: 2.5em
@@ -4578,7 +4578,12 @@ fieldset:disabled .btn {
     background-color: #fff;
     background-clip: border-box;
     border: .0625rem solid rgba(33, 50, 91, .1);
-    border-radius: .5rem
+    border-radius: .5rem;
+}
+
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 4px 0px;
 }
 .card>hr {
     margin-right: 0;
@@ -6931,6 +6936,9 @@ fieldset:disabled .btn {
 }
 .w-50 {
     width: 50%!important
+}
+.w-60 {
+    width: 60%!important
 }
 .w-75 {
     width: 75%!important

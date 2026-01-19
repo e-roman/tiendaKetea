@@ -19,7 +19,7 @@ export default function AlertFloating() {
           <p className="status">
             {action === "cart" && "Agregaste el producto"}
             {action === "favorite-add" && "Agregaste el producto"}
-            {action === "favorite-remove" && "Agregaste el producto"}
+            {action === "favorite-remove" && "Eliminaste el producto"}
           </p>
           <p className="alert-title mb-2 text-dark">{product.title}</p>
           <p className="alert-price text-dark mb-0">${formatPrice(product.price)}</p>

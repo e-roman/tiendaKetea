@@ -98,7 +98,7 @@ const handleToggleFavorite = () => {
               <div className="d-flex align-items-center gap-1 pb-1">
                 <span className="font-13">Antes</span>
                 <div className="old-price text-muted">
-                  {formatPrice(product.oldPrice)}
+                  ${formatPrice(product.oldPrice)}
                 </div>
               </div>
             )}
@@ -106,7 +106,7 @@ const handleToggleFavorite = () => {
 
           <ul className="list-unstyled d-flex align-items-center gap-1">
             <li className="current-price text-dark">
-               {formatPrice(product.price)}
+               ${formatPrice(product.price)}
             </li>
 
 

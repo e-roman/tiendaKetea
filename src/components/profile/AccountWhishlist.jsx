@@ -12,9 +12,9 @@ export default function AccountWhishlist() {
       <>
       <div className="card shadow-none p-2 p-lg-5 p-2 p-lg-5 h-100">
         <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4  d-sm-flex justify-content-sm-between align-items-sm-center border-bottom">
-          <h4 className="card-header-title">Recientemente agregado/s</h4>
+          <h4 className="card-header-title">Recientemente agregado(s)</h4>
           <span className="lh-1">
-            {itemsCount} {itemsCount === 1 ? "item" : "items"}
+            {itemsCount} {itemsCount === 1 ? "Producto" : "Productos"}
           </span>
         </div>
 

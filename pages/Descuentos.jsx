@@ -58,7 +58,7 @@ export default function DescuentosPage() {
         {visibleRows < categoriesConfig.length && (
           <div className="text-center mt-6">
             <button
-              className="btn btn-outline-primary px-5"
+              className="btn btn-primary px-5"
               onClick={() => setVisibleRows((v) => v + 3)}
             >
               Mostrar más

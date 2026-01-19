@@ -102,9 +102,9 @@ background-color: rgb(250, 250, 250);
 input.input-search {
     background: transparent;
     padding-left: 15px;
-        min-height: calc(1.114em + 1.625rem);
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    min-height: calc(1.114em + 1.625rem);
+    /* border-top-left-radius: 0;
+    border-bottom-left-radius: 0; */
     margin-left: 0;
 }
 .input-search input:focus {
@@ -112,11 +112,11 @@ input.input-search {
 }
 button.btn-search {
     position: absolute;
-    right: 3px;
+    right: 4px;
     top: 4px;
-    width: 39px;
+    width: 38px;
     padding: 0px;
-    height: 37px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -446,11 +446,10 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 .search-dropdown {
     max-height: 800px;
     overflow-y: auto;
-    border: 1px solid #e6e6e6;
     padding: 8px;
     border-radius: 8px;
     background: var(--colors-neutral-white, #fff);
-    box-shadow: rgba(159, 158, 166, 0.25) 0px 36px 72px 0px, rgba(159, 158, 166, 0.5) 0px 0px 1px 0px;
+    box-shadow: rgba(159, 158, 166, 0.25) 0px 36px 72px 0px;
 }
 .picture {
     display: flex;
@@ -466,13 +465,37 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
 }
 
 .result-link {
-    color: #000;
+    display: flex;
+    color: black;
+    line-height: 20px;
+    text-decoration: none;
+    padding: 8px 6px;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+    font-size: 14px;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: pre-wrap;
 }
 .result-link:hover {
     background: #f9f9f9;
     border-radius: 8px;
 }
-
+.picture {
+    display: flex;
+    width: 64px;
+    height: 64px;
+    padding: 4px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 4px;
+    border: 1px solid rgb(213, 213, 231);
+    max-width: 64px;
+}
 .picture img {
     width: 100%;
     height: 100%;
@@ -485,7 +508,15 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   background: #ccc;
   border-radius: 6px;
 }
-
+.col_right_result {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4px;
+    flex: 1 0 0px;
+}
 
 
 
@@ -541,6 +572,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
         margin-top: 15px;
     }
 }
+
 
 
 #cartOffcanvas {
@@ -856,7 +888,6 @@ button#notificationsDropdown:after {
     display: inline-block;
     padding: 0.25em 0.4em;
     font-size: 75%;
-    font-weight: 500;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
@@ -1001,6 +1032,20 @@ button#notificationsDropdown:after {
 }
 
 
+
+.btn-drop-filter {
+    padding: 0;
+    display: flex;
+    border: none;
+    justify-content: space-between;
+    background-color: transparent;
+}
+.btn-drop-filter:focus,
+.btn-drop-filter:focus:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
 
 
 .btn-fav {
@@ -1271,7 +1316,20 @@ footer .btn-icon.btn-social {
 }
 
 
-
+.cat-select-search {
+    width: auto;
+    padding: .3125rem 1rem .2125rem 1rem;
+    height: 100%;
+    background-color: #f0f0f0;
+    font-size: 13px;
+    border: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.input-search {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
 
 
 .u-divider--text {
@@ -1322,12 +1380,21 @@ footer .btn-icon.btn-social {
 
 
 
+.form-switch .form-check-input {
+    width: 2.4125em;
+    height: 1.4125em;
+    background-color: #e7eaf3;
+}
 
 
 
 
-
-
+.no-focus:focus,
+.no-focus:hover,
+.no-focus:focus:active {
+    box-shadow: none;
+    outline: none;
+}
 
 
 
@@ -2971,23 +3038,24 @@ footer .btn-icon.btn-social {
 
 .chip {
     position: relative;
-    margin:0 8px 0 0;
-    padding: 8px 30px 8px 16px;
+    margin: 0 8px 0 0;
+    padding: 5px 26px 5px 10px;
     font-size: 13px;
     font-weight: bold;
     white-space: normal;
     word-break: break-word;
     line-height: 18px;
-    color: #727272;
+    color: #333;
     border: 0;
-    border-radius: 20px;
+    border-radius: 4px;
     -webkit-transition: all .4s ease;
     -ms-transition: all .4s ease;
     -moz-transition: all .4s ease;
     -o-transition: all .4s ease;
     transition: all .4s ease;
-    background:#eeeeee;
+    background: #ffffff;
     font-weight: 500;
+    border: 1px solid #ccc;
 }
 .chip-close {
     background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
@@ -2996,8 +3064,8 @@ footer .btn-icon.btn-social {
 
 .chip-remove-icon {
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top:6px;
+    right: 5px;
     display: inline-block;
     width: 18px;
     height: 18px;
