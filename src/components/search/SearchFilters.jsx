@@ -1,17 +1,17 @@
-import { useState } from "react";
+import { useState, useMemo } from "react"; 
 import SearchFilterChips from "./SearchFilterChips";
 
 /* ============================= */
 /* RANGOS DE PRECIO              */
 /* ============================= */
 const priceRanges = [
-  { id: "lt-85430", label: "Menos de $ 85.430", count: 199, min: 0, max: 85430 },
-  { id: "85430-199990", label: "$ 85.430 a $ 199.990", count: 196, min: 85430, max: 199990 },
-  { id: "gt-199990", label: "$ 199.990 o más", count: 205, min: 199990, max: null }
+  { id: "lt-85430", label: "Menos de $ 85.430", min: 0, max: 85430 },
+  { id: "85430-199990", label: "$ 85.430 a $ 199.990", min: 85430, max: 199990 },
+  { id: "gt-199990", label: "$ 199.990 o más", min: 199990, max: null }
 ];
 
 /* ============================= */
-/* LISTA REUTILIZABLE DE FILTROS */
+/* LISTA REUTILIZABLE            */
 /* ============================= */
 function FilterList({ items, selected, onToggle, maxVisible = 8 }) {
   const [expanded, setExpanded] = useState(false);
@@ -20,12 +20,9 @@ function FilterList({ items, selected, onToggle, maxVisible = 8 }) {
 
   return (
     <>
-      <div className="check-filter-result d-flex flex-column gap-1">
-        {visibleItems.map((item, index) => (
-          <label
-            key={`${item.value}-${index}`}
-            className="form-check small"
-          >
+      <div className="d-flex flex-column row-gap-1 check-filter-result">
+        {visibleItems.map(item => (
+          <label key={item.value} className="form-check small">
             <input
               className="form-check-input me-2"
               type="checkbox"
@@ -41,7 +38,7 @@ function FilterList({ items, selected, onToggle, maxVisible = 8 }) {
       {items.length > maxVisible && (
         <button
           type="button"
-          className="btn btn-link px-0 mt-0 font-15"
+          className="btn btn-link px-0 mt-1 font-15"
           onClick={() => setExpanded(!expanded)}
         >
           {expanded ? "Ver menos" : "Ver más"}
@@ -52,18 +49,81 @@ function FilterList({ items, selected, onToggle, maxVisible = 8 }) {
 }
 
 /* ============================= */
-/* SEARCH FILTERS (GRANDE)       */
+/* COMPONENTE PRINCIPAL          */
 /* ============================= */
 export default function SearchFilters({
+  products = [],
   filters,
   setFilters,
   toggleFilter,
-  resetFilters,
-  marcas,
-  categorias,
-  accionamientos,
-  descuentos
+  resetFilters
 }) {
+
+  /* ============================= */
+  /* DATOS DERIVADOS DEL JSON      */
+  /* ============================= */
+
+  const marcas = useMemo(() => {
+    const map = {};
+    products.forEach(p => {
+      if (!p.Marca) return;
+      map[p.Marca] = (map[p.Marca] || 0) + 1;
+    });
+
+    return Object.entries(map).map(([value, count]) => ({
+      value,
+      label: value,
+      count
+    }));
+  }, [products]);
+
+  const categorias = useMemo(() => {
+    const map = {};
+    products.forEach(p => {
+      (p.categories || []).forEach(cat => {
+        const key = cat.toLowerCase();
+        if (["ofertas", "destacados"].includes(key)) return;
+        map[key] = (map[key] || 0) + 1;
+      });
+    });
+
+    return Object.entries(map).map(([value, count]) => ({
+      value,
+      label: value.charAt(0).toUpperCase() + value.slice(1),
+      count
+    }));
+  }, [products]);
+
+  const accionamientos = useMemo(() => {
+    const map = {};
+    products.forEach(p => {
+      if (!p.accionamiento) return;
+      map[p.accionamiento] = (map[p.accionamiento] || 0) + 1;
+    });
+
+    return Object.entries(map).map(([value, count]) => ({
+      value,
+      label: value,
+      count
+    }));
+  }, [products]);
+
+  const descuentos = useMemo(() => {
+    const map = {};
+    products.forEach(p => {
+      if (!p.discount) return;
+      map[p.discount] = (map[p.discount] || 0) + 1;
+    });
+
+    return Object.entries(map)
+      .sort((a, b) => b[0] - a[0])
+      .map(([value, count]) => ({
+        value: Number(value),
+        label: `Desde ${value}% OFF`,
+        count
+      }));
+  }, [products]);
+
   const hasActiveFilters =
     filters.marcas.length ||
     filters.categorias.length ||
@@ -79,7 +139,7 @@ export default function SearchFilters({
   return (
     <aside>
 
-      {/* SWITCHES RÁPIDOS */}
+      {/* SWITCHES */}
       <div className="mb-4 bg-white p-3 rounded-2 d-flex flex-column row-gap-3">
         {[
           ["Cuotas sin interés", "cuotasSinInteres"],
@@ -117,11 +177,7 @@ export default function SearchFilters({
       <div className="mb-4">
         <p className="text-dark font-bold mb-2">Marca</p>
         <FilterList
-          items={marcas.map(m => ({
-            value: m,
-            label: m,
-            count: 0 // o el count real después
-          }))}
+          items={marcas}
           selected={filters.marcas}
           onToggle={v => toggleFilter("marcas", v)}
         />
@@ -131,26 +187,17 @@ export default function SearchFilters({
       <div className="mb-4">
         <p className="text-dark font-bold mb-2">Categoría</p>
         <FilterList
-            items={categorias.map(c => ({
-              value: c,
-              label: c,
-              count: 0
-            }))}
-            selected={filters.categorias}
-            onToggle={v => toggleFilter("categorias", v)}
-          />
-
+          items={categorias}
+          selected={filters.categorias}
+          onToggle={v => toggleFilter("categorias", v)}
+        />
       </div>
 
       {/* ACCIONAMIENTO */}
       <div className="mb-4">
         <p className="text-dark font-bold mb-2">Accionamiento</p>
         <FilterList
-          items={accionamientos.map(a => ({
-            value: a,
-            label: a,
-            count: 0
-          }))}
+          items={accionamientos}
           selected={filters.accionamiento}
           onToggle={v => toggleFilter("accionamiento", v)}
         />
@@ -160,11 +207,7 @@ export default function SearchFilters({
       <div className="mb-4">
         <p className="text-dark font-bold mb-2">Descuentos</p>
         <FilterList
-          items={descuentos.map(d => ({
-            value: d,
-            label: `Desde ${d}% OFF`,
-            count: 0
-          }))}
+          items={descuentos}
           selected={filters.descuentos}
           onToggle={v => toggleFilter("descuentos", v)}
         />
@@ -174,33 +217,30 @@ export default function SearchFilters({
       <div className="mb-4">
         <p className="text-dark font-bold mb-2">Precio</p>
 
-        {/* RANGOS */}
         <div className="d-flex flex-column gap-1 mb-2">
-          {priceRanges.map(range => (
-            <label key={range.id} className="form-check small">
+          {priceRanges.map(r => (
+            <label key={r.id} className="form-check small">
               <input
                 className="form-check-input me-2"
                 type="radio"
-                name="priceRange"
+                name="price"
                 checked={
-                  filters.precioMin === range.min &&
-                  filters.precioMax === range.max
+                  filters.precioMin === r.min &&
+                  filters.precioMax === r.max
                 }
                 onChange={() =>
                   setFilters(f => ({
                     ...f,
-                    precioMin: range.min,
-                    precioMax: range.max
+                    precioMin: r.min,
+                    precioMax: r.max
                   }))
                 }
               />
-              {range.label}{" "}
-              <span className="text-muted">({range.count})</span>
+              {r.label}
             </label>
           ))}
         </div>
 
-        {/* MIN / MAX */}
         <div className="d-flex align-items-center gap-2">
           <input
             type="number"
@@ -212,7 +252,7 @@ export default function SearchFilters({
             }
           />
 
-          <span className="text-muted">-</span>
+          <span>-</span>
 
           <input
             type="number"
@@ -237,7 +277,6 @@ export default function SearchFilters({
       >
         Borrar filtros
       </button>
-
     </aside>
   );
 }

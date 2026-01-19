@@ -17,7 +17,7 @@ export default function FilterList({
   return (
     <>
       {visibleItems.map(item => (
-        <label key={item.value} className="d-flex gap-2 small">
+        <label key={item.value} className="d-flex check-filter-result gap-2 small">
           <input
             type="checkbox"
             checked={selected.includes(item.value)}

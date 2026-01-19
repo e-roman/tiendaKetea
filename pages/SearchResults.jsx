@@ -10,6 +10,11 @@ export default function SearchResults() {
   const { query } = useParams();
   const navigate = useNavigate();
 
+if (!query) {
+  navigate("/");
+  return null;
+}
+
   const [sort, setSort] = useState("featured");
 
   const [filters, setFilters] = useState({
@@ -146,18 +151,19 @@ export default function SearchResults() {
               <h3 className="text-dark mb-2">
                 <b>{query}</b>
               </h3>
-              <h5 className="text-dark"><b>{results.length}</b> resultados</h5>
+              {!noResultsFromSearch && (
+                <h5 className="text-dark">
+                  <b>{results.length}</b> resultados
+                </h5>
+              )}
             </div>
 
             <SearchFilters
+              products={productsData}  
               filters={filters}
               setFilters={setFilters}
               toggleFilter={toggleFilter}
               resetFilters={resetFilters}
-              marcas={marcas}
-              categorias={categorias}
-              accionamientos={accionamientos}
-              descuentos={descuentos}
             />
           </div>
         )}
