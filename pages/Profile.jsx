@@ -5,7 +5,7 @@ import NavProfile from "@/components/profile/NavProfile";
 
 import AccountAddCardModal from "@/components/Modals/AccountAddCardModal";
 import AccountEditCardModal from "@/components/Modals/AccountEditCardModal";
-import AccountInvoiceReceiptModal from "@/components/Modals/AccountInvoiceReceiptModal";
+import AccountInvoicetModal from "@/components/Modals/AccountInvoicetModal";
 
 import AccountAddress from "@/components/profile/AccountAddress";
 import AccountNotifications from "@/components/profile/AccountNotifications";
@@ -127,7 +127,7 @@ export default function MyProfile() {
           )}
 
           {showInvoiceModal && (
-            <AccountInvoiceReceiptModal onClose={() => setShowInvoiceModal(false)} />
+            <AccountInvoicetModal onClose={() => setShowInvoiceModal(false)} />
           )}
         </div>
       </div>
