@@ -580,7 +580,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
     border: none;
 }
 .offcanvas-backdrop {
-    z-index: 99991;
+    /* z-index: 99991; */
     background-color: rgb(0 0 0 / 74%);
 }
 

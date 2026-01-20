@@ -1,6 +1,6 @@
 // src/components/header/MegaMenu.jsx
 import { useState } from "react";
-import { megaMenuData } from "./megaMenuData";
+import { megaMenuData } from "@/data/megaMenuData";
 import { Link } from "react-router-dom";
 
 export default function MegaMenu() {

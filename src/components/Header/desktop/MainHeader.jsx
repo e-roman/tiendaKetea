@@ -4,7 +4,7 @@ import { Dropdown, ButtonGroup } from "react-bootstrap";
 
 import { useCart } from "@/hooks/useCart";
 import products from "@/data/products.json";
-import { megaMenuData } from "./megaMenuData";
+import { megaMenuData } from "@/data/megaMenuData";
 
 export default function MainHeader() {
   const navigate = useNavigate();

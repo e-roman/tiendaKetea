@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { megaMenuData } from "../desktop/megaMenuData";
+import { megaMenuData } from "@/data/megaMenuData";
 
 // helper para slug
 const slugify = (text) =>
@@ -20,7 +20,7 @@ export default function SidebarCategories() {
 
   return (
     <div
-      className="offcanvas offcanvas-start categoriesMb"
+      className="offcanvas w-100 offcanvas-start categoriesMb"
       id="categoriesOffcanvas"
       tabIndex="-1"
     >
