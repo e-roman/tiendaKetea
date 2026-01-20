@@ -15,7 +15,7 @@ const BRANDS = [
 export default function BrandsLogos() {
   return (
     <div className="bg-white">
-    <div className="container content-space-1 border-bottom">
+    <div className="container px-0 px-md-3 content-space-1 border-bottom">
       <Swiper
         spaceBetween={24}
         slidesPerView={2.3}     // mobile: 2 + un poco del 3°

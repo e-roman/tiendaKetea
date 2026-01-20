@@ -14,7 +14,7 @@ import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
 export default function App() {
   return (
     <>
-    <div className='container py-5'>
+    <div className='container p-0 px-md-3 py-md-5'>
       <Swiper
         cssMode={true}
         navigation={true}

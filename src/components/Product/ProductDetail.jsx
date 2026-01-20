@@ -137,7 +137,7 @@ const openDiscountModal = (e) => {
 
 
       {/* Precios */}
-      <div className="d-none d-md-block mb-3">
+      <div className="d-md-block mb-3">
         <div>
           <div className="d-flex align-items-center pb-2">
             {product.oldPrice && (
@@ -316,9 +316,10 @@ const openDiscountModal = (e) => {
           {/* Add to cart */}
           <button
             type="button"
-            className="btn btn-sm btn-block btn-primary"
+            className="btn btn-sm btn-block btn-secondary"
             onClick={handleAddToCart}
           >
+            <i className="bi bi-cart3"></i>
             Agregar 
           </button>
 

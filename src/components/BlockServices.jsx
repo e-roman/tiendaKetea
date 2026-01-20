@@ -3,10 +3,10 @@ export default function BlockServices() {
   return (
    
     <div className=" ">
-      <div className="container">
+      <div className="container px-xs-0">
         <div className="card shadow-none rounded-3">
           <div className="row card-body">
-            <div className="col-md-4 mb-7 mb-md-0">
+            <div className="col-md-4 d-none d-md-block">
               {/*-- Contacts --*/}
               <div className="media">
                 <figure className="ie-height-56 w-100 max-width-8 me-4">
@@ -20,7 +20,7 @@ export default function BlockServices() {
               {/*-- End Contacts --*/}
             </div>
 
-            <div className="col-md-4 mb-7 mb-md-0">
+            <div className="col-6 col-md-4">
               {/*-- Contacts --*/}
               <div className="media">
                 <figure className="ie-height-56 w-100 max-width-8 me-4">
@@ -34,7 +34,7 @@ export default function BlockServices() {
               {/*-- End Contacts --*/}
             </div>
 
-            <div className="col-md-4">
+            <div className="col-6 col-md-4">
               {/*-- Contacts --*/}
               <div className="media">
                 <figure className="ie-height-56 w-100 max-width-8 me-4">

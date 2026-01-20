@@ -37,7 +37,7 @@ export default function HeaderMobile() {
 
           {/* Logo */}
           <Link to="/" className="navbar-brand mx-2">
-            <img src="../assets/img/logo/logo-ketea.svg" alt="Ketea S.A" height="28" />
+            <img src="../assets/img/logo/logo-sm.png" alt="Ketea S.A" height="28" />
           </Link>
 
           {/* Input Search */}
