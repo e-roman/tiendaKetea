@@ -5,6 +5,7 @@ import productsData from "@/data/products.json";
 import ProductCard from "@/components/ProductCard";
 import SearchFilters from "@/components/search/SearchFilters";
 import SearchSort from "@/components/search/SearchSort";
+import SearchSortMobile from "@/components/search/SearchSortMobile";
 
 export default function SearchResults() {
   const { query } = useParams();
@@ -63,7 +64,7 @@ const filteredResults = useMemo(() => {
     if (filters.accionamiento.length && !filters.accionamiento.includes(p.accionamiento)) return false;
     if (filters.descuentos.length && !filters.descuentos.includes(p.discount)) return false;
 
-    // 👉 🔥 ESTE ERA EL QUE FALTABA
+    // ESTE ERA EL QUE FALTABA
     if (
       filters.cuotasCantidad.length &&
       !filters.cuotasCantidad.includes(p.cuotasLabel)
@@ -149,11 +150,34 @@ const resetFilters = () => {
   const noResults = results.length === 0;
   const noResultsFromSearch = noResults && !hasActiveFilters;
 
+    /*MOBILE */
+  const [showFiltersMobile, setShowFiltersMobile] = useState(false);
+  const [showSortMobile, setShowSortMobile] = useState(false);
+
   return (
 
-
+    <>
     <div className="container content-space-t-md-1 content-space-b-2 px-mobile">
       <div className="row">
+
+
+        {/* CONTROLES MOBILE */}
+        <div className="d-flex d-lg-none gap-2 mb-3">
+          <button
+            className="btn btn-outline-dark w-50"
+            onClick={() => setShowFiltersMobile(true)}
+          >
+            <i className="bi bi-sliders me-1" />
+            Filtros
+          </button>
+          
+          <div className="btn btn-outline-dark w-50">
+            <i className="bi bi-arrow-down-up me-1" />
+            <SearchSortMobile sort={sort} setSort={setSort} />
+          </div>
+        </div>
+
+
 
         {!noResultsFromSearch && (
           <div className="col-lg-3 d-none d-lg-block pe-md-4">
@@ -229,28 +253,56 @@ const resetFilters = () => {
             </div>
           )}
 
-
-          {/* {!noResults && (
-            view === "grid" ? (
-              <div className="row g-2 g-md-3 row-cols-2 row-cols-md-3">
-                {results.map(p => (
-                  <div className="col" key={p.id}>
-                    <ProductCard product={p} openProduct={openProduct} />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              results.map(p => (
-                <div className="mb-2" key={p.id}>
-                  <ProductCardHorizontal product={p} openProduct={openProduct} />
-                </div>
-              ))
-            )
-          )} */}
         </div>
 
 
       </div>
     </div>
+    
+
+    
+    {/*MOBILE*/}
+    {showFiltersMobile && (
+      <>
+        {/* Backdrop */}
+        <div
+          className="mobile-sheet-backdrop"
+          onClick={() => setShowFiltersMobile(false)}
+        />
+
+        {/* Sheet */}
+        <div className="mobile-sheet">
+          <div className="d-flex align-items-center justify-content-between mb-3">
+            <h5 className="mb-0">Filtros</h5>
+            <button
+              className="btn p-0"
+              onClick={() => setShowFiltersMobile(false)}
+            >
+              <i className="bi bi-x-lg"></i>
+            </button>
+          </div>
+
+          <SearchFilters
+            products={productsData}
+            filters={filters}
+            setFilters={setFilters}
+            toggleFilter={toggleFilter}
+            resetFilters={resetFilters}
+          />
+
+          <div className="pt-3 border-top mt-3">
+            <button
+              className="btn btn-primary w-100"
+              onClick={() => setShowFiltersMobile(false)}
+            >
+              Ver resultados ({results.length})
+            </button>
+          </div>
+        </div>
+      </>
+    )}
+
+    </>
+
   );
 }

@@ -142,7 +142,7 @@ const openDiscountModal = (e) => {
           <div className="d-flex align-items-center pb-2">
             {product.oldPrice && (
               <span className="h4 text-secondary mb-0">
-                <del>AR${formatAR(product.oldPrice)}</del>
+                <del>${formatAR(product.oldPrice)}</del>
               </span>
             )}
             {product.discount > 0 && (
@@ -152,43 +152,10 @@ const openDiscountModal = (e) => {
                 </span>
               </div>
             )}
-
           </div>
 
-         <div>
+          <div>
             <span className="h2 font-bold">
-              AR${formatAR(product.price)}
-            </span>
-          </div>
-
-        </div>
-      </div>
-
-
-
-
-      {/* Precios */}
-      <div className="d-block d-md-none mb-1 px-1 px-md-0">
-        <div>
-         
-          <div className="d-flex align-items-center">
-            {product.oldPrice && (
-              <span className="h4 text-secondary mb-0 me-1">
-                <del>${formatAR(product.oldPrice)}</del>
-              </span>
-            )}
-
-            {product.discount && (
-              <div className="ms-1">
-                <span className="badge badge-yellow py-1 px-2 text-dark rounded-1 font-15 d-block">
-                  - {product.discount}% OFF
-                </span>
-              </div>
-            )}
-          </div>
-
-          <div className="pt-1 pb-3">
-            <span className="h2 font-bold price-xs">
               ${formatAR(product.price)}
             </span>
           </div>
@@ -270,7 +237,7 @@ const openDiscountModal = (e) => {
 
 
       {/* Cantidad + carrito */}
-      <div className="d-flex gap-3 py-4 mb-0 px-1 px-md-0">
+      <div className="d-none d-md-flex gap-3 py-4 mb-0 px-1 px-md-0">
 
         {/* Quantity */}
         <div className="border rounded btn-i-d btn-w-50  mb-0">
@@ -312,6 +279,61 @@ const openDiscountModal = (e) => {
 
 
 
+      {/* MOBILE > Cantidad + carrito */}
+      <div className="d-flex d-md-none gap-1 box_fixed-detail-mobile">
+        <div className="d-flex align-items-cente gap-2 pb-1">
+            <div>
+              <span className="h2 font-bold mb-0">
+                ${formatAR(product.price)}
+              </span>
+            </div>
+
+          {product.oldPrice && (
+            <div>
+              <span className="h4 text-secondary mb-0">
+                <del>${formatAR(product.oldPrice)}</del>
+              </span>
+            </div>
+          )}
+          {product.discount > 0 && (
+            <div>
+              <span className="badge badge-yellow py-1 px-2 text-dark rounded-1 font-15">
+                - {product.discount}% OFF
+              </span>
+            </div>
+          )}
+
+        </div>
+
+        <div className="mb-3">
+          <span className="d-flex text-black">
+            <span className="font-15 font-medium">{product.cuotasLabel}</span>
+            <span className="font-15 font-medium ps-1">${product.cuotaPrice}</span>
+          </span>
+        </div>
+
+        <div className="d-flex gap-3">
+          {/* Add to cart */}
+          <button
+            type="button"
+            className="btn btn-sm btn-block btn-primary"
+            onClick={handleAddToCart}
+          >
+            Agregar 
+          </button>
+
+          {/* Add to cart */}
+          <button
+            type="button"
+            className="btn btn-sm btn-block btn-primary"
+            onClick={handleAddToCart}
+          >
+            Comprar
+          </button>
+        </div>
+      </div>
+
+
 
       {/* Compra protegida */}
       <div className="d-flex align-items-start pt-3 pb-2 px-1 px-md-0">
@@ -337,7 +359,7 @@ const openDiscountModal = (e) => {
       </div>
 
 
-
+      {/*Modal Payments Methods */}
       <DiscountMethod />
 
 

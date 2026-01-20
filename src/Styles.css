@@ -3460,15 +3460,6 @@ button.btn-search-mobile {
 
 
 
-.sticky-top {
-    z-index: 1050;
-}
-
-
-
-
-
-
 
 
 .mega-menu {
@@ -3697,4 +3688,54 @@ header{
 
 .cat-select-menu .dropdown-item:hover {
   background-color: #f8f9fa;
+}
+
+
+
+.mobile-sheet-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1040;
+}
+
+.mobile-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90vh;
+  background: #fff;
+  z-index: 1050;
+  border-radius: 16px 16px 0 0;
+  padding: 16px;
+  overflow-y: auto;
+  animation: slideUp 0.25s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+.box_fixed-detail-mobile {
+    bottom: 0px;
+    background-color: white;
+    box-shadow: rgba(159, 158, 166, 0.25) 0px -8px 32px 0px, rgba(159, 158, 166, 0.5) 0px 0px 1px 0px;
+    display: flex;
+    flex-direction: column;
+    left: 0px;
+    padding: 20px;
+    position: fixed;
+    right: 0px;
+    border-radius: 16px 16px 0px 0px;
+    z-index: 6;
 }

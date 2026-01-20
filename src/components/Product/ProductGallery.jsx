@@ -10,11 +10,11 @@ export default function ProductGallery({ images = [] }) {
     images.length > 0
       ? images
       : [
-      "/assets/img/product-detail/detail-01.png",
-      "/assets/img/product-detail/detail-02.png",
-      "/assets/img/product-detail/detail-03.png",
-      "/assets/img/product-detail/detail-04.png",
-      "/assets/img/product-detail/detail-05.png"
+      "../assets/img/product-detail/detail-01.png",
+      "../assets/img/product-detail/detail-02.png",
+      "../assets/img/product-detail/detail-03.png",
+      "../assets/img/product-detail/detail-04.png",
+      "../assets/img/product-detail/detail-05.png"
         ];
 
   const handleZoomClick = () => {

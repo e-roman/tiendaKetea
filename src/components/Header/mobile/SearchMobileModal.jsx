@@ -18,6 +18,19 @@ export default function SearchMobileModal({ show, onClose }) {
     "Climatización de Piscinas"
   ];
 
+
+const highlightMatch = (text, query) => {
+  if (!query) return text;
+  const regex = new RegExp(`(${query})`, "gi");
+
+  return text.split(regex).map((part, i) =>
+    part.toLowerCase() === query.toLowerCase() ? (
+      <span key={i} className="text-primary">{part}</span>
+    ) : part
+  );
+};
+
+
   useEffect(() => {
     if (show) {
       setQuery("");
@@ -106,43 +119,73 @@ export default function SearchMobileModal({ show, onClose }) {
       {/* Últimas búsquedas */}
       {showRecent && results.length === 0 && (
         <div className="mb-3">
-          <h6 className="mb-2">Últimas búsquedas</h6>
-          <div className="d-flex flex-wrap gap-2">
+          {/* <h6 className="mb-2">Últimas búsquedas</h6> */}
             {recentSearches.map((item, idx) => (
               <button
                 key={idx}
-                className="btn btn-outline-secondary btn-sm"
+                className="w-100 text-start d-flex align-items-center gap-3 px-2 py-2 border-0 bg-white result-link mb-1"
                 onClick={() => handleSearchSubmit(item)}
               >
-                {item}
+                <i className="bi bi-clock-history text-muted"></i>
+                 <span>{item}</span>
               </button>
             ))}
-          </div>
         </div>
       )}
 
-      {/* Resultados */}
+      {/* RESULTADOS */}
       {results.length > 0 && (
         <>
-          <h6 className="mb-2">Productos</h6>
-          <div className="d-flex flex-column gap-2">
-            {results.map((p) => (
-              <Link
-                key={p.id}
-                to={`/product/${p.slug}`}
-                className="d-flex gap-2 align-items-center p-2 border rounded"
-                onClick={onClose}
-              >
-                <img src={p.image.replace("../", "/")} alt={p.title} width="48" />
-                <div>
-                  <div>{p.title}</div>
-                  <div className="text-dark small">${p.price.toLocaleString("es-AR")}</div>
-                </div>
-              </Link>
-            ))}
+          <div className="px-2 pt-3 pb-1">
+            <h6 className="font-bold mb-0">Productos</h6>
           </div>
+
+          {results.map(item => (
+            <Link
+              key={item.id}
+              to={`/product/${item.slug}`}
+              className="result-link"
+              onClick={() => {
+                onClose();
+                setQuery("");
+                setResults([]);
+              }}
+            >
+              <div className="picture">
+                <img
+                  src={item.image.replace("../", "/")}
+                  alt={item.title}
+                  width="48"
+                />
+              </div>
+
+              <div className="col_right_result">
+                <div className="font-16">
+                  {highlightMatch(item.title, query)}
+                </div>
+
+                <div className="d-flex gap-2 text-dark small font-medium pricing-meta my-1">
+                  ${item.price.toLocaleString("es-AR")}
+
+                  {item.oldPrice != null && (
+                    <div className="old-price text-muted">
+                      ${item.oldPrice.toLocaleString("es-AR")}
+                    </div>
+                  )}
+
+                  {item.discount && (
+                    <div className="badge font-12 font-medium py-1 px-2 badge-yellow">
+                      -{item.discount}% OFF
+                    </div>
+                  )}
+                </div>
+              </div>
+            </Link>
+          ))}
         </>
       )}
+
+
     </div>
   );
 }
