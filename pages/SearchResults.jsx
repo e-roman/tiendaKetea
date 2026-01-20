@@ -17,20 +17,22 @@ if (!query) {
 
   const [sort, setSort] = useState("featured");
 
-  const [filters, setFilters] = useState({
-    marcas: [],
-    categorias: [],
-    accionamiento: [],
-    descuentos: [],
-    precioMin: "",
-    precioMax: "",
-    cuotasSinInteres: false,
-    envioGratis: false,
-    llegaManana: false,
-    llegaHoy: false,
-    retiroInmediato: false,
-    compraInternacional: false
-  });
+const [filters, setFilters] = useState({
+  marcas: [],
+  categorias: [],
+  accionamiento: [],
+  descuentos: [],
+  cuotasCantidad: [],
+  precioMin: "",
+  precioMax: "",
+  cuotasSinInteres: false,
+  envioGratis: false,
+  llegaManana: false,
+  llegaHoy: false,
+  retiroInmediato: false,
+  compraInternacional: false
+});
+
 
   const openProduct = (slug) => navigate(`/product/${slug}`);
   const searchTerm = (query || "").toLowerCase().trim();
@@ -46,29 +48,38 @@ if (!query) {
   /* =============================
     FILTRADO
   ============================= */
-  const filteredResults = useMemo(() => {
-    return productsData.filter(p => {
-      const title = p.title?.toLowerCase() || "";
-      const cats = (p.categories || []).map(c => c.toLowerCase());
+const filteredResults = useMemo(() => {
+  return productsData.filter(p => {
+    const title = p.title?.toLowerCase() || "";
+    const cats = (p.categories || []).map(c => c.toLowerCase());
 
-      if (!title.includes(searchTerm) && !cats.some(c => c.includes(searchTerm))) return false;
-      if (filters.precioMin && p.price < Number(filters.precioMin)) return false;
-      if (filters.precioMax && p.price > Number(filters.precioMax)) return false;
-      if (filters.marcas.length && !filters.marcas.includes(p.Marca)) return false;
-      if (filters.categorias.length && !p.categories?.some(c => filters.categorias.includes(c))) return false;
-      if (filters.accionamiento.length && !filters.accionamiento.includes(p.accionamiento)) return false;
-      if (filters.descuentos.length && !filters.descuentos.includes(p.discount)) return false;
+    if (!title.includes(searchTerm) && !cats.some(c => c.includes(searchTerm))) return false;
 
-      if (filters.envioGratis && !p.envioGratis) return false;
-      if (filters.cuotasSinInteres && !p.cuotasSinInteres) return false;
-      if (filters.llegaHoy && !p.llegaHoy) return false;
-      if (filters.llegaManana && !p.llegaManana) return false;
-      if (filters.retiroInmediato && !p.retiroInmediato) return false;
-      if (filters.compraInternacional && !p.compraInternacional) return false;
+    if (filters.precioMin && p.price < Number(filters.precioMin)) return false;
+    if (filters.precioMax && p.price > Number(filters.precioMax)) return false;
 
-      return true;
-    });
-  }, [searchTerm, filters]);
+    if (filters.marcas.length && !filters.marcas.includes(p.Marca)) return false;
+    if (filters.categorias.length && !p.categories?.some(c => filters.categorias.includes(c))) return false;
+    if (filters.accionamiento.length && !filters.accionamiento.includes(p.accionamiento)) return false;
+    if (filters.descuentos.length && !filters.descuentos.includes(p.discount)) return false;
+
+    // 👉 🔥 ESTE ERA EL QUE FALTABA
+    if (
+      filters.cuotasCantidad.length &&
+      !filters.cuotasCantidad.includes(p.cuotasLabel)
+    ) return false;
+
+    if (filters.envioGratis && !p.envioGratis) return false;
+    if (filters.cuotasSinInteres && !p.cuotasSinInteres) return false;
+    if (filters.llegaHoy && !p.llegaHoy) return false;
+    if (filters.llegaManana && !p.llegaManana) return false;
+    if (filters.retiroInmediato && !p.retiroInmediato) return false;
+    if (filters.compraInternacional && !p.compraInternacional) return false;
+
+    return true;
+  });
+}, [searchTerm, filters]);
+
 
   /* =============================
     ORDENAMIENTO
@@ -102,22 +113,23 @@ if (!query) {
     }));
   };
 
-  const resetFilters = () => {
-    setFilters({
-      marcas: [],
-      categorias: [],
-      accionamiento: [],
-      descuentos: [],
-      precioMin: "",
-      precioMax: "",
-      cuotasSinInteres: false,
-      envioGratis: false,
-      llegaManana: false,
-      llegaHoy: false,
-      retiroInmediato: false,
-      compraInternacional: false
-    });
-  };
+const resetFilters = () => {
+  setFilters({
+    marcas: [],
+    categorias: [],
+    accionamiento: [],
+    descuentos: [],
+    cuotasCantidad: [], 
+    precioMin: "",
+    precioMax: "",
+    cuotasSinInteres: false,
+    envioGratis: false,
+    llegaManana: false,
+    llegaHoy: false,
+    retiroInmediato: false,
+    compraInternacional: false
+  });
+};
 
   const hasActiveFilters = useMemo(() => (
     filters.marcas.length ||
@@ -159,12 +171,12 @@ if (!query) {
             </div>
 
             <SearchFilters
-              products={productsData}  
-              filters={filters}
-              setFilters={setFilters}
-              toggleFilter={toggleFilter}
-              resetFilters={resetFilters}
-            />
+                products={productsData}  
+                filters={filters}
+                setFilters={setFilters}
+                toggleFilter={toggleFilter}
+                resetFilters={resetFilters}
+              />
           </div>
         )}
 

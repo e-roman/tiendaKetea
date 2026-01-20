@@ -1,5 +1,6 @@
-import { useState, useMemo } from "react"; 
+import { useMemo } from "react";
 import SearchFilterChips from "./SearchFilterChips";
+import FilterList from "./FilterList";
 
 /* ============================= */
 /* RANGOS DE PRECIO              */
@@ -10,47 +11,6 @@ const priceRanges = [
   { id: "gt-199990", label: "$ 199.990 o más", min: 199990, max: null }
 ];
 
-/* ============================= */
-/* LISTA REUTILIZABLE            */
-/* ============================= */
-function FilterList({ items, selected, onToggle, maxVisible = 8 }) {
-  const [expanded, setExpanded] = useState(false);
-
-  const visibleItems = expanded ? items : items.slice(0, maxVisible);
-
-  return (
-    <>
-      <div className="d-flex flex-column row-gap-1 check-filter-result">
-        {visibleItems.map(item => (
-          <label key={item.value} className="form-check small">
-            <input
-              className="form-check-input me-2"
-              type="checkbox"
-              checked={selected.includes(item.value)}
-              onChange={() => onToggle(item.value)}
-            />
-            {item.label}{" "}
-            <span className="text-muted">({item.count})</span>
-          </label>
-        ))}
-      </div>
-
-      {items.length > maxVisible && (
-        <button
-          type="button"
-          className="btn btn-link px-0 mt-1 font-15"
-          onClick={() => setExpanded(!expanded)}
-        >
-          {expanded ? "Ver menos" : "Ver más"}
-        </button>
-      )}
-    </>
-  );
-}
-
-/* ============================= */
-/* COMPONENTE PRINCIPAL          */
-/* ============================= */
 export default function SearchFilters({
   products = [],
   filters,
@@ -69,7 +29,6 @@ export default function SearchFilters({
       if (!p.Marca) return;
       map[p.Marca] = (map[p.Marca] || 0) + 1;
     });
-
     return Object.entries(map).map(([value, count]) => ({
       value,
       label: value,
@@ -86,7 +45,6 @@ export default function SearchFilters({
         map[key] = (map[key] || 0) + 1;
       });
     });
-
     return Object.entries(map).map(([value, count]) => ({
       value,
       label: value.charAt(0).toUpperCase() + value.slice(1),
@@ -100,7 +58,6 @@ export default function SearchFilters({
       if (!p.accionamiento) return;
       map[p.accionamiento] = (map[p.accionamiento] || 0) + 1;
     });
-
     return Object.entries(map).map(([value, count]) => ({
       value,
       label: value,
@@ -114,7 +71,6 @@ export default function SearchFilters({
       if (!p.discount) return;
       map[p.discount] = (map[p.discount] || 0) + 1;
     });
-
     return Object.entries(map)
       .sort((a, b) => b[0] - a[0])
       .map(([value, count]) => ({
@@ -124,11 +80,34 @@ export default function SearchFilters({
       }));
   }, [products]);
 
+  const cuotasCantidad = useMemo(() => {
+    const map = {};
+    products.forEach(p => {
+      if (!p.cuotasLabel) return;
+      map[p.cuotasLabel] = (map[p.cuotasLabel] || 0) + 1;
+    });
+    return Object.entries(map).map(([value, count]) => ({
+      value,
+      label: value,
+      count
+    }));
+  }, [products]);
+
+  const allCuotasValues = useMemo(
+    () => cuotasCantidad.map(c => c.value),
+    [cuotasCantidad]
+  );
+
+  /* ============================= */
+  /* ESTADO ACTIVO                 */
+  /* ============================= */
+
   const hasActiveFilters =
     filters.marcas.length ||
     filters.categorias.length ||
     filters.accionamiento.length ||
     filters.descuentos.length ||
+    filters.cuotasCantidad.length ||
     filters.precioMin ||
     filters.precioMax ||
     filters.cuotasSinInteres ||
@@ -152,13 +131,24 @@ export default function SearchFilters({
             className="form-check form-switch d-flex justify-content-between align-items-center ps-0"
           >
             <label className="form-check-label">{label}</label>
+
             <input
               className="form-check-input"
               type="checkbox"
               checked={filters[key]}
-              onChange={() =>
-                setFilters(f => ({ ...f, [key]: !f[key] }))
-              }
+              onChange={() => {
+                if (key === "cuotasSinInteres") {
+                  setFilters(f => ({
+                    ...f,
+                    cuotasSinInteres: !f.cuotasSinInteres,
+                    cuotasCantidad: !f.cuotasSinInteres
+                      ? allCuotasValues
+                      : []
+                  }));
+                } else {
+                  setFilters(f => ({ ...f, [key]: !f[key] }));
+                }
+              }}
             />
           </div>
         ))}
@@ -174,7 +164,7 @@ export default function SearchFilters({
       )}
 
       {/* MARCA */}
-      <div className="mb-4">
+      <div className="mb-3">
         <p className="text-dark font-bold mb-2">Marca</p>
         <FilterList
           items={marcas}
@@ -184,7 +174,7 @@ export default function SearchFilters({
       </div>
 
       {/* CATEGORÍA */}
-      <div className="mb-4">
+      <div className="mb-3">
         <p className="text-dark font-bold mb-2">Categoría</p>
         <FilterList
           items={categorias}
@@ -194,7 +184,7 @@ export default function SearchFilters({
       </div>
 
       {/* ACCIONAMIENTO */}
-      <div className="mb-4">
+      <div className="mb-3">
         <p className="text-dark font-bold mb-2">Accionamiento</p>
         <FilterList
           items={accionamientos}
@@ -204,7 +194,7 @@ export default function SearchFilters({
       </div>
 
       {/* DESCUENTOS */}
-      <div className="mb-4">
+      <div className="mb-3">
         <p className="text-dark font-bold mb-2">Descuentos</p>
         <FilterList
           items={descuentos}
@@ -213,66 +203,46 @@ export default function SearchFilters({
         />
       </div>
 
+      {/* CUOTAS */}
+      <div className="mb-3">
+        <p className="text-dark font-bold mb-2">Cantidad de cuotas</p>
+        <FilterList
+          items={cuotasCantidad}
+          selected={filters.cuotasCantidad}
+          onToggle={v => toggleFilter("cuotasCantidad", v)}
+        />
+      </div>
+
       {/* PRECIO */}
       <div className="mb-4">
         <p className="text-dark font-bold mb-2">Precio</p>
 
-        <div className="d-flex flex-column gap-1 mb-2">
-          {priceRanges.map(r => (
-            <label key={r.id} className="form-check small">
-              <input
-                className="form-check-input me-2"
-                type="radio"
-                name="price"
-                checked={
-                  filters.precioMin === r.min &&
-                  filters.precioMax === r.max
-                }
-                onChange={() =>
-                  setFilters(f => ({
-                    ...f,
-                    precioMin: r.min,
-                    precioMax: r.max
-                  }))
-                }
-              />
-              {r.label}
-            </label>
-          ))}
-        </div>
-
-        <div className="d-flex align-items-center gap-2">
-          <input
-            type="number"
-            className="form-control form-control-sm"
-            placeholder="Min"
-            value={filters.precioMin ?? ""}
-            onChange={e =>
-              setFilters(f => ({ ...f, precioMin: Number(e.target.value) }))
-            }
-          />
-
-          <span>-</span>
-
-          <input
-            type="number"
-            className="form-control form-control-sm"
-            placeholder="Max"
-            value={filters.precioMax ?? ""}
-            onChange={e =>
-              setFilters(f => ({ ...f, precioMax: Number(e.target.value) }))
-            }
-          />
-
-          <button type="button" className="btn btn-sm btn-primary">
-            →
-          </button>
-        </div>
+        {priceRanges.map(r => (
+          <label key={r.id} className="form-check small">
+            <input
+              className="form-check-input me-2"
+              type="radio"
+              name="price"
+              checked={
+                filters.precioMin === r.min &&
+                filters.precioMax === r.max
+              }
+              onChange={() =>
+                setFilters(f => ({
+                  ...f,
+                  precioMin: r.min,
+                  precioMax: r.max
+                }))
+              }
+            />
+            {r.label}
+          </label>
+        ))}
       </div>
 
       {/* RESET */}
       <button
-        className="btn btn-sm btn-link px-0 text-primary fw-semibold"
+        className="btn btn-sm btn-link px-0 fw-semibold"
         onClick={resetFilters}
       >
         Borrar filtros

@@ -18,9 +18,11 @@ export default function SearchFilterChips({
       </div>
 
       <div className="d-flex flex-wrap row-gap-2 mb-2">
+
+        {/* MARCAS */}
         {filters.marcas.map(m => (
           <button
-            key={m}
+            key={`marca-${m}`}
             className="chip"
             onClick={() => toggleFilter("marcas", m)}
           >
@@ -29,9 +31,10 @@ export default function SearchFilterChips({
           </button>
         ))}
 
+        {/* CATEGORÍAS */}
         {filters.categorias.map(c => (
           <button
-            key={c}
+            key={`cat-${c}`}
             className="chip"
             onClick={() => toggleFilter("categorias", c)}
           >
@@ -40,9 +43,10 @@ export default function SearchFilterChips({
           </button>
         ))}
 
+        {/* ACCIONAMIENTO */}
         {filters.accionamiento.map(a => (
           <button
-            key={a}
+            key={`acc-${a}`}
             className="chip"
             onClick={() => toggleFilter("accionamiento", a)}
           >
@@ -51,9 +55,10 @@ export default function SearchFilterChips({
           </button>
         ))}
 
+        {/* DESCUENTOS */}
         {filters.descuentos.map(d => (
           <button
-            key={d}
+            key={`desc-${d}`}
             className="chip"
             onClick={() => toggleFilter("descuentos", d)}
           >
@@ -61,6 +66,19 @@ export default function SearchFilterChips({
             <span className="icon-inline chip-remove-icon chip-close" />
           </button>
         ))}
+
+        {/* CANTIDAD DE CUOTAS */}
+        {filters.cuotasCantidad.map(cuota => (
+          <button
+            key={`cuota-${cuota}`}
+            className="chip"
+            onClick={() => toggleFilter("cuotasCantidad", cuota)}
+          >
+            {cuota}
+            <span className="icon-inline chip-remove-icon chip-close" />
+          </button>
+        ))}
+
       </div>
     </div>
   );
