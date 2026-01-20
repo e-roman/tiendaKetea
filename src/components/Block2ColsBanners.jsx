@@ -32,8 +32,8 @@ export default function Block3ColsBanners() {
   <div className="grid-card h-100">
       <div>
           <div>
-              <p className="pre-card-title">¡Directo de EEUU!</p>
-              <h2 className="card-title">Beauty</h2>
+              <p className="pre-card-title font-medium">¡Nuevos ingresos!</p>
+              <h2 className="card-title font-bold">Bombas de calor para piscinas</h2>
           </div>
           <div>
             <Link className="btn btn-primary btn-sm btn-transition px-4 px-md-5" to="#">Ver Productos</Link>

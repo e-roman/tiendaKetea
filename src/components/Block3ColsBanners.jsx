@@ -31,7 +31,7 @@ export default function Block3ColsBanners() {
             <div className="grid-card h-100">
                 <div>
                     <div>
-                      <h3 className="font-bold text-dark">Bombas de Aguas</h3>
+                      <h3 className="font-bold text-dark">Filtros para piscinas</h3>
                       <span>Descuento del mes</span>
                     </div>
                     <div className="d-inline-block text-align-center height-auto card-link">
@@ -50,7 +50,7 @@ export default function Block3ColsBanners() {
               <div className="grid-card h-100">
                   <div>
                       <div>
-                        <h3 className="font-bold text-dark">Bombas de Aguas</h3>
+                        <h3 className="font-bold text-dark">Productos Químicos</h3>
                         <span>Descuento del mes</span>
                       </div>
                       <div className="d-inline-block text-align-center height-auto card-link">
