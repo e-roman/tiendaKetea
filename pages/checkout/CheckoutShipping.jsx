@@ -461,7 +461,7 @@ export default function CheckoutShipping() {
                                 src={product.image}
                                 alt={product.title}
                               />
-                              <span className="badge badge-sm badge-primary badge-pos rounded-circle">
+                              <span className="badge badge-sm bg-primary badge-pos rounded-circle">
                                 {product.quantity || 1}
                               </span>
                             </div>

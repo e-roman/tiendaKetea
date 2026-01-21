@@ -20,7 +20,7 @@ export default function Block3ColsBanners() {
                     </div>
                 </div>
                 <div className="banner-img">
-                    <img src="assets/img/banners/item-3col-1.png" style={{width:"100%"}} alt="Bombas de Aguas"/>
+                    <img src="assets/img/banners/item-3col-1.png" style={{mxWidth:"100%"}} alt="Bombas de Aguas"/>
                 </div>
             </div>
           </div>
@@ -39,7 +39,7 @@ export default function Block3ColsBanners() {
                     </div>
                 </div>
                 <div className="banner-img">
-                    <img src="assets/img/banners/item-3col-2.png" style={{width:"100%"}} alt="Bombas de Aguas"/>
+                    <img src="assets/img/banners/item-3col-2.png" style={{mxWidth:"100%"}} alt="Bombas de Aguas"/>
                 </div>
             </div>
           </div>
@@ -58,7 +58,7 @@ export default function Block3ColsBanners() {
                       </div>
                   </div>
                   <div className="banner-img">
-                      <img src="assets/img/banners/item-3col-3.png" style={{width:"100%"}} alt="Bombas de Aguas"/>
+                      <img src="assets/img/banners/item-3col-3.png" style={{mxWidth:"100%"}} alt="Bombas de Aguas"/>
                   </div>
               </div>
           </div>

@@ -8,7 +8,7 @@ export default function Footer() {
 
       <footer className="bg-white">
         <div className="container">
-          <div className="row justify-content-lg-between content-space-t-1 content-space-b-lg-1">
+          <div className="row justify-content-lg-between pt-4 content-space-b-lg-1">
 
             {/* ===== MI CUENTA ===== */}
             <div className="col-12 col-sm-4 col-lg-2 mb-0 mb-lg-0">
@@ -128,7 +128,7 @@ export default function Footer() {
               </div>
 
               <form>
-                <div className="input-card shadow-none input-card-sm border mb-3 p-1 input-subscribe">
+                <div className="input-card shadow-none input-card-sm border-md mb-3 p-1 input-subscribe">
                   <div className="input-card-form">
                     <label
                       htmlFor="subscribeForm"

@@ -80,13 +80,13 @@ export default function AccountWhishlist() {
                         {item.stock ? (
                           <>
                             {item.discount > 0 && (
-                              <span className="badge py-1 px-2 badge-yellow me-1">
+                              <span className="badge py-1 px-2 badge-blue me-1">
                                 -{item.discount}%
                               </span>
                             )}
 
                             {item.envioGratis && (
-                              <span className="badge py-1 px-2 bg-dark text-white me-1">
+                              <span className="badge py-1 px-2 bg-send text-white me-1">
                                 Envío Gratis
                               </span>
                             )}

@@ -348,7 +348,7 @@ export default function MainHeader() {
               >
                 <i className="bi bi-cart3"></i>
                 {cart.length > 0 && ( 
-                  <span className="quantity-add">
+                  <span className="quantity-add bg-primary">
                     {cart.length}
                   </span>
                 )}

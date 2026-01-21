@@ -73,8 +73,9 @@ export default function ProductsSwiper({ openProduct }) {
               },
               960: {
                 slidesPerView: 5,
+                spaceBetween: 10,
                 slidesOffsetBefore: 0,
-                allowTouchMove: false,
+                allowTouchMove: true,
               },
             }}
           >

@@ -18,12 +18,12 @@ export default function NavProfile({ currentView }) {
   };
 
   return (
-    <div className="nav-profile-mb navbar-expand-lg navbar-light">
+    <div className="nav-profile-mb  navbar-expand-lg navbar-light">
       <div
         id="sidebarNav"
         className="collapse navbar-collapse navbar-vertical"
       >
-        <div className="card shadow-none flex-grow-1">
+        <div className="card border shadow-none flex-grow-1">
           <div className="card-body">
 
             {PROFILE_MENU.map(section => (

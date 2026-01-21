@@ -78,7 +78,7 @@ const handleToggleFavorite = () => {
 
         {product.cuotasLabelBadge && (
           <div className="card-pinned-top-start">
-             <span className="badge py-1 px-2 bg-primary">{product.cuotasLabelBadge}</span>
+             <span className="badge font-medium py-1 px-2 bg-primary">{product.cuotasLabelBadge}</span>
           </div>
         )}
       </div>
@@ -96,7 +96,7 @@ const handleToggleFavorite = () => {
 
             {product.oldPrice && product.oldPrice > product.price && (
               <div className="d-flex align-items-center gap-1 pb-1">
-                <span className="font-13">Antes</span>
+                {/* <span className="font-13">Antes</span> */}
                 <div className="old-price text-muted">
                   ${formatPrice(product.oldPrice)}
                 </div>
@@ -112,7 +112,7 @@ const handleToggleFavorite = () => {
 
             {product.discount > 0 && (
               <li>
-                <span className="badge bg-danger font-12 py-1 px-2">
+                <span className="badge badge-red font-12 py-1 px-1">
                   -{product.discount}% OFF
                 </span>
               </li>
@@ -130,19 +130,19 @@ const handleToggleFavorite = () => {
         {product.envioGratis || product.retiroInmediato || !product.stock ? (
           <div className="pt-1">
             {!product.stock ? (
-              <span className="badge py-1 px-2 bg-danger text-white">
+              <span className="badge py-1 px-2 badge-red text-white">
                 Sin Stock
               </span>
             ) : (
               <>
                 {product.envioGratis && (
-                  <span className="badge bg-soft-success text-success py-1 px-2 bg-dark me-1">
+                  <span className="badge bg-send py-1 px-2 bg-dark me-1">
                     Envío Grátis
                   </span>
                 )}
 
                 {product.retiroInmediato && (
-                  <span className="badge bg-soft-success text-success py-1 px-2 bg-dark me-1">
+                  <span className="badge bg-send py-1 px-2 bg-dark me-1">
                     Retiralo Hoy
                   </span>
                 )}
@@ -153,7 +153,7 @@ const handleToggleFavorite = () => {
 
 
 
-        <div className="pt-2">
+        <div className="py-2">
            <p className="text-pay small">Pagá fácil y rápido con Mercado Pago o MODO</p>
         </div>
 

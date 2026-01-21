@@ -53,7 +53,7 @@ const {
       </div>
 
       {/* BODY */}
-      <div className="offcanvas-body py-3 px-3">
+      <div className="offcanvas-body py-3 px-4">
         {cart.length === 0 ? (
           <div id="emptyCart" className="content-space-t-5 text-center">
             <div className="w-lg-100 mx-md-auto px-5">
@@ -72,7 +72,7 @@ const {
                 <li key={product.slug} className="itemAdded gap-3 d-flex mb-3">
                   <div className="flex-shrink-0 d-flex align-items-start justify-content-center position-relative">
                     {product.quantity > 1 && (
-                      <span className="badge badge-sm badge-primary badge-pos rounded-circle">
+                      <span className="badge badge-sm bg-primary badge-pos rounded-circle">
                         {product.quantity}
                       </span>
                     )}
@@ -96,10 +96,10 @@ const {
                         {product.stock ? (
                           <>
                             {product.discount > 0 && (
-                              <span className="badge py-1 px-2 badge-yellow me-1">-{product.discount}%</span>
+                              <span className="badge py-1 px-2 badge-blue me-1">-{product.discount}%</span>
                             )}
                             {product.envioGratis && (
-                              <span className="badge py-1 px-2 bg-dark text-white me-1">Envío Gratis</span>
+                              <span className="badge py-1 px-2 bg-send text-white me-1">Envío Gratis</span>
                             )}
                           </>
                         ) : (

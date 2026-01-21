@@ -11,7 +11,7 @@ export default function AlertFloating() {
     value ? value.toLocaleString("es-AR") : "0";
 
   return (
-    <div className="alert-floating-box">
+    <div className="alert-floating-box border">
       <div className="d-flex align-items-center gap-2">
         <img src={product.image} alt={product.title} />
 

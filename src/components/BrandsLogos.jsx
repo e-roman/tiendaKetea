@@ -1,51 +1,53 @@
-// src/components/BrandsLogos.jsx
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+
 import "swiper/css";
+import "swiper/css/navigation";
 
 const BRANDS = [
-  "../assets/img/brands/07.jpg",
-  "../assets/img/brands/02.jpg",
-  "../assets/img/brands/01.jpg",
-  "../assets/img/brands/04.jpg",
-    "../assets/img/brands/05.jpg",
-  "../assets/img/brands/03.jpg",
-
+  "../assets/img/brands/logos/logo-7.png",
+  "../assets/img/brands/logos/logo-2.png",
+  "../assets/img/brands/logos/logo-1.png",
+  "../assets/img/brands/logos/logo-4.png",
+  "../assets/img/brands/logos/logo-5.png",
+  "../assets/img/brands/logos/logo-3.png",
+  "../assets/img/brands/logos/logo-4.png",
+  "../assets/img/brands/logos/logo-5.png",
+  "../assets/img/brands/logos/logo-3.png",
+  "../assets/img/brands/logos/logo-3.png",
+  "../assets/img/brands/logos/logo-4.png",
+  "../assets/img/brands/logos/logo-5.png",
+  "../assets/img/brands/logos/logo-3.png",
 ];
 
 export default function BrandsLogos() {
   return (
     <div className="bg-white">
-    <div className="container px-0 px-md-3 pb-3 pt-6 border-bottom">
-      <Swiper
-        spaceBetween={24}
-        slidesPerView={2.3}     // mobile: 2 + un poco del 3°
-        centeredSlides={false}
-        breakpoints={{
-          576: {
-            slidesPerView: 3.2,
-          },
-          768: {
-            slidesPerView: 4,
-          },
-          992: {
-            slidesPerView: BRANDS.length, // desktop: todos visibles
-            allowTouchMove: false,        // desactiva swipe en desktop
-          },
-        }}
-      >
-        {BRANDS.map((src, index) => (
-          <SwiperSlide key={index}>
-            <div className="text-center py-3">
-              <img
-                className="avatar avatar-xl avatar-4x3 filter-grey"
-                src={src}
-                alt={`Brand ${index + 1}`}
-              />
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
+      <div className="container px-0 px-md-3 pb-3 pt-6 position-relative">
+        <Swiper
+          id="brandsLogos"
+          modules={[Navigation]}
+          spaceBetween={24}
+          slidesPerView="auto"
+          navigation
+          keyboard
+          grabCursor
+        >
+          {BRANDS.map((src, index) => (
+            <SwiperSlide key={index}>
+              <div className="py-3">
+                <img
+                  src={src}
+                  alt={`Brand ${index + 1}`}
+                  className="brand-logo filter-grey"
+                />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <hr />
+      </div>
     </div>
   );
 }

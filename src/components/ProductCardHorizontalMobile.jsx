@@ -76,7 +76,7 @@ export default function ProductCardHorizontalMobile({ product, openProduct }) {
                         {!product.stock ? (
                         <span className="badge py-1 px-2 bg-danger text-white">Sin Stock</span>
                         ) : (
-                        <span className="badge py-1 px-2 bg-dark me-1">Envío Gratis</span>
+                        <span className="badge py-1 px-2 bg-send me-1">Envío Gratis</span>
                         )}
                     </div>
                     ) : null}

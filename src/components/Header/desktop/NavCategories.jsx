@@ -76,7 +76,7 @@ export default function NavCategories({
             {isLogged && (
             <li className="nav-item ms-auto position-relative">
                 <Dropdown as={ButtonGroup}>
-                    <Dropdown.Toggle className="nav-link btn-drop d-flex align-items-center border-0"> <i className="bi bi-person-circle me-1"></i> Hola! <span className="font-bold">Francisco Perez</span> </Dropdown.Toggle>
+                    <Dropdown.Toggle className="nav-link btn-drop d-flex align-items-center border-0 btn-transparent"> <i className="bi bi-person-circle me-1"></i> Hola! <span className="font-bold">Francisco Perez</span> </Dropdown.Toggle>
                     <Dropdown.Menu align="end" style={{ minWidth: "14rem" }}>
                         <Link className="dropdown-item" to="/pages/Profile?view=personalInfo"> <i className="bi bi-person-circle me-2"></i>Mis Datos </Link>
                         <Link className="dropdown-item" to="/pages/Profile?view=favorites"> <i className="bi bi-heart me-2"></i> Favoritos </Link>
@@ -98,7 +98,7 @@ export default function NavCategories({
             {/* Login */} 
             {!isLogged && (
               <li className="ms-auto position-relative d-flex gap-1"> 
-                <button className="btn btn-primary btn-drop btn-sm p-0" type="button" 
+                <button className="btn btn-transparent btn-drop btn-sm p-0" type="button" 
                 data-bs-toggle="modal" 
                 data-bs-target="#signupModal"
                  onClick={() => window.dispatchEvent(new CustomEvent("authStep", { detail: "login" }))}
@@ -107,7 +107,7 @@ export default function NavCategories({
                 </button> 
                 <span>/</span> 
                 <button
-                  className="btn btn-primary btn-drop btn-sm p-0"
+                  className="btn btn-transparent btn-drop btn-sm p-0"
                   data-bs-toggle="modal"
                   data-bs-target="#signupModal"
                   onClick={() => window.dispatchEvent(new CustomEvent("authStep", { detail: "signup" }))}

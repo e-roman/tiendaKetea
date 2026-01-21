@@ -12,7 +12,7 @@ export default function HeaderCheckOut() {
         {/* LOGO */}
         <div>
         <Link to="/" className="navbar-brand">
-          <img src="@/assets/img/logo/logo.svg" alt="Ketea" height="45" />
+          <img src="../assets/img/logo/logo.svg" alt="Ketea" height="45" />
         </Link>
         </div>
 

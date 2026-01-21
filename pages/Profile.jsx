@@ -107,19 +107,19 @@ useEffect(() => {
     <>
     <div className="bg-light">
       {/* HEADER CON BREADCRUMB DINÁMICO */}
-      <div className="navbar-dark bg-dark">
-        <div className="container py-3 content-space-t-lg-1 content-space-b-lg-3">
+      <div className="navbar-dark bg-light">
+        <div className="container py-3 content-space-t-lg-1 content-space-b-lg-2">
           <div className="row align-items-center">
             <div className="col d-flex justify-content-between">
               <div className="d-none d-lg-block">
-                <h1 className="h2 text-white font-bold">Mi Cuenta</h1>
+                <h1 className="h2 text-dark font-bold">Mi Cuenta</h1>
               </div>
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb breadcrumb-light mb-0">
-                  <li className="breadcrumb-item">
+                  <li className="breadcrumb-item text-dark">
                     {BREADCRUMB_DATA[currentView]?.section || "Mi Cuenta"}
                   </li>
-                  <li className="breadcrumb-item active" aria-current="page">
+                  <li className="breadcrumb-item text-dark active" aria-current="page">
                     {BREADCRUMB_DATA[currentView]?.title || "Datos Personales"}
                   </li>
                 </ol>
