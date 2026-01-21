@@ -10,14 +10,15 @@ export default function AccountWhishlist() {
 
   return (
       <>
-      <div className="card shadow-none p-2 p-lg-5 p-2 p-lg-5 h-100">
-        <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4  d-sm-flex justify-content-sm-between align-items-sm-center border-bottom">
-          <h4 className="card-header-title">Recientemente agregado(s)</h4>
-          <span className="lh-1">
-            {itemsCount} {itemsCount === 1 ? "Producto" : "Productos"}
-          </span>
+      <div className="card border shadow-none p-3 p-lg-5">
+        <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
+          <div className="d-sm-flex justify-content-sm-between align-items-sm-center">
+            <h4 className="card-header-title">Recientemente agregado(s)</h4>
+            <span className="lh-1">
+              {itemsCount} {itemsCount === 1 ? "Producto" : "Productos"}
+            </span>
+          </div>
         </div>
-
         {/* Body */}
         <div className="card-body p-1 p-md-0 mt-2 mt-md-3 h-100">
           {/* Form */}
@@ -25,14 +26,14 @@ export default function AccountWhishlist() {
             
             {favorites.length === 0 && (
               <>
-              <div className="text-center pt-8">
-              <div className="mb-4">
-                <img className="avatar avatar-xxl avatar-4x2" src="../assets/svg/illustrations/empty-cart.svg" alt="SVG"/>
-              </div>
-              <div className="mb-5">
-                <h1 className="h4">No tenés productos guardados.</h1>
-                <p>Agrega todos los productos que quieras a tus favoritos.</p>
-              </div>
+              <div className="text-center pt-3">
+                <div className="mb-4">
+                  <img className="avatar avatar-xxl avatar-4x2" src="../assets/svg/illustrations/empty-cart.svg" alt="SVG"/>
+                </div>
+                <div className="mb-5">
+                  <h1 className="h4">No tenés productos guardados.</h1>
+                  <p>Agrega todos los productos que quieras a tus favoritos.</p>
+                </div>
               </div>
             </>
             )}
@@ -44,7 +45,7 @@ export default function AccountWhishlist() {
 
                   {/* IMAGE + INFO */}
                   <div>
-                    <div className="card card-bordered shadow-none text-start h-100 pb-3">
+                    <div className="card card-bordered shadow-none text-start pb-3">
                       <div className="card-pinned" style={{maxHeight:"220px"}}>
                         <img
                           className="img-fluid"
@@ -136,7 +137,7 @@ export default function AccountWhishlist() {
         </div>
         {/* End Body */}
 
-        <div className="text-center mt-10">
+        <div className="text-center mb-6">
           <Link className="btn btn-primary btn-sm px-6 text-center" to="/">Continuar comprando</Link>
         </div>
       </div>

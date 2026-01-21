@@ -1,9 +1,10 @@
 export default function AccountSecurity() {
   return (
       <>
+      <div className="d-grid gap-3 gap-lg-3">
             {/* Card */}
-            <div className="card shadow-none p-2 p-lg-5">
-                <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 d-flex justify-content-between align-items-center border-bottom">
+            <div className="card border shadow-none p-3 p-lg-5">
+               <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
                 <div className="d-flex align-items-center">
                     <h4 className="card-header-title">Verificación en dos pasos</h4>
                     <span className="badge bg-soft-danger text-danger ms-2">Desactivada</span>
@@ -54,8 +55,8 @@ export default function AccountSecurity() {
             {/* End Card */}
 
             {/* Card */}
-            <div className="card shadow-none p-2 p-lg-5">
-                <div className="mb-3 pb-md-5 d-flex justify-content-between align-items-center border-bottom">
+            <div className="card border shadow-none p-3 p-lg-5">
+                <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
                 <h5 className="card-header-title">Contraseña</h5>
                 </div>
 
@@ -153,8 +154,8 @@ export default function AccountSecurity() {
             {/* End Card */}
 
             {/* Card */}
-            <div className="card shadow-none p-2 p-lg-5">
-                <div className="mb-3 pb-md-5 d-flex justify-content-between align-items-center border-bottom">
+            <div className="card border shadow-none p-3 p-lg-5">
+                <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
                 <h5 className="card-header-title">Ingresar con Gmail</h5>
                 </div>
 
@@ -209,6 +210,7 @@ export default function AccountSecurity() {
             </div>
             {/* End Card */}
 
+        </div>
     </>
   );
 }

@@ -115,24 +115,24 @@ export default function OrdersModule() {
   const [activeTab, setActiveTab] = useState("entregados");
   const [orders] = useState([
     {
-      id: "456853648",
-      total: "$103.00",
-      nombre: "Francisco Perez",
-      fecha: "30 abril, 2023",
-      imgs: [
-        "../assets/img/productos/09.webp",
-        "../assets/img/productos/12.webp",
-        "../assets/img/productos/13.webp"
-      ]
-    },
-    {
       id: "555888111",
       total: "$2.520.00",
       nombre: "Carlos Gomez",
       fecha: "12 mayo, 2024",
       imgs: [
-        "../assets/img/productos/01.webp",
-        "../assets/img/productos/02.webp"
+        "../assets/img/products/dolphin-s100.png",
+        "../assets/img/products/bomba-calor-inverter-1.png"
+      ]
+    },
+    {
+      id: "456853648",
+      total: "$103.00",
+      nombre: "Francisco Perez",
+      fecha: "30 abril, 2023",
+      imgs: [
+        "../assets/img/products/granulado.png",
+        "../assets/img/products/valvula-6-vias-vulcano.png",
+        "../assets/img/products/kit-limpieza-piscina-completo.png"
       ]
     }
   ]);
@@ -143,7 +143,7 @@ export default function OrdersModule() {
   );
 
   return (
-    <div className="card shadow-none p-2 p-lg-5">
+    <div className="card border shadow-none p-2 p-lg-5">
       <SearchBar value={search} onChange={setSearch} />
 
       <div>

@@ -1,16 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import { PROFILE_MENU } from "@/config/profileMenu";
+import { Collapse } from "bootstrap";
+
 
 export default function NavProfile({ currentView }) {
   const navigate = useNavigate();
 
   const goTo = (key) => {
     navigate(`/pages/Profile?view=${key}`);
+
+    // Cerrar menú en mobile
+    const sidebar = document.getElementById("sidebarNav");
+    if (sidebar) {
+      const instance = Collapse.getOrCreateInstance(sidebar);
+      instance.hide();
+    }
   };
 
   return (
-    <div className="navbar-expand-lg navbar-light">
-      <div id="sidebarNav" className="collapse navbar-collapse navbar-vertical">
+    <div className="nav-profile-mb navbar-expand-lg navbar-light">
+      <div
+        id="sidebarNav"
+        className="collapse navbar-collapse navbar-vertical"
+      >
         <div className="card shadow-none flex-grow-1">
           <div className="card-body">
 
@@ -25,7 +37,9 @@ export default function NavProfile({ currentView }) {
                     return (
                       <li className="nav-item" key={item.key}>
                         <button
-                          className={`nav-link btn btn-link text-start ${isActive ? "active" : ""}`}
+                          className={`nav-link btn btn-link text-start ${
+                            isActive ? "active" : ""
+                          }`}
                           onClick={() => goTo(item.key)}
                         >
                           <i className={`bi ${item.icon} nav-icon me-2`} />

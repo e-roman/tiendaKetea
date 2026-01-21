@@ -128,7 +128,7 @@ export default function SearchFilters({
         ].map(([label, key]) => (
           <div
             key={key}
-            className="form-check form-switch d-flex justify-content-between align-items-center ps-0"
+            className="form-switch form-check switch-filters d-flex justify-content-between align-items-center ps-0"
           >
             <label className="form-check-label">{label}</label>
 

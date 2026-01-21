@@ -7,8 +7,8 @@ export default function AccountPayment({ onOpenAddCard, onOpenEditCard, onOpenIn
       <div className="d-grid gap-3 gap-lg-5">
 
         {/* Card */}
-        <div className="card shadow-none pb-5 p-2 p-lg-5 p-2 p-lg-5 mb-10 mb-md-0">
-          <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 border-bottom">
+         <div className="card border shadow-none p-3 p-lg-5">
+          <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
             <h4 className="card-header-title">Métodos de pago</h4>
           </div>
 

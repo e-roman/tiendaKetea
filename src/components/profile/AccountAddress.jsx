@@ -1,9 +1,9 @@
 export default function AccountAddress() {
   return (
       <>
-        <div className="card shadow-none p-2 p-lg-5">
+        <div className="card border shadow-none p-3 p-lg-5">
             {/* Header */}
-            <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 border-bottom">
+            <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
                 <h4 className="card-header-title">Mi Dirección</h4>
             </div>
             {/* End Header */}

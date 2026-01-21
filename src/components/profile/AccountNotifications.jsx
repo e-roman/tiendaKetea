@@ -1,10 +1,11 @@
 export default function AccountNotificactions() {
   return (
       <>
+       <div className="d-grid gap-3 gap-lg-3">
         {/* Card */}
-        <div className="card shadow-none p-2 p-lg-5">
+        <div className="card border shadow-none p-3 p-lg-5">
           {/* Header */}
-          <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 d-flex justify-content-between align-items-center border-bottom">
+          <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
             <h4 className="card-header-title">Notificaciones</h4>
 
             {/* <a id="toggleAll1" className="btn btn-white btn-sm btn-toggle" href="#">
@@ -95,20 +96,22 @@ export default function AccountNotificactions() {
         {/* End Card */}
 
         {/* Card */}
-        <div className="card shadow-none p-2 p-lg-5">
+        <div className="card border shadow-none p-3 p-lg-5">
           {/* Header */}
-          <div className="pb-4 pt-0 mb-3 pb-md-5 d-flex justify-content-between align-items-center border-bottom">
-            <h4 className="card-header-title">Newsletter</h4>
+          <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
+            <div className="d-flex justify-content-between align-items-center">
+              <h4 className="card-header-title mb-0">Newsletter</h4>
 
-            <a
-              id="toggleAll3"
-              className="js-toggle-state btn btn-white btn-sm btn-toggle"
-              href="javascript:;"
-              data-hs-toggle-state-options='{"targetSelector": "#accountNotificationSwitch5, #accountNotificationSwitch6, #accountNotificationSwitch7, #accountNotificationSwitch8"}'
-            >
-              <span className="btn-toggle-default">Activar todas</span>
-              <span className="btn-toggle-toggled">Desactivar todas</span>
-            </a>
+              <a
+                id="toggleAll3"
+                className="js-toggle-state btn btn-white btn-sm btn-toggle"
+                href="javascript:;"
+                data-hs-toggle-state-options='{"targetSelector": "#accountNotificationSwitch5, #accountNotificationSwitch6, #accountNotificationSwitch7, #accountNotificationSwitch8"}'
+              >
+                <span className="btn-toggle-default">Activar todas</span>
+                <span className="btn-toggle-toggled">Desactivar todas</span>
+              </a>
+            </div>
           </div>
           {/* End Header */}
 
@@ -182,7 +185,7 @@ export default function AccountNotificactions() {
           </a>
         </div>
         {/* End Toggle Button */}
-
+     </div>         
     </>
   );
 }

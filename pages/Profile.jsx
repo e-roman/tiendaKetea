@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef  } from "react";
 import { useLocation } from "react-router-dom";
 
 import NavProfile from "@/components/profile/NavProfile";
@@ -18,7 +18,6 @@ import AccountPayment from "@/components/profile/AccountPayment";
 import PersonalInfo from "@/components/profile/PersonalInfo";
 
 export default function MyProfile() {
-
   const location = useLocation();
   const params = new URLSearchParams(location.search);
 
@@ -81,6 +80,29 @@ export default function MyProfile() {
     }
   };
 
+
+  const mobileBtnRef = useRef(null);
+useEffect(() => {
+  const sidebar = document.getElementById("sidebarNav");
+  const btn = mobileBtnRef.current;
+
+  if (!sidebar || !btn) return;
+
+  const onShow = () => btn.classList.add("open");
+  const onHide = () => btn.classList.remove("open");
+
+  sidebar.addEventListener("shown.bs.collapse", onShow);
+  sidebar.addEventListener("hidden.bs.collapse", onHide);
+
+  return () => {
+    sidebar.removeEventListener("shown.bs.collapse", onShow);
+    sidebar.removeEventListener("hidden.bs.collapse", onHide);
+  };
+}, []);
+
+
+
+
   return (
     <>
     <div className="bg-light">
@@ -88,7 +110,7 @@ export default function MyProfile() {
       <div className="navbar-dark bg-dark">
         <div className="container py-3 content-space-t-lg-1 content-space-b-lg-3">
           <div className="row align-items-center">
-            <div className="col">
+            <div className="col d-flex justify-content-between">
               <div className="d-none d-lg-block">
                 <h1 className="h2 text-white font-bold">Mi Cuenta</h1>
               </div>
@@ -102,20 +124,42 @@ export default function MyProfile() {
                   </li>
                 </ol>
               </nav>
+
+              {/*Butotn mobile */}
+              <div className="d-block d-lg-none">
+                  <div className="d-block d-lg-none">
+                  <button
+                    ref={mobileBtnRef}
+                    className="btn nav-button-mb"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#sidebarNav"
+                    aria-controls="sidebarNav"
+                    aria-expanded="false"
+                    aria-label="Abrir menú"
+                  >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </button>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
 
       {/* CONTENIDO */}
-      <div className="container space-0 space-md-2 mt-lg-n10">
+      <div className="container position-relative space-1 space-md-2 mt-lg-n10">
         <div className="row">
 
           <div className="col-lg-3">
            <NavProfile currentView={currentView} />
           </div>
 
-          <div className="col-lg-9 px-xs-0">{renderView()}</div>
+          <div className="col-lg-9">{renderView()}</div>
 
           {/* MODALS */}
           {showAddCard && (

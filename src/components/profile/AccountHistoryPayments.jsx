@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 export default function AccountHistoryPayments({ onOpenInvoice }) {
   return (
       <>
-        <div className="card shadow-none p-2 p-lg-5 p-2 p-lg-5 h-100">
+         <div className="card border shadow-none p-3 p-lg-5">
             {/* Header */}
-            <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 border-bottom">
+           <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
                 <h4 className="card-header-title">Historial de Pedidos</h4>
             </div>
             {/* End Header */}
@@ -28,8 +28,8 @@ export default function AccountHistoryPayments({ onOpenInvoice }) {
                         <th>Estado</th>
                         <th>Monto</th>
                         <th>Fecha</th>
-                        <th>Comprobante</th>
                         <th></th>
+                        <th className="text-right">Comprobante</th>
                       </tr>
                     </thead>
 
@@ -39,12 +39,8 @@ export default function AccountHistoryPayments({ onOpenInvoice }) {
                         <td><span className="badge bg-soft-warning text-warning">Pendiente</span></td>
                         <td>$1.262.399</td>
                         <td>22/04/2024</td>
-                        <td>
-                          <Link className="btn btn-white btn-xs" to="#">
-                            <i className="bi-file-earmark-arrow-down-fill me-1"></i> PDF
-                          </Link>
-                        </td>
-                        <td>
+                        <td></td>
+                        <td className="text-right">
                           <button
                             className="btn btn-white btn-xs"
                             type="button"
@@ -60,12 +56,8 @@ export default function AccountHistoryPayments({ onOpenInvoice }) {
                         <td><span className="badge bg-soft-success text-success">Recibido</span></td>
                         <td>$1.262.399</td>
                         <td>08/06/2024</td>
-                        <td>
-                          <Link className="btn btn-white btn-xs" to="#">
-                            <i className="bi-file-earmark-arrow-down-fill me-1"></i> PDF
-                          </Link>
-                        </td>
-                        <td>
+                        <td></td>
+                        <td className="text-right">
                           <button
                             className="btn btn-white btn-xs"
                             type="button"
@@ -81,12 +73,8 @@ export default function AccountHistoryPayments({ onOpenInvoice }) {
                         <td><span className="badge bg-soft-success text-success">Recibido</span></td>
                         <td>$1.262.399</td>
                         <td>16/08/2024</td>
-                        <td>
-                          <Link className="btn btn-white btn-xs" to="#">
-                            <i className="bi-file-earmark-arrow-down-fill me-1"></i> PDF
-                          </Link>
-                        </td>
-                        <td>
+                        <td></td>
+                        <td className="text-right">
                           <button
                             className="btn btn-white btn-xs"
                             type="button"
@@ -101,9 +89,9 @@ export default function AccountHistoryPayments({ onOpenInvoice }) {
                 </div>
 
 
-                <div className="d-block d-lg-none mb-10">
+                <div className="d-block d-lg-none">
 
-                  <div className="card shadow-none border">
+                  <div className="card border shadow-none border mb-3">
                     <div className="card-body p-3">
                       <div className="d-flex align-items-center justify-content-between pb-2">
                         <div className="d-flex align-items-center justify-content-between gap-2"><p className="font-size-1 mb-0">Referencia</p>  <h4 className="h6 mb-0">#3682303 </h4></div>
@@ -120,7 +108,7 @@ export default function AccountHistoryPayments({ onOpenInvoice }) {
                     </div>
                   </div>
 
-                  <div className="card shadow-none border">
+                  <div className="card border shadow-none border mb-3">
                     <div className="card-body p-3">
                       <div className="d-flex align-items-center justify-content-between pb-2">
                         <div className="d-flex align-items-center justify-content-between gap-2"><p className="font-size-1 mb-0">Referencia</p>  <h4 className="h6 mb-0">#3682303 </h4></div>
@@ -137,7 +125,7 @@ export default function AccountHistoryPayments({ onOpenInvoice }) {
                     </div>
                   </div>
 
-                  <div className="card shadow-none border">
+                  <div className="card border shadow-none border">
                     <div className="card-body p-3">
                       <div className="d-flex align-items-center justify-content-between pb-2">
                         <div className="d-flex align-items-center justify-content-between gap-2"><p className="font-size-1 mb-0">Referencia</p>  <h4 className="h6 mb-0">#3682303 </h4></div>

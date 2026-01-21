@@ -1,42 +1,16 @@
 export default function PersonalInfo() {
   return (
       <>
-          <div className="d-grid gap-3 gap-lg-5">
+          <div className="d-grid gap-3 gap-lg-3">
             {/*!-- Card --*/}
-            <div className="card shadow-none p-2 p-lg-5">
-              <div className="pt-4 pt-md-0 pb-4 mb-3 pb-md-5 mb-md-4 border-bottom">
+            <div className="card border shadow-none p-3 p-lg-5">
+              <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
                 <h4 className="card-header-title">Datos Personales</h4>
               </div>
 
               {/*!-- Body --*/}
               <div className="card-body p-1 p-md-0 mt-0 mt-md-3">
                 <form>
-                  {/*!-- Form --*/}
-                  <div className="row mb-4">
-                    <label className="col-sm-3 col-form-label form-label">Foto de perfil</label>
-
-                    <div className="col-sm-9">
-                      {/*!-- Media --*/}
-                      <div className="d-flex align-items-center">
-                        {/*!-- Avatar --*/}
-                        <label className="avatar avatar-xl avatar-circle" htmlFor="avatarUploader">
-                          <img id="avatarImg" className="avatar-img" src="../assets/img/profile/user.jpg" alt="Image Description" />
-                        </label>
-
-                        <div className="d-grid d-sm-flex gap-2 ms-4">
-                          <div className="form-attachment-btn btn btn-primary btn-sm">Subir una foto
-                            <input type="file" className="js-file-attach form-attachment-btn-label" id="avatarUploader"/>
-                          </div>
-                          {/*!-- End Avatar --*/}
-
-                          <button type="button" className="js-file-attach-reset-img btn btn-white btn-sm">Eliminar Foto</button>
-                        </div>
-                      </div>
-                      {/*!-- End Media --*/}
-                    </div>
-                  </div>
-                  {/*!-- End Form --*/}
-
                   {/*!-- Form --*/}
                   <div className="row mb-4">
                     <label htmlFor="firstNameLabel" className="col-sm-3 col-form-label form-label">Nombre Completo </label>
@@ -109,16 +83,12 @@ export default function PersonalInfo() {
                   </div>
                   {/*!-- End Add Phone Input Field --*/}
 
-
-
-
-
                 </form>
               </div>
               {/*!-- End Body --*/}
 
               {/*!-- Footer --*/}
-              <div className="card-footer px-0 pt-0 pb-4 mt-3 mt-md-0">
+              <div className="card-footer px-0 pt-0 pb-0 mt-3 mt-md-0">
                 <div className="d-md-flex justify-content-end gap-3">
                   <a className="btn btn-sm border-0 btn-white w-xs-100 d-none d-md-block" href="javascript:;">Cancelar</a>
                   <a className="btn btn-sm px-4 btn-primary w-xs-100" href="javascript:;">Guardar cambios</a>
@@ -129,8 +99,8 @@ export default function PersonalInfo() {
             {/*!-- End Card --*/}
 
             {/*!-- Card --*/}
-            <div id="editAddressCard" className="card shadow-none p-2 p-lg-5">
-              <div className="py-4 mb-3 pb-md-5 mb-md-4 border-bottom">
+            <div id="editAddressCard" className="card border shadow-none p-3 p-lg-5">
+              <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
                 <h4 className="card-header-title">Dirección</h4>
               </div>
 
@@ -177,7 +147,7 @@ export default function PersonalInfo() {
                       <div className="mb-3">
                         <input type="text" className="form-control" name="city" id="cityLabel" placeholder="Ciudad" aria-label="Ciudad" defaultValue="Morón" />
                       </div>
-                      <input type="text" className="form-control" name="state" id="stateLabel" placeholder="Haedo" aria-label="Haedo" />
+                      <input type="text" className="form-control" name="state" id="stateLabel" placeholder="Haedo" aria-label="Haedo" defaultValue="Haedo"/>
                     </div>
                   </div>
                   {/*!-- End Form --*/}
@@ -246,10 +216,9 @@ export default function PersonalInfo() {
             {/*!-- End Card --*/}
 
 
-
             {/*!-- Card --*/}
-            <div className="card shadow-none p-2 p-lg-5">
-              <div className="py-4 mb-3 pb-md-5 mb-md-4 border-bottom">
+            <div className="card border shadow-none p-3 p-lg-5">
+              <div className="pt-2 pb-3 mb-3 pt-md-0 pb-md-3 mb-md-4 border-bottom">
                 <h4 className="card-header-title">Eliminar mi cuenta</h4>
               </div>
 
@@ -266,7 +235,7 @@ export default function PersonalInfo() {
                   {/*!-- End Check --*/}
                 </div>
 
-                <div className="d-flex justify-content-end px-0 pt-0 pb-4 mt-5 mt-md-0">
+                <div className="d-flex justify-content-end px-0 pt-0 mt-5 mt-md-0">
                   <button type="submit" className="btn btn-sm px-4 btn-danger">Eliminar</button>
                 </div>
               </div>

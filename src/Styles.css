@@ -1385,10 +1385,9 @@ footer .btn-icon.btn-social {
 
 
 
-.form-switch .form-check-input {
+.switch-filters.form-switch .form-check-input {
     width: 2.4125em;
     height: 1.4125em;
-    background-color: #e7eaf3;
 }
 
 
@@ -3104,7 +3103,7 @@ footer .btn-icon.btn-social {
     position: relative;
 }
 
-/* Botón hamburguesa mobile */
+/* Botón hamburger mobile */
 .nav-button-mb {
     width: 22px;
     height: 22px;
@@ -3123,7 +3122,7 @@ footer .btn-icon.btn-social {
   position: absolute;
   height: 1.3px;
   width: 100%;
-   background: #000;
+   background: #fff;
   border-radius: 4px;
   opacity: 1;
   left: 0;
@@ -3254,6 +3253,14 @@ footer .btn-icon.btn-social {
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+}
+
+.nav-profile-mb {
+position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    top: 0;
 }
 
 .offcanvas.categoriesMb {
