@@ -15,7 +15,7 @@ export default function Footer() {
 
               {/* Mobile toggle */}
               <button
-                className="btn w-100 d-flex justify-content-between text-start d-lg-none fw-semibold px-0 border-bottom"
+                className="btn w-100 d-flex justify-content-between no-focus d-lg-none px-0 border-bottom"
                 data-bs-toggle="collapse"
                 data-bs-target="#footer-account"
                 aria-expanded="false"
@@ -81,7 +81,7 @@ export default function Footer() {
 
               {/* Mobile toggle */}
               <button
-                className="btn w-100 d-flex justify-content-between text-start d-lg-none fw-semibold px-0 border-bottom"
+                className="btn w-100 d-flex justify-content-between no-focus d-lg-none px-0 border-bottom"
                 data-bs-toggle="collapse"
                 data-bs-target="#footer-info"
                 aria-expanded="false"

@@ -3179,9 +3179,8 @@ footer .btn-icon.btn-social {
 .link-page-ms a {
     padding: 12px 0px;
     font-size: 15px;
-    letter-spacing: -0.5px;
-    color: rgb(128, 29, 217);
-    font-weight: bold;
+    color: rgb(87 87 87);
+    font-weight: 500;
 }
 
 
@@ -3355,11 +3354,29 @@ button.btn-search-mobile {
 
 
 
+#sliderDetailSm .swiper-pagination {
+    margin-top: -35px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 6;
+}
+#sliderDetailSm .swiper-pagination-bullet {
+    opacity: 1;
+}
+
+
 /* .img-detail-mb {
     width: 90% !important;
     margin: 0 auto;
     display: block;
 } */
+
+.img-detail-mb {
+    border-radius: 0!important;
+}
 
 .summary-details {
   display: none;
@@ -3615,7 +3632,7 @@ header{
 /*BANNERS*/
 
     @media (min-width: 769px), print {
-        .grid-card>div {
+        .grid-card .colleftText {
             padding: 24px;
         }
         .grid-card .banner-img img {
@@ -3645,7 +3662,7 @@ header{
     overflow: hidden;
 }
 
-.grid-card>div {
+.grid-card .colleftText {
     padding: 2rem 1.5rem 2rem 1.5rem;
     display: flex;
     flex-direction: column;
@@ -3653,20 +3670,20 @@ header{
     max-width: 50%;
     box-sizing: border-box;
 }
-.grid-card>div .card-link {
+.grid-card .colleftText .card-link {
     font-size: 1rem;
     font-weight: 700;
     letter-spacing: .25px;
     line-height: 1.5rem;
     color: #0059ff;
 }
-
 .grid-card .banner-img {
     line-height: 0;
     display: flex;
     justify-content: center;
     padding: 0;
     min-height: 235px;
+    align-items: center;
 }
 
 .banner-img {

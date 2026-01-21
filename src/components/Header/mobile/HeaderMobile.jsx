@@ -97,25 +97,25 @@ export default function HeaderMobile() {
 
           <div className="link-page-ms">
           <Link to="/Novedades">
-            <i className="bi bi-star me-1"></i> Novedades
+             Novedades
           </Link>
           </div>
 
           <div className="link-page-ms">
           <Link to="/Descuentos">
-            <i className="bi bi-tags me-1"></i> Ofertas de la semana
+            Ofertas de la semana
           </Link>
           </div>
 
           <div className="link-page-ms">
           <Link to="/Descuentos">
-            <i className="bi bi-tags me-1"></i> Descuentos
+            Descuentos
           </Link>
           </div>
 
           <div className="link-page-ms">
           <Link to="/pages/Mas-vendido">
-            <i className="bi bi-fire me-1"></i> Más vendido
+            Más vendido
           </Link>
           </div>
         </div>

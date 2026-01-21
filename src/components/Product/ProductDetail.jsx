@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Modal } from "bootstrap";
 import { useCart } from "@/hooks/useCart";
 import { useFavorites } from "@/hooks/useFavorites";
@@ -79,16 +80,28 @@ const openDiscountModal = (e) => {
       <AlertFloating/>
 
       {/* Código + rating */}
-      <div className="d-none d-md-flex align-items-center justify-content-between small mb-2">
+      <div className="d-flex align-items-center justify-content-between small mb-2">
         <p className="link-muted mb-0">
           <small className="font-medium">Código: {product.code || "N/A"}</small>
         </p>
 
-        <div className="d-flex align-items-center">
+        <div className="d-none d-md-flex align-items-center">
           <div>
-            <a href="#reviewSection" className="small">
-              Ver comentarios
-            </a>
+            <button
+              type="button"
+              className="btn btn-link p-0 font-14"
+              onClick={() => {
+                const el = document.getElementById("SimilarsProfucts");
+                if (el) {
+                  el.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                  });
+                }
+              }}
+            >
+              Ver similares
+            </button>
           </div>
 
           {/* <div className="text-warning ms-2 d-flex gap-1">
@@ -101,12 +114,12 @@ const openDiscountModal = (e) => {
 
 
       {/* Título + Favorito */}
-      <div className="d-none d-md-flex justify-content-between align-items-start ">
+      <div className="d-flex justify-content-between align-items-start ">
         <h1 className="h2 font-bold mb-0">{product.title}</h1>
 
         <button
           type="button"
-          className={`btn-fav btn btn-xs p-3 btn-icon rounded-circle font-18 ${
+          className={`btn-fav btn btn-xs p-3 btn-icon rounded-circle font-18 d-none d-md-flex ${
             isFavorite ? "text-danger" : "text-muted"
           }`}
           onClick={handleToggleFavorite}
@@ -319,8 +332,7 @@ const openDiscountModal = (e) => {
             className="btn btn-sm btn-block btn-secondary"
             onClick={handleAddToCart}
           >
-            <i className="bi bi-cart3"></i>
-            Agregar 
+            <i className="bi bi-cart3"></i> Agregar 
           </button>
 
           {/* Add to cart */}

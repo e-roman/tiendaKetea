@@ -3,7 +3,6 @@ import { useCart } from "@/hooks/useCart";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useFloatingAlert } from "@/context/FloatingAlertContext";
 import AlertFloating from "@/components/alert/AlertFloating";
-
 // src/components/Product/ProductGalleryMobile.jsx
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
@@ -11,7 +10,7 @@ import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import products from "../../data/products.json";
+import products from "@/data/products.json";
 
 export default function ProductGalleryMobile({ product }) {
   const images = product.images?.length
@@ -39,7 +38,10 @@ export default function ProductGalleryMobile({ product }) {
     toggleFavorite(product);
     const newFavState = !isFavorite;
     setIsFavorite(newFavState);
-    showAlert(newFavState ? "Agregaste a favoritos" : "Eliminaste un favorito", "success");
+    showAlert({
+      product,
+      action: newFavState ? "favorite-add" : "favorite-remove"
+    });
   };
 
 
@@ -47,7 +49,7 @@ export default function ProductGalleryMobile({ product }) {
     <>
 
     {/* Código + rating */}
-    <div className="d-flex align-items-center justify-content-between small mb-2 px-3">
+    {/* <div className="d-flex align-items-center justify-content-between small mb-2 px-3">
       <p className="link-muted mb-0">
         <small className="font-medium">Código: {product.code || "N/A"}</small>
       </p>
@@ -67,14 +69,23 @@ export default function ProductGalleryMobile({ product }) {
       </div>
     </div>
 
-    {/* Título + Favorito */}
     <div className="d-flex justify-content-between align-items-start px-3">
       <h1 className="title-product font-bold mb-0">{product.title}</h1>
-    </div>
+    </div> */}
+
+
+
+
+      {/* ALERTA FLOTANTE */}
+      <AlertFloating/>
+
+
+
 
 
 
     <Swiper
+      id="sliderDetailSm"
       slidesPerView={1}
       spaceBetween={10}
       pagination={{ clickable: true }}

@@ -43,28 +43,28 @@ export default function ProductPage() {
   };
 
   const category = product.category || "Productos";
-  const subcategory = product.subcategory || "Detalle";
+  // const subcategory = product.subcategory || "Piscina";
 
   return (
     <div className="bg-white">
       <AlertFloating />
 
-      <div className="container pt-3 pt-lg-5 px-0-xs">
+      <div className="container pt-md-3 pt-lg-5 px-0-xs">
         <div className="row mx-xs-0">
           <div className="col-lg-12 mb-3 mb-lg-0 d-none d-md-block">
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
-                <li className="breadcrumb-item">
+                <li className="text-dark">
                   <span>
-                    {category}
+                    {category} <i className="bi bi-chevron-right text-muted font-12" />
                   </span>
                 </li>
-                <li className="breadcrumb-item">
+                <li className="text-dark px-1">
                   <span>
-                    {subcategory}
+                    {product.categoryDetail}<i className="bi bi-chevron-right text-muted font-12 ps-1" />
                   </span>
                 </li>
-                <li className="breadcrumb-item active" aria-current="page">
+                <li className="text-dark active" aria-current="page">
                   {product.title}
                 </li>
               </ol>

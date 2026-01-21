@@ -30,7 +30,7 @@ export default function Block3ColsBanners() {
 
 <div className="col-md-6">
   <div className="grid-card h-100">
-      <div>
+      <div className="colleftText pe-0">
           <div>
               <p className="pre-card-title font-medium">¡Nuevos ingresos!</p>
               <h2 className="card-title font-bold">Bombas de calor para piscinas</h2>

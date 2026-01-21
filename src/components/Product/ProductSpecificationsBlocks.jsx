@@ -29,19 +29,19 @@ return (
           <div className="row">
             <div className="col-sm-6">
               <ul className="text-secondary pl-3 mb-0">
-                <li className="pb-1"><span className="text-dark">Metros de la piscina:</span> Hasta 10 Metros</li>
-                <li className="pb-1"><span className="text-dark">Longitud del Cable:</span> 15 Metros</li>
-                <li className="pb-1"><span className="text-dark">Limpieza de Paredes:</span> Si</li>
-                <li className="pb-1"><span className="text-dark">Cepilla línea de flotación:</span> No</li>
+                <li className="pb-1 text-dark"><span className="font-medium">Metros de la piscina:</span> Hasta 10 Metros</li>
+                <li className="pb-1 text-dark"><span className="font-medium">Longitud del Cable:</span> 15 Metros</li>
+                <li className="pb-1 text-dark"><span className="font-medium">Limpieza de Paredes:</span> Si</li>
+                <li className="pb-1 text-dark"><span className="font-medium">Cepilla línea de flotación:</span> No</li>
               </ul>
             </div>
 
             <div className="col-sm-6">
               <ul className="text-secondary pl-3 mb-0">
-                <li className="pb-1"><span className="text-dark">Ciclo de limpieza:</span> 2 Horas</li>
-                <li className="pb-1"><span className="text-dark">Filtración Multicapa:</span> No</li>
-                <li className="pb-1"><span className="text-dark">Smartphone APP control:</span> Si</li>
-                <li className="pb-1"><span className="text-dark">Motor dual:</span> No</li>
+                <li className="pb-1 text-dark"><span className="font-medium">Ciclo de limpieza:</span> 2 Horas</li>
+                <li className="pb-1 text-dark"><span className="font-medium">Filtración Multicapa:</span> No</li>
+                <li className="pb-1 text-dark"><span className="font-medium">Smartphone APP control:</span> Si</li>
+                <li className="pb-1 text-dark"><span className="font-medium">Motor dual:</span> No</li>
               </ul>
             </div>
           </div>
@@ -75,8 +75,14 @@ return (
         <div className="col-lg-6 order-lg-1">
           <div className="bg-img-hero-center h-100 min-height-450 rounded" style={{ backgroundImage: `url("../assets/img/product-detail/0008.webp")` }}></div>
         </div>
+        
       </div>
+
+      <div  id="SimilarsProfucts"></div>
     </div>
+
+
+    
  {/*!-- End Product Description Section --*/}
 
 
