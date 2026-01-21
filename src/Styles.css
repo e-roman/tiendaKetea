@@ -3459,7 +3459,7 @@ button.btn-search-mobile {
   background: #fff;
   color: #000;
   border-radius: 12px;
-  padding: 20px 0;
+  padding: 15px 0;
   margin-bottom: 5px;
 }
 
@@ -3475,7 +3475,6 @@ button.btn-search-mobile {
 }
 
 .installment {
-  display: flex;
   justify-content: space-between;
   color: #000;
 }
@@ -3500,6 +3499,14 @@ button.btn-search-mobile {
     width: 30%;
 }
 
+@media (max-width: 768px) {
+    .col1-pay {
+        width: 100%;
+    }
+    .payment-section {
+        padding: 10px 0;
+    }
+}
 
 
 

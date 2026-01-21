@@ -68,7 +68,7 @@ showAlert({
 const openDiscountModal = (e) => {
   e.preventDefault();
 
-  const modalEl = document.getElementById("signupModal");
+  const modalEl = document.getElementById("paymentsMethods");
   if (!modalEl) return;
 
   const modal = Modal.getOrCreateInstance(modalEl);
