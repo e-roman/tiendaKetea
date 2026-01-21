@@ -5,13 +5,13 @@ export default function Block3ColsBanners() {
     <>
       {/* Banners */}
       <div className="container">
-        <div className="row g-3">
+        <div className="row g-2 g-md-3">
 
           <div className="col-6 col-md-3 h-100">
             <div className="card card-lg border-none shadow-card bg-img-start">
               <div className="card-body text-center p-4">
-                <div className="mb-2"><img src="assets/img/banners/item-md-1.png" style={{mxWidth:"100%"}} /></div>
-                <div className="my-2"><h4 className="font-bold">Válvulas de PVC</h4></div>
+                <div className="mb-2"><img src="assets/img/banners/item-md-1.png" style={{maxWidth:"100%"}} /></div>
+                <div className="my-2"><h4 className="font-medium">Válvulas de PVC</h4></div>
                 <Link to="#" className="font-15 font-medium link-primary">Ver Productos</Link>
               </div>
             </div>
@@ -20,15 +20,15 @@ export default function Block3ColsBanners() {
           <div className="col-6 col-md-3 h-100">
             <div className="card card-lg border-none shadow-card bg-img-start">
               <div className="card-body text-center p-4">
-                <div className="mb-2"><img src="assets/img/banners/item-md-2.png" style={{mxWidth:"100%"}} /></div>
-                <div className="my-2"><h4 className="font-bold">Dosificadores</h4></div>
+                <div className="mb-2"><img src="assets/img/banners/item-md-2.png" style={{maxWidth:"100%"}} /></div>
+                <div className="my-2"><h4 className="font-medium">Dosificadores</h4></div>
                 <Link to="#" className="font-15 font-medium link-primary">Ver Productos</Link>
               </div>
             </div>
           </div>
 
 
-<div className="col-md-6">
+<div className="col-md-6 pt-1 pt-md-0">
   <div className="grid-card h-100">
       <div className="colleftText pe-0">
           <div>
@@ -40,7 +40,7 @@ export default function Block3ColsBanners() {
           </div>
       </div>
       <div className="banner-img">
-          <img src="assets/img/banners/item-lg-1.png" className="pe-0 pe-md-3" style={{mxWidth:"100%"}} alt="Bombas de calor"/>
+          <img src="assets/img/banners/item-lg-1.png" className="pe-0 pe-md-3" style={{maxWidth:"100%"}} alt="Bombas de calor"/>
       </div>
   </div>
 </div>

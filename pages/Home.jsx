@@ -55,7 +55,7 @@ export default function Home() {
 
       {/* Productos Destacados */}
       <div className="container content-space-1 content-space-lg-1 px-0 px-md-3">
-         <div className="w-100 d-flex align-items-center justify-content-between mb-2 mb-md-3 px-3 px-md-0">
+         <div className="w-100 d-flex align-items-center justify-content-between mb-3 px-3 px-md-0">
           <h3 className="font-medium mb-0">
             Últimas novedades <span className="d-none d-md-inline">en robots limpia piscinas.</span>
           </h3>
@@ -84,7 +84,7 @@ export default function Home() {
 
       {/*  Mejores ofertas de la semana */}
       <div className="container content-space-1 content-space-t-lg-1 px-0 px-md-3">
-        <div className="w-100 d-flex align-items-center justify-content-between mb-2 mb-md-3 px-3 px-md-0">
+        <div className="w-100 d-flex align-items-center justify-content-between mb-3 px-3 px-md-0">
           <h3 className="font-medium mb-0">
             <span className="d-none d-md-inline">Las mejores</span> Ofertas de la semana.
           </h3>

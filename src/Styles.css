@@ -1921,8 +1921,11 @@ footer .btn-icon.btn-social {
         filter: grayscale(1);
     }
 
-    @media only screen and (max-width: 400px) {
+    @media (max-width: 768px) {
         .wcs_popup_avatar{
+            display: none;
+        }
+        .wcs_fixed_right {
             display: none;
         }
     }
