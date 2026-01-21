@@ -1,8 +1,8 @@
 // src/components/Header.jsx
 export default function BlockServices() {
   return (
-   
-    <div className=" ">
+    <>
+    <div className="d-none d-md-block">
       <div className="container px-xs-0">
         <div className="card shadow-none rounded-3">
           <div className="row card-body">
@@ -51,6 +51,33 @@ export default function BlockServices() {
         </div>
       </div>
     </div>
-    
+
+    <div className="d-block d-md-none">
+      <div className="services-box bg-white">
+        <div className="wrapper">
+          <div className="grid">
+              <div className="container">
+                  <div className="icon-container">
+                      <img className="icon-service" src="https://images.fravega.com/f300/efa61b3a0d8cf25478eb8fb5ab20c5a9.png" />
+                  </div>
+                  <div>
+                      <p> Medios de pago </p>
+                      <a href="https://www.fravega.com/e/promociones/"> Ver promociones </a>
+                  </div>
+              </div>
+              <div className="line"> </div>
+              <div className="container">
+                  <div className="icon-container">
+                      <img className="icon-service" src="https://images.fravega.com/f100/6bf1fed1be0627c5af4a0c629bc887b3.png" />
+                  </div>
+                  <div>
+                      <p> Frávega Créditos </p>
+                      <a href="https://simulador-creditos.fravega.com/simulador"> Simulá tu Crédito </a>
+                  </div>
+              </div>
+          </div>
+      </div></div>
+    </div>
+    </>
   );
 }

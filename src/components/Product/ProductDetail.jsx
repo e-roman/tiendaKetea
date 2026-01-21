@@ -91,11 +91,11 @@ const openDiscountModal = (e) => {
             </a>
           </div>
 
-          <div className="text-warning ms-2 d-flex gap-1">
+          {/* <div className="text-warning ms-2 d-flex gap-1">
             {[...Array(5)].map((_, i) => (
               <small key={i} className="bi bi-star-fill"></small>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
 

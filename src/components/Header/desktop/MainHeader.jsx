@@ -182,9 +182,9 @@ export default function MainHeader() {
                 {/* ÚLTIMAS BÚSQUEDAS */}
                 {showRecent && (
                   <>
-                    <div className="px-2 pt-3 pb-2">
+                    {/* <div className="px-2 pt-3 pb-2">
                       <h6 className="font-bold mb-2">Últimas búsquedas</h6>
-                    </div>
+                    </div> */}
 
                     {recentSearches.map(item => (
                       <button

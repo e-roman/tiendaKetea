@@ -86,7 +86,7 @@ const highlightMatch = (text, query) => {
       {/* Header */}
       <div className="d-flex align-items-center mb-3 position-relative">
         {/* Flecha para cerrar */}
-        <button className="btn me-2" onClick={onClose}>
+        <button className="btn no-focus border-0 ps-0 pe-2 me-2" onClick={onClose}>
           <i className="bi bi-arrow-left"></i> {/* Cambié de X a flecha */}
         </button>
 
@@ -105,7 +105,7 @@ const highlightMatch = (text, query) => {
           {query && (
             <button
               type="button"
-              className="position-absolute top-50 end-0 translate-middle-y btn btn-sm btn-outline-secondary"
+              className="position-absolute top-50 end-0 translate-middle-y btn btn-sm btn-transparente border-0 me-2"
               style={{ padding: "0 6px", lineHeight: 1 }}
               onClick={clearSearch}
             >
@@ -123,7 +123,7 @@ const highlightMatch = (text, query) => {
             {recentSearches.map((item, idx) => (
               <button
                 key={idx}
-                className="w-100 text-start d-flex align-items-center gap-3 px-2 py-2 border-0 bg-white result-link mb-1"
+                className="w-100 text-start d-flex align-items-center gap-3 px-0 py-2 border-0 bg-white result-link mb-1"
                 onClick={() => handleSearchSubmit(item)}
               >
                 <i className="bi bi-clock-history text-muted"></i>

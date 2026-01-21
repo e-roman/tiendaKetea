@@ -130,7 +130,7 @@ useEffect(() => {
                   <div className="d-block d-lg-none">
                   <button
                     ref={mobileBtnRef}
-                    className="btn nav-button-mb"
+                    className="btn nav-button-mb btn-white"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#sidebarNav"

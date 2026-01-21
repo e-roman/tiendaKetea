@@ -92,14 +92,14 @@ export default function ProductCardMobile({ product, openProduct }) {
           <div className="d-flex gap-1 my-2">
             {product.oldPrice && product.oldPrice > product.price && (
               <li className="old-price text-muted">
-                AR${formatPrice(product.oldPrice)}
+                ${formatPrice(product.oldPrice)}
               </li>
             )}
           </div>
 
           <ul className="list-unstyled d-flex align-items-center gap-1">
             <li className="current-price text-dark">
-              AR${formatPrice(product.price)}
+              ${formatPrice(product.price)}
             </li>
             {product.discount > 0 && (
               <li>

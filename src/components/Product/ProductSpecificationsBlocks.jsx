@@ -50,7 +50,7 @@ return (
     </div>
    
 
-    <div className="container space-bottom-lg-3">
+    <div className="container space-bottom-2 space-bottom-lg-3">
       <div className="row justify-content-lg-between align-items-lg-center">
         <div className="col-lg-5 space-1 space-lg-2">
           <h3 className="font-weight-medium mb-4">Navegación de Prescisión</h3>

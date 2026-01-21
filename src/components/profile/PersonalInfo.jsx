@@ -205,7 +205,7 @@ export default function PersonalInfo() {
               {/*!-- End Body --*/}
 
               {/*!-- Footer --*/}
-              <div className="card-footer px-0 pt-0 pb-4 mt-3 mt-md-0">
+              <div className="card-footer px-0 pt-0 pb-0 mt-3 mt-md-0">
                 <div className="d-md-flex justify-content-end gap-3">
                   <a className="btn btn-sm border-0 btn-white w-xs-100 d-none d-md-block" href="javascript:;">Cancelar</a>
                   <a className="btn btn-sm px-4 btn-primary w-xs-100" href="javascript:;">Guardar cambios</a>

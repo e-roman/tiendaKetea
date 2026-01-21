@@ -30,7 +30,7 @@ export default function Footer() {
 
               <ul
                 id="footer-account"
-                className="list-unstyled list-py-1 collapse d-lg-block"
+                className="list-unstyled pt-2 pb-3 list-py-1 collapse d-lg-block"
               >
                 <li>
                   <a
@@ -96,7 +96,7 @@ export default function Footer() {
 
               <ul
                 id="footer-info"
-                className="list-unstyled list-py-1 collapse d-lg-block"
+                className="list-unstyled pt-2 pb-3 list-py-1 collapse d-lg-block"
               >
                 <li><a className="link-sm text-secondary" href="#">Preguntas frecuentes</a></li>
                 <li><a className="link-sm text-secondary" href="#">Cómo comprar</a></li>
@@ -111,7 +111,8 @@ export default function Footer() {
               <h5 className="mb-3">Contacto</h5>
 
               <ul className="list-unstyled list-py-1 mb-3">
-                <li><a className="link-sm link-secondary" href="#">Dónde encontrarnos</a></li>
+                <li className="d-none d-md-block"><a className="link-sm link-secondary" href="#">Dónde encontrarnos</a></li>
+                <li className="d-block d-md-none"><p className="mb-0 small">Cnel. Brandsen 2230, B1704DER Ramos Mejía, Provincia de Buenos Aires</p></li>
                 <li><a className="link-sm link-secondary" href="#">info@ketea.com.ar</a></li>
                 <li><a className="link-sm link-secondary" href="#">(+54) 911 3065-5787</a></li>
               </ul>

@@ -21,13 +21,13 @@ export default function HeaderMobile() {
   return (
     <>
       <TopAlert />
-      <header className="header-mobile border-bottom sticky-top">
+      <header className="header-mobile border-bottom ">
         <div className="d-flex align-items-center justify-content-between px-2 w-100">
 
           {/*  Botón Menú */}
           <button
             type="button"
-            className="nav-header-menu-switch nav-button-mb"
+            className="nav-header-menu-switch nav-button-mb mt-2 me-2"
             aria-label="Menú"
             data-bs-toggle="offcanvas"
             data-bs-target="#menuOffcanvas"
@@ -41,15 +41,25 @@ export default function HeaderMobile() {
           </Link>
 
           {/* Input Search */}
-          <div className="flex-grow-1 mx-2">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Buscar productos, marcas y más…"
-              onFocus={() => setShowSearchModal(true)} // Abre el modal al enfocar
-              readOnly // opcional, para que no escriba en este input, todo se hace en el modal
-            />
+          <div className="flex-grow-1 position-relative mx-2">
+            <div className="input-group-prepend">
+              <span className="btn-search-mob">
+                <span className="bi bi-search"></span>
+              </span>
+              <input
+                type="text"
+                className="form-control input-search-mob"
+                placeholder="Buscar productos, marcas y más…"
+                onFocus={() => setShowSearchModal(true)} // Abre el modal al enfocar
+                readOnly // opcional, para que no escriba en este input, todo se hace en el modal
+              />
+            </div>
           </div>
+
+
+
+
+
 
           {/*  Carrito */}
           <button
@@ -79,6 +89,34 @@ export default function HeaderMobile() {
           </div>
           <div className="offcanvas-body p-0">
             <MenuMobile closeAll={closeAll} />
+          </div>
+        </div>
+
+
+        <div className="menu-header-ms mt-1">
+
+          <div className="link-page-ms">
+          <Link to="/Novedades">
+            <i className="bi bi-star me-1"></i> Novedades
+          </Link>
+          </div>
+
+          <div className="link-page-ms">
+          <Link to="/Descuentos">
+            <i className="bi bi-tags me-1"></i> Ofertas de la semana
+          </Link>
+          </div>
+
+          <div className="link-page-ms">
+          <Link to="/Descuentos">
+            <i className="bi bi-tags me-1"></i> Descuentos
+          </Link>
+          </div>
+
+          <div className="link-page-ms">
+          <Link to="/pages/Mas-vendido">
+            <i className="bi bi-fire me-1"></i> Más vendido
+          </Link>
           </div>
         </div>
       </header>

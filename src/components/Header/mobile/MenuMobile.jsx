@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import { PROFILE_MENU } from "@/config/profileMenu";
 import CategoriesModal from "./CategoriesModal";
+import { megaMenuData } from "@/data/megaMenuData";
+
 
 export default function MenuMobile({ closeAll }) {
   const { isLogged, logout } = useAuth();
-  const [showCategories, setShowCategories] = useState(false);
+const [showCategories, setShowCategories] = useState(false);
+const [activeCategory, setActiveCategory] = useState(null);
 
   const handleLogout = () => logout();
 
@@ -15,13 +18,16 @@ export default function MenuMobile({ closeAll }) {
     closeAll(); // cierra todos los offcanvas
   };
 
+const categories = megaMenuData.filter(
+  cat => cat.id !== "oferta-semana" && cat.id !== "novedades"
+);
   return (
-    <div className="nav-menu-mobile border-bottom p-2">
+    <div className="nav-menu-mobile border-bottom pb-4">
 
         {/* LOGIN / Bienvenida */}
         {isLogged ? (
           <Link
-            className="menu-user-info bg-primary py-3 px-2 d-flex align-items-center rounded mb-2 w-100"
+            className="menu-user-info bg-primary py-3 px-3 d-flex align-items-center text-left mb-2 w-100"
             to="/pages/Profile"
             onClick={handleCloseAll} // cerrar al navegar
           >
@@ -32,9 +38,8 @@ export default function MenuMobile({ closeAll }) {
             </div>
           </Link>
         ) : (
-          <button
-            type="button"
-            className="menu-user-info bg-primary py-3 px-2 d-flex align-items-center rounded mb-2 border-0"
+          <Link
+            className="menu-user-info bg-primary py-3 px-3 d-flex align-items-center text-left mb-2 border-0 w-100"
             data-bs-toggle="modal"
             data-bs-target="#signupModal"
           >
@@ -43,56 +48,37 @@ export default function MenuMobile({ closeAll }) {
               <h3 className="text-white mb-0">Bienvenido</h3>
               <p className="text-white small mb-0">Ingresa a tu cuenta para realizar compras</p>
             </div>
-          </button>
+          </Link>
         )}
 
         {/* MENÚ PRINCIPAL */}
         <div className="menu-items mt-2">
-          <button
-            className="dropdown-item"
-            onClick={() => setShowCategories(true)}
-          >
-            <i className="bi bi-list-ul me-2"></i> Categorías
-          </button>
+          {/* CATEGORÍAS */}
+          <div className="menu-categories mt-3">
+            <h6 className="px-3 mb-3 small fw-bold text-black">
+              Categorías
+            </h6>
 
-          <Link className="dropdown-item" to="/" onClick={handleCloseAll}>
-            <i className="bi bi-house me-2"></i> Home
-          </Link>
-
-          <Link className="dropdown-item" to="/Novedades" onClick={handleCloseAll}>
-            <i className="bi bi-star me-2"></i> Novedades
-          </Link>
-
-          <Link className="dropdown-item" to="/Descuentos" onClick={handleCloseAll}>
-            <i className="bi bi-tags me-2"></i> Descuentos
-          </Link>
-
-          <Link className="dropdown-item" to="/pages/Mas-vendido" onClick={handleCloseAll}>
-            <i className="bi bi-fire me-2"></i> Más vendido
-          </Link>
-
-          <Link className="dropdown-item" to="/pages/Sucursales" onClick={handleCloseAll}>
-            <i className="bi bi-envelope me-2"></i> Contacto
-          </Link>
-        </div>
-
-
-      {/* PERFIL LINKS */}
-      {/* {isLogged &&
-        PROFILE_MENU.map(section => (
-          <div key={section.title} className="mb-2">
-            {section.items.map(item => (
-              <Link
-                key={item.key}
-                to={`/pages/Profile?view=${item.key}`}
-                className="dropdown-item"
+            {categories.map(cat => (
+              <button
+                key={cat.id}
+                className="dropdown-item py-2 d-flex justify-content-between align-items-center"
+                onClick={() => {
+                  setActiveCategory(cat.id);
+                  setShowCategories(true);
+                }}
               >
-                <i className={`bi ${item.icon} me-2`} />
-                {item.label}
-              </Link>
+                {cat.label}
+                <span><i className="bi bi-chevron-right"/></span>
+              </button>
             ))}
           </div>
-        ))} */}
+
+
+
+
+        </div>
+
 
 
       {/* LOGOUT */}
@@ -108,6 +94,7 @@ export default function MenuMobile({ closeAll }) {
       {/* Categories Offcanvas */}
       <CategoriesModal
         show={showCategories}
+        categoryId={activeCategory}
         onBack={() => setShowCategories(false)}
         onClose={handleCloseAll}
       />

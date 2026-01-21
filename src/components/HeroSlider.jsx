@@ -22,7 +22,7 @@ export default function App() {
         mousewheel={true}
         keyboard={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
-        className="mySwiper sliderHome bg-light rounded-4 overflow-hidden"
+        className="mySwiper sliderHome bg-light rounded-4-md overflow-hidden"
       >
 
         <SwiperSlide>

@@ -30,14 +30,14 @@ export default function ProductsSwiper({ openProduct }) {
   return (
     <>
       {/* Título */}
-      <div className="container  content-space-t-lg-1">
+      <div className="container content-space-t-1">
         <div className="mb-4 mb-md-6">
           <h2>También podría interesarte</h2>
         </div>
       </div>
 
       {/* Swiper */}
-      <div className="container content-space-b-1 content-space-b-lg-1 position-relative otherProducts px-0 px-md-3">
+      <div className="container content-space-b-1 content-space-b-lg-2 position-relative otherProducts px-0 px-md-3">
         <div>
           <button
             ref={prevRef}
