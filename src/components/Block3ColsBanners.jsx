@@ -5,7 +5,7 @@ export default function Block3ColsBanners() {
     <>
       {/* Banners */}
       <div className="container">
-        <div className="row g-3 row-cols-1 row-cols-md-3 content-space-b-md-2">
+        <div className="row g-2 g-md-3 row-cols-1 row-cols-md-3 content-space-b-md-2">
 
 
           <div className="col-md-4 mb-1 mb-md-0">

@@ -321,7 +321,7 @@ const openDiscountModal = (e) => {
         <div className="mb-3">
           <span className="d-flex text-black">
             <span className="font-15 font-medium">{product.cuotasLabel}</span>
-            <span className="font-15 font-medium ps-1">${product.cuotaPrice}</span>
+            <span className="font-15 font-medium ps-1">de ${product.cuotaPrice}</span>
           </span>
         </div>
 

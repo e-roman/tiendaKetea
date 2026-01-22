@@ -86,7 +86,7 @@ const handleToggleFavorite = () => {
       {/* Información principal */}
       <div className="card-body pt-0 pb-3 px-3">
         <button
-          className="text-body text-dark font-16 bg-transparent border-0 p-0 text-start pb-1 "
+          className="text-body text-dark font-14 bg-transparent border-0 p-0 text-start pb-1 "
           onClick={() => openProduct(product.slug)}
         >
           {product.title}
@@ -105,7 +105,7 @@ const handleToggleFavorite = () => {
 
 
           <ul className="list-unstyled d-flex align-items-center gap-1">
-            <li className="current-price text-dark">
+            <li className="current-price  text-dark">
                ${formatPrice(product.price)}
             </li>
 
@@ -122,7 +122,7 @@ const handleToggleFavorite = () => {
 
         {product.installmentsLabel && (
           <p className="small mb-0 font-13 font-medium">
-            Hasta <span className="font-bold">{product.installmentsLabel}</span> sin interés
+            <span className="font-bold">{product.installmentsLabel}</span> sin interés
           </p>
         )}
 

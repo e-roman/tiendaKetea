@@ -15,7 +15,7 @@ export default function Footer() {
 
               {/* Mobile toggle */}
               <button
-                className="btn w-100 d-flex justify-content-between no-focus d-lg-none px-0 border-bottom"
+                className="btn border-0 no-focus font-bold w-100 d-flex justify-content-between no-focus d-lg-none px-0 border-bottom"
                 data-bs-toggle="collapse"
                 data-bs-target="#footer-account"
                 aria-expanded="false"
@@ -26,7 +26,7 @@ export default function Footer() {
               </button>
 
               {/* Desktop title */}
-              <h5 className="d-none d-lg-block">Mi Cuenta</h5>
+              <h5 className="d-none d-lg-block font-bold">Mi Cuenta</h5>
 
               <ul
                 id="footer-account"
@@ -81,7 +81,7 @@ export default function Footer() {
 
               {/* Mobile toggle */}
               <button
-                className="btn w-100 d-flex justify-content-between no-focus d-lg-none px-0 border-bottom"
+                className="btn border-0 no-focus font-bold w-100 d-flex justify-content-between no-focus d-lg-none px-0 border-bottom"
                 data-bs-toggle="collapse"
                 data-bs-target="#footer-info"
                 aria-expanded="false"
@@ -92,7 +92,7 @@ export default function Footer() {
               </button>
 
               {/* Desktop title */}
-              <h5 className="d-none d-lg-block">Información</h5>
+              <h5 className="d-none d-lg-block font-bold">Información</h5>
 
               <ul
                 id="footer-info"
@@ -108,7 +108,7 @@ export default function Footer() {
 
             {/* ===== CONTACTO ===== */}
             <div className="col-sm-4 col-lg-2 mb-7 mb-lg-0">
-              <h5 className="mb-3">Contacto</h5>
+              <h5 className="font-bold">Contacto</h5>
 
               <ul className="list-unstyled list-py-1 mb-3">
                 <li className="d-none d-md-block"><a className="link-sm link-secondary" href="#">Dónde encontrarnos</a></li>
@@ -121,7 +121,7 @@ export default function Footer() {
             {/* ===== NEWSLETTER ===== */}
             <div className="col-md-7 col-lg-5">
               <div className="mb-3">
-                <h5>Subscribite al Newsletter</h5>
+                <h5 className="font-bold">Subscribite al Newsletter</h5>
                 <p className="link-sm">
                   Recibe nuestras ofertas semanales y promociones.
                 </p>

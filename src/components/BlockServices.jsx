@@ -4,13 +4,13 @@ export default function BlockServices() {
     <>
     <div className="d-none d-md-block">
       <div className="container px-xs-0">
-        <div className="card shadow-none rounded-3">
-          <div className="row card-body">
+        <div className="card border shadow-none rounded-3">
+          <div className="row card-body p-4 ">
             <div className="col-md-4 d-none d-md-block">
               {/*-- Contacts --*/}
               <div className="media">
                 <figure className="ie-height-56 w-100 max-width-8 me-4">
-                  <img src="assets/svg/icons/icon1.svg"/>
+                  <img src="assets/svg/icons/icon1.svg" style={{maxWidth:"100%"}}/>
                 </figure>
                 <div className="media-body pe-md-3">
                   <h4 className="h4 font-medium mb-1">Soporte 24/7</h4>
@@ -24,7 +24,7 @@ export default function BlockServices() {
               {/*-- Contacts --*/}
               <div className="media">
                 <figure className="ie-height-56 w-100 max-width-8 me-4">
-                  <img src="assets/svg/icons/icon2.svg"/>
+                  <img src="assets/svg/icons/icon2.svg" style={{maxWidth:"100%"}}/>
                 </figure>
                 <div className="media-body pe-md-3">
                   <h4 className="h4 font-medium mb-1">30 días de devolución</h4>
@@ -38,7 +38,7 @@ export default function BlockServices() {
               {/*-- Contacts --*/}
               <div className="media">
                 <figure className="ie-height-56 w-100 max-width-8 me-4">
-                  <img src="assets/svg/icons/icon3.svg"/>
+                  <img src="assets/svg/icons/icon3.svg" style={{maxWidth:"100%"}}/>
                 </figure>
                 <div className="media-body">
                   <h4 className="h4 font-medium mb-1">Envío gratuito</h4>
@@ -58,21 +58,21 @@ export default function BlockServices() {
           <div className="grid">
               <div className="container">
                   <div className="icon-container">
-                      <img className="icon-service" src="https://images.fravega.com/f300/efa61b3a0d8cf25478eb8fb5ab20c5a9.png" />
+                      <img className="icon-service" src="./assets/svg/icons/cards.svg" />
                   </div>
                   <div>
                       <p> Medios de pago </p>
-                      <a href="https://www.fravega.com/e/promociones/"> Ver promociones </a>
+                      <a href="#"> Ver promociones </a>
                   </div>
               </div>
               <div className="line"> </div>
               <div className="container">
                   <div className="icon-container">
-                      <img className="icon-service" src="https://images.fravega.com/f100/6bf1fed1be0627c5af4a0c629bc887b3.png" />
+                      <img className="icon-service" src="./assets/svg/icons/icon3.svg"  style={{maxWidth:"100%"}}/>
                   </div>
                   <div>
-                      <p> Frávega Créditos </p>
-                      <a href="https://simulador-creditos.fravega.com/simulador"> Simulá tu Crédito </a>
+                      <p> Envío gratuito </p>
+                      <a href="#"> envío estándar </a>
                   </div>
               </div>
           </div>

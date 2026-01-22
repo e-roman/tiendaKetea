@@ -61,17 +61,6 @@ export default function ProductCardMobile({ product, openProduct }) {
           </button>
         </div>
 
-        {/* Badges */}
-        {product.envioGratis || !product.stock ? (
-          <div className="badge-envio">
-            {!product.stock ? (
-              <span className="badge py-1 px-2 bg-danger text-white">Sin Stock</span>
-            ) : (
-              <span className="badge py-1 px-2 bg-green me-1">Envío Grátis</span>
-            )}
-          </div>
-        ) : null}
-
         {product.cuotasLabelBadge && (
           <div className="card-pinned-top-start">
             <span className="badge py-1 px-2 badge-blue">{product.cuotasLabelBadge}</span>
@@ -116,6 +105,32 @@ export default function ProductCardMobile({ product, openProduct }) {
              <span>{product.installmentsLabel}</span> sin interés
           </p>
         )}
+
+        {/* Badges */}
+        {product.envioGratis || product.retiroInmediato || !product.stock ? (
+          <div className="pt-1">
+            {!product.stock ? (
+              <span className="badge py-1 px-2 badge-red text-white">
+                Sin Stock
+              </span>
+            ) : (
+              <>
+                {product.envioGratis && (
+                  <span className="badge bg-send py-1 px-2 bg-dark me-1">
+                    Envío Grátis
+                  </span>
+                )}
+
+                {product.retiroInmediato && (
+                  <span className="badge bg-send py-1 px-2 bg-dark me-1">
+                    Retiralo Hoy
+                  </span>
+                )}
+              </>
+            )}
+          </div>
+        ) : null}
+
 
         <div className="pt-2 pb-3">
            <p className="text-pay">Pagá fácil y rápido con Mercado Pago o MODO</p>
