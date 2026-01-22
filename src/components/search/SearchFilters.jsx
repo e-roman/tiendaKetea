@@ -119,7 +119,7 @@ export default function SearchFilters({
     <aside>
 
       {/* SWITCHES */}
-      <div className="mb-4 bg-white p-3 rounded-2 d-flex flex-column row-gap-3">
+      <div className="mb-4 pt-0 pb-3 py-md-3 px-0 px-md-3 bg-white rounded-2 d-flex flex-column row-gap-3 border-bottom">
         {[
           ["Cuotas sin interés", "cuotasSinInteres"],
           ["Envío gratis", "envioGratis"],
@@ -242,7 +242,7 @@ export default function SearchFilters({
 
       {/* RESET */}
       <button
-        className="btn btn-sm btn-link px-0 fw-semibold"
+        className="btn btn-sm btn-link px-0 fw-semibold d-none d-md-block"
         onClick={resetFilters}
       >
         Borrar filtros

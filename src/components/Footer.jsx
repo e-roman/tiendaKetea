@@ -22,62 +22,62 @@ export default function Footer() {
               >
                 Mi Cuenta
 
-                <i className="bi bi-chevron-down"></i>
+                <i className="bi bi-chevron-down text-dark"></i>
               </button>
 
               {/* Desktop title */}
               <h5 className="d-none d-lg-block font-bold">Mi Cuenta</h5>
 
-              <ul
-                id="footer-account"
-                className="list-unstyled pt-2 pb-3 list-py-1 collapse d-lg-block"
-              >
-                <li>
-                  <a
-                    className="btn link-sm text-secondary p-0"
-                    data-bs-toggle="modal"
-                    data-bs-target="#signupModal"
-                    onClick={() =>
-                      window.dispatchEvent(
-                        new CustomEvent("authStep", { detail: "login" })
-                      )
-                    }
-                  >
-                    Ingresar
-                  </a>
-                </li>
+              <div id="footer-account" className="collapse d-lg-block">
+                <ul className="list-unstyled pt-2 pb-3 list-py-1"
+                >
+                  <li>
+                    <a
+                      className="btn link-sm text-secondary p-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#signupModal"
+                      onClick={() =>
+                        window.dispatchEvent(
+                          new CustomEvent("authStep", { detail: "login" })
+                        )
+                      }
+                    >
+                      Ingresar
+                    </a>
+                  </li>
 
-                <li>
-                  <a
-                    className="btn link-sm text-secondary p-0"
-                    data-bs-toggle="modal"
-                    data-bs-target="#signupModal"
-                    onClick={() =>
-                      window.dispatchEvent(
-                        new CustomEvent("authStep", { detail: "signup" })
-                      )
-                    }
-                  >
-                    Registrarse
-                  </a>
-                </li>
+                  <li>
+                    <a
+                      className="btn link-sm text-secondary p-0"
+                      data-bs-toggle="modal"
+                      data-bs-target="#signupModal"
+                      onClick={() =>
+                        window.dispatchEvent(
+                          new CustomEvent("authStep", { detail: "signup" })
+                        )
+                      }
+                    >
+                      Registrarse
+                    </a>
+                  </li>
 
-                <li>
-                  <a className="link-sm text-secondary" href="#">
-                    Recuperar contraseña
-                  </a>
-                </li>
+                  <li>
+                    <a className="link-sm text-secondary" href="#">
+                      Recuperar contraseña
+                    </a>
+                  </li>
 
-                <li>
-                  <a className="link-sm text-secondary" href="#">
-                    Botón de arrepentimiento
-                  </a>
-                </li>
-              </ul>
+                  <li>
+                    <a className="link-sm text-secondary" href="#">
+                      Botón de arrepentimiento
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* ===== INFORMACIÓN ===== */}
-            <div className="col-12 col-sm-4 col-lg-2 mb-3 mb-lg-0">
+            <div className="col-12 col-sm-4 col-lg-2 mb-lg-0">
 
               {/* Mobile toggle */}
               <button
@@ -88,34 +88,49 @@ export default function Footer() {
               >
                 Información
 
-                <i className="bi bi-chevron-down"></i>
+                <i className="bi bi-chevron-down text-dark"></i>
               </button>
 
               {/* Desktop title */}
               <h5 className="d-none d-lg-block font-bold">Información</h5>
-
-              <ul
-                id="footer-info"
-                className="list-unstyled pt-2 pb-3 list-py-1 collapse d-lg-block"
-              >
-                <li><a className="link-sm text-secondary" href="#">Preguntas frecuentes</a></li>
-                <li><a className="link-sm text-secondary" href="#">Cómo comprar</a></li>
-                <li><a className="link-sm text-secondary" href="#">Políticas de privacidad</a></li>
-                <li><a className="link-sm text-secondary" href="#">Términos y condiciones</a></li>
-                <li><a className="link-sm text-secondary" href="#">Preferencias de cookies</a></li>
-              </ul>
+              
+              <div className="collapse d-lg-block" id="footer-info">
+                <ul className="list-unstyled pt-2 pb-3 list-py-1"
+                >
+                  <li><a className="link-sm text-secondary" href="#">Preguntas frecuentes</a></li>
+                  <li><a className="link-sm text-secondary" href="#">Cómo comprar</a></li>
+                  <li><a className="link-sm text-secondary" href="#">Políticas de privacidad</a></li>
+                  <li><a className="link-sm text-secondary" href="#">Términos y condiciones</a></li>
+                  <li><a className="link-sm text-secondary" href="#">Preferencias de cookies</a></li>
+                </ul>
+              </div>
             </div>
 
             {/* ===== CONTACTO ===== */}
             <div className="col-sm-4 col-lg-2 mb-7 mb-lg-0">
-              <h5 className="font-bold">Contacto</h5>
 
-              <ul className="list-unstyled list-py-1 mb-3">
-                <li className="d-none d-md-block"><a className="link-sm link-secondary" href="#">Dónde encontrarnos</a></li>
-                <li className="d-block d-md-none"><p className="mb-0 small">Cnel. Brandsen 2230, B1704DER Ramos Mejía, Provincia de Buenos Aires</p></li>
-                <li><a className="link-sm link-secondary" href="#">info@ketea.com.ar</a></li>
-                <li><a className="link-sm link-secondary" href="#">(+54) 911 3065-5787</a></li>
-              </ul>
+              {/* Mobile toggle */}
+              <button
+                className="btn border-0 no-focus font-bold w-100 d-flex justify-content-between no-focus d-lg-none px-0 border-bottom"
+                data-bs-toggle="collapse"
+                data-bs-target="#footer-contact"
+                aria-expanded="false"
+              >
+                Contacto
+
+                <i className="bi bi-chevron-down text-dark"></i>
+              </button>
+
+
+               <h5 className="d-none d-lg-block font-bold">Contacto</h5>
+              <div className="collapse d-lg-block" id="footer-contact">       
+                  <ul className="list-unstyled list-py-1 mb-3">
+                    <li className="d-none d-md-block"><a className="link-sm link-secondary" href="#">Dónde encontrarnos</a></li>
+                    <li className="d-block d-md-none"><p className="mb-0 small">Cnel. Brandsen 2230, B1704DER Ramos Mejía, Provincia de Buenos Aires</p></li>
+                    <li><a className="link-sm link-secondary" href="#">info@ketea.com.ar</a></li>
+                    <li><a className="link-sm link-secondary" href="#">(+54) 911 3065-5787</a></li>
+                  </ul>
+              </div>  
             </div>
 
             {/* ===== NEWSLETTER ===== */}

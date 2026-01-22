@@ -157,24 +157,38 @@ const resetFilters = () => {
   return (
 
     <>
-    <div className="container content-space-t-md-1 content-space-b-2 px-mobile">
+    <div className="container content-space-t-md-1 content-space-b-2">
       <div className="row">
 
 
         {/* CONTROLES MOBILE */}
-        <div className="d-flex d-lg-none gap-2 mb-3">
+        <div className="d-flex d-lg-none py-3">
+            {/* TITULO */}
+            <div>
+              <h5 className="text-dark mb-2">
+                <b>{query}</b>
+              </h5>
+              {!noResultsFromSearch && (
+                <p className="text-dark small mb-0">
+                  <b>{results.length}</b> resultados
+                </p>
+              )}
+              </div>
+        </div>
+
+        <div className="filters-actions-mobile d-flex d-lg-none gap-2 mb-3">
           <button
-            className="btn btn-outline-dark w-50"
+            className="filters-btn-mobile w-50"
             onClick={() => setShowFiltersMobile(true)}
           >
-            <i className="bi bi-sliders me-1" />
-            Filtros
+            <i className="bi bi-sliders"></i>
+            Filtrar
           </button>
-          
-          <div className="btn btn-outline-dark w-50">
-            <i className="bi bi-arrow-down-up me-1" />
+
+          <button className="filters-btn-mobile w-50">
+            <i className="bi bi-arrow-down-up"></i>
             <SearchSortMobile sort={sort} setSort={setSort} />
-          </div>
+          </button>
         </div>
 
 
@@ -272,8 +286,10 @@ const resetFilters = () => {
 
         {/* Sheet */}
         <div className="mobile-sheet">
-          <div className="d-flex align-items-center justify-content-between mb-3">
-            <h5 className="mb-0">Filtros</h5>
+
+          {/* HEADER */}
+          <div className="box-filters-title-sm">
+            <h4 className="font-bold mb-0">Filtros</h4>
             <button
               className="btn p-0"
               onClick={() => setShowFiltersMobile(false)}
@@ -282,15 +298,26 @@ const resetFilters = () => {
             </button>
           </div>
 
-          <SearchFilters
-            products={productsData}
-            filters={filters}
-            setFilters={setFilters}
-            toggleFilter={toggleFilter}
-            resetFilters={resetFilters}
-          />
+          {/* BODY (scroll) */}
+          <div className="box-filters-body-sm">
+            <SearchFilters
+              products={productsData}
+              filters={filters}
+              setFilters={setFilters}
+              toggleFilter={toggleFilter}
+              resetFilters={resetFilters}
+            />
+          </div>
 
-          <div className="pt-3 border-top mt-3">
+          {/* FOOTER */}
+          <div className="box-filters-btn-sm">
+            <button
+              className="btn btn-outline-dark w-100 mb-2"
+              onClick={resetFilters}
+            >
+              Borrar filtros
+            </button>
+
             <button
               className="btn btn-primary w-100"
               onClick={() => setShowFiltersMobile(false)}
@@ -298,9 +325,11 @@ const resetFilters = () => {
               Ver resultados ({results.length})
             </button>
           </div>
+
         </div>
       </>
-    )}
+)}
+
 
     </>
 

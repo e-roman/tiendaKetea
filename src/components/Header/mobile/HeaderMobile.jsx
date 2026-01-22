@@ -69,7 +69,7 @@ export default function HeaderMobile() {
             data-bs-target="#cartOffcanvas"
           >
             <i className="bi bi-cart3"></i>
-            {cart.length > 0 && <span className="quantity-add">{cart.length}</span>}
+            {cart.length > 0 && <span className="quantity-add bg-primary">{cart.length}</span>}
           </button>
         </div>
 

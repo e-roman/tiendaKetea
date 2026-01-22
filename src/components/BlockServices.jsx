@@ -58,7 +58,7 @@ export default function BlockServices() {
           <div className="grid">
               <div className="container">
                   <div className="icon-container">
-                      <img className="icon-service" src="./assets/svg/icons/cards.svg" />
+                      <img className="icon-service" src="./assets/svg/illustrations/cards.svg" />
                   </div>
                   <div>
                       <p> Medios de pago </p>
@@ -68,7 +68,7 @@ export default function BlockServices() {
               <div className="line"> </div>
               <div className="container">
                   <div className="icon-container">
-                      <img className="icon-service" src="./assets/svg/icons/icon3.svg"  style={{maxWidth:"100%"}}/>
+                      <img className="icon-service" src="./assets/svg/illustrations/truk.svg"  style={{maxWidth:"100%"}}/>
                   </div>
                   <div>
                       <p> Envío gratuito </p>

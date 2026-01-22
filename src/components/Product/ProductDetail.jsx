@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+
 import { Modal } from "bootstrap";
 import { useCart } from "@/hooks/useCart";
 import { useFavorites } from "@/hooks/useFavorites";
@@ -8,6 +10,7 @@ import AlertFloating from "@/components/alert/AlertFloating";
 import DiscountMethod from "@/components/Modals/MethodsDiscountModal";
 
 export default function ProductDetail({ product }) {
+  const navigate = useNavigate();
   const { cart, addToCart } = useCart();
   const { favorites, toggleFavorite } = useFavorites();
 
@@ -73,6 +76,11 @@ const openDiscountModal = (e) => {
 
   const modal = Modal.getOrCreateInstance(modalEl);
   modal.show();
+};
+
+
+const handleStartCheckout = () => {
+  navigate("/cart");
 };
   return (
     <>
@@ -339,7 +347,7 @@ const openDiscountModal = (e) => {
           <button
             type="button"
             className="btn btn-sm btn-block btn-primary"
-            onClick={handleAddToCart}
+            onClick={handleStartCheckout}
           >
             Comprar
           </button>
