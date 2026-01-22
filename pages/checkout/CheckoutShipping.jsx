@@ -246,22 +246,24 @@ export default function CheckoutShipping() {
 
                   <div className="row">
 
-                    <div className="col-md-3 mb-3">
-                      <label className="form-label">Código Postal *</label>
-                      <input type="text" className="form-control" required />
-                    </div>
-
-                    <div className="col-md-7 mb-3">
+                    <div className="col-md-8 mb-3">
                       <label className="form-label">Calle *</label>
                       <input type="text" className="form-control" required />
                     </div>
 
-                    <div className="col-md-2 mb-3">
+                    <div className="col-6 col-md-2 mb-3">
                       <label className="form-label">Número *</label>
                       <input type="text" className="form-control" required />
                     </div>
 
-                    <div className="col-md-6 mb-3">
+
+                    <div className="col-6 col-md-2 mb-3">
+                      <label className="form-label">Código Postal *</label>
+                      <input type="text" className="form-control" required />
+                    </div>
+
+
+                    <div className="col-7 col-md-6 mb-3">
                       <label className="form-label">Tipo de domicilio</label>
                       <select className="form-select" required>
                         <option value="" disabled selected>
@@ -270,16 +272,16 @@ export default function CheckoutShipping() {
                         <option value="AB">
                           Casa
                         </option>
-                        <option value="BA">Departamento</option>
+                        <option value="BA">Depto.</option>
                       </select>
                       <div className="invalid-feedback">
                         Seleccioná una opción.
                       </div>
                     </div>
 
-                    <div className="col-md-6 mb-3">
+                    <div className="col-5 col-md-6 mb-3">
                       <label className="form-label">
-                        Piso / Departamento *
+                        Piso / Depto. *
                       </label>
                       <input type="text" className="form-control"/>
                     </div>
@@ -425,12 +427,12 @@ export default function CheckoutShipping() {
                 </div>
 
                 {/* ================= ACTIONS ================= */}
-                <div className="d-flex justify-content-between align-items-center">
+                <div className="d-flex flex-md-column flex-row justify-content-between align-items-center mb-10 mb-md-0 mt-4">
                   <Link to="/checkout">
-                    <i className="bi bi-arrow-left"></i> Volver
+                    <i className="bi bi-arrow-left"></i> Regresar
                   </Link>
 
-                  <button type="submit" className="btn btn-primary btn-sm font-16 px-6 order-1 order-md-2 mb-5 mb-md-0">
+                  <button type="submit" className="btn btn-primary btn-sm font-16 px-6 order-1 order-md-2 mb-0">
                     Continuar
                   </button>
                 </div>

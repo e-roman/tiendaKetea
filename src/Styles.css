@@ -2450,9 +2450,9 @@ footer .btn-icon.btn-social {
 
 /* LABEL */
 .stepper-step-label {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  text-align: center;
+    font-size: 0.875rem;
+    align-items: center;
+    display: flex;
 }
 
 /* ========================= */
@@ -2514,7 +2514,21 @@ footer .btn-icon.btn-social {
   display: none;
 }
 
+/* Por defecto: desktop */
+.label-mobile {
+  display: none;
+}
 
+/* Mobile */
+@media (max-width: 768px) {
+  .label-desktop {
+    display: none;
+  }
+
+  .label-mobile {
+    display: inline;
+  }
+}
 
 
 

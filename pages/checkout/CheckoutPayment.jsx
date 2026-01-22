@@ -215,22 +215,15 @@ const {
 
 
 
-    <div className="bg-light-medium bg-white-xs pt-2 pt-md-4 space-bottom-md-3">
+    <div className="bg-light-medium bg-white-xs pt-3 pb-53">
 
         <div className="container">
 
+        {/* STEPS */}
+        <SteppersCheck />
+        
 
-        <div>
-          <div className="container pt-4 pb-6 pt-md-0 pb-md-4 ">
-            <div className="row">
-              <div className="col-lg-8 ps-0">
-                <SteppersCheck />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
+        <div className="row mt-4">
 
           {/* ORDER SUMMARY – RIGHT COLUMN */}
           <div className="col-lg-4 order-lg-2 mb-4 mb-lg-0 pt-6 d-none d-md-block ">
@@ -360,8 +353,8 @@ const {
 
           {/* LEFT COLUMN Payments Methods*/}
           <div className="col-lg-8 pe-md-4">
-            <div className="mb-10 mb-md-0">
-                <h4 className="font-bold mb-3">Método de pago</h4>
+            <div className="py-4 px-0 px-md-4 mb-md-4">
+                <h4 className="h3 font-bold mb-4">Método de pago</h4>
 
                 {/* ===== MODO ===== */}
                 <div className="bg-white border rounded p-3 mb-3">

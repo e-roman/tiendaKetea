@@ -218,25 +218,19 @@ const {
 
 
       {/*Col Right Summary */}
-      <div className="bg-light-medium bg-white-xs pt-2 pt-md-4 space-bottom-md-3">
+      <div className="bg-light-medium bg-white-xs pt-3 pb-5">
 
         <div className="container">
 
 
-        <div>
-          <div className="container pt-4 pb-0 pt-md-0 pb-md-4 ">
-            <div className="row">
-              <div className="col-lg-8 ps-0">
-                <SteppersCheck />
-              </div>
-            </div>
-          </div>
-        </div>
+          {/* STEPS */}
+          <SteppersCheck />
 
 
 
 
-        <div className="row">
+
+        <div className="row mt-4">
 
           {/* ORDER SUMMARY – RIGHT COLUMN */}
           <div className="col-lg-4 order-lg-2 mb-4 mb-lg-0 d-none d-md-block">
@@ -357,8 +351,7 @@ const {
               )}
 
 
-              <div className="card shadow-none mb-0">
-                <div className="card-body rounded px-1 pt-5 pb-5 py-md-4 px-md-5">
+              <div className="card shadow-none py-4 px-0 px-md-4 mb-md-4">
 
                   {/* DATOS DE CONTACTO */}
                   <div className="border-bottom pb-4 mb-5">
@@ -387,7 +380,7 @@ const {
                   {/* DATOS DE FACTURACIÓN */}
                   <div className=" mb-0">
 
-                    <h2 className="h3 font-bold mb-4">
+                    <h2 className="h3 font-bold text-black mb-4">
                       Datos de facturación
                     </h2>
 
@@ -429,12 +422,12 @@ const {
                         <input type="text" className="form-control" required />
                       </div>
 
-                      <div className="col-md-2 mb-3">
+                      <div className="col-7 col-md-2 mb-3">
                         <label className="form-label">Número *</label>
                         <input type="text" className="form-control" required />
                       </div>
 
-                      <div className="col-md-2 mb-3">
+                      <div className="col-5 col-md-2 mb-3">
                         <label className="form-label">Depto.</label>
                         <input type="text" className="form-control" />
                       </div>
@@ -453,22 +446,21 @@ const {
 
                   </div>
 
-                </div>
               </div>
 
 
 
 
               {/* BOTÓN FINAL */}
-              <div className="d-flex flex-column flex-md-row justify-content-between align-items-center mb-10 mb-md-0 mt-4">
-                <Link to="/cart" className="order-2 order-md-1">
+              <div className="d-flex flex-md-column flex-row justify-content-between align-items-center mb-10 mb-md-0 mt-4">
+                <Link to="/cart">
                   <small className="bi bi-arrow-left me-1"></small>
-                  Regresar a mi Carrito
+                  Regresar <span className="d-none d-inline">a mi Carrito</span>
                 </Link>
 
                 <button
                   type="submit"
-                  className="btn btn-primary btn-sm font-16 px-6 order-1 order-md-2 mb-5 mb-md-0"
+                  className="btn btn-primary btn-sm font-16 px-6 order-1 order-md-2 mb-0"
                 >
                   Continuar
                 </button>

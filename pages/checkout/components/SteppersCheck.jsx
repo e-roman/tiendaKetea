@@ -56,7 +56,12 @@ export default function SteppersCheck() {
                 </span>
 
                 <span className="stepper-step-label">
-                  {step.label}
+                  <span className="label-desktop">{step.label}</span>
+                  <span className="label-mobile">
+                    {step.id === 1 && "Datos"}
+                    {step.id === 2 && "Entrega"}
+                    {step.id === 3 && "Pago"}
+                  </span>
                 </span>
               </button>
 
