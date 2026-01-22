@@ -56,7 +56,7 @@ export default function Home() {
       {/* Productos Destacados */}
       <div className="container py-4 content-space-lg-1 px-0 px-md-3">
          <div className="w-100 d-flex align-items-center justify-content-between mb-3 px-3 px-md-0">
-          <h3 className="font-medium mb-0">
+          <h3 className="title-sections-hm font-medium mb-0">
             Últimas novedades <span className="d-none d-md-inline">en robots limpia piscinas.</span>
           </h3>
           <div className="ps-md-2">

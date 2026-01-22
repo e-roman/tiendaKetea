@@ -68,7 +68,7 @@ export default function BlockServices() {
               <div className="line"> </div>
               <div className="container">
                   <div className="icon-container">
-                      <img className="icon-service" src="./assets/svg/illustrations/truk.svg"  style={{maxWidth:"100%"}}/>
+                      <img className="icon-service icon-truck" src="./assets/svg/illustrations/truk.svg"  style={{maxWidth:"100%"}}/>
                   </div>
                   <div>
                       <p> Envío gratuito </p>

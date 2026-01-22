@@ -3842,8 +3842,9 @@ header{
 .services-box .icon-service {
     height: 30px;
 }
-
-
+.services-box .icon-service.icon-truck {
+    height: 36px;
+}
 
 
 
