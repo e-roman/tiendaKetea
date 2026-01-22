@@ -112,7 +112,7 @@ const handleToggleFavorite = () => {
 
             {product.discount > 0 && (
               <li>
-                <span className="badge badge-red font-12 py-1 px-1">
+                <span className="badge badge-yellow font-12 py-1 px-1">
                   -{product.discount}% OFF
                 </span>
               </li>

@@ -768,6 +768,11 @@ ul, ol {
     width: 280px;
 }
 
+
+ .bg-cuotas {
+    background-color: #dcdff1 !important;
+    color: #2f43ad !important;
+}
 .bg-send {
     background-color: rgba(0, 166, 80, .1) !important;
     color: #00a650 !important;
@@ -779,6 +784,11 @@ ul, ol {
 .badge-red {
     --bs-bg-opacity: 1;
     background-color: rgb(217, 49, 117) !important;
+}
+.badge-yellow {
+    --bs-bg-opacity: 1;
+    background-color: #ffe788 !important;
+    color: #000;
 }
 .card-pinned-bottom-start {
     bottom: 0.3rem;
@@ -1027,7 +1037,7 @@ button#notificationsDropdown:after {
     padding-top: 2px;
 }
 .bi-heart-fill {
-    color: #848484;
+    color: #344fb1;
 }
 .dropdown-input-wrap {
     display: none;

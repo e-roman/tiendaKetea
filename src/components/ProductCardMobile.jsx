@@ -63,7 +63,7 @@ export default function ProductCardMobile({ product, openProduct }) {
 
         {product.cuotasLabelBadge && (
           <div className="card-pinned-top-start">
-            <span className="badge py-1 px-2 badge-blue">{product.cuotasLabelBadge}</span>
+            <span className="badge py-1 px-2 bg-primary">{product.cuotasLabelBadge}</span>
           </div>
         )}
       </div>
@@ -92,7 +92,7 @@ export default function ProductCardMobile({ product, openProduct }) {
             </li>
             {product.discount > 0 && (
               <li>
-                <span className="badge font-12 py-1 px-2 badge-red">
+                <span className="badge font-12 py-1 px-2 badge-yellow">
                   -{product.discount}% OFF
                 </span>
               </li>
@@ -110,7 +110,7 @@ export default function ProductCardMobile({ product, openProduct }) {
         {product.envioGratis || product.retiroInmediato || !product.stock ? (
           <div className="pt-1">
             {!product.stock ? (
-              <span className="badge py-1 px-2 badge-red text-white">
+              <span className="badge py-1 px-2 badge-yellow text-white">
                 Sin Stock
               </span>
             ) : (
