@@ -120,7 +120,7 @@ export default function MyCart() {
                                   {item.stock ? (
                                     <>
                                       {item.discount > 0 && (
-                                        <span className="badge py-1 px-2 badge-blue me-1">
+                                        <span className="badge py-1 px-2 badge-yellow me-1">
                                           -{item.discount}%
                                         </span>
                                       )}

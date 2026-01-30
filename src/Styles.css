@@ -171,7 +171,7 @@ button.btn-search {
     top: 2%;
     right: 1%;
     z-index: 999999999999999 !important;
-    box-shadow: rgb(159 158 166 / 10%) 0px 8px 25px;
+    box-shadow: 0 .6125rem 2.5rem .6125rem rgba(140,152,164,.175);
     padding: 12px;
     border-radius: 8px;
     max-width: 360px;

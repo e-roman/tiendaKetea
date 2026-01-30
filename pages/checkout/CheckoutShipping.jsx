@@ -427,7 +427,7 @@ export default function CheckoutShipping() {
                 </div>
 
                 {/* ================= ACTIONS ================= */}
-                <div className="d-flex flex-md-column flex-row justify-content-between align-items-center mb-10 mb-md-0 mt-4">
+                <div className="d-flex justify-content-between align-items-center mb-10 mb-md-0 mt-4">
                   <Link to="/checkout">
                     <i className="bi bi-arrow-left"></i> Regresar
                   </Link>

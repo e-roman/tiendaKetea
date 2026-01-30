@@ -353,7 +353,7 @@ const {
 
           {/* LEFT COLUMN Payments Methods*/}
           <div className="col-lg-8 pe-md-4">
-            <div className="py-4 px-0 px-md-4 mb-md-4">
+            <div className="py-4 px-0 mb-md-4">
                 <h4 className="h3 font-bold mb-4">Método de pago</h4>
 
                 {/* ===== MODO ===== */}

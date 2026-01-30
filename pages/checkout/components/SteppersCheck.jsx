@@ -28,7 +28,7 @@ export default function SteppersCheck() {
 
   return (
     <div className="stepper">
-      <ol className="stepper-steps">
+      <ol className="stepper-steps gap-md-5">
         {steps.map((step, index) => {
           const isComplete = index < currentIndex;
           const isActive = index === currentIndex;
