@@ -108,13 +108,13 @@ useEffect(() => {
     <div className="bg-light">
       {/* HEADER CON BREADCRUMB DINÁMICO */}
       <div className="navbar-dark bg-light">
-        <div className="container py-3 content-space-t-lg-1 content-space-b-lg-2">
+        <div className="container py-3 content-space-t-lg-1 pb-lg-4">
           <div className="row align-items-center">
             <div className="col d-flex justify-content-between">
               <div className="d-none d-lg-block">
                 <h1 className="h2 text-dark font-bold">Mi Cuenta</h1>
               </div>
-              <nav aria-label="breadcrumb">
+              {/* <nav aria-label="breadcrumb">
                 <ol className="breadcrumb breadcrumb-light mb-0">
                   <li className="breadcrumb-item text-dark">
                     {BREADCRUMB_DATA[currentView]?.section || "Mi Cuenta"}
@@ -123,7 +123,7 @@ useEffect(() => {
                     {BREADCRUMB_DATA[currentView]?.title || "Datos Personales"}
                   </li>
                 </ol>
-              </nav>
+              </nav> */}
 
               {/*Butotn mobile */}
               <div className="d-block d-lg-none">
@@ -152,7 +152,7 @@ useEffect(() => {
       </div>
 
       {/* CONTENIDO */}
-      <div className="container position-relative space-1 space-md-2 mt-lg-n10">
+      <div className="container position-relative content-space-b-lg-2">
         <div className="row">
 
           <div className="col-lg-3">

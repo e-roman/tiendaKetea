@@ -130,7 +130,7 @@ export default function AccountEditCardModal({ onClose }) {
                     </button>
                     <button
                         type="button"
-                        className="btn btn-sm border-0 btn-white px-6 w-100 w-md-auto
+                        className="btn btn-sm btn-white px-6 w-100 w-md-auto
                                 order-2 order-md-1"
                         onClick={onClose}
                     >

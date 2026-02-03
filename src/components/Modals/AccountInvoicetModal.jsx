@@ -89,8 +89,8 @@ export default function AccountInvoicetModal({ onClose }) {
 
           <li className="list-group-item text-dark">
             <div className="d-flex justify-content-between align-items-center">
-              <span>Cargo por servicio / gestión</span>
-              <span>$52.8</span>
+              <span>Envío Express</span>
+              <span>$25.000</span>
             </div>
           </li>
 

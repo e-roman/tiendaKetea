@@ -452,7 +452,7 @@ const {
 
 
               {/* BOTÓN FINAL */}
-              <div className="d-flex flex-md-column flex-row justify-content-between align-items-center mb-10 mb-md-0 mt-4">
+              <div className="d-flex flex-row justify-content-between align-items-center mb-10 mb-md-0 mt-4">
                 <Link to="/cart">
                   <small className="bi bi-arrow-left me-1"></small>
                   Regresar <span className="d-none d-inline">a mi Carrito</span>
