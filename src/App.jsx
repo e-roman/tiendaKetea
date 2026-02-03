@@ -73,31 +73,32 @@ const [showLogoutModal, setShowLogoutModal] = useState(false);
       <AlertFloating />
       <SidebarCart />
 
-      {!loading && (
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/novedades" element={<NovedadesPage />} />
-          <Route path="/descuentos" element={<DescuentosPage />} />
-          <Route path="/Mas-vendido" element={<MasVendidoPage />} />
-          <Route path="/product/:slug" element={<ProductPage />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/checkout/entrega" element={<CheckoutShipping />} />
-          <Route path="/checkout/pago" element={<CheckoutPayment />} />
-          <Route path="/pago-realizado" element={<OrderComplete />} />
-          <Route path="/buscar/:query" element={<SearchResults />} />
-          <Route path="/pages/Profile" element={<MyProfile />} />
-        </Routes>
-      )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/novedades" element={<NovedadesPage />} />
+        <Route path="/descuentos" element={<DescuentosPage />} />
+        <Route path="/Mas-vendido" element={<MasVendidoPage />} />
+        <Route path="/product/:slug" element={<ProductPage />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout/entrega" element={<CheckoutShipping />} />
+        <Route path="/checkout/pago" element={<CheckoutPayment />} />
+        <Route path="/pago-realizado" element={<OrderComplete />} />
+        <Route path="/buscar/:query" element={<SearchResults />} />
+        <Route path="/pages/Profile" element={<MyProfile />} />
+      </Routes>
 
       {!hideComponent && <Footer />}
+
       <Login />
+
       {showLogoutModal && (
         <LogoutModal
           show={showLogoutModal}
           onClose={() => setShowLogoutModal(false)}
         />
       )}
+
       <SupportChat />
     </FloatingAlertProvider>
   );
