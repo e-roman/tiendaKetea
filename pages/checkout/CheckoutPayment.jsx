@@ -524,8 +524,8 @@ const {
                       </select>
                     </div>
 
-                    <Link to="/pago-realizado" className="btn btn-danger px-10 w-100 py-2">
-                      Pagar
+                    <Link to="/pago-realizado" className="btn btn-danger px-10 w-100 py-2 font-medium">
+                      <span className="py-1 py-1 d-block">Pagar</span>
                     </Link>
 
                   </div>

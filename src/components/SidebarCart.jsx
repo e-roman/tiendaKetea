@@ -45,7 +45,7 @@ const {
   };
 
   return (
-    <div className="offcanvas offcanvas-end" id="cartOffcanvas" tabIndex="-1">
+    <div className="offcanvas offcanvas-end show" id="cartOffcanvas" tabIndex="-1" aria-modal="true" role="dialog">
       {/* HEADER */}
       <div className="offcanvas-header justify-content-between align-items-center border-bottom py-3 px-3">
         <h4 className="font-bold mb-0">Carrito de Compras</h4>
@@ -283,7 +283,7 @@ const {
               </h2>
             </div>
 
-          <div className="mb-md-3 w-100">
+          <div className="w-100">
             <button className="btn btn-primary font-18 px-6 w-100" onClick={handleStartCheckout}>
               Iniciar compra
             </button>
