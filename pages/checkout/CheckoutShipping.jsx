@@ -444,99 +444,107 @@ export default function CheckoutShipping() {
               <div ref={summaryWrapperRef}>
                   <div ref={summaryRef} className="summary-js-sticky">
 
-                    <div className="bg-white rounded border px-3 pt-4 pb-5 py-md-4 px-md-4 mb-3">
-                      <div className="mb-5 border-bottom pb-2">
-                        <h4 className="font-bold">Resumen de la compra</h4>
-                      </div>
+<div className="bg-white rounded border px-3 pt-4 pb-5 py-md-4 px-md-4 mb-3">
+  <div className="mb-5 border-bottom pb-2">
+    <h4 className="font-bold">Resumen de la compra</h4>
+  </div>
 
-                      {/* LISTA DEL CARRITO */}
-                      {cart.length === 0 && (
-                        <p className="text-muted">No hay productos en el carrito.</p>
-                      )}
+  <div className="border-bottom pb-4 mb-4">
+    <div className="media">
+      <div className="position-relative max-width-10 w-100 me-3">
+        <img
+          className="img-fluid"
+          alt="Robot limpia piscina Dolphin Pool Up"
+          src="../assets/img/products/dolphin-Pool-up.png"
+        />
+        <span className="badge badge-sm bg-primary badge-pos rounded-circle">
+          3
+        </span>
+      </div>
+      <div className="media-body">
+        <h2 className="h6 font-light">
+          Robot limpia piscina Dolphin Pool Up
+        </h2>
+        <div className="mt-1">$2.078.055</div>
+      </div>
+    </div>
+  </div>
 
-                      {cart.map((product) => (
-                        <div key={product.id} className="border-bottom pb-4 mb-4">
-                          <div className="media">
-                            <div className="position-relative max-width-10 w-100 me-3">
-                              <img
-                                className="img-fluid"
-                                src={product.image}
-                                alt={product.title}
-                              />
-                              <span className="badge badge-sm bg-primary badge-pos rounded-circle">
-                                {product.quantity || 1}
-                              </span>
-                            </div>
+  <div className="border-bottom pb-4 mb-4">
+    <div className="media">
+      <div className="position-relative max-width-10 w-100 me-3">
+        <img
+          className="img-fluid"
+          alt="Pastillas Cloro Multiacción Nataclor 1kg"
+          src="../assets/img/products/Pastillas-Cloro-Multiacción-Nataclor-1kg.png"
+        />
+        <span className="badge badge-sm bg-primary badge-pos rounded-circle">
+          1
+        </span>
+      </div>
+      <div className="media-body">
+        <h2 className="h6 font-light">
+          Pastillas Cloro Multiacción Nataclor 1kg
+        </h2>
+        <div className="mt-1">$148.900</div>
+      </div>
+    </div>
+  </div>
 
-                            <div className="media-body">
-                              <h2 className="h6 font-light">{product.title}</h2>
-                              <div className="mt-1">
-                                ${product.price.toLocaleString("es-AR")}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
+  <div className="border-bottom pb-4 mb-4">
+    <div className="media">
+      <div className="position-relative max-width-10 w-100 me-3">
+        <img
+          className="img-fluid"
+          alt="Válvula Multipuerto Hayward SP0714T"
+          src="../assets/img/products/valvula-multipuerto-hayward.png"
+        />
+        <span className="badge badge-sm bg-primary badge-pos rounded-circle">
+          1
+        </span>
+      </div>
+      <div className="media-body">
+        <h2 className="h6 font-light">
+          Válvula Multipuerto Hayward SP0714T
+        </h2>
+        <div className="mt-1">$221.588</div>
+      </div>
+    </div>
+  </div>
 
-                      {/* SUBTOTALES */}
-                      <div className="border-bottom pb-2 mb-4">
+  <div className="border-bottom pb-2 mb-4">
+    <div className="media align-items-center mb-3">
+      <span className="text-dark font-15 me-3">
+        Producto(s) <b>(3)</b>
+      </span>
+      <div className="media-body text-end">
+        <span className="text-dark">$6.604.653</span>
+      </div>
+    </div>
 
-                        <div className="media align-items-center mb-3">
-                          <span className="text-dark font-15 me-3">
-                            Producto ({cart.length})
-                          </span>
-                          <div className="media-body text-end">
-                            <span className="text-dark">
-                              $
-                              {cart
-                                .reduce(
-                                  (acc, p) => acc + p.price * (p.quantity || 1),
-                                  0
-                                )
-                                .toLocaleString("es-AR")}
-                            </span>
-                          </div>
-                        </div>
+    <div className="media align-items-center mb-3">
+      <span className="text-dark font-15 me-3">
+        Método de envío
+      </span>
+      <div className="media-body text-end">
+        <span className="text-dark font-15">Envío Express</span>
+      </div>
+    </div>
 
-                        {/* MÉTODO DE ENVÍO */}
-                        <div className="media align-items-center mb-3">
-                          <span className="text-dark font-15 me-3">
-                            Método de envío
-                          </span>
-                          <div className="media-body text-end">
-                            <span className="text-dark font-15">
-                              {deliveryType === "pickup"
-                                ? "Retiro en el local"
-                                : shipping === "express"
-                                ? "Envío Express"
-                                : "Envío Gratis"}
-                            </span>
-                          </div>
-                        </div>
+    <div className="d-flex justify-content-between mb-2">
+      <span className="text-dark font-15">Costo de envío</span>
+      <span className="text-dark">$25.500</span>
+    </div>
+  </div>
 
-                        {/* COSTO DE ENVÍO SOLO EXPRESS */}
-                        {deliveryType === "delivery" && shipping === "express" && (
-                          <div className="d-flex justify-content-between mb-2">
-                            <span className="text-dark font-15">
-                              Costo de envío
-                            </span>
-                            <span className="text-dark">$25.500</span>
-                          </div>
-                        )}
+  <div className="media align-items-center">
+    <h4 className="h4 font-medium mb-0 me-3">Total</h4>
+    <div className="media-body text-end">
+      <span className="h3 font-bold text-dark">$6.630.153</span>
+    </div>
+  </div>
+</div>
 
-                      </div>
-
-                      {/* TOTAL */}
-                      <div className="media align-items-center">
-                        <h4 className="h4 font-medium mb-0 me-3">Total</h4>
-                        <div className="media-body text-end">
-                          <span className="h3 font-bold text-dark">
-                            ${total.toLocaleString("es-AR")}
-                          </span>
-                        </div>
-                      </div>
-
-                    </div>
                   </div>
                 </div>
             </div>
