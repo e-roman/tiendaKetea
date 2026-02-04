@@ -130,20 +130,7 @@ export default function MainHeader() {
     };
   }, []);
 
-useEffect(() => {
-  const value = "Robot";
 
-  setQuery(value);
-  setShowRecent(false);
-
-  const filtered = products
-    .filter(item =>
-      item.title.toLowerCase().includes(value.toLowerCase())
-    )
-    .slice(0, 6);
-
-  setResults(filtered);
-}, []);
   return (
     <header className="py-2 border-bottom">
       <div className="container d-flex align-items-center justify-content-between">
