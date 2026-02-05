@@ -212,6 +212,14 @@ button.btn-search {
     color: rgb(36, 36, 51);
 }
 
+.alert-close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border:none;
+    background-color: transparent;
+    font-size:20px
+}
 
 @keyframes slideIn {
   from {

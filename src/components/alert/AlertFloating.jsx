@@ -2,7 +2,8 @@ import React from "react";
 import { useFloatingAlert } from "@/context/FloatingAlertContext";
 
 export default function AlertFloating() {
-  const { alert } = useFloatingAlert();
+  const { alert, hideAlert } = useFloatingAlert();
+
   if (!alert.visible || !alert.product) return null;
 
   const { product, action } = alert;
@@ -11,7 +12,16 @@ export default function AlertFloating() {
     value ? value.toLocaleString("es-AR") : "0";
 
   return (
-    <div className="alert-floating-box border">
+    <div className="alert-floating-box border position-fixed">
+      <button
+        type="button"
+        className="alert-close-btn"
+        onClick={hideAlert}
+      >
+        <i class="bi bi-x"></i>
+
+      </button>
+
       <div className="d-flex align-items-center gap-2">
         <img src={product.image} alt={product.title} />
 
@@ -21,8 +31,14 @@ export default function AlertFloating() {
             {action === "favorite-add" && "Agregaste el producto"}
             {action === "favorite-remove" && "Eliminaste el producto"}
           </p>
-          <p className="alert-title mb-2 text-dark">{product.title}</p>
-          <p className="alert-price text-dark mb-0">${formatPrice(product.price)}</p>
+
+          <p className="alert-title mb-2 text-dark">
+            {product.title}
+          </p>
+
+          <p className="alert-price text-dark mb-0">
+            ${formatPrice(product.price)}
+          </p>
         </div>
       </div>
     </div>

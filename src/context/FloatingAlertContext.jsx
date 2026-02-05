@@ -5,15 +5,15 @@ const FloatingAlertContext = createContext(null);
 export function FloatingAlertProvider({ children }) {
   const [alert, setAlert] = useState({
     visible: false,
-    type: "success",
     action: null,
     product: null,
   });
 
-  const showAlert = (data) => {
+  const showAlert = ({ product, action }) => {
     setAlert({
       visible: true,
-      ...data,
+      product,
+      action,
     });
 
     setTimeout(() => {
@@ -21,8 +21,18 @@ export function FloatingAlertProvider({ children }) {
     }, 4000);
   };
 
+  const hideAlert = () => {
+    setAlert({
+      visible: false,
+      product: null,
+      action: null,
+    });
+  };
+
   return (
-    <FloatingAlertContext.Provider value={{ alert, showAlert }}>
+    <FloatingAlertContext.Provider
+      value={{ alert, showAlert, hideAlert }}
+    >
       {children}
     </FloatingAlertContext.Provider>
   );
