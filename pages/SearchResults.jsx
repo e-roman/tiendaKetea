@@ -151,9 +151,11 @@ const resetFilters = () => {
   const noResultsFromSearch = noResults && !hasActiveFilters;
 
     /*MOBILE */
-  const [showFiltersMobile, setShowFiltersMobile] = useState(false);
+  const [showFiltersMobile, setShowFiltersMobile] = useState(true);
   const [showSortMobile, setShowSortMobile] = useState(false);
 
+
+  
   return (
 
     <>
