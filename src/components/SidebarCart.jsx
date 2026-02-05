@@ -45,7 +45,7 @@ const {
   };
 
   return (
-    <div className="offcanvas offcanvas-end" id="cartOffcanvas" tabIndex="-1">
+    <div className="offcanvas offcanvas-end show" id="cartOffcanvas" tabIndex="-1">
       {/* HEADER */}
       <div className="offcanvas-header justify-content-between align-items-center border-bottom py-3 px-3">
         <h4 className="font-bold mb-0">Carrito de Compras</h4>
