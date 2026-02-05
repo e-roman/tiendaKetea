@@ -69,284 +69,119 @@ export default function MyCart() {
           {/* LEFT COLUMN - PRODUCTS */}
           <div className="col-lg-8">
 
-<form>
-  {/* CARD 1 */}
-  <div className="card shadow-none border mb-3">
-    <div className="card-body px-4 pt-4 pb-5 pt-md-5 pb-md-3 px-md-4">
-      <div className="border-bottom pb-3 mb-3">
-        <div className="row">
-          <div className="col-md-6 mb-3 mb-md-0">
-            <div className="media">
-              <div className="max-width-15 w-100 me-3">
-                <img
-                  className="img-fluid"
-                  alt="Robot limpia piscina Dolphin Pool Up"
-                  src="../assets/img/products/dolphin-Pool-up.png"
-                />
-              </div>
+            <form>    
+              {cart.map((item) => (
+                <div key={item.slug} className="card shadow-none border mb-3">
+                  <div className="card-body px-4 pt-4 pb-5 pt-md-5 pb-md-3 px-md-4">
 
-              <div className="media-body">
-                <a
-                  className="text-dark text-decoration-none"
-                  href="/product/robot-limpia-piscinas-dolphin-pool-up"
-                >
-                  <h2 className="h5 mb-1">
-                    Robot limpia piscina Dolphin Pool Up
-                  </h2>
-                </a>
 
-                <div className="pricing-meta my-1">
-                  <ul className="d-flex align-items-center p-0 m-0 list-unstyled">
-                    <li className="old-price me-2">$2.308.950</li>
-                    <li className="current-price font-medium">
-                      $2.078.055
-                    </li>
-                  </ul>
+                      {cart.length === 0 && (
+                        <p className="text-muted">Tu carrito está vacío.</p>
+                      )}
+
+                      
+                        <div className="border-bottom pb-3 mb-3">
+                          <div className="row">
+
+                            {/* IMAGE + INFO */}
+                            <div className="col-md-6 mb-3 mb-md-0">
+                              <div className="media">
+                                <div className="max-width-15 w-100 me-3">
+                                  <img
+                                    className="img-fluid"
+                                    src={item.image}
+                                    alt={item.title}
+                                  />
+                                </div>
+
+                                <div className="media-body">
+                                  <Link
+                                    to={`/product/${item.slug}`}
+                                    className="text-dark text-decoration-none"
+                                  >
+                                    <h2 className="h5 mb-1">{item.title}</h2>
+                                  </Link>
+
+                                  {/* PRECIOS (oldPrice + price) */}
+                                  <div className="pricing-meta my-1">
+                                    <ul className="d-flex align-items-center p-0 m-0 list-unstyled">
+                                      {item.oldPrice && (
+                                        <li className="old-price me-2">
+                                          ${item.oldPrice.toLocaleString()}
+                                        </li>
+                                      )}
+                                      <li className="current-price font-medium">
+                                        ${item.price.toLocaleString()}
+                                      </li>
+                                    </ul>
+                                  </div>
+
+                                  {/* BADGES */}
+                                  {item.stock ? (
+                                    <>
+                                      {item.discount > 0 && (
+                                        <span className="badge py-1 px-2 badge-yellow me-1">
+                                          -{item.discount}%
+                                        </span>
+                                      )}
+
+                                      {item.envioGratis && (
+                                        <span className="badge py-1 px-2 bg-send text-white me-1">
+                                          Envío Gratis
+                                        </span>
+                                      )}
+                                    </>
+                                  ) : (
+                                    <span className="badge py-1 px-2 bg-danger text-white">
+                                      Sin Stock
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+
+                            {/* QUANTITY + REMOVE */}
+                            <div className="col-5 col-md-2 offset-md-1">
+
+                              {/* Quantity + Price */}
+                              <div className="d-flex align-items-center justify-content-between gap-3 mb-3">
+                                <QuantityControl
+                                  item={item}
+                                  onIncrease={increase}
+                                  onDecrease={decrease}
+                                />
+                              </div>
+
+                              <button
+                                type="button"
+                                onClick={() => removeFromCart(item.id)}
+                                className="d-block text-dark font-size-1 mb-1 bg-transparent border-0 p-0"
+                              >
+                                <i className="bi bi-trash me-1"></i>
+                                Eliminar
+                              </button>
+                            </div>
+
+                            {/* PRICE (final individual) */}
+                            <div className="col-6 col-md-3 text-md-right">
+                              <span className="font-bold text-dark">
+                                ${(item.price * item.quantity).toLocaleString("es-AR")}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      
+
+
+                    
+
+                    <div>
+                      <p className="font-14 font-medium text-dark m-0">Llega en 1 día hábil seleccionando <b>Envío Express</b> al comprar</p>
+                    </div>
+                  </div>
                 </div>
-
-                <span className="badge py-1 px-2 badge-yellow me-1">
-                  -25%
-                </span>
-                <span className="badge py-1 px-2 bg-send text-white me-1">
-                  Envío Gratis
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-5 col-md-2 offset-md-1">
-            <div className="d-flex align-items-center justify-content-between gap-3 mb-3">
-              <div className="border rounded btn-i-d d-flex align-items-center justify-content-between w-100">
-                <button
-                  type="button"
-                  className="btn btn-icon btn-xs px-1 rounded-circle"
-                  disabled
-                >
-                  <h4 className="btn-icon__inner font-normal mb-0">-</h4>
-                </button>
-
-                <div className="w-25 d-flex justify-content-center">
-                  <input
-                    className="form-control lh-1 border-0 rounded p-0 text-center"
-                    type="text"
-                    value="1"
-                    readOnly
-                  />
-                </div>
-
-                <button
-                  type="button"
-                  className="btn btn-icon btn-xs px-1 rounded-circle"
-                >
-                  <h4 className="btn-icon__inner font-normal mb-0">+</h4>
-                </button>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              className="d-block text-dark font-size-1 mb-1 bg-transparent border-0 p-0"
-            >
-              <i className="bi bi-trash me-1" />
-              Eliminar
-            </button>
-          </div>
-
-          <div className="col-6 col-md-3 text-md-right">
-            <span className="font-bold text-dark">$2.078.055</span>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <p className="font-14 font-medium text-dark m-0">
-          Llega en 1 día hábil seleccionando <b>Envío Express</b> al comprar
-        </p>
-      </div>
-    </div>
-  </div>
-
-  {/* CARD 2 */}
-  <div className="card shadow-none border mb-3">
-    <div className="card-body px-4 pt-4 pb-5 pt-md-5 pb-md-3 px-md-4">
-      <div className="border-bottom pb-3 mb-3">
-        <div className="row">
-          <div className="col-md-6 mb-3 mb-md-0">
-            <div className="media">
-              <div className="max-width-15 w-100 me-3">
-                <img
-                  className="img-fluid"
-                  alt="Cloro Granulado Activo Nataclor 20kg"
-                  src="../assets/img/products/granulado.png"
-                />
-              </div>
-
-              <div className="media-body">
-                <a
-                  className="text-dark text-decoration-none"
-                  href="/product/cloro-granulado-nataclor-20kg"
-                >
-                  <h2 className="h5 mb-1">
-                    Cloro Granulado Activo Nataclor 20kg
-                  </h2>
-                </a>
-
-                <div className="pricing-meta my-1">
-                  <ul className="d-flex align-items-center p-0 m-0 list-unstyled">
-                    <li className="current-price font-medium">
-                      $206.394
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-5 col-md-2 offset-md-1">
-            <div className="d-flex align-items-center justify-content-between gap-3 mb-3">
-              <div className="border rounded btn-i-d d-flex align-items-center justify-content-between w-100">
-                <button
-                  type="button"
-                  className="btn btn-icon btn-xs px-1 rounded-circle"
-                  disabled
-                >
-                  <h4 className="btn-icon__inner font-normal mb-0">-</h4>
-                </button>
-
-                <div className="w-25 d-flex justify-content-center">
-                  <input
-                    className="form-control lh-1 border-0 rounded p-0 text-center"
-                    type="text"
-                    value="1"
-                    readOnly
-                  />
-                </div>
-
-                <button
-                  type="button"
-                  className="btn btn-icon btn-xs px-1 rounded-circle"
-                >
-                  <h4 className="btn-icon__inner font-normal mb-0">+</h4>
-                </button>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              className="d-block text-dark font-size-1 mb-1 bg-transparent border-0 p-0"
-            >
-              <i className="bi bi-trash me-1" />
-              Eliminar
-            </button>
-          </div>
-
-          <div className="col-6 col-md-3 text-md-right">
-            <span className="font-bold text-dark">$206.394</span>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <p className="font-14 font-medium text-dark m-0">
-          Llega en 1 día hábil seleccionando <b>Envío Express</b> al comprar
-        </p>
-      </div>
-    </div>
-  </div>
-
-  {/* CARD 3 */}
-  <div className="card shadow-none border mb-3">
-    <div className="card-body px-4 pt-4 pb-5 pt-md-5 pb-md-3 px-md-4">
-      <div className="border-bottom pb-3 mb-3">
-        <div className="row">
-          <div className="col-md-6 mb-3 mb-md-0">
-            <div className="media">
-              <div className="max-width-15 w-100 me-3">
-                <img
-                  className="img-fluid"
-                  alt="Válvula Multipuerto Hayward SP0714T"
-                  src="../assets/img/products/valvula-multipuerto-hayward.png"
-                />
-              </div>
-
-              <div className="media-body">
-                <a
-                  className="text-dark text-decoration-none"
-                  href="/product/valvula-multipuerto-hayward-sp0714t"
-                >
-                  <h2 className="h5 mb-1">
-                    Válvula Multipuerto Hayward SP0714T
-                  </h2>
-                </a>
-
-                <div className="pricing-meta my-1">
-                  <ul className="d-flex align-items-center p-0 m-0 list-unstyled">
-                    <li className="old-price me-2">$248.000</li>
-                    <li className="current-price font-medium">
-                      $221.588
-                    </li>
-                  </ul>
-                </div>
-
-                <span className="badge py-1 px-2 badge-yellow me-1">
-                  -11%
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-5 col-md-2 offset-md-1">
-            <div className="d-flex align-items-center justify-content-between gap-3 mb-3">
-              <div className="border rounded btn-i-d d-flex align-items-center justify-content-between w-100">
-                <button
-                  type="button"
-                  className="btn btn-icon btn-xs px-1 rounded-circle"
-                  disabled
-                >
-                  <h4 className="btn-icon__inner font-normal mb-0">-</h4>
-                </button>
-
-                <div className="w-25 d-flex justify-content-center">
-                  <input
-                    className="form-control lh-1 border-0 rounded p-0 text-center"
-                    type="text"
-                    value="1"
-                    readOnly
-                  />
-                </div>
-
-                <button
-                  type="button"
-                  className="btn btn-icon btn-xs px-1 rounded-circle"
-                >
-                  <h4 className="btn-icon__inner font-normal mb-0">+</h4>
-                </button>
-              </div>
-            </div>
-
-            <button
-              type="button"
-              className="d-block text-dark font-size-1 mb-1 bg-transparent border-0 p-0"
-            >
-              <i className="bi bi-trash me-1" />
-              Eliminar
-            </button>
-          </div>
-
-          <div className="col-6 col-md-3 text-md-right">
-            <span className="font-bold text-dark">$221.588</span>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <p className="font-14 font-medium text-dark m-0">
-          Llega en 1 día hábil seleccionando <b>Envío Express</b> al comprar
-        </p>
-      </div>
-    </div>
-  </div>
-</form>
+              ))}  
+            </form>        
 
 
 
