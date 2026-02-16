@@ -34,7 +34,7 @@ export default function DescuentosPage() {
         <div
           className="bg-img-start"
           style={{
-            backgroundImage: "url(assets/img/900x900/img3.jpg)",
+           backgroundColor: "#CCCCCC",
             minHeight: "24rem",
           }}
         />

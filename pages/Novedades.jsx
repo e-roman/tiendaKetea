@@ -64,7 +64,7 @@ const visibles = [
             <div
               className="bg-img-start"
               style={{
-                backgroundImage: "url(assets/img/900x900/img3.jpg)",
+                backgroundColor: "#CCCCCC",
                 minHeight: "24rem",
               }}
             >
@@ -77,7 +77,7 @@ const visibles = [
       {/* PRODUCTOS DESTACADOS */}
       <div className="container content-space-t-0 content-space-b-1 content-space-lg-1 px-2 px-md-3">
 
-        <div className="w-md-100 mb-5 mb-md-4 d-md-flex align-items-center justify-content-between px-3 px-md-0">
+        {/* <div className="w-md-100 mb-5 mb-md-4 d-md-flex align-items-center justify-content-between px-3 px-md-0">
           <h3 className="font-medium pb-2 pb-md-0 mb-0">
             Productos Destacados
           </h3>
@@ -86,7 +86,7 @@ const visibles = [
               Ver todos
             </Link>
           </div>
-        </div>
+        </div> */}
 
         <div className="row g-2 g-md-2 row-cols-2 row-cols-md-3 row-cols-lg-5 mb-3 mb-md-6">
           {visibles.map((p) => (

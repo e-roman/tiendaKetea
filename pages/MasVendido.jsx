@@ -36,7 +36,7 @@ export default function MasVendidoPage() {
         <div
           className="bg-img-start"
           style={{
-            backgroundImage: "url(assets/img/900x900/img3.jpg)",
+            backgroundColor: "#CCCCCC",
             minHeight: "24rem",
           }}
         />
