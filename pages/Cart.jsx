@@ -126,13 +126,13 @@ export default function MyCart() {
                                       )}
 
                                       {item.envioGratis && (
-                                        <span className="badge py-1 px-2 bg-green text-white me-1">
+                                        <span className="badge py-1 px-2 badge-green text-white me-1">
                                           Envío Gratis
                                         </span>
                                       )}
                                     </>
                                   ) : (
-                                    <span className="badge py-1 px-2 bg-danger text-white">
+                                    <span className="badge py-1 px-2 badge-danger text-white">
                                       Sin Stock
                                     </span>
                                   )}
