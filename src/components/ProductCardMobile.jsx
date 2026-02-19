@@ -61,11 +61,11 @@ export default function ProductCardMobile({ product, openProduct }) {
           </button>
         </div>
 
-        {product.cuotasLabelBadge && (
+        {/* {product.cuotasLabelBadge && (
           <div className="card-pinned-top-start">
             <span className="badge py-1 px-2 bg-primary">{product.cuotasLabelBadge}</span>
           </div>
-        )}
+        )} */}
       </div>
 
       {/* Información principal */}
@@ -110,19 +110,19 @@ export default function ProductCardMobile({ product, openProduct }) {
         {product.envioGratis || product.retiroInmediato || !product.stock ? (
           <div className="pt-1">
             {!product.stock ? (
-              <span className="badge py-1 px-2 badge-yellow text-white">
+              <span className="badge py-1 px-2 badge-red text-white">
                 Sin Stock
               </span>
             ) : (
               <>
                 {product.envioGratis && (
-                  <span className="badge bg-send py-1 px-2 bg-dark me-1">
+                  <span className="badge badge-green py-1 px-2 bg-dark me-1">
                     Envío Grátis
                   </span>
                 )}
 
                 {product.retiroInmediato && (
-                  <span className="badge bg-send py-1 px-2 bg-dark me-1">
+                  <span className="badge badge-green py-1 px-2 bg-dark me-1">
                     Retiralo Hoy
                   </span>
                 )}

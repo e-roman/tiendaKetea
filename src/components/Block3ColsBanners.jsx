@@ -16,7 +16,7 @@ export default function Block3ColsBanners() {
                       <span>Descuento del mes</span>
                     </div>
                     <div className="d-inline-block text-align-center height-auto card-link">
-                      <Link className="btn btn-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link>
+                      <Link className="btn btn-outline-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link>
                     </div>
                 </div>
                 <div className="banner-img">
@@ -35,7 +35,7 @@ export default function Block3ColsBanners() {
                       <span>Descuento del mes</span>
                     </div>
                     <div className="d-inline-block text-align-center height-auto card-link">
-                      <Link className="btn btn-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link>
+                      <Link className="btn btn-outline-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link>
                     </div>
                 </div>
                 <div className="banner-img">
@@ -54,7 +54,7 @@ export default function Block3ColsBanners() {
                         <span>Descuento del mes</span>
                       </div>
                       <div className="d-inline-block text-align-center height-auto card-link">
-                        <Link className="btn btn-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link>
+                        <Link className="btn btn-outline-primary btn-sm btn-transition px-4 font-medium" to="#">Ver Productos</Link>
                       </div>
                   </div>
                   <div className="banner-img">

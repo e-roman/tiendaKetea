@@ -36,7 +36,7 @@ export default function Block3ColsBanners() {
               <h2 className="card-title font-bold">Bombas de calor para piscinas</h2>
           </div>
           <div>
-            <Link className="btn btn-primary btn-sm btn-transition px-4 px-md-5" to="#">Ver Productos</Link>
+            <Link className="btn btn-outline-primary btn-sm btn-transition px-4 px-md-5" to="#">Ver Productos</Link>
           </div>
       </div>
       <div className="banner-img">
@@ -53,7 +53,7 @@ export default function Block3ColsBanners() {
                   <h2 className="card-title">Lanzamiento</h2>
                   <h3 className="card-title font-medium ">Robot Dolphin Pool up</h3>
                   <p className="card-text">Barrefondo Para Piscina</p>
-                  <a className="btn btn-primary btn-sm btn-transition px-6" href="#">Ver Producto</a>
+                  <a className="btn btn-outline-primary btn-sm btn-transition px-6" href="#">Ver Producto</a>
                 </div>
                 
 

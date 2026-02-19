@@ -121,7 +121,7 @@ export default function MyCart() {
                                     <>
                                       {item.discount > 0 && (
                                         <span className="badge py-1 px-2 badge-yellow me-1">
-                                          -{item.discount}%
+                                          -{item.discount}% OFF
                                         </span>
                                       )}
 

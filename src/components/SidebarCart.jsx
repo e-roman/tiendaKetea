@@ -96,7 +96,7 @@ const {
                         {product.stock ? (
                           <>
                             {product.discount > 0 && (
-                              <span className="badge py-1 px-2 badge-blue me-1">-{product.discount}%</span>
+                              <span className="badge py-1 px-2 badge-yellow me-1">-{product.discount}% OFF</span>
                             )}
                             {product.envioGratis && (
                               <span className="badge py-1 px-2 bg-send text-white me-1">Envío Gratis</span>

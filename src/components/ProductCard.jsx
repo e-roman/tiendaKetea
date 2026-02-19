@@ -76,11 +76,11 @@ const handleToggleFavorite = () => {
           </button>
         </div>
 
-        {product.cuotasLabelBadge && (
+        {/* {product.cuotasLabelBadge && (
           <div className="card-pinned-top-start">
              <span className="badge font-medium py-1 px-2 bg-primary">{product.cuotasLabelBadge}</span>
           </div>
-        )}
+        )} */}
       </div>
 
       {/* Información principal */}
@@ -105,7 +105,7 @@ const handleToggleFavorite = () => {
 
 
           <ul className="list-unstyled d-flex align-items-center gap-1">
-            <li className="current-price  text-dark">
+            <li className="current-price text-dark">
                ${formatPrice(product.price)}
             </li>
 
@@ -122,7 +122,7 @@ const handleToggleFavorite = () => {
 
         {product.installmentsLabel && (
           <p className="small mb-0 font-13 font-medium">
-            <span className="font-bold">{product.installmentsLabel}</span> sin interés
+            <span className="font-bold text-dark">{product.installmentsLabel}</span> sin interés
           </p>
         )}
 
@@ -136,13 +136,13 @@ const handleToggleFavorite = () => {
             ) : (
               <>
                 {product.envioGratis && (
-                  <span className="badge bg-send py-1 px-2 bg-dark me-1">
+                  <span className="badge badge-green py-1 px-2 me-1">
                     Envío Grátis
                   </span>
                 )}
 
                 {product.retiroInmediato && (
-                  <span className="badge bg-send py-1 px-2 bg-dark me-1">
+                  <span className="badge badge-green py-1 px-2 me-1">
                     Retiralo Hoy
                   </span>
                 )}

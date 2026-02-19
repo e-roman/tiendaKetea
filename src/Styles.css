@@ -747,7 +747,7 @@ ul, ol {
 .text-pay {
     font-size: .714rem;
     font-weight: 400;
-    color: #666 ;
+    color: #999999;
     margin: 0;
     line-height: 1.3;
     padding-top: 0.214rem;
@@ -781,22 +781,37 @@ ul, ol {
     background-color: #dcdff1 !important;
     color: #2f43ad !important;
 }
-.bg-send {
+
+.bg-shipping {
     background-color: rgba(0, 166, 80, .1) !important;
     color: #00a650 !important;
 }
+
+
 .badge-blue {
-    --bs-bg-opacity: 1;
-    background-color: rgb(111 150 250) !important;
+    color: #ffffff!important;
+    background-color: #2f43ad!important
 }
+.badge-green {
+    background-color: #e6f7ef!important;
+    color: #00a650!important;
+}
+.badge-gray {
+    color: #6B7280!important;
+    background-color: #F3F4F6 !important;
+}
+
 .badge-red {
-    --bs-bg-opacity: 1;
+    color: #ffffff!important;
+    background-color: #d93175 !important;
+}
+
+.badge-discount {
     background-color: rgb(217, 49, 117) !important;
 }
 .badge-yellow {
-    --bs-bg-opacity: 1;
-    background-color: #ffe788 !important;
-    color: #000;
+    background-color: #FFE082 !important;
+    color: #5C4300;
 }
 .card-pinned-bottom-start {
     bottom: 0.3rem;
@@ -929,7 +944,7 @@ button#notificationsDropdown:after {
     color: #fff;
     background-color: #377dff;
 }
-.badge {
+/* .badge {
     display: inline-block;
     padding: 0.25em 0.4em;
     font-size: 75%;
@@ -939,9 +954,19 @@ button#notificationsDropdown:after {
     border-radius: 0.3125rem;
     transition: all 0.2s ease-in-out;
     line-height: 1;
+} */
+
+.badge {
+    display: inline-block;
+    padding: 0.35em;
+    font-size: 75%;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 0.3125rem;
+    transition: all 0.2s ease-in-out;
+    line-height: 1;
+    font-weight: 600;
 }
-
-
 
 
 
@@ -1212,16 +1237,6 @@ footer .btn-icon.btn-social {
     position: absolute;
     right: 15px;
     top: 15px;
-}
-
-.badge-yellow {
-    background-color: #f4ffa8;
-    color: #000;
-}
-
-.badge-green {
-    background-color: #43d5b0;
-    color: #000;
 }
 
 
