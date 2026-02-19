@@ -44,7 +44,7 @@ export default function ProductGallery({ images = [] }) {
   return (
     <div className="wrapper-gallery">
       <div className="badge-discout-in">
-        <span className="badge badge-yellow py-2 px-2 text-dark rounded-1 font-16">
+        <span className="badge badge-yellow px-2 font-13">
           Mega Oferta Del Mes
         </span>
       </div>

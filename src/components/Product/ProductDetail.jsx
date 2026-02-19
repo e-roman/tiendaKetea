@@ -168,7 +168,7 @@ const handleStartCheckout = () => {
             )}
             {product.discount > 0 && (
               <div className="ms-2">
-                <span className="badge badge-yellow py-1 px-2 text-dark rounded-1 font-15">
+                <span className="badge badge-yellow font-13">
                   - {product.discount}% OFF
                 </span>
               </div>
@@ -303,22 +303,22 @@ const handleStartCheckout = () => {
       {/* MOBILE > Cantidad + carrito */}
       <div className="d-flex d-md-none gap-1 box_fixed-detail-mobile">
         <div className="d-flex align-items-cente gap-2 pb-1">
-            <div>
+            <div className="d-flex align-items-center">
               <span className="h2 font-bold mb-0">
                 ${formatAR(product.price)}
               </span>
             </div>
 
           {product.oldPrice && (
-            <div>
+            <div className="d-flex align-items-center">
               <span className="h4 text-secondary mb-0">
                 <del>${formatAR(product.oldPrice)}</del>
               </span>
             </div>
           )}
           {product.discount > 0 && (
-            <div>
-              <span className="badge badge-yellow py-1 px-2 text-dark rounded-1 font-15">
+            <div className="d-flex align-items-center">
+              <span className="badge badge-yellow font-15">
                 - {product.discount}% OFF
               </span>
             </div>

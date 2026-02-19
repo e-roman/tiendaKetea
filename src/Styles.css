@@ -4028,15 +4028,15 @@ header{
 
 
 .box_fixed-detail-mobile {
-    bottom: 0px;
+    bottom: 0;
     background-color: white;
     box-shadow: rgb(61 61 61 / 30%) 0px -8px 32px 0px;
     display: flex;
     flex-direction: column;
-    left: 0px;
+    left: 0;
     padding: 20px;
     position: fixed;
-    right: 0px;
+    right: 0;
     border-radius: 16px 16px 0px 0px;
     z-index: 2;
 }
