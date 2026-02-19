@@ -132,7 +132,7 @@ export default function ProductCardMobile({ product, openProduct }) {
         ) : null}
 
 
-        <div className="pt-2 pb-0">
+        <div className="pt-2 pb-3">
            <p className="text-pay">Pagá fácil y rápido con Mercado Pago o MODO</p>
         </div>
 
