@@ -289,6 +289,7 @@ const {
             </button>
           </div>
 
+
           {/* <div className="d-none d-md-block">
             <Link className="btn bg-white btn-sm px-6 w-100" data-bs-dismiss="offcanvas">
               Ver más Productos

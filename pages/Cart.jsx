@@ -338,7 +338,6 @@ export default function MyCart() {
               </div>
 
 
-
               {/* HELP */}
               <div className="pt-5">
                 <div className="media-body text-secondary small text-center">
