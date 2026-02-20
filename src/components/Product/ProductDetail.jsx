@@ -80,7 +80,17 @@ const openDiscountModal = (e) => {
 
 
 const handleStartCheckout = () => {
-  navigate("/cart");
+  const existing = cart.find(item => item.id === product.id);
+
+  if (existing) {
+    addToCart({ ...product, quantity: existing.quantity + quantity });
+  } else {
+    addToCart({ ...product, quantity });
+  }
+
+  setTimeout(() => {
+    navigate("/cart");
+  }, 0);
 };
   return (
     <>

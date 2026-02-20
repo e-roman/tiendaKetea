@@ -49,37 +49,51 @@ export default function MyCart() {
     }, 300);
   };
 
-  return (
-    <>
-
-
-
-
+return (
+  <>
     <div className="bg-light-medium">
       <div className="container space-1 space-md-t-1 space-bottom-md-3">
         <div className="row">
 
-        <div className="col-lg-12 pb-4">
-          <h1 className="h3 mb-0">Mi Carrito</h1>
-        </div>
+          <div className="col-lg-12 pb-4">
+            <h1 className="h3 mb-0">Mi Carrito</h1>
+          </div>
 
+          {cart.length === 0 ? (
 
+            /* ================= EMPTY STATE ================= */
+            <div className="col-12">
+              <div id="emptyCart" className="content-space-t-4 content-space-b-4 text-center">
+                <div className="w-lg-50 mx-auto px-5">
+                  <div className="mb-5">
+                    <img
+                      className="avatar avatar-xxl avatar-4x2"
+                      src="/assets/svg/illustrations/empty-cart.svg"
+                      alt="Carrito vacío"
+                    />
+                  </div>
+                  <h1 className="h2 mb-2">Tu carrito está vacío.</h1>
+                  <p className="mb-5">
+                    Antes de finalizar la compra, debes añadir algunos productos a tu carrito.
+                  </p>
+                  <Link to="/" className="btn btn-primary btn-sm px-6">
+                    Agregar Productos
+                  </Link>
+                </div>
+              </div>
+            </div>
 
+          ) : (
 
-          {/* LEFT COLUMN - PRODUCTS */}
-          <div className="col-lg-8">
+            <>
+              {/* ================= LEFT COLUMN - PRODUCTS ================= */}
+              <div className="col-lg-8">
 
-            <form>    
-              {cart.map((item) => (
-                <div key={item.slug} className="card shadow-none border mb-3">
-                  <div className="card-body px-4 pt-4 pb-5 pt-md-5 pb-md-3 px-md-4">
+                <form>
+                  {cart.map((item) => (
+                    <div key={item.slug} className="card shadow-none border mb-3">
+                      <div className="card-body px-4 pt-4 pb-5 pt-md-5 pb-md-3 px-md-4">
 
-
-                      {cart.length === 0 && (
-                        <p className="text-muted">Tu carrito está vacío.</p>
-                      )}
-
-                      
                         <div className="border-bottom pb-3 mb-3">
                           <div className="row">
 
@@ -102,21 +116,19 @@ export default function MyCart() {
                                     <h2 className="h5 mb-1">{item.title}</h2>
                                   </Link>
 
-                                  {/* PRECIOS (oldPrice + price) */}
                                   <div className="pricing-meta my-1">
                                     <ul className="d-flex align-items-center p-0 m-0 list-unstyled">
                                       {item.oldPrice && (
                                         <li className="old-price me-2">
-                                          ${item.oldPrice.toLocaleString()}
+                                          ${item.oldPrice.toLocaleString("es-AR")}
                                         </li>
                                       )}
                                       <li className="current-price font-medium">
-                                        ${item.price.toLocaleString()}
+                                        ${item.price.toLocaleString("es-AR")}
                                       </li>
                                     </ul>
                                   </div>
 
-                                  {/* BADGES */}
                                   {item.stock ? (
                                     <>
                                       {item.discount > 0 && (
@@ -124,7 +136,6 @@ export default function MyCart() {
                                           -{item.discount}% OFF
                                         </span>
                                       )}
-
                                       {item.envioGratis && (
                                         <span className="badge py-1 px-2 badge-green text-white me-1">
                                           Envío Gratis
@@ -142,8 +153,6 @@ export default function MyCart() {
 
                             {/* QUANTITY + REMOVE */}
                             <div className="col-5 col-md-2 offset-md-1">
-
-                              {/* Quantity + Price */}
                               <div className="d-flex align-items-center justify-content-between gap-3 mb-3">
                                 <QuantityControl
                                   item={item}
@@ -162,197 +171,88 @@ export default function MyCart() {
                               </button>
                             </div>
 
-                            {/* PRICE (final individual) */}
+                            {/* ITEM TOTAL */}
                             <div className="col-6 col-md-3 text-md-right">
                               <span className="font-bold text-dark">
                                 ${(item.price * item.quantity).toLocaleString("es-AR")}
                               </span>
                             </div>
+
                           </div>
                         </div>
-                      
 
+                        <p className="font-14 font-medium text-dark m-0">
+                          Llega en 1 día hábil seleccionando <b>Envío Express</b> al comprar
+                        </p>
 
-                    
-
-                    <div>
-                      <p className="font-14 font-medium text-dark m-0">Llega en 1 día hábil seleccionando <b>Envío Express</b> al comprar</p>
-                    </div>
-                  </div>
-                </div>
-              ))}  
-            </form>        
-
-
-
-
-            {/* BACK TO HOME */}
-            <div className="d-flex justify-content-start d-none d-md-block pt-4">
-              <Link to="/">
-                <i className="bi bi-arrow-left me-1"></i>
-                Continuar comprando
-              </Link>
-            </div>
-          </div>
-
-          {/* RIGHT COLUMN - ORDER SUMMARY */}
-          <div className="col-lg-4">
-            <div className="ps-lg-2">
-
-              <div className="bg-white shadow-soft rounded border px-4 pt-4 pb-5 pt-md-4 pb-md-4 px-md-4 mb-4">
-                <div className="border-bottom pb-3 mb-4">
-                  <h2 className="h4 font-bold mb-0">Resumen del pedido</h2>
-                </div>
-
-                <div className="border-bottom mb-4">
-                  <div className="media align-items-center mb-3">
-                    <h3 className="font-14 mb-1 me-3">
-                      Productos  ({totalItems})
-                    </h3>
-                    <div className="media-body text-right">
-                      <span className="font-bold text-dark">
-                        ${subtotal.toLocaleString("es-AR")}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="media align-items-center mb-3">
-                    <h4 className="font-14 mb-0 me-3">
-                      Envío
-                    </h4>
-                    <div className="media-body text-right">
-                      <span className="font-medium text-dark">
-                        {shippingCost === 0
-                          ? "Gratis"
-                          : `$${shippingCost.toLocaleString("es-AR")}`}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* SHIPPING OPTIONS */}
-                  <div className="card border-0 shadow-none mb-2">
-                    <div className="mt-2 pt-4 mb-3 border-top">
-                      <div className="form-check w-100">
-                       <input
-                            type="radio"
-                            id="shipping-standard"
-                            name="shipping"
-                            className="form-check-input"
-                            checked={shipping === "standard"}
-                            onChange={() => setShipping("standard")}
-                          />
-
-                          <label
-                            className="form-check-label w-100 ps-2"
-                            htmlFor="shipping-standard"
-                          >
-                          <span className="d-block text-dark font-size-1 font-bold mb-1">
-                            Envío Gratis
-                          </span>
-                          <span className="d-block text-muted">
-                            Puede demorar entre 5 y 6 días hábiles.
-                          </span>
-                        </label>
                       </div>
                     </div>
-
-                    <div className="my-2">
-                      <div className="form-check w-100">
-                        <input
-                            type="radio"
-                            id="shipping-express"
-                            name="shipping"
-                            className="form-check-input"
-                            checked={shipping === "express"}
-                            onChange={() => setShipping("express")}
-                          />
-
-                          <label
-                            className="form-check-label w-100 ps-2"
-                            htmlFor="shipping-express">
-                          <span className="d-block text-dark font-size-1 font-bold mb-1">
-                            <div className="d-flex justify-content-between">
-                              <div>Envío Express</div> <div><span className="font-bold">$25500</span> </div>
-                            </div>
-                          </span>
-                          <span className="d-block text-muted">
-                            El envío puede tardar entre 1 día hábil.
-                          </span>
-                        </label>
-                      </div>
-                    </div>
-                    
-                    {/* <div className="my-2">
-                      <div className="form-check w-100">
-                        <input
-                            type="radio"
-                            id="shipping-express"
-                            name="shipping"
-                            className="form-check-input"
-                            checked={shipping === "express"}
-                            onChange={() => setShipping("express")}
-                          />
-
-                          <label
-                            className="form-check-label w-100 ps-2"
-                            htmlFor="shipping-express">
-                          <span className="d-block text-dark font-size-1 font-bold mb-1">
-                            <div className="d-flex justify-content-between">
-                              <div>Retirar en local</div> 
-                            </div>
-                          </span>
-                          <span className="d-block text-muted">
-                            De lunes a viernes de 10 a 18 hs.
-                          </span>
-                        </label>
-                      </div>
-                    </div> */}
-
-
-                  </div>
-                </div>
-
-                <div className="media align-items-center mb-4">
-                  <h4 className="h4 font-bold mb-0 me-3">Total</h4>
-                  <div className="media-body text-right">
-                    <span className="h3 font-bold text-dark">
-                      ${total.toLocaleString("es-AR")}
-                    </span>
-                  </div>
-                </div>
-              
-                <Link className="btn btn-sm font-16 btn-primary font-medium w-100" to="/checkout">
-                  Comenzar compra
-                </Link>
-
-              </div>
-
-              <div className="summary-coupon mt-2 px-md-2">
-                <form>
-                  <label className="font-medium font-15 text-dark pb-2" htmlFor="cuponDescuento">¿Tenés un cupón de descuento?</label>
-                  <div className="d-flex gap-1">
-                    <input type="email" className="form-control rounded-1" name="email" id="cuponDescuento" placeholder="Ingresa código del cupón"/>
-                    <button className="btn btn-primary rounded-1 py-2 font-15" type="submit" id="subscribeButtonExample3">Aplicar</button>
-                  </div>
+                  ))}
                 </form>
+
+                <div className="d-flex justify-content-start d-none d-md-block pt-4">
+                  <Link to="/">
+                    <i className="bi bi-arrow-left me-1"></i>
+                    Continuar comprando
+                  </Link>
+                </div>
+
               </div>
 
+              {/* ================= RIGHT COLUMN - SUMMARY ================= */}
+              <div className="col-lg-4">
+                <div className="ps-lg-2">
 
-              {/* HELP */}
-              <div className="pt-5">
-                <div className="media-body text-secondary small text-center">
-                  <span className="text-dark me-1"><i className="bi bi-chat-square"></i> ¿Necesitás ayuda?</span>
-                  <a className="link-muted font-medium" href="#">Escribinos</a>
+                  <div className="bg-white shadow-soft rounded border px-4 pt-4 pb-5 mb-4">
+
+                    <div className="border-bottom pb-3 mb-4">
+                      <h2 className="h4 font-bold mb-0">Resumen del pedido</h2>
+                    </div>
+
+                    <div className="border-bottom mb-4">
+
+                      <div className="d-flex justify-content-between mb-3">
+                        <span>Productos ({totalItems})</span>
+                        <span className="font-bold">
+                          ${subtotal.toLocaleString("es-AR")}
+                        </span>
+                      </div>
+
+                      <div className="d-flex justify-content-between mb-3">
+                        <span>Envío</span>
+                        <span className="font-medium">
+                          {shippingCost === 0
+                            ? "Gratis"
+                            : `$${shippingCost.toLocaleString("es-AR")}`}
+                        </span>
+                      </div>
+
+                    </div>
+
+                    <div className="d-flex justify-content-between mb-4">
+                      <span className="h4 font-bold">Total</span>
+                      <span className="h3 font-bold">
+                        ${total.toLocaleString("es-AR")}
+                      </span>
+                    </div>
+
+                    <Link
+                      className="btn btn-sm font-16 btn-primary w-100"
+                      to="/checkout"
+                    >
+                      Comenzar compra
+                    </Link>
+
+                  </div>
+
                 </div>
               </div>
-
-            </div>
-          </div>
+            </>
+          )}
 
         </div>
       </div>
     </div>
-
-    </>
-  );
+  </>
+);
 }
