@@ -5,12 +5,15 @@ import { useRef, useState, useEffect } from "react";
 import HeaderCheckOut from "./checkout/components/HeaderCheckOut";
 import SteppersCheck from "./checkout/components/SteppersCheck";
 
+import { useCheckout } from "@/context/CheckoutContext";
 
 export default function Checkout() {
+  const { checkoutData, setCheckoutData } = useCheckout();
 const [summaryOpen, setSummaryOpen] = useState(false);
 
 const summaryRef = useRef(null);
 const summaryWrapperRef = useRef(null);
+
 
 useEffect(() => {
   const el = summaryRef.current;
@@ -351,102 +354,231 @@ const {
               )}
 
 
-              <div className="card shadow-none py-4 px-0 px-md-4 mb-md-4">
+<div className="card shadow-none py-4 px-0 px-md-4 mb-md-4">
 
-                  {/* DATOS DE CONTACTO */}
-                  <div className="border-bottom pb-4 mb-5">
-                    <h2 className="h3 font-bold mb-4">Datos de contacto</h2>
+  {/* ================= DATOS DE CONTACTO ================= */}
+  <div className="border-bottom pb-4 mb-5">
+    <h2 className="h3 font-bold mb-4">Datos de contacto</h2>
 
-                    <div className="mb-3">
-                      <label className="form-label">Email</label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        placeholder="email@ejemplo.com"
-                      />
-                    </div>
+    <div className="mb-3">
+      <label className="form-label">Email</label>
+      <input
+        type="email"
+        className="form-control"
+        placeholder="email@ejemplo.com"
+        value={checkoutData.contact.email}
+        onChange={(e) =>
+          setCheckoutData(prev => ({
+            ...prev,
+            contact: {
+              ...prev.contact,
+              email: e.target.value
+            }
+          }))
+        }
+      />
+    </div>
 
-                    <label className="d-flex align-items-center gap-2">
-                      <input type="checkbox" className="form-check-input mt-0" />
-                      <p className="mb-0">
-                        Quiero recibir ofertas y novedades por email
-                      </p>
-                    </label>
-                  </div>
+    <label className="d-flex align-items-center gap-2">
+      <input
+        type="checkbox"
+        className="form-check-input mt-0"
+        checked={checkoutData.contact.newsletter}
+        onChange={(e) =>
+          setCheckoutData(prev => ({
+            ...prev,
+            contact: {
+              ...prev.contact,
+              newsletter: e.target.checked
+            }
+          }))
+        }
+      />
+      <p className="mb-0">
+        Quiero recibir ofertas y novedades por email
+      </p>
+    </label>
+  </div>
 
- 
+  {/* ================= DATOS DE FACTURACIÓN ================= */}
+  <div>
 
+    <h2 className="h3 font-bold text-black mb-4">
+      Datos de facturación
+    </h2>
 
-                  {/* DATOS DE FACTURACIÓN */}
-                  <div className=" mb-0">
+    <div className="row">
 
-                    <h2 className="h3 font-bold text-black mb-4">
-                      Datos de facturación
-                    </h2>
+      <div className="col-md-6 mb-3 mb-md-4">
+        <label className="form-label">Nombre *</label>
+        <input
+          type="text"
+          className="form-control"
+          required
+          value={checkoutData.billing.name}
+          onChange={(e) =>
+            setCheckoutData(prev => ({
+              ...prev,
+              billing: {
+                ...prev.billing,
+                name: e.target.value
+              }
+            }))
+          }
+        />
+        <div className="invalid-feedback">
+          Ingresá tu nombre.
+        </div>
+      </div>
 
-                    <div className="row">
-                      <div className="col-md-6 mb-3 mb-md-4">
-                        <label className="form-label">Nombre *</label>
-                        <input type="text" className="form-control" required />
-                        <div className="invalid-feedback">
-                          Ingresá tu nombre.
-                        </div>
-                      </div>
+      <div className="col-md-6 mb-3 mb-md-4">
+        <label className="form-label">Apellido *</label>
+        <input
+          type="text"
+          className="form-control"
+          required
+          value={checkoutData.billing.lastName}
+          onChange={(e) =>
+            setCheckoutData(prev => ({
+              ...prev,
+              billing: {
+                ...prev.billing,
+                lastName: e.target.value
+              }
+            }))
+          }
+        />
+        <div className="invalid-feedback">
+          Ingresá tu apellido.
+        </div>
+      </div>
 
-                      <div className="col-md-6 mb-3 mb-md-4">
-                        <label className="form-label">Apellido *</label>
-                        <input type="text" className="form-control" required />
-                        <div className="invalid-feedback">
-                          Ingresá tu apellido.
-                        </div>
-                      </div>
+      <div className="col-md-6 mb-3 mb-md-4">
+        <label className="form-label">Email *</label>
+        <input
+          type="email"
+          className="form-control"
+          required
+          value={checkoutData.billing.email}
+          onChange={(e) =>
+            setCheckoutData(prev => ({
+              ...prev,
+              billing: {
+                ...prev.billing,
+                email: e.target.value
+              }
+            }))
+          }
+        />
+        <div className="invalid-feedback">
+          Ingresá un email válido.
+        </div>
+      </div>
 
-                      <div className="col-md-6 mb-3 mb-md-4">
-                        <label className="form-label">Email *</label>
-                        <input type="email" className="form-control" required />
-                        <div className="invalid-feedback">
-                          Ingresá un email válido.
-                        </div>
-                      </div>
+      <div className="col-md-6 mb-3 mb-md-4">
+        <label className="form-label">Teléfono *</label>
+        <input
+          type="text"
+          className="form-control"
+          required
+          value={checkoutData.billing.phone}
+          onChange={(e) =>
+            setCheckoutData(prev => ({
+              ...prev,
+              billing: {
+                ...prev.billing,
+                phone: e.target.value
+              }
+            }))
+          }
+        />
+        <div className="invalid-feedback">
+          Ingresá tu teléfono.
+        </div>
+      </div>
 
-                      <div className="col-md-6 mb-3 mb-md-4">
-                        <label className="form-label">Teléfono *</label>
-                        <input type="text" className="form-control" required />
-                        <div className="invalid-feedback">
-                          Ingresá tu teléfono.
-                        </div>
-                      </div>
+      <div className="col-md-8 mb-3">
+        <label className="form-label">Calle *</label>
+        <input
+          type="text"
+          className="form-control"
+          required
+          value={checkoutData.billing.street}
+          onChange={(e) =>
+            setCheckoutData(prev => ({
+              ...prev,
+              billing: {
+                ...prev.billing,
+                street: e.target.value
+              }
+            }))
+          }
+        />
+      </div>
 
-                      <div className="col-md-8 mb-3">
-                        <label className="form-label">Calle *</label>
-                        <input type="text" className="form-control" required />
-                      </div>
+      <div className="col-7 col-md-2 mb-3">
+        <label className="form-label">Número *</label>
+        <input
+          type="text"
+          className="form-control"
+          required
+          value={checkoutData.billing.number}
+          onChange={(e) =>
+            setCheckoutData(prev => ({
+              ...prev,
+              billing: {
+                ...prev.billing,
+                number: e.target.value
+              }
+            }))
+          }
+        />
+      </div>
 
-                      <div className="col-7 col-md-2 mb-3">
-                        <label className="form-label">Número *</label>
-                        <input type="text" className="form-control" required />
-                      </div>
+      <div className="col-5 col-md-2 mb-3">
+        <label className="form-label">Depto.</label>
+        <input
+          type="text"
+          className="form-control"
+          value={checkoutData.billing.apartment}
+          onChange={(e) =>
+            setCheckoutData(prev => ({
+              ...prev,
+              billing: {
+                ...prev.billing,
+                apartment: e.target.value
+              }
+            }))
+          }
+        />
+      </div>
 
-                      <div className="col-5 col-md-2 mb-3">
-                        <label className="form-label">Depto.</label>
-                        <input type="text" className="form-control" />
-                      </div>
-                    </div>
+    </div>
 
-                    <div className="row">
-                      <div className="col-12 pt-3">
-                        <label className="d-flex align-items-center gap-2 mb-3">
-                          <input type="checkbox" className="form-check-input mt-0" />
-                          <p className="mb-0 text-body-secondary">
-                            Mi información de facturación y envío es la misma.
-                          </p>
-                        </label>
-                      </div>
-                    </div>
+    <div className="row">
+      <div className="col-12 pt-3">
+        <label className="d-flex align-items-center gap-2 mb-3">
+          <input
+            type="checkbox"
+            className="form-check-input mt-0"
+            checked={checkoutData.sameAsShipping || false}
+            onChange={(e) =>
+              setCheckoutData(prev => ({
+                ...prev,
+                sameAsShipping: e.target.checked
+              }))
+            }
+          />
+          <p className="mb-0 text-body-secondary">
+            Mi información de facturación y envío es la misma.
+          </p>
+        </label>
+      </div>
+    </div>
 
-                  </div>
+  </div>
 
-              </div>
+</div>
 
 
 

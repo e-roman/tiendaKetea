@@ -5,7 +5,10 @@ import { useRef, useState, useEffect } from "react";
 import HeaderCheckOut from "./components/HeaderCheckOut";
 import SteppersCheck from "./components/SteppersCheck";
 
+import { useCheckout } from "@/context/CheckoutContext";
+
 export default function CheckoutShipping() {
+  const { checkoutData, setCheckoutData } = useCheckout();
   const navigate = useNavigate();
   const formRef = useRef(null);
 
@@ -248,31 +251,80 @@ export default function CheckoutShipping() {
 
                     <div className="col-md-8 mb-3">
                       <label className="form-label">Calle *</label>
-                      <input type="text" className="form-control" required />
+                      <input
+                        type="text"
+                        className="form-control"
+                        required
+                        value={checkoutData.shippingAddress.street}
+                        onChange={(e) =>
+                          setCheckoutData(prev => ({
+                            ...prev,
+                            shippingAddress: {
+                              ...prev.shippingAddress,
+                              street: e.target.value
+                            }
+                          }))
+                        }
+                      />
                     </div>
 
                     <div className="col-6 col-md-2 mb-3">
                       <label className="form-label">Número *</label>
-                      <input type="text" className="form-control" required />
+                      <input
+                        type="text"
+                        className="form-control"
+                        required
+                        value={checkoutData.shippingAddress.number}
+                        onChange={(e) =>
+                          setCheckoutData(prev => ({
+                            ...prev,
+                            shippingAddress: {
+                              ...prev.shippingAddress,
+                              number: e.target.value
+                            }
+                          }))
+                        }
+                      />
                     </div>
-
 
                     <div className="col-6 col-md-2 mb-3">
                       <label className="form-label">Código Postal *</label>
-                      <input type="text" className="form-control" required />
+                      <input
+                        type="text"
+                        className="form-control"
+                        required
+                        value={checkoutData.shippingAddress.zip}
+                        onChange={(e) =>
+                          setCheckoutData(prev => ({
+                            ...prev,
+                            shippingAddress: {
+                              ...prev.shippingAddress,
+                              zip: e.target.value
+                            }
+                          }))
+                        }
+                      />
                     </div>
 
-
                     <div className="col-7 col-md-6 mb-3">
-                      <label className="form-label">Tipo de domicilio</label>
-                      <select className="form-select" required>
-                        <option value="" disabled selected>
-                          Seleecionar
-                        </option>
-                        <option value="AB">
-                          Casa
-                        </option>
-                        <option value="BA">Depto.</option>
+                      <label className="form-label">Tipo de domicilio *</label>
+                      <select
+                        className="form-select"
+                        required
+                        value={checkoutData.shippingAddress.type}
+                        onChange={(e) =>
+                          setCheckoutData(prev => ({
+                            ...prev,
+                            shippingAddress: {
+                              ...prev.shippingAddress,
+                              type: e.target.value
+                            }
+                          }))
+                        }
+                      >
+                        <option value="">Seleccionar</option>
+                        <option value="house">Casa</option>
+                        <option value="apartment">Depto.</option>
                       </select>
                       <div className="invalid-feedback">
                         Seleccioná una opción.
@@ -280,18 +332,40 @@ export default function CheckoutShipping() {
                     </div>
 
                     <div className="col-5 col-md-6 mb-3">
-                      <label className="form-label">
-                        Piso / Depto. *
-                      </label>
-                      <input type="text" className="form-control"/>
+                      <label className="form-label">Piso / Depto.</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        value={checkoutData.shippingAddress.floor || ""}
+                        onChange={(e) =>
+                          setCheckoutData(prev => ({
+                            ...prev,
+                            shippingAddress: {
+                              ...prev.shippingAddress,
+                              floor: e.target.value
+                            }
+                          }))
+                        }
+                      />
                     </div>
 
                     <div className="col-md-6 mb-3">
                       <label className="form-label">Provincia *</label>
-                      <select className="form-select" required>
-                        <option value="" disabled selected>
-                          Seleccionar provincia
-                        </option>
+                      <select
+                        className="form-select"
+                        required
+                        value={checkoutData.shippingAddress.province}
+                        onChange={(e) =>
+                          setCheckoutData(prev => ({
+                            ...prev,
+                            shippingAddress: {
+                              ...prev.shippingAddress,
+                              province: e.target.value
+                            }
+                          }))
+                        }
+                      >
+                        <option value="">Seleccionar provincia</option>
                         <option value="BA">Buenos Aires</option>
                         <option value="CABA">CABA</option>
                       </select>
@@ -300,20 +374,30 @@ export default function CheckoutShipping() {
                       </div>
                     </div>
 
-
                     <div className="col-md-6 mb-3">
                       <label className="form-label">Ciudad *</label>
-                      <select className="form-select" required>
-                        <option value="" disabled selected>
-                          Seleccionar Ciudad
-                        </option>
+                      <select
+                        className="form-select"
+                        required
+                        value={checkoutData.shippingAddress.city}
+                        onChange={(e) =>
+                          setCheckoutData(prev => ({
+                            ...prev,
+                            shippingAddress: {
+                              ...prev.shippingAddress,
+                              city: e.target.value
+                            }
+                          }))
+                        }
+                      >
+                        <option value="">Seleccionar ciudad</option>
                         <option value="CABA">CABA</option>
-                        <option value="CABA">Haedo</option>
-                        <option value="CABA">Morón</option>
-                        <option value="CABA">Ramos Mejía</option>
+                        <option value="Haedo">Haedo</option>
+                        <option value="Moron">Morón</option>
+                        <option value="RamosMejia">Ramos Mejía</option>
                       </select>
                       <div className="invalid-feedback">
-                        Seleccioná una provincia.
+                        Seleccioná una ciudad.
                       </div>
                     </div>
 

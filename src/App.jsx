@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
 import SidebarCart from "@/components/SidebarCart";
 import { FloatingAlertProvider } from "@/context/FloatingAlertContext";
+import { CheckoutProvider } from "@/context/CheckoutContext";
 import AlertFloating from "@/components/alert/AlertFloating";
 import Login from "@/components/Modals/LoginModal";
 import LogoutModal from "@/components/Modals/LogoutModal";
@@ -37,9 +38,8 @@ const HIDE_COMPONENTS_ROUTES = [
 export default function App() {
   const location = useLocation();
   const [loading, setLoading] = useState(false);
-const [showLogoutModal, setShowLogoutModal] = useState(false);
-
- const [megaOpen, setMegaOpen] = useState(false);
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [megaOpen, setMegaOpen] = useState(false);
 
   const hideComponent = HIDE_COMPONENTS_ROUTES.includes(location.pathname);
 
@@ -55,51 +55,56 @@ const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   return (
     <FloatingAlertProvider>
-      <ScrollToTop />
-      <PageLoader visible={loading} />
+      <CheckoutProvider>
+        <ScrollToTop />
+        <PageLoader visible={loading} />
 
-      
-      {!hideComponent && <Header setShowLogoutModal={setShowLogoutModal} />}
+        {!hideComponent && (
+          <Header setShowLogoutModal={setShowLogoutModal} />
+        )}
 
+        {/* Overlay global */}
+        {megaOpen && (
+          <div
+            className="layout-overlay"
+            onClick={() => setMegaOpen(false)}
+          />
+        )}
 
-      {/* OVERLAY GLOBAL */}
-      {megaOpen && (
-        <div
-          className="layout-overlay"
-          onClick={() => setMegaOpen(false)}
-        />
-      )}
+        <AlertFloating />
+        <SidebarCart />
 
-      <AlertFloating />
-      <SidebarCart />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/novedades" element={<NovedadesPage />} />
+          <Route path="/descuentos" element={<DescuentosPage />} />
+          <Route path="/Mas-vendido" element={<MasVendidoPage />} />
+          <Route path="/product/:slug" element={<ProductPage />} />
+          <Route path="/cart" element={<Cart />} />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/novedades" element={<NovedadesPage />} />
-        <Route path="/descuentos" element={<DescuentosPage />} />
-        <Route path="/Mas-vendido" element={<MasVendidoPage />} />
-        <Route path="/product/:slug" element={<ProductPage />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/checkout/entrega" element={<CheckoutShipping />} />
-        <Route path="/checkout/pago" element={<CheckoutPayment />} />
-        <Route path="/pago-realizado" element={<OrderComplete />} />
-        <Route path="/buscar/:query" element={<SearchResults />} />
-        <Route path="/pages/Profile" element={<MyProfile />} />
-      </Routes>
+          {/* Checkout flow */}
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/entrega" element={<CheckoutShipping />} />
+          <Route path="/checkout/pago" element={<CheckoutPayment />} />
+          <Route path="/pago-realizado" element={<OrderComplete />} />
 
-      {!hideComponent && <Footer />}
+          <Route path="/buscar/:query" element={<SearchResults />} />
+          <Route path="/pages/Profile" element={<MyProfile />} />
+        </Routes>
 
-      <Login />
+        {!hideComponent && <Footer />}
 
-      {showLogoutModal && (
-        <LogoutModal
-          show={showLogoutModal}
-          onClose={() => setShowLogoutModal(false)}
-        />
-      )}
+        <Login />
 
-      <SupportChat />
+        {showLogoutModal && (
+          <LogoutModal
+            show={showLogoutModal}
+            onClose={() => setShowLogoutModal(false)}
+          />
+        )}
+
+        <SupportChat />
+      </CheckoutProvider>
     </FloatingAlertProvider>
   );
 }
