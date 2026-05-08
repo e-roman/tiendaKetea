@@ -57,22 +57,22 @@ const visibles = [
 
   return (
     <>
-      {/* BANNER */}
-      <div className="container-fluid ps-0 content-space-t-0 content-space-b-0 content-space-lg-b-0 content-space-lg-t-0">
-        <div className="row g-3 row-cols-1">
-          <div className="col mb-4 mb-md-0">
-            <div
-              className="bg-img-start"
-              style={{
-                backgroundColor: "#CCCCCC",
-                minHeight: "24rem",
-              }}
-            >
-              <div className="card-body" />
-            </div>
+    {/* BANNER */}
+    <div className="container pt-3 pt-lg-4">
+      <div className="row g-3 row-cols-1">
+        <div className="col mb-4 mb-md-0">
+          <div className="rounded-3 overflow-hidden">
+            <img
+              src="/assets/img/banners/banner-novedades.png"
+              alt="Banner novedades"
+              className="img-fluid w-100 d-block"
+            />
           </div>
         </div>
       </div>
+    </div>
+
+
 
       {/* PRODUCTOS DESTACADOS */}
       <div className="container content-space-t-0 content-space-b-1 content-space-lg-1 px-2 px-md-3">
@@ -88,7 +88,7 @@ const visibles = [
           </div>
         </div> */}
 
-        <div className="row g-2 g-md-2 row-cols-2 row-cols-md-3 row-cols-lg-5 mb-3 mb-md-6">
+        <div className="row g-2 gx-md-2 gy-md-3 row-cols-2 row-cols-md-3 row-cols-lg-5 mb-3 mb-md-6">
           {visibles.map((p) => (
             <div className="col" key={p.id}>
               {isMobile ? (

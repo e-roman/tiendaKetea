@@ -29,16 +29,21 @@ export default function DescuentosPage() {
 
   return (
     <>
-      {/* BANNER */}
-      <div className="container-fluid ps-0">
-        <div
-          className="bg-img-start"
-          style={{
-           backgroundColor: "#CCCCCC",
-            minHeight: "24rem",
-          }}
-        />
+    {/* BANNER */}
+    <div className="container pt-3 pt-lg-4">
+      <div className="row g-3 row-cols-1">
+        <div className="col mb-4 mb-md-0">
+          <div className="rounded-3 overflow-hidden">
+            <img
+              src="/assets/img/banners/banner-ofertas.png"
+              alt="Banner descuentos"
+              className="img-fluid w-100 d-block"
+            />
+          </div>
+        </div>
       </div>
+    </div>
+
 
       {/* CATEGORÍAS */}
       <div className="container content-space-b-1 px-2 px-md-3 pt-4 pb-8 pt-md-8 pb-md-10">

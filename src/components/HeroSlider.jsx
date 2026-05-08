@@ -21,6 +21,7 @@ export default function App() {
         pagination={false}
         mousewheel={true}
         keyboard={true}
+        loop={true}
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper sliderHome bg-light rounded-4-md overflow-hidden"
       >

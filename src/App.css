@@ -3958,9 +3958,8 @@ fieldset:disabled .btn {
         transition: none
     }
 }
-.nav-link:focus,
-.nav-link:hover {
-    color: #1366ff
+.nav-link:focus, .nav-link:hover {
+    color: #8f8f8f;
 }
 .nav-link.disabled {
     color: #8c98a4;
@@ -19456,6 +19455,7 @@ label.form-control {
 }
 .nav-link.active {
     color: #000000;
+    font-weight: 500;
 }
 .nav-item.show .nav-link-svg path,
 .nav-link.active .nav-link-svg path {

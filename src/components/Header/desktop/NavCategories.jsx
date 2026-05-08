@@ -60,13 +60,13 @@ export default function NavCategories({
 
 
             <li className="nav-item">
-              <NavLink to="/Sucursales" className="nav-link">
+              <NavLink to="/" className="nav-link">
                 Sucursales
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink to="/Contacto" className="nav-link">
+              <NavLink to="/" className="nav-link">
                 Contacto
               </NavLink>
             </li>
