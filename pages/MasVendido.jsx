@@ -2,14 +2,13 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import products from "@/data/products.json";
-import ProductCard from "@/components/ProductCard";
-import ProductCardMobile from "@/components/ProductCardMobile";
+import CategorySlider from "@/components/CategorySlider";
 
 export default function MasVendidoPage() {
   const navigate = useNavigate();
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 960);
-  const [limit, setLimit] = useState(15);
+  const [visibleRows, setVisibleRows] = useState(3);
 
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth <= 960);
@@ -18,47 +17,57 @@ export default function MasVendidoPage() {
   }, []);
 
   const openProduct = (slug) => navigate(`/product/${slug}`);
+
   const mostSale = products.filter((p) => p.mostSale === true);
-  const visibles = mostSale.slice(0, limit);
+
+  const categoriesConfig = [
+    { title: "Robots limpia piscinas", category: "Robots" },
+    { title: "Bombas de calor", category: "Bombas de Calor" },
+    { title: "Filtros para piscinas", category: "Filtros" },
+    { title: "Productos químicos", category: "Químicos" },
+    { title: "Válvulas y accesorios", category: "Válvulas" },
+    { title: "Accesorios de limpieza", category: "Accesorios" },
+  ];
 
   return (
     <>
-      {/* BANNER */}
-      <div className="container pt-3 pt-lg-4">
-        <div className="row g-3 row-cols-1">
-          <div className="col mb-4 mb-md-0">
-            <div className="rounded-3 overflow-hidden">
-              <img
-                src="/assets/img/banners/banner-mas-vendidos.png"
-                alt="Banner mas vendidos"
-                className="img-fluid w-100 d-block"
-              />
-            </div>
+    {/* BANNER */}
+    <div className="container pt-3 pt-lg-4">
+      <div className="row g-3 row-cols-1">
+        <div className="col mb-4 mb-md-0">
+          <div className="rounded-3 overflow-hidden">
+            <img
+              src="/assets/img/banners/banner-mas-vendidos.png"
+              alt="Banner más vendidos"
+              className="img-fluid w-100 d-block"
+            />
           </div>
         </div>
       </div>
+    </div>
 
-      {/* LISTA GENERAL */}
+      {/* CATEGORÍAS */}
       <div className="container content-space-b-1 px-2 px-md-3 pt-4 pb-8 pt-md-8 pb-md-10">
-        <div className="row g-2 gx-md-2 gy-md-3 row-cols-2 row-cols-md-3 row-cols-lg-5 mb-3 mb-md-6">
-          {visibles.map((p) => (
-            <div className="col" key={p.id}>
-              {isMobile ? (
-                <ProductCardMobile product={p} openProduct={openProduct} />
-              ) : (
-                <ProductCard product={p} openProduct={openProduct} />
-              )}
-            </div>
-          ))}
-        </div>
+        {categoriesConfig.slice(0, visibleRows).map((cat, index) => (
+          <CategorySlider
+            key={cat.category}
+            title={cat.title}
+            category={cat.category}
+            products={mostSale}
+            isMobile={isMobile}
+            openProduct={openProduct}
+            link="/Mas-vendidos"
+          />
+        ))}
 
-        {limit < mostSale.length && (
+        {/* MOSTRAR MÁS */}
+        {visibleRows < categoriesConfig.length && (
           <div className="text-center mt-6">
             <button
               className="btn btn-primary font-16 font-medium py-2 px-5"
-              onClick={() => setLimit((v) => v + 15)}
+              onClick={() => setVisibleRows((v) => v + 3)}
             >
-              Cargar mas
+              Mostrar más
             </button>
           </div>
         )}
