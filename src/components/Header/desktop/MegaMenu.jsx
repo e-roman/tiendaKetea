@@ -18,14 +18,28 @@ export default function MegaMenu() {
           {/* Columna izquierda */}
           <aside className="mega-menu-left">
             {megaMenuData.map(cat => (
-            <button
-              className={`mega-menu-cat ${
-                activeCategory.id === cat.id ? "active" : ""
-              } ${cat.highlight ? "fw-bold" : ""}`}
-              onMouseEnter={() => setActiveCategory(cat)}
-            >
-              {cat.label}
-            </button>
+              cat.path ? (
+                <Link
+                  key={cat.id}
+                  to={cat.path}
+                  className={`mega-menu-cat d-block text-decoration-none ${
+                    activeCategory.id === cat.id ? "active" : ""
+                  } ${cat.highlight ? "fw-bold" : ""}`}
+                  onMouseEnter={() => setActiveCategory(cat)}
+                >
+                  {cat.label}
+                </Link>
+              ) : (
+                <button
+                  key={cat.id}
+                  className={`mega-menu-cat ${
+                    activeCategory.id === cat.id ? "active" : ""
+                  } ${cat.highlight ? "fw-bold" : ""}`}
+                  onMouseEnter={() => setActiveCategory(cat)}
+                >
+                  {cat.label}
+                </button>
+              )
 
             ))}
           </aside>
@@ -40,7 +54,7 @@ export default function MegaMenu() {
                     <ul className="list-unstyled">
                       {section.items.map(item => (
                         <li key={item}>
-                          <Link to="/pages/ProductsGrid">{item}</Link>
+                          <Link to={`/buscar/${encodeURIComponent(item)}`}>{item}</Link>
                         </li>
                       ))}
                     </ul>
@@ -55,4 +69,3 @@ export default function MegaMenu() {
     </div>
   );
 }
-

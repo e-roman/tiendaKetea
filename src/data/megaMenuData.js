@@ -3,12 +3,14 @@ export const megaMenuData = [
   {
     id: "oferta-semana",
     label: "Ofertas de la semana 🏷️",
+    path: "/Descuentos",
     sections: [],
     highlight: true
   },
   {
     id: "novedades",
     label: "Novedades 🔥",
+    path: "/Novedades",
     sections: [],
     highlight: true
   },
@@ -223,3 +225,6 @@ export const megaMenuData = [
   ]
 }
 ];
+
+
+

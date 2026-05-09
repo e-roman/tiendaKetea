@@ -70,7 +70,7 @@ export default function MainHeader() {
     setQuery(value);
     setShowRecent(false);
 
-    if (value.length < 2) {
+    if (value.trim().length < 1) {
       setResults([]);
       return;
     }

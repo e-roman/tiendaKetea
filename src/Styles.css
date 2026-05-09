@@ -3663,6 +3663,7 @@ button.btn-search-mobile {
     background: none;
     cursor: pointer;
     font-size: 14px;
+    color: #000;
 }
 
 .mega-menu-cat.active,
