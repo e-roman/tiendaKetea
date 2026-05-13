@@ -27,7 +27,7 @@
     --bs-gray-700: #677788;
     --bs-gray-800: #71869d;
     --bs-gray-900: #1e2022;
-    --bs-primary: #377dff;
+    --bs-primary: #2f43ad;
     --bs-secondary: #71869d;
     --bs-success: #00c9a7;
     --bs-info: #09a5be;
@@ -3959,7 +3959,7 @@ fieldset:disabled .btn {
     }
 }
 .nav-link:focus, .nav-link:hover {
-    color: #8f8f8f;
+    color: #505050;
 }
 .nav-link.disabled {
     color: #8c98a4;

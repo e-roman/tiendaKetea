@@ -58,7 +58,7 @@ const visibles = [
   return (
     <>
     {/* BANNER */}
-    <div className="container pt-3 pt-lg-4">
+    <div className="container pt-3 pt-lg-5">
       <div className="row g-3 row-cols-1">
         <div className="col mb-4 mb-md-0">
           <div className="rounded-3 overflow-hidden">
@@ -75,7 +75,7 @@ const visibles = [
 
 
       {/* PRODUCTOS DESTACADOS */}
-      <div className="container content-space-t-0 content-space-b-1 content-space-lg-1 px-2 px-md-3">
+       <div className="container content-space-b-1 px-2 px-md-3 pt-4 pb-8 pt-md-5 pb-md-10">
 
         {/* <div className="w-md-100 mb-5 mb-md-4 d-md-flex align-items-center justify-content-between px-3 px-md-0">
           <h3 className="font-medium pb-2 pb-md-0 mb-0">

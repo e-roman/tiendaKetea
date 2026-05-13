@@ -30,7 +30,7 @@ export default function DescuentosPage() {
   return (
     <>
     {/* BANNER */}
-    <div className="container pt-3 pt-lg-4">
+    <div className="container pt-3 pt-lg-5">
       <div className="row g-3 row-cols-1">
         <div className="col mb-4 mb-md-0">
           <div className="rounded-3 overflow-hidden">
@@ -46,7 +46,7 @@ export default function DescuentosPage() {
 
 
       {/* CATEGORÍAS */}
-      <div className="container content-space-b-1 px-2 px-md-3 pt-4 pb-8 pt-md-8 pb-md-10">
+       <div className="container content-space-b-1 px-2 px-md-3 pt-4 pb-8 pt-md-5 pb-md-10">
         {categoriesConfig.slice(0, visibleRows).map((cat) => (
           <CategorySlider
             key={cat.category}

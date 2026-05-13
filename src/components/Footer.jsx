@@ -206,7 +206,7 @@ export default function Footer() {
                 </li>
                 <li className="list-inline-item">
                   <a
-                    className="btn text-secondary btn-social btn-icon"
+                    className="btn text-primary btn-social btn-icon"
                     href="https://www.facebook.com/keteaSA/"
                   >
                     <i className="bi-facebook"></i>
@@ -214,7 +214,7 @@ export default function Footer() {
                 </li>
                 <li className="list-inline-item">
                   <a
-                    className="btn text-secondary btn-social btn-icon"
+                    className="btn text-primary btn-social btn-icon"
                     href="https://www.instagram.com/keteapiscinas/"
                   >
                     <i className="bi-instagram"></i>
