@@ -64,7 +64,7 @@ export default function CheckoutShipping() {
     const wrapper = summaryWrapperRef.current;
     if (!el || !wrapper) return;
 
-    const offset = 120;
+    const offset = 20;
 
     const onScroll = () => {
       if (window.innerWidth <= 960) {
@@ -620,6 +620,20 @@ export default function CheckoutShipping() {
                         </div>
                       </div>
 
+                    </div>
+
+                    <div className="bg-white rounded border px-3 py-4 px-md-4 mb-3">
+                      <h4 className="font-bold mb-3">Datos Personales</h4>
+                      <div className="font-14 text-dark mb-2">
+                        <strong>Nombre:</strong>{" "}
+                        {`${checkoutData.billing.name || ""} ${checkoutData.billing.lastName || ""}`.trim() || "-"}
+                      </div>
+                      <div className="font-14 text-dark mb-2">
+                        <strong>Email:</strong> {checkoutData.billing.email || "-"}
+                      </div>
+                      <div className="font-14 text-dark mb-0">
+                        <strong>Teléfono:</strong> {checkoutData.billing.phone || "-"}
+                      </div>
                     </div>
                   </div>
                 </div>

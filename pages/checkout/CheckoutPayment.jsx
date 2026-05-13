@@ -4,12 +4,13 @@ import { useRef, useState, useEffect } from "react";
 
 import HeaderCheckOut from "../checkout/components/HeaderCheckOut";
 import SteppersCheck from "./components/SteppersCheck";
-import OrderSummary from "./components/OrderSummary";
+import { useCheckout } from "@/context/CheckoutContext";
 
 
 
 export default function CheckoutPayment() {
   const [paymentMethod, setPaymentMethod] = useState("card");
+  const { checkoutData } = useCheckout();
 
 const [summaryOpen, setSummaryOpen] = useState(false);
 
@@ -21,7 +22,7 @@ useEffect(() => {
   const wrapper = summaryWrapperRef.current;
   if (!el || !wrapper) return;
 
-  const offset = 120;
+  const offset = 20;
 
   const onScroll = () => {
     if (window.innerWidth <= 960) {
@@ -226,12 +227,12 @@ const {
         <div className="row mt-4">
 
           {/* ORDER SUMMARY – RIGHT COLUMN */}
-          <div className="col-lg-4 order-lg-2 mb-4 mb-lg-0 pt-6 d-none d-md-block ">
+          <div className="col-lg-4 order-lg-2 mb-4 mb-lg-0 pt-10 d-none d-md-block ">
             <div className="w-100">
               <div ref={summaryWrapperRef}>
 
                 <div ref={summaryRef} className="summary-js-sticky">
-                  <div className="bg-white rounded border px-3 pt-4 pb-5 py-md-4 px-md-4 mb-4">
+                  <div className="bg-white rounded border px-3 pt-4 pb-5 py-md-4 px-md-4 mb-3">
 
                     <div className="mb-5 border-bottom pb-2">
                       <h4 className="font-bold">Resumen de la compra</h4>
@@ -339,6 +340,44 @@ const {
                       </div>
                     </div>
 
+                  </div>
+
+                  <div className="bg-white rounded border px-3 py-4 px-md-4 mb-3">
+                    <h4 className="font-bold mb-3">Datos Personales</h4>
+                    <div className="font-14 text-dark mb-2">
+                      <strong>Nombre:</strong>{" "}
+                      {`${checkoutData.billing.name || ""} ${checkoutData.billing.lastName || ""}`.trim() || "-"}
+                    </div>
+                    <div className="font-14 text-dark mb-2">
+                      <strong>Email:</strong> {checkoutData.billing.email || "-"}
+                    </div>
+                    <div className="font-14 text-dark mb-0">
+                      <strong>Teléfono:</strong> {checkoutData.billing.phone || "-"}
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded border px-3 py-4 px-md-4 mb-3">
+                    <h4 className="font-bold mb-3">Datos de entrega</h4>
+                    <div className="font-14 text-dark mb-2">
+                      <strong>Calle:</strong> {checkoutData.shippingAddress.street || "-"}
+                    </div>
+                    <div className="font-14 text-dark mb-2">
+                      <strong>Número:</strong> {checkoutData.shippingAddress.number || "-"}
+                    </div>
+                    <div className="font-14 text-dark mb-2">
+                      <strong>Código postal:</strong> {checkoutData.shippingAddress.zip || "-"}
+                    </div>
+                    <div className="font-14 text-dark mb-2">
+                      <strong>Provincia:</strong> {checkoutData.shippingAddress.province || "-"}
+                    </div>
+                    <div className="font-14 text-dark mb-2">
+                      <strong>Ciudad:</strong> {checkoutData.shippingAddress.city || "-"}
+                    </div>
+                    {checkoutData.shippingAddress.floor?.trim() && (
+                      <div className="font-14 text-dark mb-0">
+                        <strong>Piso / Depto.:</strong> {checkoutData.shippingAddress.floor}
+                      </div>
+                    )}
                   </div>
                 </div>
 

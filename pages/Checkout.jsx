@@ -20,7 +20,7 @@ useEffect(() => {
   const wrapper = summaryWrapperRef.current;
   if (!el || !wrapper) return;
 
-  const offset = 120;
+  const offset = 20;
 
   const onScroll = () => {
     if (window.innerWidth <= 960) {

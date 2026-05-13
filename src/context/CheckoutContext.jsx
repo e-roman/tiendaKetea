@@ -11,6 +11,7 @@ export function CheckoutProvider({ children }) {
     billing: {
       name: "",
       lastName: "",
+      email: "",
       phone: "",
       street: "",
       number: "",
