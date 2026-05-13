@@ -2471,10 +2471,10 @@ footer .btn-icon.btn-social {
 
 /* LIST */
 .stepper-steps {
-  display: flex;
-  padding: 0;
-  margin: 0;
-  list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 1rem 0;
+    list-style: none;
 }
 
 /* STEP */
@@ -2540,7 +2540,7 @@ footer .btn-icon.btn-social {
 
 /* Conector completo */
 .stepper-step.complete:not(:last-child)::after {
-  background-color: #4f46e5;
+  background-color: #2f43ad;
 }
 
 /* ========================= */
@@ -2549,22 +2549,22 @@ footer .btn-icon.btn-social {
 
 /* ACTIVE */
 .stepper-step-button.active {
-  color: #4f46e5;
+  color: #2f43ad;
 }
 
 .stepper-step-button.active .stepper-step-indicator {
-  border-color: #4f46e5;
-  color: #4f46e5;
+  border-color: #2f43ad;
+  color: #2f43ad;
 }
 
 /* COMPLETE */
 .stepper-step-button.complete {
-  color: #4f46e5;
+  color: #2f43ad;
 }
 
 .stepper-step-button.complete .stepper-step-indicator {
-  background: #4f46e5;
-  border-color: #4f46e5;
+  background: #2f43ad;
+  border-color: #2f43ad;
   color: #fff;
 }
 
