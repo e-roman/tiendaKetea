@@ -53,14 +53,7 @@ export default function ProductDetail({ product }) {
   };
 
 const handleAddToCart = () => {
-  const existing = cart.find(item => item.id === product.id);
-
-  if (existing) {
-    // Si ya existe, sumar cantidad
-    addToCart({ ...product, quantity: existing.quantity + quantity });
-  } else {
-    addToCart({ ...product, quantity });
-  }
+  addToCart({ ...product, quantity });
 
 showAlert({
   product,
@@ -80,13 +73,7 @@ const openDiscountModal = (e) => {
 
 
 const handleStartCheckout = () => {
-  const existing = cart.find(item => item.id === product.id);
-
-  if (existing) {
-    addToCart({ ...product, quantity: existing.quantity + quantity });
-  } else {
-    addToCart({ ...product, quantity });
-  }
+  addToCart({ ...product, quantity });
 
   setTimeout(() => {
     navigate("/cart");
