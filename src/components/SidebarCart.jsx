@@ -4,9 +4,13 @@ import { useCart } from "@/hooks/useCart";
 import { useNavigate, Link } from "react-router-dom";
 
 import QuantityControl from "./QuantityControl";
+import ButtonSpinner from "@/components/ButtonSpinner";
+import ConfirmModal from "@/components/Modals/ConfirmModal";
 
 export default function SidebarCart() {
   const [pickup, setPickup] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
+  const [startingCheckout, setStartingCheckout] = useState(false);
 
 const {
   cart,
@@ -29,8 +33,19 @@ const {
   };
 
   const handleStartCheckout = () => {
-    closeCart();
-    navigate("/cart");
+    if (startingCheckout) return;
+    setStartingCheckout(true);
+
+    setTimeout(() => {
+      closeCart();
+      navigate("/cart");
+      setStartingCheckout(false);
+    }, 600);
+  };
+
+  const handleConfirmDelete = () => {
+    removeFromCart(itemToDelete.id);
+    setItemToDelete(null);
   };
 
   // Funciones para manejar cantidad en el sidebar
@@ -110,7 +125,7 @@ const {
 
                       <button
                         className="text-secondary font-18 btn border-0 pt-0 bg-transparent pe-0"
-                        onClick={() => removeFromCart(product.id)}
+                        onClick={() => setItemToDelete(product)}
                       >
                         <i className="bi bi-trash"></i>
                       </button>
@@ -284,8 +299,14 @@ const {
             </div>
 
           <div className="w-100">
-            <button className="btn btn-primary font-18 px-6 w-100" onClick={handleStartCheckout}>
-              Iniciar compra
+            <button
+              className="btn btn-primary font-18 px-6 w-100"
+              onClick={handleStartCheckout}
+              disabled={startingCheckout}
+            >
+              <ButtonSpinner loading={startingCheckout} loadingText="Iniciando compra...">
+                Iniciar compra
+              </ButtonSpinner>
             </button>
           </div>
 
@@ -297,6 +318,18 @@ const {
           </div> */}
         </div>
       )}
+
+      <ConfirmModal
+        show={!!itemToDelete}
+        title="¿Eliminar producto?"
+        message={
+          <>
+            Se va a quitar <b>{itemToDelete?.title}</b> de tu carrito.
+          </>
+        }
+        onConfirm={handleConfirmDelete}
+        onClose={() => setItemToDelete(null)}
+      />
     </div>
   );
 }

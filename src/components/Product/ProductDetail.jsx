@@ -8,6 +8,7 @@ import { useFavorites } from "@/hooks/useFavorites";
 import { useFloatingAlert } from "@/context/FloatingAlertContext";
 import AlertFloating from "@/components/alert/AlertFloating";
 import DiscountMethod from "@/components/Modals/MethodsDiscountModal";
+import ButtonSpinner from "@/components/ButtonSpinner";
 
 export default function ProductDetail({ product }) {
   const navigate = useNavigate();
@@ -15,6 +16,8 @@ export default function ProductDetail({ product }) {
   const { favorites, toggleFavorite } = useFavorites();
 
   const [inCart, setInCart] = useState(false);
+  const [addingToCart, setAddingToCart] = useState(false);
+  const [startingCheckout, setStartingCheckout] = useState(false);
 
   useEffect(() => {
     setInCart(cart.some(item => item.id === product.id));
@@ -53,12 +56,19 @@ export default function ProductDetail({ product }) {
   };
 
 const handleAddToCart = () => {
-  addToCart({ ...product, quantity });
+  if (addingToCart) return;
+  setAddingToCart(true);
 
-showAlert({
-  product,
-  action: "cart"
-});
+  setTimeout(() => {
+    addToCart({ ...product, quantity });
+
+    showAlert({
+      product,
+      action: "cart"
+    });
+
+    setAddingToCart(false);
+  }, 600);
 };
 
 const openDiscountModal = (e) => {
@@ -73,11 +83,13 @@ const openDiscountModal = (e) => {
 
 
 const handleStartCheckout = () => {
-  addToCart({ ...product, quantity });
+  if (startingCheckout) return;
+  setStartingCheckout(true);
 
   setTimeout(() => {
+    addToCart({ ...product, quantity });
     navigate("/cart");
-  }, 0);
+  }, 600);
 };
   return (
     <>
@@ -290,8 +302,11 @@ const handleStartCheckout = () => {
           type="button"
           className="btn btn-sm btn-block btn-primary"
           onClick={handleAddToCart}
+          disabled={addingToCart}
         >
-          Agregar  al carrito
+          <ButtonSpinner loading={addingToCart} loadingText="Agregando...">
+            Agregar  al carrito
+          </ButtonSpinner>
         </button>
       </div>
 
@@ -336,8 +351,11 @@ const handleStartCheckout = () => {
             type="button"
             className="btn btn-sm btn-block btn-secondary"
             onClick={handleAddToCart}
+            disabled={addingToCart}
           >
-            <i className="bi bi-cart3"></i> Agregar 
+            <ButtonSpinner loading={addingToCart} loadingText="Agregando...">
+              <><i className="bi bi-cart3"></i> Agregar </>
+            </ButtonSpinner>
           </button>
 
           {/* Add to cart */}
@@ -345,8 +363,11 @@ const handleStartCheckout = () => {
             type="button"
             className="btn btn-sm btn-block btn-primary"
             onClick={handleStartCheckout}
+            disabled={startingCheckout}
           >
-            Comprar
+            <ButtonSpinner loading={startingCheckout} loadingText="Comprando...">
+              Comprar
+            </ButtonSpinner>
           </button>
         </div>
       </div>

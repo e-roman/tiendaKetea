@@ -2472,6 +2472,8 @@ footer .btn-icon.btn-social {
 /* LIST */
 .stepper-steps {
     display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0;
     margin: 1rem 0;
     list-style: none;
@@ -2480,7 +2482,9 @@ footer .btn-icon.btn-social {
 /* STEP */
 .stepper-step {
     position: relative;
-    /* flex: 1; */
+    flex: 1;
+    max-width: 220px;
+    align-items: center;
     gap: 1rem;
     display: flex;
 }
@@ -2488,6 +2492,7 @@ footer .btn-icon.btn-social {
 /* Último step no estira */
 .stepper-step:last-child {
   flex: 0 0 auto;
+  max-width: none;
 }
 
 /* BUTTON */
@@ -2527,19 +2532,14 @@ footer .btn-icon.btn-social {
 /* ========================= */
 /* CONNECTOR (la clave) */
 /* ========================= */
-/* .stepper-step:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  top: 18px; 
-  left: 12%;
-  width: 100%;
+.stepper-step-connector {
+  flex: 1;
   height: 2px;
-  background-color: #e7eaee;
-  z-index: 1;
-} */
+  background-color: #dee2e6;
+}
 
 /* Conector completo */
-.stepper-step.complete:not(:last-child)::after {
+.stepper-step.complete .stepper-step-connector {
   background-color: #2f43ad;
 }
 
@@ -2598,6 +2598,15 @@ footer .btn-icon.btn-social {
         display: inline;
         font-size: 13px;
         text-align: left;
+    }
+
+    /* En mobile solo se ve el número y la línea conectora, sin texto */
+    .stepper-step-label {
+        display: none;
+    }
+
+    .stepper-step-button {
+        gap: 0;
     }
 }
 
@@ -2666,15 +2675,37 @@ footer .btn-icon.btn-social {
 }
 
 
-.page-loader {
-  position: fixed;
-  top: 100px;
-  inset: 0;
-  background: rgb(255 255 255);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 999;
+/* ========================= */
+/* SKELETON LOADING          */
+/* ========================= */
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton {
+  display: block;
+  background-color: #e9ecef;
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.75) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+  border-radius: 6px;
+  color: transparent !important;
+  pointer-events: none;
+  user-select: none;
+}
+
+.skeleton-circle {
+  border-radius: 50%;
+}
+
+.skeleton-page {
+  animation: fadeIn 0.2s ease;
 }
 
 

@@ -1,12 +1,17 @@
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "@/hooks/useCart";
 import { useState } from "react";
 
 import QuantityControl from "@/components/QuantityControl";
+import ButtonSpinner from "@/components/ButtonSpinner";
+import ConfirmModal from "@/components/Modals/ConfirmModal";
 
 export default function MyCart() {
  const [loadingItemId, setLoadingItemId] = useState(null);
+ const [itemToDelete, setItemToDelete] = useState(null);
+ const [startingCheckout, setStartingCheckout] = useState(false);
+ const navigate = useNavigate();
   const {
     cart,
     removeFromCart,
@@ -47,6 +52,20 @@ export default function MyCart() {
       updateQuantity(item.id, item.quantity - 1);
       setLoadingItemId(null);
     }, 300);
+  };
+
+  const handleConfirmDelete = () => {
+    removeFromCart(itemToDelete.id);
+    setItemToDelete(null);
+  };
+
+  const handleStartCheckout = () => {
+    if (startingCheckout) return;
+    setStartingCheckout(true);
+
+    setTimeout(() => {
+      navigate("/checkout");
+    }, 600);
   };
 
 return (
@@ -163,7 +182,7 @@ return (
 
                               <button
                                 type="button"
-                                onClick={() => removeFromCart(item.id)}
+                                onClick={() => setItemToDelete(item)}
                                 className="d-block text-dark font-size-1 mb-1 bg-transparent border-0 p-0"
                               >
                                 <i className="bi bi-trash me-1"></i>
@@ -236,12 +255,16 @@ return (
                       </span>
                     </div>
 
-                    <Link
+                    <button
+                      type="button"
                       className="btn btn-sm font-16 btn-primary w-100"
-                      to="/checkout"
+                      onClick={handleStartCheckout}
+                      disabled={startingCheckout}
                     >
-                      Comenzar compra
-                    </Link>
+                      <ButtonSpinner loading={startingCheckout} loadingText="Iniciando compra...">
+                        Comenzar compra
+                      </ButtonSpinner>
+                    </button>
 
                   </div>
 
@@ -253,6 +276,18 @@ return (
         </div>
       </div>
     </div>
+
+    <ConfirmModal
+      show={!!itemToDelete}
+      title="¿Eliminar producto?"
+      message={
+        <>
+          Se va a quitar <b>{itemToDelete?.title}</b> de tu carrito.
+        </>
+      }
+      onConfirm={handleConfirmDelete}
+      onClose={() => setItemToDelete(null)}
+    />
   </>
 );
 }

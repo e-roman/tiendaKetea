@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "@//hooks/useCart";
 import { useRef, useState, useEffect } from "react";
 
 import HeaderCheckOut from "./checkout/components/HeaderCheckOut";
 import SteppersCheck from "./checkout/components/SteppersCheck";
+import ButtonSpinner from "@/components/ButtonSpinner";
 
 import { useCheckout } from "@/context/CheckoutContext";
 
@@ -73,6 +74,7 @@ const {
   const formRef = useRef(null);
   const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -90,7 +92,11 @@ const {
     }
 
     setShowAlert(false);
-    navigate("/checkout/entrega");
+    setSubmitting(true);
+
+    setTimeout(() => {
+      navigate("/checkout/entrega");
+    }, 500);
   };
 
   const subtotal = cart.reduce(
@@ -578,25 +584,20 @@ const {
 
   </div>
 
+  {/* BOTÓN FINAL */}
+  <div className="mt-4">
+    <button
+      type="submit"
+      className="btn btn-primary btn-sm font-16 w-100"
+      disabled={submitting}
+    >
+      <ButtonSpinner loading={submitting} loadingText="Continuando...">
+        Continuar
+      </ButtonSpinner>
+    </button>
+  </div>
+
 </div>
-
-
-
-
-              {/* BOTÓN FINAL */}
-              <div className="d-flex flex-row justify-content-between align-items-center mb-10 mb-md-0 mt-4">
-                <Link to="/cart">
-                  <small className="bi bi-arrow-left me-1"></small>
-                  Regresar <span className="d-none d-inline">a mi Carrito</span>
-                </Link>
-
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-sm font-16 px-6 order-1 order-md-2 mb-0"
-                >
-                  Continuar
-                </button>
-              </div>
 
             </form>
           </div>

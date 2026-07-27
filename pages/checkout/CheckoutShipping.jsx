@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "@/hooks/useCart";
 import { useRef, useState, useEffect } from "react";
 
 import HeaderCheckOut from "./components/HeaderCheckOut";
 import SteppersCheck from "./components/SteppersCheck";
+import ButtonSpinner from "@/components/ButtonSpinner";
 
 import { useCheckout } from "@/context/CheckoutContext";
 
@@ -14,6 +15,7 @@ export default function CheckoutShipping() {
 
   const [validated, setValidated] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
 
   const [summaryOpen, setSummaryOpen] = useState(false);
@@ -44,7 +46,11 @@ export default function CheckoutShipping() {
     }
 
     setShowAlert(false);
-    navigate("/checkout/pago");
+    setSubmitting(true);
+
+    setTimeout(() => {
+      navigate("/checkout/pago");
+    }, 500);
   };
 
 
@@ -407,7 +413,7 @@ export default function CheckoutShipping() {
                 {/* ================= TIPO DE ENTREGA ================= */}
                 <div className="card shadow-none py-4 px-0 px-md-4 mb-md-4">
                   <h2 className="h3 font-bold text-black mb-3">Tipo de Entrega</h2>
-                  <div class="alert alert-warning mb-4" role="alert">
+                  <div className="alert alert-warning mb-4" role="alert">
                     <p className="font-13 font-medium mb-0"><b>Retiro en sucursal</b>: sólo podrá retirar la compra el titular de la tarjeta. Si pagás con 2 tarjetas, deberá presentarse quien abonó el mayor monto.</p>
                   </div>
 
@@ -508,17 +514,19 @@ export default function CheckoutShipping() {
                       </span>
                     </div>
                   </label>
-                </div>
 
-                {/* ================= ACTIONS ================= */}
-                <div className="d-flex justify-content-between align-items-center mb-10 mb-md-0 mt-4">
-                  <Link to="/checkout">
-                    <i className="bi bi-arrow-left"></i> Regresar
-                  </Link>
-
-                  <button type="submit" className="btn btn-primary btn-sm font-16 px-6 order-1 order-md-2 mb-0">
-                    Continuar
-                  </button>
+                  {/* ================= ACTIONS ================= */}
+                  <div className="mt-4">
+                    <button
+                      type="submit"
+                      className="btn btn-primary btn-sm font-16 w-100"
+                      disabled={submitting}
+                    >
+                      <ButtonSpinner loading={submitting} loadingText="Continuando...">
+                        Continuar
+                      </ButtonSpinner>
+                    </button>
+                  </div>
                 </div>
               </form>
             </div>

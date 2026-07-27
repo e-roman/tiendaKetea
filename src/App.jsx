@@ -12,7 +12,7 @@ import LogoutModal from "@/components/Modals/LogoutModal";
 import SupportChat from "@/components/SupportChat";
 
 import ScrollToTop from "@/components/ScrollToTop";
-import PageLoader from "@/components/PageLoader";
+import RouteSkeleton from "@/components/skeletons/RouteSkeleton";
 
 import Home from "../pages/Home";
 import Cart from "../pages/Cart";
@@ -57,7 +57,6 @@ export default function App() {
     <FloatingAlertProvider>
       <CheckoutProvider>
         <ScrollToTop />
-        <PageLoader visible={loading} />
 
         {!hideComponent && (
           <Header setShowLogoutModal={setShowLogoutModal} />
@@ -74,23 +73,27 @@ export default function App() {
         <AlertFloating />
         <SidebarCart />
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/novedades" element={<NovedadesPage />} />
-          <Route path="/descuentos" element={<DescuentosPage />} />
-          <Route path="/Mas-vendido" element={<MasVendidoPage />} />
-          <Route path="/product/:slug" element={<ProductPage />} />
-          <Route path="/cart" element={<Cart />} />
+        {loading ? (
+          <RouteSkeleton pathname={location.pathname} />
+        ) : (
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/novedades" element={<NovedadesPage />} />
+            <Route path="/descuentos" element={<DescuentosPage />} />
+            <Route path="/Mas-vendido" element={<MasVendidoPage />} />
+            <Route path="/product/:slug" element={<ProductPage />} />
+            <Route path="/cart" element={<Cart />} />
 
-          {/* Checkout flow */}
-          <Route path="/checkout" element={<Checkout />} />
-          <Route path="/checkout/entrega" element={<CheckoutShipping />} />
-          <Route path="/checkout/pago" element={<CheckoutPayment />} />
-          <Route path="/pago-realizado" element={<OrderComplete />} />
+            {/* Checkout flow */}
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout/entrega" element={<CheckoutShipping />} />
+            <Route path="/checkout/pago" element={<CheckoutPayment />} />
+            <Route path="/pago-realizado" element={<OrderComplete />} />
 
-          <Route path="/buscar/:query" element={<SearchResults />} />
-          <Route path="/pages/Profile" element={<MyProfile />} />
-        </Routes>
+            <Route path="/buscar/:query" element={<SearchResults />} />
+            <Route path="/pages/Profile" element={<MyProfile />} />
+          </Routes>
+        )}
 
         {!hideComponent && <Footer />}
 

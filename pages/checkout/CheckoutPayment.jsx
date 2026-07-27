@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "@/hooks/useCart";
 import { useRef, useState, useEffect } from "react";
 
 import HeaderCheckOut from "../checkout/components/HeaderCheckOut";
 import SteppersCheck from "./components/SteppersCheck";
+import ButtonSpinner from "@/components/ButtonSpinner";
 import { useCheckout } from "@/context/CheckoutContext";
 
 
@@ -61,23 +62,16 @@ useEffect(() => {
 const { cart, shipping, shippingCost } = useCart();
   const navigate = useNavigate();
 
-  const formRef = useRef(null);
-  const [validated, setValidated] = useState(false);
+  const [paying, setPaying] = useState(false);
 
-const handleSubmit = (e) => {
-  e.preventDefault();
+  const handlePay = () => {
+    if (paying) return;
+    setPaying(true);
 
-  const form = formRef.current;
-
-  if (!form.checkValidity()) {
-    e.stopPropagation();
-    setValidated(true);
-    return;
-  }
-
-navigate("/checkout/pago-realizado");
-
-};
+    setTimeout(() => {
+      navigate("/pago-realizado");
+    }, 800);
+  };
 
 
   const subtotal = cart.reduce(
@@ -424,9 +418,16 @@ const {
                         Si estás en una computadora, tené el celular a mano.
                       </p>
 
-                      <Link to="/checkout/pago-realizado" className="btn btn-danger px-5 py-2">
-                        Pagar con MODO
-                      </Link>
+                      <button
+                        type="button"
+                        className="btn btn-danger px-5 py-2"
+                        onClick={handlePay}
+                        disabled={paying}
+                      >
+                        <ButtonSpinner loading={paying} loadingText="Procesando...">
+                          Pagar con MODO
+                        </ButtonSpinner>
+                      </button>
                     </div>
                   )}
                 </div>
@@ -457,9 +458,16 @@ const {
 
                   {paymentMethod === "mp" && (
                     <div className="mt-4 ms-4 ps-1">
-                      <Link to="/checkout/pago-realizado" className="btn btn-danger px-5 py-2">
-                        Pagar con Mercado Pago
-                      </Link>
+                      <button
+                        type="button"
+                        className="btn btn-danger px-5 py-2"
+                        onClick={handlePay}
+                        disabled={paying}
+                      >
+                        <ButtonSpinner loading={paying} loadingText="Procesando...">
+                          Pagar con Mercado Pago
+                        </ButtonSpinner>
+                      </button>
                     </div>
                   )}
                 </div>
@@ -563,9 +571,16 @@ const {
                       </select>
                     </div>
 
-                    <Link to="/pago-realizado" className="btn btn-danger px-10 w-100 py-2 font-medium">
-                      <span className="py-1 py-1 d-block">Pagar</span>
-                    </Link>
+                    <button
+                      type="button"
+                      className="btn btn-danger px-10 w-100 py-2 font-medium"
+                      onClick={handlePay}
+                      disabled={paying}
+                    >
+                      <ButtonSpinner loading={paying} loadingText="Procesando...">
+                        <span className="py-1 py-1 d-block">Pagar</span>
+                      </ButtonSpinner>
+                    </button>
 
                   </div>
                 )}
