@@ -742,7 +742,7 @@ ul, ol {
     position: relative;
     display: block;
     overflow: hidden;
-    padding: 0 10px;
+    padding: 10px;
 }
 .text-pay {
     font-size: .714rem;

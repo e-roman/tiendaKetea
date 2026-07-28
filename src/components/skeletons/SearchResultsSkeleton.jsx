@@ -26,7 +26,7 @@ export default function SearchResultsSkeleton() {
 
           <ProductGridSkeleton
             count={9}
-            rowClassName="row g-2 g-md-3 row-cols-2 row-cols-md-3"
+            rowClassName="row g-2 gx-md-2 gy-md-3 row-cols-2 row-cols-md-4"
           />
         </div>
       </div>

@@ -258,7 +258,7 @@ const resetFilters = () => {
           )}
 
           {!noResults && (
-            <div className="row g-2 g-md-3 row-cols-2 row-cols-md-3">
+            <div className="row g-2 gx-md-2 gy-md-3 row-cols-2 row-cols-md-4">
               {results.map(p => (
                 <div className="col" key={p.id}>
                   <ProductCard product={p} openProduct={openProduct} />

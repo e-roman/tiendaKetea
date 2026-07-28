@@ -1,0 +1,409 @@
+/*
+ * ketea-tokens.css
+ * Design System Ketea S.A. — Token Bridge
+ *
+ * Conecta el Design System de Figma (via Tokens Studio → GitHub → Style Dictionary)
+ * con la implementación Bootstrap del ecommerce.
+ *
+ * Pipeline: Figma Variables → Tokens Studio → github.com/e-roman/Ketea-design-tokens
+ *           → Style Dictionary → este archivo
+ *
+ * Uso: importar en main.jsx ANTES de App.css y Styles.css
+ * import './ketea-tokens.css'
+ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   1. KETEA DESIGN TOKENS — Variables primitivas
+   Espejo directo del JSON en Ketea-design-tokens/tokens/ketea-tokens.json
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+
+  /* ── Tipografía ── */
+  --ketea-font-sans: 'Mulish', sans-serif;
+  --ketea-font-mono: 'JetBrains Mono', monospace;
+
+  --ketea-font-weight-regular:   400;
+  --ketea-font-weight-medium:    500;
+  --ketea-font-weight-semibold:  600;
+  --ketea-font-weight-bold:      700;
+  --ketea-font-weight-extrabold: 800;
+
+  --ketea-font-size-xs:  12px;
+  --ketea-font-size-sm:  14px;
+  --ketea-font-size-md:  16px;
+  --ketea-font-size-lg:  18px;
+  --ketea-font-size-xl:  20px;
+  --ketea-font-size-2xl: 24px;
+  --ketea-font-size-3xl: 30px;
+  --ketea-font-size-4xl: 36px;
+  --ketea-font-size-5xl: 48px;
+  --ketea-font-size-6xl: 60px;
+
+  --ketea-line-height-none:    1;
+  --ketea-line-height-tight:   1.25;
+  --ketea-line-height-snug:    1.375;
+  --ketea-line-height-normal:  1.5;
+  --ketea-line-height-relaxed: 1.625;
+  --ketea-line-height-loose:   2;
+
+  /* ── Paleta — Neutral ── */
+  --ketea-neutral-50:  #FAFAFA;
+  --ketea-neutral-100: #F5F5F5;
+  --ketea-neutral-200: #E5E5E5;
+  --ketea-neutral-300: #D4D4D4;
+  --ketea-neutral-400: #A3A3A3;
+  --ketea-neutral-500: #737373;
+  --ketea-neutral-600: #525252;
+  --ketea-neutral-700: #404040;
+  --ketea-neutral-800: #262626;
+  --ketea-neutral-900: #171717;
+  --ketea-neutral-950: #0A0A0A;
+
+  /* ── Paleta — Blue-brand (color primario de Ketea) ── */
+  --ketea-brand-50:  #F2F5FD;
+  --ketea-brand-100: #E6EBFA;
+  --ketea-brand-200: #CED8F4;
+  --ketea-brand-300: #B6C5ED;
+  --ketea-brand-400: #93A9E1;
+  --ketea-brand-500: #6A87D4;
+  --ketea-brand-600: #5072CC;
+  --ketea-brand-700: #385DBE;  /* Brand/Default — color principal */
+  --ketea-brand-800: #2A4A9E;  /* Brand/Hover */
+  --ketea-brand-900: #1E3676;
+  --ketea-brand-950: #142248;
+
+  /* ── Paleta — Feedback ── */
+  --ketea-green-50:  #F0FDF4;
+  --ketea-green-300: #86EFAC;
+  --ketea-green-500: #22C55E;
+  --ketea-green-700: #15803D;
+
+  --ketea-red-50:  #FEF2F2;
+  --ketea-red-300: #FCA5A5;
+  --ketea-red-500: #EF4444;
+  --ketea-red-700: #B91C1C;
+
+  --ketea-yellow-50:  #FEFCE8;
+  --ketea-yellow-300: #FDE047;
+  --ketea-yellow-500: #EAB308;
+  --ketea-yellow-700: #A16207;
+
+  --ketea-blue-50:  #EFF6FF;
+  --ketea-blue-300: #93C5FD;
+  --ketea-blue-700: #1D4ED8;
+
+  /* ── Tokens semánticos ── */
+  --ketea-surface-page:    var(--ketea-neutral-50);
+  --ketea-surface-default: #FFFFFF;
+  --ketea-surface-subtle:  var(--ketea-neutral-100);
+  --ketea-surface-muted:   var(--ketea-neutral-200);
+  --ketea-surface-inverse: var(--ketea-neutral-900);
+  --ketea-surface-overlay: rgba(0,0,0,0.45);
+
+  --ketea-text-primary:   var(--ketea-neutral-900);
+  --ketea-text-secondary: var(--ketea-neutral-600);
+  --ketea-text-tertiary:  var(--ketea-neutral-400);
+  --ketea-text-disabled:  var(--ketea-neutral-300);
+  --ketea-text-inverse:   #FFFFFF;
+  --ketea-text-link:      var(--ketea-brand-700);
+  --ketea-text-link-hover: var(--ketea-brand-800);
+  --ketea-text-on-brand:  #FFFFFF;
+
+  --ketea-border-default: var(--ketea-neutral-200);
+  --ketea-border-strong:  var(--ketea-neutral-300);
+  --ketea-border-focus:   var(--ketea-brand-700);
+
+  --ketea-icon-default: var(--ketea-neutral-600);
+  --ketea-icon-subtle:  var(--ketea-neutral-400);
+  --ketea-icon-brand:   var(--ketea-brand-700);
+
+  /* ── Spacing ── */
+  --ketea-space-1:  4px;
+  --ketea-space-2:  8px;
+  --ketea-space-3:  12px;
+  --ketea-space-4:  16px;
+  --ketea-space-5:  20px;
+  --ketea-space-6:  24px;
+  --ketea-space-8:  32px;
+  --ketea-space-10: 40px;
+  --ketea-space-12: 48px;
+  --ketea-space-16: 64px;
+
+  /* ── Border radius ── */
+  --ketea-radius-none: 0px;
+  --ketea-radius-sm:   4px;
+  --ketea-radius-md:   8px;
+  --ketea-radius-lg:   12px;
+  --ketea-radius-xl:   16px;
+  --ketea-radius-2xl:  20px;
+  --ketea-radius-3xl:  24px;
+  --ketea-radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --ketea-shadow-xs:    0 1px 2px 0 rgba(0,0,0,0.05);
+  --ketea-shadow-sm:    0 1px 3px 0 rgba(0,0,0,0.08);
+  --ketea-shadow-md:    0 4px 6px -1px rgba(0,0,0,0.10);
+  --ketea-shadow-lg:    0 10px 15px -3px rgba(0,0,0,0.10);
+  --ketea-shadow-xl:    0 20px 25px -5px rgba(0,0,0,0.12);
+  --ketea-shadow-focus: 0 0 0 3px #CDDAF5;
+
+  /* ── Opacity ── */
+  --ketea-opacity-disabled: 0.4;
+  --ketea-opacity-overlay:  0.45;
+  --ketea-opacity-hover:    0.08;
+
+  /* ── Feedback ── */
+  --ketea-feedback-success-text:   var(--ketea-green-700);
+  --ketea-feedback-success-bg:     var(--ketea-green-50);
+  --ketea-feedback-success-border: var(--ketea-green-300);
+
+  --ketea-feedback-error-text:   var(--ketea-red-700);
+  --ketea-feedback-error-bg:     var(--ketea-red-50);
+  --ketea-feedback-error-border: var(--ketea-red-500);
+
+  --ketea-feedback-warning-text:   var(--ketea-yellow-700);
+  --ketea-feedback-warning-bg:     var(--ketea-yellow-50);
+  --ketea-feedback-warning-border: var(--ketea-yellow-300);
+
+  --ketea-feedback-info-text:   var(--ketea-blue-700);
+  --ketea-feedback-info-bg:     var(--ketea-blue-50);
+  --ketea-feedback-info-border: var(--ketea-blue-300);
+
+  /* ── Forms ── */
+  --ketea-forms-bg:               #FFFFFF;
+  --ketea-forms-border:           var(--ketea-neutral-300);
+  --ketea-forms-border-hover:     var(--ketea-neutral-400);
+  --ketea-forms-border-focus:     var(--ketea-brand-700);
+  --ketea-forms-border-error:     var(--ketea-red-500);
+  --ketea-forms-bg-error:         var(--ketea-red-50);
+  --ketea-forms-bg-disabled:      var(--ketea-neutral-100);
+  --ketea-forms-text-placeholder: var(--ketea-neutral-400);
+  --ketea-forms-text-disabled:    var(--ketea-neutral-400);
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   2. BOOTSTRAP OVERRIDE — Mapeo de variables BS a tokens Ketea
+   Bootstrap 5 usa variables --bs-* en :root que podemos sobreescribir
+   ───────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Tipografía global */
+  --bs-font-sans-serif: var(--ketea-font-sans);
+  --bs-body-font-family: var(--ketea-font-sans);
+  --bs-body-font-size: var(--ketea-font-size-md);
+  --bs-body-line-height: var(--ketea-line-height-normal);
+  --bs-body-color: var(--ketea-text-primary);
+
+  /* Color primario → Brand/Default #385DBE */
+  --bs-primary: var(--ketea-brand-700);
+  --bs-primary-rgb: 56, 93, 190;
+
+  /* Link */
+  --bs-link-color: var(--ketea-text-link);
+  --bs-link-hover-color: var(--ketea-text-link-hover);
+
+  /* Superficies */
+  --bs-body-bg: var(--ketea-surface-page);
+  --bs-secondary-bg: var(--ketea-surface-subtle);
+
+  /* Bordes */
+  --bs-border-color: var(--ketea-border-default);
+  --bs-border-color-translucent: rgba(0,0,0,0.08);
+
+  /* Border radius */
+  --bs-border-radius:    var(--ketea-radius-md);
+  --bs-border-radius-sm: var(--ketea-radius-sm);
+  --bs-border-radius-lg: var(--ketea-radius-lg);
+  --bs-border-radius-xl: var(--ketea-radius-xl);
+  --bs-border-radius-pill: var(--ketea-radius-full);
+
+  /* Shadows */
+  --bs-box-shadow:    var(--ketea-shadow-md);
+  --bs-box-shadow-sm: var(--ketea-shadow-sm);
+  --bs-box-shadow-lg: var(--ketea-shadow-lg);
+
+  /* Feedback */
+  --bs-success:    var(--ketea-green-500);
+  --bs-success-rgb: 34, 197, 94;
+  --bs-danger:     var(--ketea-red-500);
+  --bs-danger-rgb: 239, 68, 68;
+  --bs-warning:    var(--ketea-yellow-500);
+  --bs-warning-rgb: 234, 179, 8;
+  --bs-info:       var(--ketea-blue-700);
+  --bs-info-rgb: 29, 78, 216;
+}
+
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   3. COMPONENTES — Aplicación directa de tokens en componentes Bootstrap
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* Tipografía global */
+body {
+  font-family: var(--ketea-font-sans);
+  background-color: var(--ketea-surface-page);
+  color: var(--ketea-text-primary);
+}
+
+/* ── Botón primario ── */
+.btn-primary {
+  background-color: var(--ketea-brand-700);
+  border-color: var(--ketea-brand-700);
+  color: var(--ketea-text-on-brand);
+  font-weight: var(--ketea-font-weight-semibold);
+  border-radius: var(--ketea-radius-md);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background-color: var(--ketea-brand-800);
+  border-color: var(--ketea-brand-800);
+  color: var(--ketea-text-on-brand);
+}
+
+.btn-primary:focus-visible {
+  box-shadow: var(--ketea-shadow-focus);
+}
+
+/* ── Botón outline-primary ── */
+.btn-outline-primary {
+  color: var(--ketea-brand-700);
+  border-color: var(--ketea-brand-700);
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--ketea-brand-700);
+  border-color: var(--ketea-brand-700);
+  color: var(--ketea-text-on-brand);
+}
+
+/* ── Focus ring global ── */
+.form-control:focus,
+.form-select:focus,
+.btn:focus-visible {
+  border-color: var(--ketea-border-focus);
+  box-shadow: var(--ketea-shadow-focus);
+  outline: none;
+}
+
+/* ── Inputs ── */
+.form-control,
+.form-select {
+  border-color: var(--ketea-forms-border);
+  border-radius: var(--ketea-radius-md);
+  font-family: var(--ketea-font-sans);
+  color: var(--ketea-text-primary);
+  background-color: var(--ketea-forms-bg);
+}
+
+.form-control::placeholder {
+  color: var(--ketea-forms-text-placeholder);
+}
+
+.form-control:hover,
+.form-select:hover {
+  border-color: var(--ketea-forms-border-hover);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  background-color: var(--ketea-forms-bg-disabled);
+  color: var(--ketea-forms-text-disabled);
+  opacity: var(--ketea-opacity-disabled);
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: var(--ketea-forms-border-error);
+  background-color: var(--ketea-forms-bg-error);
+}
+
+/* ── Cards ── */
+.card {
+  border-color: var(--ketea-border-default);
+  border-radius: var(--ketea-radius-md);
+  box-shadow: var(--ketea-shadow-xs);
+  background-color: var(--ketea-surface-default);
+}
+
+/* ── Navbar ── */
+.navbar {
+  font-family: var(--ketea-font-sans);
+}
+
+/* ── Links ── */
+a {
+  color: var(--ketea-text-link);
+}
+
+a:hover {
+  color: var(--ketea-text-link-hover);
+}
+
+/* ── Texto secundario ── */
+.text-muted {
+  color: var(--ketea-text-secondary) !important;
+}
+
+/* ── Badges de feedback ── */
+.badge.bg-success { background-color: var(--ketea-green-500) !important; }
+.badge.bg-danger  { background-color: var(--ketea-red-500) !important; }
+.badge.bg-warning { background-color: var(--ketea-yellow-500) !important; color: var(--ketea-neutral-900) !important; }
+
+/* ── Alerts ── */
+.alert-success {
+  background-color: var(--ketea-feedback-success-bg);
+  border-color: var(--ketea-feedback-success-border);
+  color: var(--ketea-feedback-success-text);
+}
+
+.alert-danger {
+  background-color: var(--ketea-feedback-error-bg);
+  border-color: var(--ketea-feedback-error-border);
+  color: var(--ketea-feedback-error-text);
+}
+
+.alert-warning {
+  background-color: var(--ketea-feedback-warning-bg);
+  border-color: var(--ketea-feedback-warning-border);
+  color: var(--ketea-feedback-warning-text);
+}
+
+.alert-info {
+  background-color: var(--ketea-feedback-info-bg);
+  border-color: var(--ketea-feedback-info-border);
+  color: var(--ketea-feedback-info-text);
+}
+
+/* ── Dropdowns ── */
+.dropdown-menu {
+  border-color: var(--ketea-border-default);
+  border-radius: var(--ketea-radius-lg);
+  box-shadow: var(--ketea-shadow-lg);
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: var(--ketea-surface-subtle);
+  color: var(--ketea-text-primary);
+}
+
+/* ── Offcanvas (cart sidebar) ── */
+.offcanvas {
+  font-family: var(--ketea-font-sans);
+}
+
+/* ── Spinner ── */
+.text-primary {
+  color: var(--ketea-brand-700) !important;
+}
+
+.bg-primary {
+  background-color: var(--ketea-brand-700) !important;
+}
+
+.border-primary {
+  border-color: var(--ketea-brand-700) !important;
+}
