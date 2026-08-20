@@ -262,8 +262,8 @@ export default function MainHeader() {
 
           {/* NOTIFICACIONES */}
           <Dropdown as={ButtonGroup}>
-            <Dropdown.Toggle className="btn btn-light position-relative rounded-circle btn-icon btn-icon-top btn-notifications">
-                  <span className="notifications-active"> </span>
+            <Dropdown.Toggle className="btn btn-light position-relative rounded-circle btn-icon btn-icon-top btn-notifications text-dark">
+              <span className="notifications-active"> </span>
               <i className="bi bi-bell"></i>
             </Dropdown.Toggle>
             <Dropdown.Menu align="end" className="dropdowNotifications p-0" style={{ minWidth: "25rem" }}>
