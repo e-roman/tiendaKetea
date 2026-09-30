@@ -1,86 +1,79 @@
-import { useNavigate, useParams } from "react-router-dom";
-import { useState, useMemo } from "react";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useState, useMemo, useRef, useEffect } from "react";
 import productsData from "@/data/products.json";
 
 import ProductCard from "@/components/ProductCard";
+import ProductGridSkeleton from "@/components/skeletons/ProductGridSkeleton";
 import SearchFilters from "@/components/search/SearchFilters";
 import SearchSort from "@/components/search/SearchSort";
 import SearchSortMobile from "@/components/search/SearchSortMobile";
+import {
+  EMPTY_FILTERS,
+  applyFilters,
+  buildFacets,
+  hasActiveFilters as checkActiveFilters,
+  matchesSearch
+} from "@/components/search/filterUtils";
+
+// Duración del skeleton al aplicar filtros u orden
+const FILTER_LOADING_MS = 450;
+const RESULTS_GRID_CLASS = "row g-2 gx-md-2 gy-md-3 row-cols-2 row-cols-md-4";
 
 export default function SearchResults() {
   const { query } = useParams();
-  const navigate = useNavigate();
-
-if (!query) {
-  navigate("/");
-  return null;
+  if (!query?.trim()) return <Navigate to="/" replace />;
+  // key: al cambiar la búsqueda se reinician filtros y orden
+  return <SearchResultsContent key={query} query={query} />;
 }
 
-  const [sort, setSort] = useState("featured");
+function SearchResultsContent({ query }) {
+  const navigate = useNavigate();
+  const [sort, setSortState] = useState("featured");
+  const [filters, setFiltersState] = useState(EMPTY_FILTERS);
+  const [isFiltering, setIsFiltering] = useState(false);
+  const loadingTimer = useRef(null);
 
-const [filters, setFilters] = useState({
-  marcas: [],
-  categorias: [],
-  accionamiento: [],
-  descuentos: [],
-  cuotasCantidad: [],
-  precioMin: "",
-  precioMax: "",
-  cuotasSinInteres: false,
-  envioGratis: false,
-  llegaManana: false,
-  llegaHoy: false,
-  retiroInmediato: false,
-  compraInternacional: false
-});
+  useEffect(() => () => clearTimeout(loadingTimer.current), []);
 
+  // Muestra el skeleton y, al terminar, sube el scroll al inicio de los resultados
+  const startFilterLoading = () => {
+    setIsFiltering(true);
+    clearTimeout(loadingTimer.current);
+    loadingTimer.current = setTimeout(() => {
+      setIsFiltering(false);
+      if (window.scrollY > 0) window.scrollTo({ top: 0, behavior: "smooth" });
+    }, FILTER_LOADING_MS);
+  };
+
+  const setFilters = (updater) => {
+    setFiltersState(updater);
+    startFilterLoading();
+  };
+
+  const setSort = (value) => {
+    setSortState(value);
+    startFilterLoading();
+  };
 
   const openProduct = (slug) => navigate(`/product/${slug}`);
-  const searchTerm = (query || "").toLowerCase().trim();
 
   /* =============================
-    OPCIONES
+    BÚSQUEDA + FILTRADO
   ============================= */
-  const marcas = [...new Set(productsData.map(p => p.Marca).filter(Boolean))];
-  const categorias = [...new Set(productsData.flatMap(p => p.categories || []))];
-  const accionamientos = [...new Set(productsData.map(p => p.accionamiento).filter(Boolean))];
-  const descuentos = [...new Set(productsData.map(p => p.discount).filter(d => d > 0))];
+  const searchResults = useMemo(
+    () => productsData.filter(p => matchesSearch(p, query)),
+    [query]
+  );
 
-  /* =============================
-    FILTRADO
-  ============================= */
-const filteredResults = useMemo(() => {
-  return productsData.filter(p => {
-    const title = p.title?.toLowerCase() || "";
-    const cats = (p.categories || []).map(c => c.toLowerCase());
+  const filteredResults = useMemo(
+    () => applyFilters(searchResults, filters),
+    [searchResults, filters]
+  );
 
-    if (!title.includes(searchTerm) && !cats.some(c => c.includes(searchTerm))) return false;
-
-    if (filters.precioMin && p.price < Number(filters.precioMin)) return false;
-    if (filters.precioMax && p.price > Number(filters.precioMax)) return false;
-
-    if (filters.marcas.length && !filters.marcas.includes(p.Marca)) return false;
-    if (filters.categorias.length && !p.categories?.some(c => filters.categorias.includes(c))) return false;
-    if (filters.accionamiento.length && !filters.accionamiento.includes(p.accionamiento)) return false;
-    if (filters.descuentos.length && !filters.descuentos.includes(p.discount)) return false;
-
-    // ESTE ERA EL QUE FALTABA
-    if (
-      filters.cuotasCantidad.length &&
-      !filters.cuotasCantidad.includes(p.cuotasLabel)
-    ) return false;
-
-    if (filters.envioGratis && !p.envioGratis) return false;
-    if (filters.cuotasSinInteres && !p.cuotasSinInteres) return false;
-    if (filters.llegaHoy && !p.llegaHoy) return false;
-    if (filters.llegaManana && !p.llegaManana) return false;
-    if (filters.retiroInmediato && !p.retiroInmediato) return false;
-    if (filters.compraInternacional && !p.compraInternacional) return false;
-
-    return true;
-  });
-}, [searchTerm, filters]);
-
+  const facets = useMemo(
+    () => buildFacets(searchResults, filters),
+    [searchResults, filters]
+  );
 
   /* =============================
     ORDENAMIENTO
@@ -91,8 +84,8 @@ const filteredResults = useMemo(() => {
     switch (sort) {
       case "price_low": ordered.sort((a, b) => a.price - b.price); break;
       case "price_high": ordered.sort((a, b) => b.price - a.price); break;
-      case "az": ordered.sort((a, b) => a.title.localeCompare(b.title)); break;
-      case "za": ordered.sort((a, b) => b.title.localeCompare(a.title)); break;
+      case "az": ordered.sort((a, b) => a.title.trim().localeCompare(b.title.trim(), "es")); break;
+      case "za": ordered.sort((a, b) => b.title.trim().localeCompare(a.title.trim(), "es")); break;
       case "new": ordered.sort((a, b) => new Date(b.date) - new Date(a.date)); break;
       case "discount": ordered.sort((a, b) => (b.discount || 0) - (a.discount || 0)); break;
       case "featured": ordered.sort((a, b) => Number(b.isFeatured) - Number(a.isFeatured)); break;
@@ -114,45 +107,15 @@ const filteredResults = useMemo(() => {
     }));
   };
 
-const resetFilters = () => {
-  setFilters({
-    marcas: [],
-    categorias: [],
-    accionamiento: [],
-    descuentos: [],
-    cuotasCantidad: [], 
-    precioMin: "",
-    precioMax: "",
-    cuotasSinInteres: false,
-    envioGratis: false,
-    llegaManana: false,
-    llegaHoy: false,
-    retiroInmediato: false,
-    compraInternacional: false
-  });
-};
+  const resetFilters = () => setFilters(EMPTY_FILTERS);
 
-  const hasActiveFilters = useMemo(() => (
-    filters.marcas.length ||
-    filters.categorias.length ||
-    filters.accionamiento.length ||
-    filters.descuentos.length ||
-    filters.precioMin ||
-    filters.precioMax ||
-    filters.cuotasSinInteres ||
-    filters.envioGratis ||
-    filters.llegaHoy ||
-    filters.llegaManana ||
-    filters.retiroInmediato ||
-    filters.compraInternacional
-  ), [filters]);
+  const hasActiveFilters = checkActiveFilters(filters);
 
   const noResults = results.length === 0;
-  const noResultsFromSearch = noResults && !hasActiveFilters;
+  const noResultsFromSearch = searchResults.length === 0;
 
     /*MOBILE */
   const [showFiltersMobile, setShowFiltersMobile] = useState(false);
-  const [showSortMobile, setShowSortMobile] = useState(false);
 
   return (
 
@@ -176,20 +139,22 @@ const resetFilters = () => {
               </div>
         </div>
 
-        <div className="filters-actions-mobile d-flex d-lg-none gap-2 mb-3">
-          <button
-            className="filters-btn-mobile w-50"
-            onClick={() => setShowFiltersMobile(true)}
-          >
-            <i className="bi bi-sliders"></i>
-            Filtrar
-          </button>
+        {!noResultsFromSearch && (
+          <div className="filters-actions-mobile d-flex d-lg-none gap-2 mb-3">
+            <button
+              className="filters-btn-mobile w-50"
+              onClick={() => setShowFiltersMobile(true)}
+            >
+              <i className="bi bi-sliders"></i>
+              Filtrar
+            </button>
 
-          <button className="filters-btn-mobile w-50">
-            <i className="bi bi-arrow-down-up"></i>
-            <SearchSortMobile sort={sort} setSort={setSort} />
-          </button>
-        </div>
+            <button className="filters-btn-mobile w-50">
+              <i className="bi bi-arrow-down-up"></i>
+              <SearchSortMobile sort={sort} setSort={setSort} />
+            </button>
+          </div>
+        )}
 
 
 
@@ -209,7 +174,7 @@ const resetFilters = () => {
             </div>
 
             <SearchFilters
-                products={productsData}  
+                facets={facets}
                 filters={filters}
                 setFilters={setFilters}
                 toggleFilter={toggleFilter}
@@ -229,7 +194,14 @@ const resetFilters = () => {
 
 
 
-          {noResults && (
+          {isFiltering && (
+            <ProductGridSkeleton
+              count={Math.min(Math.max(results.length, 4), 8)}
+              rowClassName={RESULTS_GRID_CLASS}
+            />
+          )}
+
+          {!isFiltering && noResults && (
             <div className="d-flex flex-column align-items-center justify-content-center text-center py-5">
               <i className="bi bi-search mb-3" style={{ fontSize: "3rem", opacity: 0.6 }} />
 
@@ -257,8 +229,8 @@ const resetFilters = () => {
             </div>
           )}
 
-          {!noResults && (
-            <div className="row g-2 gx-md-2 gy-md-3 row-cols-2 row-cols-md-4">
+          {!isFiltering && !noResults && (
+            <div className={RESULTS_GRID_CLASS}>
               {results.map(p => (
                 <div className="col" key={p.id}>
                   <ProductCard product={p} openProduct={openProduct} />
@@ -301,7 +273,7 @@ const resetFilters = () => {
           {/* BODY (scroll) */}
           <div className="box-filters-body-sm">
             <SearchFilters
-              products={productsData}
+              facets={facets}
               filters={filters}
               setFilters={setFilters}
               toggleFilter={toggleFilter}

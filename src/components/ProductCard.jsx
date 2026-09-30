@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useCart } from "@/hooks/useCart";
 import { useFloatingAlert } from "@/context/FloatingAlertContext";
+import ProductCardSpec from "@/components/ProductCardSpec";
 
 export default function ProductCard({ product, openProduct }) {
   const { favorites, toggleFavorite } = useFavorites();
@@ -91,6 +92,7 @@ const handleToggleFavorite = () => {
         >
           {product.title}
         </button>
+        <ProductCardSpec product={product} />
 
         <div className="pricing-meta my-1 pb-1">
 
@@ -122,7 +124,7 @@ const handleToggleFavorite = () => {
 
         {product.installmentsLabel && (
           <p className="small mb-0 font-13 font-medium">
-            <span className="font-bold text-dark">{product.installmentsLabel}</span> sin interés
+            <span>{product.installmentsLabel}</span> sin interés
           </p>
         )}
 

@@ -4115,3 +4115,106 @@ header{
   }
 } */
 
+
+
+/* =============================
+  DETALLE DE PRODUCTO: PESTAÑAS DE INFORMACIÓN
+============================= */
+.product-info-tabs {
+    border-bottom: 1px solid var(--ketea-neutral-200);
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+}
+.product-info-tabs .nav-link {
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: var(--ketea-neutral-600);
+    font-weight: var(--ketea-font-weight-semibold);
+    padding: .75rem 0;
+    white-space: nowrap;
+}
+.product-info-tabs .nav-link:hover {
+    color: var(--ketea-neutral-900);
+}
+.product-info-tabs .nav-link.active {
+    color: var(--ketea-neutral-900);
+    border-bottom-color: var(--ketea-brand-700);
+}
+
+.product-info-description {
+    max-width: 860px;
+}
+.product-info-list {
+    padding-left: 1.25rem;
+    margin-bottom: 0;
+}
+.product-info-list,
+.product-info-list ul,
+.product-info-tip ul {
+    list-style: disc;
+}
+.product-info-list ul {
+    list-style: circle;
+    padding-left: 1.25rem;
+}
+.product-info-list > li {
+    margin-bottom: .5rem;
+}
+.product-info-box {
+    border: 1px solid var(--ketea-neutral-200);
+    border-radius: .5rem;
+    padding: 1rem 1.25rem;
+}
+.product-info-tip {
+    background: var(--ketea-brand-50);
+    border-left: 3px solid var(--ketea-brand-700);
+    border-radius: .25rem;
+    padding: 1rem 1.25rem;
+}
+
+.product-specs-table th,
+.product-specs-table td {
+    padding: .625rem .75rem;
+    border-bottom: 1px solid var(--ketea-neutral-200);
+    font-size: var(--ketea-font-size-sm);
+    vertical-align: top;
+}
+.product-specs-table th {
+    width: 45%;
+    font-weight: var(--ketea-font-weight-semibold);
+    color: var(--ketea-neutral-600);
+    background: var(--ketea-neutral-50);
+}
+
+.product-resource-link {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    max-width: 480px;
+    padding: .75rem 1rem;
+    border: 1px solid var(--ketea-neutral-200);
+    border-radius: .5rem;
+    color: var(--ketea-brand-700);
+    text-decoration: none;
+}
+.product-resource-link:hover {
+    border-color: var(--ketea-brand-700);
+}
+
+.product-faq {
+    max-width: 860px;
+}
+.product-info-accordion .accordion-button {
+    font-weight: var(--ketea-font-weight-bold);
+}
+
+/* Dato técnico destacado en cards de producto */
+.product-card-spec {
+    font-size: var(--ketea-font-size-sm);
+    color: var(--ketea-neutral-500);
+    margin-top: .125rem;
+}

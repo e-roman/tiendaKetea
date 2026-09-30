@@ -10,7 +10,7 @@ import AlertFloating from "@/components/alert/AlertFloating";
 import DiscountMethod from "@/components/Modals/MethodsDiscountModal";
 import ButtonSpinner from "@/components/ButtonSpinner";
 
-export default function ProductDetail({ product }) {
+export default function ProductDetail({ product, details }) {
   const navigate = useNavigate();
   const { cart, addToCart } = useCart();
   const { favorites, toggleFavorite } = useFavorites();
@@ -99,7 +99,7 @@ const handleStartCheckout = () => {
       {/* Código + rating */}
       <div className="d-flex align-items-center justify-content-between small mb-2">
         <p className="link-muted mb-0">
-          <small className="font-medium">Código: {product.code || "N/A"}</small>
+          <small className="font-medium">SKU: {details?.sku || product.code || "N/A"}</small>
         </p>
 
         <div className="d-none d-md-flex align-items-center">
@@ -147,20 +147,43 @@ const handleStartCheckout = () => {
 
 
       {/* Subtítulo / descripción corta */}
-      <div className="mb-3">
-        <p className="mb-0">{product.shortDescription}</p>
-      </div>
+      {details?.shortDescription && (
+        <div className="mb-3">
+          <p className="mb-1">{details.shortDescription}</p>
+          <a
+            href="#specifications"
+            className="font-14"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("specifications")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }}
+          >
+            Ver descripción completa
+          </a>
+        </div>
+      )}
 
 
       {/* Stock */}
       <div className="d-flex justify-content-between pb-2 px-1 px-md-0">
-        {product.stock <= 1 ? (
+        {!product.stock ? (
+          <span className="badge py-1 px-2 bg-secondary text-white rounded-1">
+            Sin stock
+          </span>
+        ) : product.stock === 1 ? (
           <span className="badge py-1 px-2 bg-danger text-white rounded-1">
             ¡Último en stock!
           </span>
         ) : (
           <span className="badge py-1 px-2 bg-success text-white rounded-1">
             Stock disponible
+          </span>
+        )}
+
+        {details?.warrantyMonths && (
+          <span className="small text-dark d-flex align-items-center gap-1">
+            <i className="bi bi-shield-check text-primary" />
+            Garantía oficial {details.warrantyMonths} meses
           </span>
         )}
       </div>

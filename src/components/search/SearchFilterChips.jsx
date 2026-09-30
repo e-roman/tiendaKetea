@@ -1,8 +1,22 @@
+import { SWITCHES } from "./filterUtils";
+
+function Chip({ label, onRemove }) {
+  return (
+    <button className="chip" onClick={onRemove}>
+      {label}
+      <span className="icon-inline chip-remove-icon chip-close" />
+    </button>
+  );
+}
+
 export default function SearchFilterChips({
   filters,
+  setFilters,
   toggleFilter,
   resetFilters
 }) {
+  const clear = (key, value) => setFilters(f => ({ ...f, [key]: value }));
+
   return (
     <div className="mb-3 rowChips">
       <div className="d-flex align-items-center mb-2">
@@ -18,67 +32,33 @@ export default function SearchFilterChips({
       </div>
 
       <div className="d-flex flex-wrap row-gap-2 mb-2">
-
-        {/* MARCAS */}
-        {filters.marcas.map(m => (
-          <button
-            key={`marca-${m}`}
-            className="chip"
-            onClick={() => toggleFilter("marcas", m)}
-          >
-            {m}
-            <span className="icon-inline chip-remove-icon chip-close" />
-          </button>
+        {SWITCHES.filter(s => filters[s.key]).map(s => (
+          <Chip key={s.key} label={s.label} onRemove={() => clear(s.key, false)} />
         ))}
 
-        {/* CATEGORÍAS */}
         {filters.categorias.map(c => (
-          <button
-            key={`cat-${c}`}
-            className="chip"
-            onClick={() => toggleFilter("categorias", c)}
-          >
-            {c}
-            <span className="icon-inline chip-remove-icon chip-close" />
-          </button>
+          <Chip key={`cat-${c}`} label={c} onRemove={() => toggleFilter("categorias", c)} />
         ))}
 
-        {/* ACCIONAMIENTO */}
+        {filters.marcas.map(m => (
+          <Chip key={`marca-${m}`} label={m} onRemove={() => toggleFilter("marcas", m)} />
+        ))}
+
         {filters.accionamiento.map(a => (
-          <button
-            key={`acc-${a}`}
-            className="chip"
-            onClick={() => toggleFilter("accionamiento", a)}
-          >
-            {a}
-            <span className="icon-inline chip-remove-icon chip-close" />
-          </button>
+          <Chip key={`acc-${a}`} label={a} onRemove={() => toggleFilter("accionamiento", a)} />
         ))}
 
-        {/* DESCUENTOS */}
-        {filters.descuentos.map(d => (
-          <button
-            key={`desc-${d}`}
-            className="chip"
-            onClick={() => toggleFilter("descuentos", d)}
-          >
-            {d}% OFF
-            <span className="icon-inline chip-remove-icon chip-close" />
-          </button>
+        {filters.descuento && (
+          <Chip label={`Desde ${filters.descuento}% OFF`} onRemove={() => clear("descuento", null)} />
+        )}
+
+        {filters.cuotas.map(n => (
+          <Chip key={`cuota-${n}`} label={`${n} cuotas sin interés`} onRemove={() => toggleFilter("cuotas", n)} />
         ))}
 
-        {/* CANTIDAD DE CUOTAS */}
-        {filters.cuotasCantidad.map(cuota => (
-          <button
-            key={`cuota-${cuota}`}
-            className="chip"
-            onClick={() => toggleFilter("cuotasCantidad", cuota)}
-          >
-            {cuota}
-            <span className="icon-inline chip-remove-icon chip-close" />
-          </button>
-        ))}
-
+        {filters.precio && (
+          <Chip label={filters.precio.label} onRemove={() => clear("precio", null)} />
+        )}
       </div>
     </div>
   );

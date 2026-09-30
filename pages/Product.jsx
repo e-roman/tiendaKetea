@@ -1,7 +1,7 @@
-import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 import productsData from "@/data/products.json";
+import { getProductDetails, getBreadcrumb } from "@/data/productDetails";
 
 import useIsMobile from "@/hooks/useIsMobile";
 
@@ -11,7 +11,6 @@ import ProductGalleryMobile from "@/components/Product/ProductGalleryMobile";
 import ProductDetail from "@/components/Product/ProductDetail";
 
 import ProductSpecificationsBlocks from "@/components/Product/ProductSpecificationsBlocks";
-import ProductSpecifications from "@/components/Product/ProductSpecifications";
 
 import ProductsOthers from "@/components/Product/ProductsOthers";
 
@@ -42,8 +41,8 @@ export default function ProductPage() {
     navigate(`/product/${slug}`);
   };
 
-  const category = product.category || "Productos";
-  // const subcategory = product.subcategory || "Piscina";
+  const details = getProductDetails(product);
+  const breadcrumb = getBreadcrumb(product);
 
   return (
     <div className="bg-white">
@@ -54,16 +53,14 @@ export default function ProductPage() {
           <div className="col-lg-12 mb-3 mb-lg-0 d-none d-md-block">
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb">
-                <li className="text-dark">
-                  <span>
-                    {category} <i className="bi bi-chevron-right text-muted font-12" />
-                  </span>
-                </li>
-                <li className="text-dark px-1">
-                  <span>
-                    {product.categoryDetail}<i className="bi bi-chevron-right text-muted font-12 ps-1" />
-                  </span>
-                </li>
+                {breadcrumb.map(cat => (
+                  <li className="text-dark pe-1" key={cat}>
+                    <Link to={`/buscar/${encodeURIComponent(cat)}`} className="text-dark">
+                      {cat}
+                    </Link>
+                    <i className="bi bi-chevron-right text-muted font-12 ps-1" />
+                  </li>
+                ))}
                 <li className="text-dark active" aria-current="page">
                   {product.title}
                 </li>
@@ -83,12 +80,12 @@ export default function ProductPage() {
 
 
           <div className="col-lg-4">
-            <ProductDetail product={product} />
+            <ProductDetail product={product} details={details} />
           </div>
         </div>
       </div>
 
-      <ProductSpecificationsBlocks />
+      <ProductSpecificationsBlocks details={details} />
       
       <div className="bg-light-medium">
       <ProductsOthers currentProduct={product} openProduct={openProduct} />

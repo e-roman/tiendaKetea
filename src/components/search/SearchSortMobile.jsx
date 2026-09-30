@@ -9,7 +9,7 @@ export default function SearchSortMobile({ sort, setSort }) {
       <option value="new">Más recientes</option>
       <option value="price_low">Precio más bajo</option>
       <option value="price_high">Precio más alto</option>
-      <option value="discount">Con descuento</option>
+      <option value="discount">Mayor descuento</option>
       <option value="az">A - Z</option>
       <option value="za">Z - A</option>
     </select>

@@ -18,7 +18,7 @@ export default function AlertFloating() {
         className="alert-close-btn"
         onClick={hideAlert}
       >
-        <i class="bi bi-x"></i>
+        <i className="bi bi-x"></i>
 
       </button>
 

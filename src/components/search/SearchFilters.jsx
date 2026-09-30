@@ -1,252 +1,143 @@
-import { useMemo } from "react";
 import SearchFilterChips from "./SearchFilterChips";
 import FilterList from "./FilterList";
+import { hasActiveFilters, isSameRange } from "./filterUtils";
 
-/* ============================= */
-/* RANGOS DE PRECIO              */
-/* ============================= */
-const priceRanges = [
-  { id: "lt-85430", label: "Menos de $ 85.430", min: 0, max: 85430 },
-  { id: "85430-199990", label: "$ 85.430 a $ 199.990", min: 85430, max: 199990 },
-  { id: "gt-199990", label: "$ 199.990 o más", min: 199990, max: null }
-];
+function FilterGroup({ title, items, children }) {
+  if (!items.length) return null;
+  return (
+    <div className="mb-3">
+      <p className="text-dark font-bold mb-2">{title}</p>
+      {children}
+    </div>
+  );
+}
 
 export default function SearchFilters({
-  products = [],
+  facets,
   filters,
   setFilters,
   toggleFilter,
   resetFilters
 }) {
+  const setSingle = (key, value) =>
+    setFilters(f => ({ ...f, [key]: f[key] === value ? null : value }));
 
-  /* ============================= */
-  /* DATOS DERIVADOS DEL JSON      */
-  /* ============================= */
-
-  const marcas = useMemo(() => {
-    const map = {};
-    products.forEach(p => {
-      if (!p.Marca) return;
-      map[p.Marca] = (map[p.Marca] || 0) + 1;
-    });
-    return Object.entries(map).map(([value, count]) => ({
-      value,
-      label: value,
-      count
-    }));
-  }, [products]);
-
-  const categorias = useMemo(() => {
-    const map = {};
-    products.forEach(p => {
-      (p.categories || []).forEach(cat => {
-        const key = cat.toLowerCase();
-        if (["ofertas", "destacados"].includes(key)) return;
-        map[key] = (map[key] || 0) + 1;
-      });
-    });
-    return Object.entries(map).map(([value, count]) => ({
-      value,
-      label: value.charAt(0).toUpperCase() + value.slice(1),
-      count
-    }));
-  }, [products]);
-
-  const accionamientos = useMemo(() => {
-    const map = {};
-    products.forEach(p => {
-      if (!p.accionamiento) return;
-      map[p.accionamiento] = (map[p.accionamiento] || 0) + 1;
-    });
-    return Object.entries(map).map(([value, count]) => ({
-      value,
-      label: value,
-      count
-    }));
-  }, [products]);
-
-  const descuentos = useMemo(() => {
-    const map = {};
-    products.forEach(p => {
-      if (!p.discount) return;
-      map[p.discount] = (map[p.discount] || 0) + 1;
-    });
-    return Object.entries(map)
-      .sort((a, b) => b[0] - a[0])
-      .map(([value, count]) => ({
-        value: Number(value),
-        label: `Desde ${value}% OFF`,
-        count
-      }));
-  }, [products]);
-
-  const cuotasCantidad = useMemo(() => {
-    const map = {};
-    products.forEach(p => {
-      if (!p.cuotasLabel) return;
-      map[p.cuotasLabel] = (map[p.cuotasLabel] || 0) + 1;
-    });
-    return Object.entries(map).map(([value, count]) => ({
-      value,
-      label: value,
-      count
-    }));
-  }, [products]);
-
-  const allCuotasValues = useMemo(
-    () => cuotasCantidad.map(c => c.value),
-    [cuotasCantidad]
-  );
-
-  /* ============================= */
-  /* ESTADO ACTIVO                 */
-  /* ============================= */
-
-  const hasActiveFilters =
-    filters.marcas.length ||
-    filters.categorias.length ||
-    filters.accionamiento.length ||
-    filters.descuentos.length ||
-    filters.cuotasCantidad.length ||
-    filters.precioMin ||
-    filters.precioMax ||
-    filters.cuotasSinInteres ||
-    filters.envioGratis ||
-    filters.llegaHoy ||
-    filters.retiroInmediato;
+  const visibleSwitches = facets.switches.filter(s => s.count > 0 || filters[s.key]);
 
   return (
     <aside>
 
       {/* SWITCHES */}
-      <div className="mb-4 pt-0 pb-3 py-md-3 px-0 px-md-3 bg-white rounded-2 d-flex flex-column row-gap-3 border-bottom">
-        {[
-          ["Cuotas sin interés", "cuotasSinInteres"],
-          ["Envío gratis", "envioGratis"],
-          ["Envío Express", "llegaHoy"],
-          ["Retiro inmediato", "retiroInmediato"]
-        ].map(([label, key]) => (
-          <div
-            key={key}
-            className="form-switch form-check switch-filters d-flex justify-content-between align-items-center ps-0"
-          >
-            <label className="form-check-label">{label}</label>
+      {visibleSwitches.length > 0 && (
+        <div className="mb-4 pt-0 pb-3 py-md-3 px-0 px-md-3 bg-white rounded-2 d-flex flex-column row-gap-3 border-bottom">
+          {visibleSwitches.map(({ key, label }) => (
+            <div
+              key={key}
+              className="form-switch form-check switch-filters d-flex justify-content-between align-items-center ps-0"
+            >
+              <label className="form-check-label" htmlFor={`switch-${key}`}>{label}</label>
 
-            <input
-              className="form-check-input"
-              type="checkbox"
-              checked={filters[key]}
-              onChange={() => {
-                if (key === "cuotasSinInteres") {
-                  setFilters(f => ({
-                    ...f,
-                    cuotasSinInteres: !f.cuotasSinInteres,
-                    cuotasCantidad: !f.cuotasSinInteres
-                      ? allCuotasValues
-                      : []
-                  }));
-                } else {
-                  setFilters(f => ({ ...f, [key]: !f[key] }));
-                }
-              }}
-            />
-          </div>
-        ))}
-      </div>
+              <input
+                id={`switch-${key}`}
+                className="form-check-input"
+                type="checkbox"
+                checked={filters[key]}
+                onChange={() => setFilters(f => ({ ...f, [key]: !f[key] }))}
+              />
+            </div>
+          ))}
+        </div>
+      )}
 
       {/* CHIPS */}
-      {hasActiveFilters && (
+      {hasActiveFilters(filters) && (
         <SearchFilterChips
           filters={filters}
+          setFilters={setFilters}
           toggleFilter={toggleFilter}
           resetFilters={resetFilters}
         />
       )}
 
-      {/* MARCA */}
-      <div className="mb-3">
-        <p className="text-dark font-bold mb-2">Marca</p>
+      <FilterGroup title="Categoría" items={facets.categorias}>
         <FilterList
-          items={marcas}
-          selected={filters.marcas}
-          onToggle={v => toggleFilter("marcas", v)}
-        />
-      </div>
-
-      {/* CATEGORÍA */}
-      <div className="mb-3">
-        <p className="text-dark font-bold mb-2">Categoría</p>
-        <FilterList
-          items={categorias}
+          items={facets.categorias}
           selected={filters.categorias}
           onToggle={v => toggleFilter("categorias", v)}
         />
-      </div>
+      </FilterGroup>
 
-      {/* ACCIONAMIENTO */}
-      <div className="mb-3">
-        <p className="text-dark font-bold mb-2">Accionamiento</p>
+      <FilterGroup title="Marca" items={facets.marcas}>
         <FilterList
-          items={accionamientos}
+          items={facets.marcas}
+          selected={filters.marcas}
+          onToggle={v => toggleFilter("marcas", v)}
+        />
+      </FilterGroup>
+
+      <FilterGroup title="Accionamiento" items={facets.accionamiento}>
+        <FilterList
+          items={facets.accionamiento}
           selected={filters.accionamiento}
           onToggle={v => toggleFilter("accionamiento", v)}
         />
-      </div>
+      </FilterGroup>
 
-      {/* DESCUENTOS */}
-      <div className="mb-3">
-        <p className="text-dark font-bold mb-2">Descuentos</p>
+      <FilterGroup title="Descuentos" items={facets.descuentos}>
         <FilterList
-          items={descuentos}
-          selected={filters.descuentos}
-          onToggle={v => toggleFilter("descuentos", v)}
+          items={facets.descuentos}
+          selected={filters.descuento ? [filters.descuento] : []}
+          onToggle={v => setSingle("descuento", v)}
         />
-      </div>
+      </FilterGroup>
 
-      {/* CUOTAS */}
-      <div className="mb-3">
-        <p className="text-dark font-bold mb-2">Cantidad de cuotas</p>
+      <FilterGroup title="Cantidad de cuotas" items={facets.cuotas}>
         <FilterList
-          items={cuotasCantidad}
-          selected={filters.cuotasCantidad}
-          onToggle={v => toggleFilter("cuotasCantidad", v)}
+          items={facets.cuotas}
+          selected={filters.cuotas}
+          onToggle={v => toggleFilter("cuotas", v)}
         />
-      </div>
+      </FilterGroup>
 
-      {/* PRECIO */}
-      <div className="mb-4">
-        <p className="text-dark font-bold mb-2">Precio</p>
-
-        {priceRanges.map(r => (
-          <label key={r.id} className="form-check small">
-            <input
-              className="form-check-input me-2"
-              type="radio"
-              name="price"
-              checked={
-                filters.precioMin === r.min &&
-                filters.precioMax === r.max
-              }
-              onChange={() =>
-                setFilters(f => ({
-                  ...f,
-                  precioMin: r.min,
-                  precioMax: r.max
-                }))
-              }
-            />
-            {r.label}
-          </label>
-        ))}
-      </div>
+      <FilterGroup title="Precio" items={facets.precios}>
+        <div className="d-flex flex-column gap-1">
+          {facets.precios.map(r => {
+            const checked = isSameRange(filters.precio, r);
+            return (
+              <label
+                key={`${r.min}-${r.max}`}
+                className="form-check font-medium small text-dark d-flex align-items-center"
+              >
+                <input
+                  className="form-check-input me-2"
+                  type="checkbox"
+                  checked={checked}
+                  onChange={() =>
+                    setFilters(f => ({
+                      ...f,
+                      precio: checked ? null : { min: r.min, max: r.max, label: r.label }
+                    }))
+                  }
+                />
+                <span>
+                  {r.label}
+                  <span className="text-dark ms-1">({r.count})</span>
+                </span>
+              </label>
+            );
+          })}
+        </div>
+      </FilterGroup>
 
       {/* RESET */}
-      <button
-        className="btn btn-sm btn-link px-0 fw-semibold d-none d-md-block"
-        onClick={resetFilters}
-      >
-        Borrar filtros
-      </button>
+      {hasActiveFilters(filters) && (
+        <button
+          className="btn btn-sm btn-link px-0 fw-semibold d-none d-md-block"
+          onClick={resetFilters}
+        >
+          Borrar filtros
+        </button>
+      )}
     </aside>
   );
 }

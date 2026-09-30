@@ -6,7 +6,7 @@ const getSortLabel = (value) => {
     case "new": return "Más recientes";
     case "price_low": return "Precio más bajo";
     case "price_high": return "Precio más alto";
-    case "discount": return "Con descuento";
+    case "discount": return "Mayor descuento";
     case "az": return "A - Z";
     case "za": return "Z - A";
     default: return "Destacados";
@@ -30,7 +30,7 @@ export default function SearchSort({ sort, setSort }) {
             <Dropdown.Item onClick={() => setSort("new")}>Más recientes</Dropdown.Item>
             <Dropdown.Item onClick={() => setSort("price_low")}>Precio más bajo</Dropdown.Item>
             <Dropdown.Item onClick={() => setSort("price_high")}>Precio más alto</Dropdown.Item>
-            <Dropdown.Item onClick={() => setSort("discount")}>Con descuento</Dropdown.Item>
+            <Dropdown.Item onClick={() => setSort("discount")}>Mayor descuento</Dropdown.Item>
             <Dropdown.Item onClick={() => setSort("az")}>A - Z</Dropdown.Item>
             <Dropdown.Item onClick={() => setSort("za")}>Z - A</Dropdown.Item>
           </Dropdown.Menu>

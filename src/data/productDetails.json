@@ -1,0 +1,812 @@
+{
+  "robot-limpia-piscinas-dolphin-s200": {
+    "sku": "11125200",
+    "shortDescription": "Robot automático para piscinas residenciales de hasta 12 m. Limpia fondo y paredes en un ciclo de 2 horas, con navegación inteligente y filtración doble.",
+    "warrantyMonths": 24,
+    "description": [
+      "El Dolphin S200 es un robot limpiafondos de Maytronics pensado para el mantenimiento diario de piscinas residenciales. Recorre fondo y paredes de forma autónoma, así el agua queda lista para usar sin esfuerzo.",
+      "Su navegación Clever Clean calcula recorridos eficientes para cubrir toda la superficie, y el cepillo activo despega suciedad y algas mientras el sistema de filtrado retiene desde hojas hasta partículas muy finas."
+    ],
+    "sections": [
+      {
+        "title": "Beneficios y tecnología",
+        "icon": "bi-lightbulb",
+        "items": [
+          {
+            "label": "Cobertura precisa",
+            "text": "limpia fondo y paredes en piscinas de hasta 12 m de largo."
+          },
+          {
+            "label": "Filtración doble",
+            "text": "canastillo rectangular de acceso superior con dos niveles de filtrado:",
+            "subitems": [
+              "Malla filtrante: filtrado fino (hojas, pelos, arena, insectos).",
+              "Filtro de papel: filtrado ultrafino para la suciedad más pequeña."
+            ]
+          },
+          {
+            "label": "Cepillo activo",
+            "text": "elimina impurezas y algas adheridas."
+          },
+          {
+            "label": "Movilidad PowerStream",
+            "text": "dos orugas laterales mantienen el agarre en cualquier superficie."
+          },
+          {
+            "label": "Potencia de aspiración",
+            "text": "caudal máximo de 17 m³/h."
+          }
+        ]
+      },
+      {
+        "title": "Ciclo de limpieza",
+        "icon": "bi-stopwatch",
+        "items": [
+          {
+            "text": "Un único ciclo de 2 horas, balanceado entre tiempo y resultado."
+          }
+        ]
+      },
+      {
+        "title": "Compatibilidad y condiciones de uso",
+        "icon": "bi-rulers",
+        "items": [
+          {
+            "label": "Largo de piscina",
+            "text": "hasta 12 m (cable de 18 m)."
+          },
+          {
+            "label": "Profundidad",
+            "text": "de 0,80 m a 5 m."
+          },
+          {
+            "label": "Temperatura del agua",
+            "text": "entre 8 °C y 34 °C."
+          },
+          {
+            "label": "Parámetros del agua",
+            "subitems": [
+              "Cloro: máximo 4 ppm (retirar el robot durante un shock de cloro).",
+              "pH: entre 7,0 y 7,8.",
+              "Sal (NaCl): máximo 5000 ppm."
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Uso y mantenimiento",
+        "icon": "bi-tools",
+        "items": [
+          {
+            "label": "Liviano",
+            "text": "pesa 6,5 kg."
+          },
+          {
+            "label": "Inicio con un botón",
+            "text": "desde la fuente de poder."
+          },
+          {
+            "label": "Filtro de acceso superior",
+            "text": "se retira y se lava con agua a presión en segundos."
+          },
+          {
+            "label": "Seguridad eléctrica",
+            "text": "motor IP68 a 24 V CC. La fuente de poder (IP54) debe quedar a 3 m del borde como mínimo."
+          }
+        ]
+      }
+    ],
+    "tips": [
+      "Antes del primer uso, desenrollá y estirá el cable por completo para evitar dobleces.",
+      "No te bañes mientras el robot está funcionando.",
+      "Lavá el filtro después de cada uso."
+    ],
+    "includes": [
+      "Robot Dolphin S200",
+      "Fuente de poder",
+      "Cable flotante de 18 m",
+      "Canastillo con malla y filtro de papel"
+    ],
+    "notIncluded": [
+      "Carrito de transporte Caddy"
+    ],
+    "specs": [
+      {
+        "group": "Rendimiento",
+        "items": [
+          {
+            "label": "Limpieza",
+            "value": "Fondo y paredes"
+          },
+          {
+            "label": "Tamaño máximo de piscina",
+            "value": "12 m"
+          },
+          {
+            "label": "Tiempo de ciclo",
+            "value": "2 horas"
+          },
+          {
+            "label": "Tipo de filtración",
+            "value": "Canastillo superior doble (fino y ultrafino)"
+          },
+          {
+            "label": "Caudal de succión",
+            "value": "17 m³/h"
+          }
+        ]
+      },
+      {
+        "group": "Instalación y uso",
+        "items": [
+          {
+            "label": "Longitud de cable",
+            "value": "18 m"
+          },
+          {
+            "label": "Profundidad de uso",
+            "value": "0,8 a 5,0 m"
+          },
+          {
+            "label": "Temperatura del agua",
+            "value": "8 °C a 34 °C"
+          },
+          {
+            "label": "Revestimientos compatibles",
+            "value": "Hormigón, liner, fibra de vidrio y otros"
+          },
+          {
+            "label": "Mantenimiento del filtro",
+            "value": "Después de cada uso"
+          }
+        ]
+      },
+      {
+        "group": "Equipo",
+        "items": [
+          {
+            "label": "Peso",
+            "value": "6,5 kg"
+          },
+          {
+            "label": "Voltaje de operación",
+            "value": "24 V CC / Protección IP68"
+          },
+          {
+            "label": "Carro de transporte (Caddy)",
+            "value": "No incluido"
+          },
+          {
+            "label": "Garantía",
+            "value": "24 meses"
+          }
+        ]
+      }
+    ],
+    "featureBlocks": [
+      {
+        "title": "Navegación Clever Clean",
+        "text": [
+          "El sistema de navegación y escaneo calcula la ruta más eficiente para cubrir toda la piscina.",
+          "Si encuentra un obstáculo, lo rodea y vuelve a su recorrido automáticamente."
+        ],
+        "image": "/assets/img/product-detail/0007.jpeg"
+      },
+      {
+        "title": "Filtración fina y ultrafina",
+        "text": [
+          "El canastillo de acceso superior combina una malla para suciedad común con un filtro de papel que atrapa las partículas más pequeñas.",
+          "Se retira desde arriba sin dar vuelta el robot y se limpia con agua a presión en segundos."
+        ],
+        "image": "/assets/img/product-detail/0008.webp"
+      }
+    ],
+    "resources": [
+      {
+        "label": "Manual de usuario Dolphin S200",
+        "type": "PDF",
+        "url": "#"
+      },
+      {
+        "label": "Ficha técnica",
+        "type": "PDF",
+        "url": "#"
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Sirve para piscinas de agua salada?",
+        "a": "Sí, funciona con una concentración de sal de hasta 5000 ppm."
+      },
+      {
+        "q": "¿Limpia la línea de flotación?",
+        "a": "Limpia fondo y paredes. La línea de flotación no forma parte de su ciclo de limpieza."
+      }
+    ]
+  },
+  "robot-limpia-piscinas-dolphin-liberty-400": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "2,5 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-limpia-piscinas-dolphin-pool-up": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "2 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-limpia-piscinas-dolphin-liberty-600": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "3 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-limpia-piscinas-dolphin-wave-90i": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "Hasta 8 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "Robot-Piscina-Winny-300II": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "1,5 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-limpia-piscinas-sin-cable-dolphin-liberty-200": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "1,5 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-limpia-piscinas-dolphin-m700": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "1,5 a 2,5 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-limpia-piscinas-dolphin-s400i": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "Hasta 3 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-limpia-piscinas-dolphin-m600": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "2,5 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-limpia-piscinas-dolphin-s100": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "2 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-limpia-piscinas-dolphin-2x2-pro-gyro-olimpico": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "Hasta 8 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-cortacesped-automower-am305": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Superficie de corte",
+            "value": "Hasta 600 m²"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-limpia-piscinas-sin-cable-dolphin-liberty-300": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "2 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-piscina-aiper-scuba-s1": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "2,5 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-piscina-dolphin-nautilus-cc-plus": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "2,5 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-piscina-bubot-300p": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "2,5 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-piscina-betta-se-solar": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Alimentación",
+            "value": "Solar + batería"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-piscina-beatbot-aquasense-2": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "2,5 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "robot-piscina-polaris-9550-sport": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "1,5 a 3,5 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "Cordless-Automatic-Powerful-Portable-Self-Parking": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Tiempo de ciclo",
+            "value": "1,5 horas"
+          }
+        ]
+      }
+    ]
+  },
+  "heat-pump-poolex-jet-pro-9kw": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Volumen de piscina",
+            "value": "Hasta 45 m³"
+          }
+        ]
+      }
+    ]
+  },
+  "heat-pump-poolex-jet-city-6kw": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Volumen de piscina",
+            "value": "Hasta 30 m³"
+          }
+        ]
+      }
+    ]
+  },
+  "heat-pump-vulcano-inverter-11kw": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Volumen de piscina",
+            "value": "Hasta 25 m³"
+          }
+        ]
+      }
+    ]
+  },
+  "heat-pump-vulcano-eco-14kw": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Volumen de piscina",
+            "value": "Hasta 80 m³"
+          }
+        ]
+      }
+    ]
+  },
+  "heat-pump-vaguer-rapid-inverter-8-5kw": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Volumen de piscina",
+            "value": "Hasta 50 m³"
+          }
+        ]
+      }
+    ]
+  },
+  "filtro-hayward-sand60": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Caudal",
+            "value": "10 m³/h"
+          }
+        ]
+      }
+    ]
+  },
+  "filtro-vulcano-vc250": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Caudal",
+            "value": "14 m³/h"
+          }
+        ]
+      }
+    ]
+  },
+  "filtro-cartucho-easypool": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Caudal",
+            "value": "8 m³/h"
+          }
+        ]
+      }
+    ]
+  },
+  "filtro-d-easypool-de-inyeccion": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Caudal",
+            "value": "12 m³/h"
+          }
+        ]
+      }
+    ]
+  },
+  "filtro-vulcano-vc150": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Caudal",
+            "value": "6 m³/h"
+          }
+        ]
+      }
+    ]
+  },
+  "cloro-granulado-instantaneo-nataclor-5kg": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Presentación",
+            "value": "5 kg"
+          }
+        ]
+      }
+    ]
+  },
+  "natbio-clarificador-nataclor-1l": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Presentación",
+            "value": "1 L"
+          }
+        ]
+      }
+    ]
+  },
+  "cloro-pastillas-nataclor-multiaccion-1kg": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Presentación",
+            "value": "1 kg"
+          }
+        ]
+      }
+    ]
+  },
+  "regulador-ph-nataclor-10l": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Presentación",
+            "value": "10 L"
+          }
+        ]
+      }
+    ]
+  },
+  "cloro-granulado-nataclor-20kg": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Presentación",
+            "value": "20 kg"
+          }
+        ]
+      }
+    ]
+  },
+  "valvula-multipuerto-hayward-sp0714t": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Conexión",
+            "value": "1½\""
+          }
+        ]
+      }
+    ]
+  },
+  "valvula-mpv-waterco-50mm": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Conexión",
+            "value": "50 mm"
+          }
+        ]
+      }
+    ]
+  },
+  "kit-ionizador-vulcano-bae-bas": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Volumen de piscina",
+            "value": "Hasta 60 m³"
+          }
+        ]
+      }
+    ]
+  },
+  "valvula-6-vias-vulcano": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Conexión",
+            "value": "1½\""
+          }
+        ]
+      }
+    ]
+  },
+  "valvula-spx071621-hayward": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Conexión",
+            "value": "2\""
+          }
+        ]
+      }
+    ]
+  },
+  "sacabojas-nataclor": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Ancho",
+            "value": "45 cm"
+          }
+        ]
+      }
+    ]
+  },
+  "cepillo-piscina-grande": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Ancho",
+            "value": "50 cm"
+          }
+        ]
+      }
+    ]
+  },
+  "Boya-dosificadora-Satelital": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Capacidad",
+            "value": "3 pastillas de 200 g"
+          }
+        ]
+      }
+    ]
+  },
+  "kit-limpieza-piscina-completo": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Contenido",
+            "value": "5 piezas"
+          }
+        ]
+      }
+    ]
+  },
+  "manguera-limpieza-piscina": {
+    "specs": [
+      {
+        "group": "Características principales",
+        "items": [
+          {
+            "label": "Largo",
+            "value": "10 m"
+          }
+        ]
+      }
+    ]
+  }
+}

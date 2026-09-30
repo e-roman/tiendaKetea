@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useFavorites } from "@/hooks/useFavorites";
 import { useCart } from "@/hooks/useCart";
 import { useFloatingAlert } from "@/context/FloatingAlertContext";
+import ProductCardSpec from "@/components/ProductCardSpec";
 
 export default function ProductCardHorizontalMobile({ product, openProduct }) {
   const { favorites, toggleFavorite } = useFavorites();
@@ -89,6 +90,7 @@ export default function ProductCardHorizontalMobile({ product, openProduct }) {
                     >
                     {product.title}
                     </button>
+                    <ProductCardSpec product={product} />
                     </div>
 
 
